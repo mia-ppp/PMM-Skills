@@ -1,0 +1,79 @@
+# PMM-Skills audit: what the evals show
+
+Audit of `mia-ppp/PMM-Skills` as of September 26, 2026. Static analysis only; no model runs yet.
+
+## Summary
+
+- **The library is structurally clean.** 41 of 43 skills pass the spec validator. Two carry warnings.
+- **The eval set is large but never executed.** 222 test cases and 1,385 assertions exist. The harness can now run them, but no real run has happened yet. Nothing proves any skill beats a plain prompt.
+- **One in five assertions measures template compliance, not quality.** These inflate lift against a baseline by construction.
+- **Routing is the biggest untested risk.** 43 descriptions compete for every request, and several pairs overlap heavily.
+- **Repo hygiene is fixed.** The placeholders, mismatched names, and stale counts listed in section 5 were corrected in `752e3f4`.
+
+## 1. Structure
+
+| Check | Result |
+|---|---|
+| Spec validator (`validate-skills.sh`) | 41 pass, 2 warn, 0 fail |
+| `copy-editing` | 508 lines, over the 500-line guideline |
+| `marketing-psychology` | Description has no "for X, see Y" scope boundary |
+| Skills reading `product-marketing-context` first | 43 of 43 |
+
+**Action:** move `copy-editing` detail into `references/`. Add a scope line to `marketing-psychology`.
+
+## 2. Eval coverage
+
+- 36 of 43 skills have `evals/evals.json`. About 6 cases and 38 assertions per skill.
+- **No evals:** `aso-audit`, `community-marketing`, `competitor-profiling`, `directory-submissions`, `image`, `lead-magnets`, `video`.
+- **Zero of 222 cases include input files.** Only 2 of 222 prompts contain a URL. The rest describe pages, briefs, or research in a sentence or two, so outputs will be generic advice and graders reward plausible structure over real analysis.
+
+**Action:** add a `fixtures/` folder with 5 to 10 real pages, briefs, and transcripts. Point audit-style evals at them.
+
+## 3. Assertion quality
+
+Classification of the original 1,323 assertions by keyword. Shares were not recomputed after the three new skills added 62 assertions (1,385 total):
+
+| Type | Share | Example |
+|---|---|---|
+| Content or judgment | ~74% | "Notes message match between ads and landing page" |
+| Names the skill's own framework | ~9% | "Applies Pricing Page CRO framework" |
+| Format or section headers | ~8% | "Output has Quick Wins section" |
+| Numeric or count | ~5% | "Provides 2-3 headline alternatives" |
+| Checks for context file | ~4% | "Checks for product-marketing-context.md" |
+
+- **About 19% check process, not outcome** (`harness.py lint`, all 1,385 assertions). A baseline agent fails these by definition, so they manufacture lift.
+- **Worst offenders:** `product-marketing-context` (41%), `site-architecture` (40%), `marketing-psychology` (40%), `pricing-strategy` (32%).
+- **Missing entirely:** negative assertions. Nothing checks for invented stats, fake case studies, or generic filler.
+
+**Action:** for each skill, keep one format check and replace the rest with outcome checks. Add two negative assertions per skill ("Does not invent conversion benchmarks").
+
+## 4. Routing risk
+
+Descriptions average 636 characters, about 27,000 characters total competing for every request. Word overlap between description pairs:
+
+| Pair | Overlap | Likely confusion |
+|---|---|---|
+| `form-cro` / `signup-flow-cro` | 0.38 | "Our signup form converts badly" |
+| `onboarding-cro` / `signup-flow-cro` | 0.34 | Trial activation requests |
+| `ad-creative` / `paid-ads` | 0.30 | "Write LinkedIn ads" |
+| `competitor-profiling` / `competitor-alternatives` | 0.29 | "Analyze competitor X" |
+| `free-tool-strategy` / `lead-magnets` | 0.28 | "Build a calculator for leads" |
+
+**Action:** run `harness.py route` first. It reuses all 222 prompts as labeled routing tests at near-zero cost. Fix the top five confusion pairs before tuning skill bodies.
+
+## 5. Repo hygiene
+
+Status: items 1 to 3 fixed in `752e3f4`. Item 4 partly fixed.
+
+- **Fixed: README install block read `[your-username]/[your-repo]`.** It now points to `mia-ppp/PMM-Skills`.
+- **Fixed: `AGENTS.md` named the repo `mia-ppp/marketingskills`** and referenced `.claude-plugin/marketplace.json` and `VERSIONS.md`, neither of which exists. All three are corrected or removed.
+- **Fixed: tool counts drifted.** `AGENTS.md` said 51 CLI tools. It now says 61, matching the `.js` files in `tools/clis/`.
+- **Partly fixed: scope mismatch.** The library still covers growth marketing broadly, but `positioning-strategy`, `messaging-framework`, and `buyer-personas` now cover positioning, messaging, and personas. There is still no win/loss skill.
+
+## Eval plan
+
+1. `lint` to confirm baseline coverage. Free.
+2. `route` across all 222 prompts. Fix descriptions for the top confusion pairs.
+3. `run` on 5 core skills with 3 trials each: `positioning-strategy`, `messaging-framework`, `copywriting`, `page-cro`, `competitor-alternatives`.
+4. Cut or rewrite any skill showing under 5 points of lift. Delete assertions the report flags as non-discriminating.
+5. Publish the lift table in the README. Measured lift per skill is the proof point most skill libraries lack.

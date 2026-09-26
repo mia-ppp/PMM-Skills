@@ -2,7 +2,7 @@
 name: messaging-framework
 description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see copywriting. For sales materials, see sales-enablement."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Messaging Framework
@@ -22,6 +22,10 @@ You need a position to build from. If none exists:
 
 Never invent stats, customers, or quotes as proof. Mark missing proof as `[Need: ...]`.
 
+If key information is missing, answer provisionally: give your best framework, state every assumption explicitly, and end with the two or three questions that would change it. Never infer customer pain points or product benefits silently. Label them as assumptions.
+
+Open with the umbrella message. Do not restate the brief.
+
 ## Core Principles
 
 **The pillar test.** A pillar only counts if a competitor cannot say it word for word and be telling the truth. Claims every player can make, such as ease of use, security, or saving time, are table stakes. List them separately. Buyers expect them, and they do not win deals.
@@ -31,6 +35,8 @@ Never invent stats, customers, or quotes as proof. Mark missing proof as `[Need:
 **Outcome over description.** Messaging says how the buyer's life gets better, not what the product is. Test every line with "so what?" until it lands on an outcome the buyer cares about.
 
 **Proof or it did not happen.** Every pillar needs at least one proof point: a metric, a customer, a demo moment, or a third-party signal.
+
+**Name the trade-off.** Say what this messaging emphasizes and what it gives up or leaves for later. A framework that emphasizes everything emphasizes nothing.
 
 **Customer words beat company words.** Pull verbatim language from interviews, reviews, and sales calls when available. Internal jargon goes in the "avoid" list.
 
@@ -67,6 +73,7 @@ List words to use (customer language) and words to avoid (jargon, clichés, comp
 | Pillar | What it means | Capability behind it | Proof | Pillar test |
 |---|---|---|---|---|
 
+## What this emphasizes and gives up
 ## Table stakes (not pillars)
 ## Messaging by persona
 | Persona | Lead pillar | First line they hear |
@@ -79,6 +86,8 @@ One-liner / Elevator / Boilerplate
 Use: ... | Avoid: ...
 
 ## Proof gaps to close
+## Assumptions
+## Questions that would change this
 ```
 
 For launch messaging, add a short block covering target, market, segment, category, unique value, and proof, so the launch team has one reference.
@@ -89,6 +98,8 @@ For launch messaging, add a short block covering target, market, segment, catego
 - Pillars any competitor could claim.
 - One message for every persona with no change in emphasis.
 - Proof columns full of vague claims like "customers love it."
+- Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written.
+- Em dashes anywhere in the messaging.
 - Clichés: unlock, seamless, game-changer, leverage, revolutionize, next-generation.
 
 ## After Delivering

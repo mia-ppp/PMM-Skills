@@ -2,7 +2,7 @@
 name: buyer-personas
 description: "When the user wants to create, research, validate, or refresh buyer personas, ICP profiles, or buying committee maps. Use when the user mentions 'persona,' 'buyer persona,' 'ICP,' 'ideal customer profile,' 'who is our buyer,' 'buying committee,' 'decision maker,' 'champion,' 'persona interviews,' 'segment,' 'which segment should we target,' 'segmentation,' or 'anti-persona.' Use this whenever audience assumptions drive a positioning, messaging, or campaign decision. For interview synthesis across many sources, see customer-research. For using personas in positioning, see positioning-strategy. For recording personas in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Buyer Personas
@@ -19,6 +19,8 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 Find out which mode applies:
 - **Evidence mode:** the user has interviews, call notes, CRM data, win-loss, or surveys. Build from those.
 - **Hypothesis mode:** little or no research. Draft personas as clearly labeled hypotheses, then give a plan to validate them.
+
+If key information is missing, answer provisionally: give your best personas, state every assumption, and end with the two or three questions that would change them. Open with the recommended segment. Do not restate the brief.
 
 Label every persona attribute as `Evidence` or `Hypothesis`. Never present a guess as research. Never invent quotes. If you use a quote, it must come from the user's material.
 
@@ -72,6 +74,7 @@ For hypothesis-mode personas, write the five to eight interview questions that w
 ## Buying committee map
 ## Anti-persona
 ## Validation plan
+## Questions that would change this
 ```
 
 Use role-based names like "RevOps Lead at a Series B SaaS company," not invented names like "Marketing Mary." Invented names hide weak detail.

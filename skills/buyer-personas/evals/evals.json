@@ -52,6 +52,20 @@
         "Still delivers a usable persona"
       ],
       "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Build me a customer persona for a marketing manager at a B2B SaaS company.",
+      "expected_output": "Should check for product-marketing-context.md first. No research was provided, so should work in hypothesis mode: draft the persona as a labeled hypothesis rather than stopping to ask. Should label every attribute as Evidence or Hypothesis. Should cover background, trigger events, pain points, discovery channels, evaluation process, objections, and committee role. Should include no customer quotes, since the user provided no material to quote from. Should end with a validation plan of five to eight interview questions that would confirm or kill the persona.",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Treats the persona as a hypothesis because no research was provided, and still delivers a draft",
+        "Labels each persona attribute as Evidence or Hypothesis",
+        "Covers trigger events, pain points, discovery channels, and evaluation process",
+        "Includes no customer quotes, since the user provided no material to quote from",
+        "Includes a validation plan with five to eight interview questions that would confirm or kill the persona"
+      ],
+      "files": []
     }
   ]
 }
