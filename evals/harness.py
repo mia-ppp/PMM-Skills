@@ -338,7 +338,8 @@ def report(skills, args):
     rp = OUT / "routing.json"
     if rp.exists():
         rr = json.loads(rp.read_text())
-        lines.append(f"Routing accuracy: {sum(r['expected']==r['got'] for r in rr)/len(rr):.1%}")
+        lines += ["", "## Routing", "", f"Routing accuracy: {sum(r['expected']==r['got'] for r in rr)/len(rr):.1%} "
+                  f"over {len(rr)} prompts, with every skill competing."]
     lines += cal + agreement_summary()
     dest = OUT / "RESULTS.md" if MOCK else ROOT / "evals" / "RESULTS.md"  # tracked, unlike results/
     dest.write_text("\n".join(lines) + "\n")
@@ -570,6 +571,10 @@ def agreement_summary():
     for d in DIMENSIONS:
         st = a["stats"][d]
         lines.append(f"| {d.title()} | {st['exact']:.0%} | {st['within_one']:.0%} |")
+    below = [d for d in DIMENSIONS if a["stats"][d]["exact"] < AGREEMENT_BAR]
+    if below:
+        lines += ["", f"Below the {AGREEMENT_BAR:.0%} exact-agreement bar: {', '.join(below)}. "
+                  "Judge scores on these dimensions are directional only."]
     return lines
 
 # ---------- judge agreement ----------
