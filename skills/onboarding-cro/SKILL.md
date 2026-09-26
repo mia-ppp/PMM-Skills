@@ -212,6 +212,10 @@ When recommending experiments, consider tests for:
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **signup-flow-cro**: For optimizing the signup before onboarding

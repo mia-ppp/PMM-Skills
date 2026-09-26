@@ -1,6 +1,6 @@
 ---
 name: form-cro
-description: When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions "form optimization," "lead form conversions," "form friction," "form fields," "form completion rate," "contact form," "nobody fills out our form," "form abandonment," "too many fields," "demo request form," or "lead form isn't converting." Use this for any non-signup form that captures information. For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.
+description: When the user wants to optimize any form that is NOT signup/registration, including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions "form optimization," "lead form conversions," "form friction," "form fields," "form completion rate," "contact form," "nobody fills out our form," "form abandonment," "too many fields," "demo request form," or "lead form isn't converting." Use this for any non-signup form that captures information. For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.
 metadata:
   version: 1.1.0
 ---
@@ -73,7 +73,7 @@ For each field, ask:
 - Proper mobile keyboard
 
 ### Name Fields
-- Single "Name" vs. First/Last — test this
+- Single "Name" vs. First/Last: test this
 - Single field reduces friction
 - Split needed only if personalization requires it
 
@@ -120,7 +120,7 @@ For each field, ask:
 4. Logical grouping if many fields
 
 ### Labels and Placeholders
-- Labels: Keep visible (not just placeholder) — placeholders disappear when typing, leaving users unsure what they're filling in
+- Labels: Keep visible (not just placeholder): placeholders disappear when typing, leaving users unsure what they're filling in
 - Placeholders: Examples, not labels
 - Help text: Only when genuinely helpful
 
@@ -420,6 +420,10 @@ Ideas to A/B test with expected outcomes
 6. What's the mobile vs. desktop split?
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

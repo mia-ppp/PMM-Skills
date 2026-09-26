@@ -343,6 +343,10 @@ Even small changelog updates remind customers your product is evolving. This bui
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **marketing-ideas**: For additional launch tactics (#22 Product Hunt, #23 Early Access Referrals)

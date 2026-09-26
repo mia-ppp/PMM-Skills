@@ -247,6 +247,10 @@ Recommended pages to create with priority order based on search volume.
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **programmatic-seo**: For building competitor pages at scale

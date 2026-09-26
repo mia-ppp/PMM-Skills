@@ -158,6 +158,10 @@ When recommending ideas, provide for each:
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **programmatic-seo**: For scaling SEO content (#4)

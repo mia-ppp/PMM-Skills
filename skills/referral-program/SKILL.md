@@ -212,7 +212,7 @@ They get [their reward] too.
 - Day 7: Remind about referral program
 - Day 30: "Know anyone who'd benefit?"
 - Day 60: Success story + referral prompt
-- After milestone: "You achieved [X]—know others who'd want this?"
+- After milestone: "You achieved [X]! Know others who'd want this?"
 
 ---
 
@@ -248,6 +248,10 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key tools
 | **PartnerStack** | Enterprise partner and affiliate programs | [partnerstack.md](../../tools/integrations/partnerstack.md) |
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

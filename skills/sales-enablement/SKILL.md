@@ -349,6 +349,10 @@ For partner sales enablement, see the [tools registry](../../tools/REGISTRY.md):
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **competitor-alternatives**: For public-facing comparison and alternative pages

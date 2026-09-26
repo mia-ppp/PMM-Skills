@@ -205,6 +205,10 @@ Don't ask all five at once: lead with #1 and #2, then follow up as needed.
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 | When to hand off | Skill |

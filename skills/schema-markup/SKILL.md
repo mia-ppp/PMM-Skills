@@ -171,6 +171,10 @@ You can combine multiple schema types on one page using `@graph`:
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **seo-audit**: For overall SEO including schema review

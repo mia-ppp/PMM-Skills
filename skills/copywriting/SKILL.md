@@ -243,6 +243,10 @@ For headlines and CTAs, provide 2-3 options:
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **copy-editing**: For polishing existing copy (use after your draft)
