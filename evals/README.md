@@ -33,7 +33,7 @@ The default model for runs, routing, and the judge is `claude-sonnet-5`. Overrid
 
 ## Calibration
 
-`calibrate` runs 3 prompts from each of 5 skills (`copywriting`, `page-cro`, `competitor-alternatives`, `customer-research`, `launch-strategy`), once with the skill and once without. That makes 30 outputs.
+`calibrate` runs 3 prompts from each of 5 skills (`positioning-strategy`, `messaging-framework`, `copywriting`, `page-cro`, `competitor-alternatives`), once with the skill and once without. That makes 30 outputs.
 
 | File | Contents |
 |---|---|

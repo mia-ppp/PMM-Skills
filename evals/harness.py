@@ -246,7 +246,7 @@ def report(skills, args):
 
 # ---------- calibrate ----------
 
-CALIBRATION_SKILLS = "copywriting,page-cro,competitor-alternatives,customer-research,launch-strategy"
+CALIBRATION_SKILLS = "positioning-strategy,messaging-framework,copywriting,page-cro,competitor-alternatives"
 ANCHOR_POOL = 20
 DIMENSIONS = ["grounded", "decisive", "usable", "sharp"]
 
