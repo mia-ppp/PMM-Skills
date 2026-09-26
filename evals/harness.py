@@ -211,14 +211,25 @@ def run(skills, args):
 
 def report(skills, args):
     runs = sorted(OUT.glob("*/runs.json"))
-    if not runs:
-        sys.exit("No runs found. Run `run` first.")
-    recs = json.loads(runs[-1].read_text())
+    kp = OUT / "calibration-key.csv"
+    cal = calibration_summary(kp, Path(args.out) if args.out else CALIBRATION) if kp.exists() else []
+    if not runs and not cal:
+        sys.exit("No runs or calibration grades found. Run `run`, or grade calibration outputs first.")
+    lines = run_summary(json.loads(runs[-1].read_text()), runs[-1].parent.name) if runs else ["# Eval report", ""]
+    rp = OUT / "routing.json"
+    if rp.exists():
+        rr = json.loads(rp.read_text())
+        lines.append(f"Routing accuracy: {sum(r['expected']==r['got'] for r in rr)/len(rr):.1%}")
+    lines += cal
+    (OUT / "REPORT.md").write_text("\n".join(lines) + "\n")
+    print("\n".join(lines))
+
+def run_summary(recs, name):
     by = defaultdict(lambda: defaultdict(list))
     for r in recs:
         by[r["skill"]][r["config"]].append(r["pass_rate"])
     ms = lambda xs: (statistics.mean(xs), statistics.pstdev(xs)) if xs else (0, 0)
-    lines = [f"# Eval report ({runs[-1].parent.name})", "",
+    lines = [f"# Eval report ({name})", "",
              "| Skill | With skill | Baseline | Lift |", "|---|---|---|---|"]
     lifts = []
     for k in sorted(by):
@@ -234,15 +245,7 @@ def report(skills, args):
     lines += ["", f"Mean lift: {statistics.mean(l for l,_ in lifts):+.0%}",
               f"Skills with lift under 5 pts: {', '.join(k for l,k in lifts if l < .05) or 'none'}",
               f"Non-discriminating assertions (always pass or always fail): {len(dead)} of {len(per_a)}"]
-    rp = OUT / "routing.json"
-    if rp.exists():
-        rr = json.loads(rp.read_text())
-        lines.append(f"Routing accuracy: {sum(r['expected']==r['got'] for r in rr)/len(rr):.1%}")
-    kp = OUT / "calibration-key.csv"
-    if kp.exists():
-        lines += calibration_summary(kp, Path(args.out) if args.out else CALIBRATION)
-    (OUT / "REPORT.md").write_text("\n".join(lines) + "\n")
-    print("\n".join(lines))
+    return lines
 
 # ---------- calibrate ----------
 
@@ -332,16 +335,30 @@ def calibration_summary(key_path, cal_dir):
     with key_path.open(newline="") as f:
         cfg = {r["id"]: r["config"] for r in csv.DictReader(f)}
     scores = defaultdict(lambda: defaultdict(list))
+    graded, skipped = 0, []
     with grades_path.open(newline="") as f:
         for r in csv.DictReader(f):
-            for d in DIMENSIONS:
-                if r["id"] in cfg and r[d].strip():
-                    scores[cfg[r["id"]]][d].append(float(r[d]))
-    lines = ["", "## Calibration rubric scores (0-2)", "",
+            cells = [(r.get(d) or "").strip() for d in DIMENSIONS]
+            if r["id"] not in cfg or not all(cells):
+                if any(cells):
+                    skipped.append(r["id"])  # partly graded: flag rather than half-count it
+                continue
+            for d, v in zip(DIMENSIONS, cells):
+                try:
+                    n = float(v)
+                except ValueError:
+                    n = None
+                if n not in (0, 1, 2):
+                    sys.exit(f"{grades_path}: {r['id']} {d} is {v!r}. Scores must be 0, 1, or 2.")
+                scores[cfg[r["id"]]][d].append(n)
+            graded += 1
+    lines = ["", f"## Calibration rubric scores (0-2), {graded} graded outputs", "",
              "| Config | " + " | ".join(d.title() for d in DIMENSIONS) + " |", "|---" * (len(DIMENSIONS) + 1) + "|"]
     for c in ("with_skill", "baseline"):
         cells = [f"{statistics.mean(v):.2f} (n={len(v)})" if (v := scores[c][d]) else "-" for d in DIMENSIONS]
         lines.append(f"| {c} | " + " | ".join(cells) + " |")
+    if skipped:
+        lines.append(f"\nSkipped partly graded rows (need all four scores): {', '.join(skipped)}")
     return lines
 
 # ---------- main ----------

@@ -39,10 +39,10 @@ The default model for runs, routing, and the judge is `claude-sonnet-5`. Overrid
 |---|---|
 | `calibration/outputs/A-01.md` to `A-30.md` | Shuffled blind outputs: prompt and response only |
 | `calibration/grades.csv` | One row per output. Fill in `grounded`, `decisive`, `usable`, `sharp` (0, 1, or 2) and `notes` |
-| `calibration/split.csv` | A-01 to A-20 are the anchor pool. A-21 to A-30 are holdout |
+| `calibration/split.csv` | Which outputs are anchor pool, holdout, or unused. `calibrate` writes A-01 to A-20 as anchor and A-21 to A-30 as holdout; edit it to change the split |
 | `results/calibration-key.csv` | Unblinding key: skill, eval id, config, model, stop reason, seed. Gitignored and kept away from the outputs so it stays out of sight while you grade |
 
-Pick rubric anchors only from the anchor pool. Once grades are in, `report` unblinds them and adds mean rubric scores per config. The command refuses to overwrite a `grades.csv` that has scores in it. Real runs cache each output in `results/cache/`, so an interrupted run resumes without paying twice.
+Pick rubric anchors only from the anchor pool. Once grades are in, `report` unblinds them and adds mean rubric scores per config. It works without a `run`, counts only rows with all four scores, skips ungraded rows, and stops if a score is anything other than 0, 1, or 2. The command refuses to overwrite a `grades.csv` that has scores in it. Real runs cache each output in `results/cache/`, so an interrupted run resumes without paying twice.
 
 ## Output
 
