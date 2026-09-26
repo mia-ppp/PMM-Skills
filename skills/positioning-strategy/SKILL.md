@@ -2,7 +2,7 @@
 name: positioning-strategy
 description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into pillars and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Positioning Strategy
@@ -23,7 +23,14 @@ Gather this (ask only if missing and it would change the answer):
 3. **Evidence:** win-loss notes, sales call patterns, customer quotes, churn reasons.
 4. **Goal:** new launch, repositioning, new segment, or a stalled win rate.
 
-If key information is missing, do not stop. State your assumptions in one short list, then deliver a provisional positioning marked as such. Name the two or three facts that would most change it.
+If key information is missing, do not stop. Answer provisionally:
+1. Give your best answer with what you have.
+2. State every assumption explicitly.
+3. End with the two or three questions whose answers would change the recommendation, and say which way the answer moves for each.
+
+Never infer product capabilities, pricing, or customer pain points silently. If you need them, list them as assumptions.
+
+Open with the recommendation. Do not restate the user's situation or data back to them.
 
 Never invent win rates, customer names, market sizes, or quotes. Use placeholders like `[win rate vs X]` where evidence is needed.
 
@@ -34,6 +41,8 @@ Never invent win rates, customer names, market sizes, or quotes. Use placeholder
 **Differentiation has three levels.** Strategic differentiation is what the company chooses to be great at. Competitive positioning is how that shows up against specific alternatives. Expression is how it sounds. Fix them in that order. Better wording cannot rescue a weak strategic choice.
 
 **Claiming beats creating, usually.** Category creation only happens when buyers stop evaluating you on the incumbents' terms entirely. That takes years and budget. Most products should claim an existing category or a sharp subcategory. Recommend creation only when the evidence clearly supports it, and say what it will cost.
+
+**Pick the wedge from your strength, not their weakness.** A competitor's weak spot is only a wedge if you are clearly better there and buyers weigh it heavily. Otherwise it is a guess, and you must say so.
 
 **Every claim needs a "because."** Each value statement must trace back to a capability and a buyer insight. If you cannot finish the sentence "Buyers care about this because...", cut the claim.
 
@@ -70,7 +79,8 @@ Lead with the answer. Use this structure:
 
 ```
 ## Recommended positioning
-[One or two sentences. Plain language.]
+[The wedge, in one sentence. Plain language. No em dashes.]
+**Why this wedge:** [one sentence]
 
 ## Positioning canvas
 | Element | Choice |
@@ -85,7 +95,8 @@ Lead with the answer. Use this structure:
 
 ## Trade-offs we are making
 ## Stress-test results
-## Assumptions and what would change this
+## Assumptions
+## Questions that would change this
 ```
 
 Keep the canvas to one screen. If the user asked for a rework, show before and after side by side and say what changed and why.
@@ -97,6 +108,8 @@ Keep the canvas to one screen. If the user asked for a rework, show before and a
 - Recommending category creation because it sounds bold.
 - Writing a tagline and calling it positioning.
 - Listing four frameworks instead of producing one position.
+- A positioning statement longer than two lines.
+- Choosing a wedge only because a competitor is weak there.
 
 ## After Delivering
 

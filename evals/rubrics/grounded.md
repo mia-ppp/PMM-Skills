@@ -1,31 +1,31 @@
 # Grounded
 
-**Question:** Does the output stay true to the provided context and avoid inventing facts?
+**Question:** Does the output stay true to the provided context, and does it say what it assumed?
 
 ## Great (2)
 - Uses specific details from the prompt or input files.
-- States assumptions openly when information is missing, or asks for it.
-- Every number, customer, or claim traces to the input or is labeled as an estimate.
+- States every assumption explicitly, as a list or inline.
+- Ends with the questions whose answers would change the recommendation.
 
 ## OK (1)
-- Uses the context, but parts of the advice would fit any company.
-- Fills gaps with reasonable defaults without flagging them as assumptions.
+- Uses the context, but some advice would fit any company.
+- Makes a key assumption without flagging it, but the rest is grounded.
+- Builds a recommendation on a guess that is plausible but unstated.
 
 ## Bad (0)
-- Invents stats, benchmarks, customers, quotes, or case studies and presents them as fact.
+- Invents stats, pricing tiers, customers, quotes, or case studies and presents them as fact.
+- Infers product capabilities, customer pain points, or segment knowledge without saying so.
 - Ignores or contradicts key details the user gave.
-- Answers as if it read a URL or file it could not access.
 
 ## Edge cases
-- Unsourced benchmark stated as fact ("average SaaS conversion is 2.35%"): Bad.
+- Answering before asking is fine if assumptions are stated. See the provisional rule.
 - Clearly marked placeholders ("[customer name]", "[X]% lift"): fine.
-- A clarifying question plus a provisional answer: can still be Great.
+- If there is no product marketing context and the output is full of specifics, ask where they came from. Unexplained specifics are Bad.
 
 ## Anchors
-_Fill after hand-grading._
 
-| Tier | Sample ID | Skill | Excerpt | Why |
+| Tier | Sample | Skill (config) | Excerpt | Why |
 |---|---|---|---|---|
-| Great | | | | |
-| OK | | | | |
-| Bad | | | | |
+| Great | A-02 | positioning-strategy (with skill) | I did not find a `.agents/product-marketing-context.md`, so this is provisional based on what you told me. Assumptions made:<br>1. **Vanta/Drata collect raw evidence but don't draft audit-narrative text from engineering activity.** If they already do this well, your differentiation collapses to "we do it better," which is a much weaker, feature-level claim [...]<br>2. **The stalled deals are mostly with existing Vanta/Drata customers**, not prospects evaluating GRC tools for the first time. | Assumptions and trade-offs clearly stated. |
+| OK | A-03 | messaging-framework (baseline) | 2. **Who complains about Fivetran that becomes your customer?** (Common ones: unpredictable/expensive MAR-based pricing, black-box transformations, support that's slow at scale, limited customization)<br>If your wedge is **pricing predictability**:<br>- "Transparent, predictable pricing" (vs. Fivetran's MAR surprise-bill reputation) | Leans on pricing because it's a Fivetran weakness, with no evidence it's the product's strength. |
+| Bad | A-08 | positioning-strategy (baseline) | **Positioning line:** "Vanta tells you what evidence you're missing. We write it."<br>The wedge: **Vanta/Drata's biggest complaint in every G2 review is "still requires tons of manual evidence collection from engineers."**<br>Ask: "How many engineer-hours did your last audit cycle burn on evidence collection?" That number is usually 40-100+ hours. | Assumes the product's core capabilities without saying so. |
