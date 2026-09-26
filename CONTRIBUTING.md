@@ -1,10 +1,10 @@
 # Contributing
 
-Thanks for your interest in contributing to Marketing Skills! This guide will help you add new skills or improve existing ones.
+Thanks for your interest in contributing to PMM-Skills! This guide will help you add new skills or improve existing ones.
 
 ## Requesting a Skill
 
-You can also suggest new skills by [opening a skill request](https://github.com/mia-ppp/marketingskills/issues/new?template=skill-request.yml).
+You can also suggest new skills by [opening a skill request](https://github.com/mia-ppp/PMM-Skills/issues/new).
 
 ## Adding a New Skill
 

@@ -4,23 +4,21 @@ Guidelines for AI agents working in this repository.
 
 ## Repository Overview
 
-This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). Skills install to `.agents/skills/` (the cross-agent standard). This repo also serves as a **Claude Code plugin marketplace** via `.claude-plugin/marketplace.json`.
+This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). Skills install to `.agents/skills/` (the cross-agent standard).
 
-- **Name**: Marketing Skills
-- **GitHub**: [mia-ppp/marketingskills](https://github.com/mia-ppp/marketingskills)
+- **Name**: PMM-Skills
+- **GitHub**: [mia-ppp/PMM-Skills](https://github.com/mia-ppp/PMM-Skills)
 - **License**: MIT
 
 ## Repository Structure
 
 ```
-marketingskills/
-├── .claude-plugin/
-│   └── marketplace.json   # Claude Code plugin marketplace manifest
+PMM-Skills/
 ├── skills/                # Agent Skills
 │   └── skill-name/
 │       └── SKILL.md       # Required skill file
 ├── tools/
-│   ├── clis/              # Zero-dependency Node.js CLI tools (51 tools)
+│   ├── clis/              # Zero-dependency Node.js CLI tools (61 tools)
 │   ├── composio/          # Composio integration layer (quick start + toolkit mapping)
 │   ├── integrations/      # API integration guides per tool
 │   └── REGISTRY.md        # Tool index with capabilities
@@ -126,17 +124,6 @@ The `description` is critical for skill discovery. Include:
 description: When the user wants to optimize conversions on any marketing page. Use when the user says "CRO," "conversion rate optimization," "this page isn't converting." For signup flows, see signup-flow-cro.
 ```
 
-## Claude Code Plugin
-
-This repo also serves as a plugin marketplace. The manifest at `.claude-plugin/marketplace.json` lists all skills for installation via:
-
-```bash
-/plugin marketplace add mia-ppp/marketingskills
-/plugin install marketing-skills
-```
-
-See [Claude Code plugins documentation](https://code.claude.com/docs/en/plugins.md) for details.
-
 ## Git Workflow
 
 ### Branch Naming
@@ -192,29 +179,6 @@ Skills reference relevant tools for implementation. For example:
 
 For tools without native MCP servers (HubSpot, Salesforce, Meta Ads, LinkedIn Ads, Google Sheets, Slack, Notion), Composio provides MCP access via a single server. See `tools/integrations/composio.md` for setup and `tools/composio/marketing-tools.md` for the full toolkit mapping.
 
-## Checking for Updates
-
-When using any skill from this repository:
-
-1. **Once per session**, on first skill use, check for updates:
-   - Fetch `VERSIONS.md` from GitHub: https://raw.githubusercontent.com/mia-ppp/marketingskills/main/VERSIONS.md
-   - Compare versions against local skill files
-
-2. **Only prompt if meaningful**:
-   - 2 or more skills have updates, OR
-   - Any skill has a major version bump (e.g., 1.x to 2.x)
-
-3. **Non-blocking notification** at end of response:
-   ```
-   ---
-   Skills update available: X marketing skills have updates.
-   Say "update skills" to update automatically, or run `git pull` in your marketingskills folder.
-   ```
-
-4. **If user says "update skills"**:
-   - Run `git pull` in the marketingskills directory
-   - Confirm what was updated
-
 ## Skill Categories
 
 See `README.md` for the current list of skills organized by category. When adding new skills, follow the naming patterns of existing skills in that category.
@@ -225,14 +189,14 @@ These patterns are **Claude Code only** and must not be added to `SKILL.md` file
 
 ### Dynamic content injection with `!`command``
 
-Claude Code supports embedding shell commands in SKILL.md using `` !`command` `` syntax. When the skill is invoked, Claude Code runs the command and injects the output inline — the model sees the result, not the instruction.
+Claude Code supports embedding shell commands in SKILL.md using `` !`command` `` syntax. When the skill is invoked, Claude Code runs the command and injects the output inline: the model sees the result, not the instruction.
 
 **Most useful application: auto-inject the product marketing context file**
 
 Instead of every skill telling the agent "go check if `.agents/product-marketing-context.md` exists and read it," you can inject it automatically:
 
 ```markdown
-Product context: !`cat .agents/product-marketing-context.md 2>/dev/null || echo "No product context file found — ask the user about their product before proceeding."`
+Product context: !`cat .agents/product-marketing-context.md 2>/dev/null || echo "No product context file found. Ask the user about their product before proceeding."`
 ```
 
 Place this at the top of a skill's body (after frontmatter) to make context available immediately without any file-reading step.

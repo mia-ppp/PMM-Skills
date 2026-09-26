@@ -1,19 +1,29 @@
-# Marketing Skills for AI Agents
+# PMM Skills for AI Agents
 
-A collection of AI agent skills for marketing tasks. Built for technical marketers and founders who want AI coding agents to help with conversion optimization, copywriting, SEO, analytics, and growth engineering.
+Product marketing skills for AI agents. Use them to set positioning, build messaging frameworks, define buyer personas, and carry that foundation into launches, sales collateral, competitive pages, and copy. The collection also covers the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention.
 
-Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
+43 skills. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
+
+Built on marketingskills (https://github.com/coreyhaines31/marketingskills) by Corey Haines, used under the MIT License. The positioning-strategy, messaging-framework, and buyer-personas skills and the eval harness are original to this repo.
 
 ---
 
 ## How Skills Work Together
 
-Skills reference each other and build on shared context. The `product-marketing-context` skill is the foundation — every other skill checks it first to understand your product, audience, and positioning before doing anything.
+Skills reference each other and build on shared context. The `product-marketing-context` skill is the foundation. Every other skill checks it first to understand your product, audience, and positioning before doing anything. The Positioning & Messaging skills decide what to say, and the rest of the skills express it.
 
 ```
                     ┌──────────────────────────────────────┐
                     │      product-marketing-context       │
                     │    (read by all other skills first)  │
+                    └──────────────────┬───────────────────┘
+                                       │
+                    ┌──────────────────┴───────────────────┐
+                    │       Positioning & Messaging        │
+                    ├──────────────────────────────────────┤
+                    │  positioning-strategy                │
+                    │  messaging-framework                 │
+                    │  buyer-personas                      │
                     └──────────────────┬───────────────────┘
                                        │
   ┌──────────────┬──────────────┬──────┴───────┬──────────────┬──────────────┬──────────────┐
@@ -28,11 +38,13 @@ Skills reference each other and build on shared context. The `product-marketing-
 │programm  │ │form-cro  │ │email-seq │ │analytics   │ │ prevent  │ │pricing      │ │ research  │
 │schema    │ │popup-cro │ │social    │ │            │ │community │ │comp-alts    │ │           │
 │content   │ │paywall   │ │video     │ │            │ │lead-magnt│ │comp-profile │ │           │
-│aso-audit │ │          │ │image     │ │            │ │co-mktg   │ │directory    │ │           │
+│aso-audit │ │          │ │image     │ │            │ │          │ │directory    │ │           │
 └──────────┘ └──────────┘ └──────────┘ └────────────┘ └──────────┘ └─────────────┘ └───────────┘
 ```
 
 Skills cross-reference each other:
+- `positioning-strategy` → `messaging-framework` → `copywriting`, `sales-enablement`
+- `buyer-personas` ↔ `customer-research` ↔ `positioning-strategy`
 - `copywriting` ↔ `page-cro` ↔ `ab-test-setup`
 - `revops` ↔ `sales-enablement` ↔ `cold-email`
 - `seo-audit` ↔ `schema-markup` ↔ `ai-seo`
@@ -47,34 +59,36 @@ See each skill's Related Skills section for the full dependency map.
 | Skill | Description |
 |---|---|
 | `ab-test-setup` | Plan, design, or implement A/B tests and growth experimentation programs. Covers hypothesis frameworks, sample size, statistical significance, ICE scoring, and experiment velocity. |
-| `ad-creative` | Generate, iterate, and scale ad creative — headlines, descriptions, primary text, and full ad sets across formats. |
+| `ad-creative` | Generate, iterate, and scale ad creative: headlines, descriptions, primary text, and full ad sets across formats. |
 | `ai-seo` | Optimize content for AI search engines, get cited by LLMs, and appear in AI-generated answers. |
 | `analytics-tracking` | Set up, improve, or audit analytics tracking and measurement. |
 | `aso-audit` | Audit or optimize an App Store or Google Play listing. |
+| `buyer-personas` | Create, research, validate, or refresh buyer personas, ICP profiles, and buying committee maps. |
 | `churn-prevention` | Reduce churn, build cancellation flows, set up save offers, recover failed payments, and improve retention. |
-| `co-marketing` | Find co-marketing partners, plan joint campaigns, and brainstorm partnership opportunities. |
 | `cold-email` | Write B2B cold emails and follow-up sequences that get replies. |
 | `community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. |
 | `competitor-alternatives` | Create competitor comparison or alternative pages for SEO and sales enablement. |
 | `competitor-profiling` | Research, profile, and analyze competitors from their URLs. |
 | `content-strategy` | Plan a content strategy, decide what content to create, and map out topics by funnel stage. |
 | `copy-editing` | Edit, review, or improve existing marketing copy, or refresh outdated content. |
-| `copywriting` | Write, rewrite, or improve marketing copy for any page — homepage, landing pages, product pages, and more. |
+| `copywriting` | Write, rewrite, or improve marketing copy for any page: homepage, landing pages, product pages, and more. |
 | `customer-research` | Conduct, analyze, and synthesize customer research. |
 | `directory-submissions` | Submit a product to startup, SaaS, AI, agent, MCP, no-code, or review directories for backlinks and distribution. |
 | `email-sequence` | Create or optimize email sequences, drip campaigns, automated flows, and lifecycle emails. |
 | `form-cro` | Optimize any lead capture or contact form that is not a signup flow. |
 | `free-tool-strategy` | Plan, evaluate, or build a free tool for lead generation or SEO value. |
-| `image` | Create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product visuals. |
+| `image` | Create, generate, edit, or optimize images for marketing: blog heroes, social graphics, product visuals. |
 | `launch-strategy` | Plan a product launch, feature announcement, or release strategy. |
 | `lead-magnets` | Create, plan, or optimize a lead magnet for email capture or lead generation. |
 | `marketing-ideas` | Generate marketing ideas, inspiration, and strategies for SaaS or software products. |
 | `marketing-psychology` | Apply psychological principles, mental models, and behavioral science to marketing. |
+| `messaging-framework` | Build or fix a messaging framework: umbrella message, pillars, proof, persona messaging, and boilerplate. |
 | `onboarding-cro` | Optimize post-signup onboarding, user activation, first-run experience, and time-to-value. |
-| `page-cro` | Optimize any marketing page for conversions — homepage, landing pages, product pages. |
+| `page-cro` | Optimize any marketing page for conversions: homepage, landing pages, product pages. |
 | `paid-ads` | Plan and optimize paid advertising campaigns on Google, Meta, LinkedIn, and other platforms. |
 | `paywall-upgrade-cro` | Create or optimize in-app paywalls, upgrade screens, upsell modals, and feature gates. |
 | `popup-cro` | Create or optimize popups, modals, overlays, slide-ins, and banners for conversion. |
+| `positioning-strategy` | Create, rework, or pressure-test product positioning, differentiation, and market category. |
 | `pricing-strategy` | Make pricing decisions, structure packaging, and improve monetization strategy. |
 | `product-marketing-context` | Create or update the product marketing context document that all other skills read first. |
 | `programmatic-seo` | Create SEO-driven pages at scale using templates and data. |
@@ -95,23 +109,24 @@ See each skill's Related Skills section for the full dependency map.
 ### Option 1: Clone and Copy
 
 ```bash
-git clone https://github.com/[your-username]/[your-repo].git
-cp -r marketingskills/skills/* .agents/skills/
+git clone https://github.com/mia-ppp/PMM-Skills.git
+mkdir -p .agents/skills
+cp -r PMM-Skills/skills/* .agents/skills/
 ```
 
 ### Option 2: Download a Single Folder
 
-Use [DownGit](https://downgit.github.io) — paste the GitHub folder URL and download as a ZIP.
+Use [DownGit](https://downgit.github.io): paste the GitHub folder URL and download as a ZIP.
 
 ### Option 3: Git Submodule
 
 Add as a submodule for easy updates:
 
 ```bash
-git submodule add https://github.com/[your-username]/[your-repo].git .agents/marketingskills
+git submodule add https://github.com/mia-ppp/PMM-Skills.git .agents/PMM-Skills
 ```
 
-Then reference skills from `.agents/marketingskills/skills/`.
+Then reference skills from `.agents/PMM-Skills/skills/`.
 
 ### Option 4: Fork and Customize
 
@@ -144,6 +159,12 @@ Keep all skill folders at the same level. Each skill references others by relati
 Once installed, ask your agent to help with marketing tasks:
 
 ```
+"Help me position our product against Asana and Monday"
+→ Uses positioning-strategy skill
+
+"Build a messaging framework for our launch"
+→ Uses messaging-framework skill
+
 "Help me optimize this landing page for conversions"
 → Uses page-cro skill
 
@@ -160,6 +181,7 @@ Once installed, ask your agent to help with marketing tasks:
 You can also invoke skills directly:
 
 ```
+/positioning-strategy
 /page-cro
 /email-sequence
 /seo-audit
@@ -169,56 +191,61 @@ You can also invoke skills directly:
 
 ## Skill Categories
 
+### Positioning & Messaging
+- `positioning-strategy`: Positioning, differentiation, and market category
+- `messaging-framework`: Messaging pillars, proof, and boilerplate
+- `buyer-personas`: Personas, ICP, and buying committees
+- `product-marketing-context`: Shared product, audience, and positioning context
+
 ### Conversion Optimization
-- `page-cro` — Any marketing page
-- `signup-flow-cro` — Registration flows
-- `onboarding-cro` — Post-signup activation
-- `form-cro` — Lead capture forms
-- `popup-cro` — Modals and overlays
-- `paywall-upgrade-cro` — In-app upgrade moments
+- `page-cro`: Any marketing page
+- `signup-flow-cro`: Registration flows
+- `onboarding-cro`: Post-signup activation
+- `form-cro`: Lead capture forms
+- `popup-cro`: Modals and overlays
+- `paywall-upgrade-cro`: In-app upgrade moments
 
 ### Content & Copy
-- `copywriting` — Marketing page copy
-- `copy-editing` — Edit and polish existing copy
-- `cold-email` — B2B cold outreach emails and sequences
-- `email-sequence` — Automated email flows
-- `social-content` — Social media content
-- `image` — AI image generation, design tools, and optimization
+- `copywriting`: Marketing page copy
+- `copy-editing`: Edit and polish existing copy
+- `cold-email`: B2B cold outreach emails and sequences
+- `email-sequence`: Automated email flows
+- `social-content`: Social media content
+- `image`: AI image generation, design tools, and optimization
 
 ### SEO & Discovery
-- `seo-audit` — Technical and on-page SEO
-- `ai-seo` — AI search optimization
-- `programmatic-seo` — Scaled page generation
-- `site-architecture` — Page hierarchy, navigation, URL structure
-- `competitor-alternatives` — Comparison and alternative pages
-- `schema-markup` — Structured data
+- `seo-audit`: Technical and on-page SEO
+- `ai-seo`: AI search optimization
+- `programmatic-seo`: Scaled page generation
+- `site-architecture`: Page hierarchy, navigation, URL structure
+- `competitor-alternatives`: Comparison and alternative pages
+- `schema-markup`: Structured data
 
 ### Paid & Distribution
-- `paid-ads` — Google, Meta, LinkedIn ad campaigns
-- `ad-creative` — Bulk ad creative generation and iteration
-- `social-content` — Social media scheduling and strategy
+- `paid-ads`: Google, Meta, LinkedIn ad campaigns
+- `ad-creative`: Bulk ad creative generation and iteration
+- `social-content`: Social media scheduling and strategy
 
 ### Measurement & Testing
-- `analytics-tracking` — Event tracking setup
-- `ab-test-setup` — Experiment design
+- `analytics-tracking`: Event tracking setup
+- `ab-test-setup`: Experiment design
 
 ### Retention
-- `churn-prevention` — Cancel flows, save offers, dunning, payment recovery
+- `churn-prevention`: Cancel flows, save offers, dunning, payment recovery
 
 ### Growth Engineering
-- `co-marketing` — Partner identification and joint campaigns
-- `free-tool-strategy` — Marketing tools and calculators
-- `referral-program` — Referral and affiliate programs
+- `free-tool-strategy`: Marketing tools and calculators
+- `referral-program`: Referral and affiliate programs
 
 ### Strategy & Monetization
-- `marketing-ideas` — SaaS marketing ideas
-- `marketing-psychology` — Mental models and psychology
-- `launch-strategy` — Product launches and announcements
-- `pricing-strategy` — Pricing, packaging, and monetization
+- `marketing-ideas`: SaaS marketing ideas
+- `marketing-psychology`: Mental models and psychology
+- `launch-strategy`: Product launches and announcements
+- `pricing-strategy`: Pricing, packaging, and monetization
 
 ### Sales & RevOps
-- `revops` — Lead lifecycle, scoring, routing, pipeline management
-- `sales-enablement` — Sales decks, one-pagers, objection docs, demo scripts
+- `revops`: Lead lifecycle, scoring, routing, pipeline management
+- `sales-enablement`: Sales decks, one-pagers, objection docs, demo scripts
 
 ---
 
@@ -232,4 +259,4 @@ See CONTRIBUTING.md for guidelines on adding or improving skills.
 
 ## License
 
-MIT — Use these however you want.
+MIT. Use these however you want.
