@@ -1,0 +1,56 @@
+{
+  "skill_name": "messaging-framework",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a messaging framework for Ledgerline, a treasury tool for crypto-native companies. Positioning: 'The treasury OS for companies that hold stablecoins, with real-time multi-chain balances and audit-ready reports.' Personas: CFO, Head of Finance Ops, external auditor.",
+      "expected_output": "Should produce umbrella message options with a pick, three pillars with pillar test results, table stakes separated, persona translations, and three boilerplate lengths.",
+      "assertions": [
+        "Provides two or three umbrella options and recommends one",
+        "Includes three or four pillars, not more",
+        "Reports a pillar test result for each pillar",
+        "Lists table stakes separately from pillars",
+        "Gives a distinct lead pillar or first line per persona",
+        "Provides boilerplate at three lengths",
+        "Marks missing proof as a gap instead of inventing metrics"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Our messaging pillars are: Easy to use, Secure, Scalable, Great support. Fix them. We're a B2B data pipeline tool competing with Fivetran.",
+      "expected_output": "Should identify all four as table stakes that Fivetran could claim, and propose differentiated pillars or ask what is unique, with provisional versions.",
+      "assertions": [
+        "Identifies the existing pillars as claims Fivetran could also make",
+        "Moves generic claims into a table stakes list",
+        "Proposes replacement pillars tied to specific capabilities",
+        "States what information would sharpen the pillars"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write launch messaging for our new AI agent that auto-resolves Tier 1 support tickets in Zendesk. Target is mid-market support leaders.",
+      "expected_output": "Should include the launch block (target, market, segment, category, unique value, proof) and language to use and avoid.",
+      "assertions": [
+        "Includes a launch block covering target, category, unique value, and proof",
+        "Includes words to use and words to avoid",
+        "Avoids clich\u00e9s such as unlock, seamless, or game-changer",
+        "Does not invent resolution-rate statistics as fact"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We need messaging but honestly we haven't figured out our positioning yet. We make a scheduling tool.",
+      "expected_output": "Should flag missing positioning, recommend positioning-strategy, and still give a provisional umbrella message to react to.",
+      "assertions": [
+        "Flags that positioning is missing",
+        "Recommends positioning-strategy as a first step",
+        "Still provides a provisional umbrella message",
+        "Labels the draft as provisional"
+      ],
+      "files": []
+    }
+  ]
+}

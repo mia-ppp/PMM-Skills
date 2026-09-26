@@ -41,7 +41,7 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     fi
 
     # Extract frontmatter
-    frontmatter=$(sed -n '/^---$/,/^---$/p' "$skill_file" | head -n -1 | tail -n +2)
+    frontmatter=$(awk '/^---$/{c++; if (c==2) exit; next} c==1' "$skill_file")
 
     # Validate frontmatter exists
     if [[ -z "$frontmatter" ]]; then

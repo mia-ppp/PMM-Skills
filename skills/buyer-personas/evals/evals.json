@@ -1,0 +1,57 @@
+{
+  "skill_name": "buyer-personas",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create buyer personas for a B2B spend management platform selling to companies with 200 to 1000 employees. We have no interview data yet.",
+      "expected_output": "Hypothesis mode. Should label attributes as hypotheses, map a buying committee, define an anti-persona, and give a validation plan with interview questions.",
+      "assertions": [
+        "Labels persona attributes as hypotheses",
+        "Maps a buying committee with distinct roles",
+        "Defines an anti-persona",
+        "Provides a validation plan with interview questions",
+        "Uses role-based persona names rather than invented human names",
+        "Does not invent quotes"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Here are notes from 6 customer calls. Build personas.\n\nCall 1 (Controller, 400-person SaaS): 'Month-end close takes 9 days because receipts come in late.' Found us via a peer on a CFO Slack.\nCall 2 (VP Finance, 800-person retailer): wants card controls by store. Evaluated Ramp and Brex. Procurement required SOC 2.\nCall 3 (Controller, 250-person agency): 'I chase people for receipts every Friday.' Found us through G2.\nCall 4 (CFO, 600-person manufacturer): cares about ERP sync with NetSuite. IT vetoed one vendor.\nCall 5 (AP Manager, 400-person SaaS): hates manual coding of transactions.\nCall 6 (VP Finance, 900-person healthcare co): needed approval chains; legal reviewed contract for 5 weeks.",
+      "expected_output": "Evidence mode. Should build personas from the notes, quote only from the notes, and tie each persona to a decision.",
+      "assertions": [
+        "Only uses quotes that appear in the provided notes",
+        "Groups the calls into a small number of personas",
+        "Captures discovery channels mentioned in the notes",
+        "Identifies IT, procurement, or legal as committee roles from the notes",
+        "States what decision each persona changes",
+        "Labels sourced attributes as evidence"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We could target law firms, accounting firms, or consulting firms with our document automation tool. Which segment should we go after first?",
+      "expected_output": "Should score segments on the criteria, recommend one, and note where data is assumed.",
+      "assertions": [
+        "Scores segments against explicit criteria",
+        "Recommends one primary segment",
+        "Flags which scores are assumptions",
+        "Explains what would change the recommendation"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Make me a persona. Name her Marketing Mary. She's 34, loves yoga and lattes.",
+      "expected_output": "Should steer toward buying-behavior attributes and a role-based name, without refusing, and explain briefly why.",
+      "assertions": [
+        "Refocuses on buying-behavior attributes such as pain points and evaluation process",
+        "Suggests a role-based name",
+        "Explains briefly why demographic details are less useful",
+        "Still delivers a usable persona"
+      ],
+      "files": []
+    }
+  ]
+}
