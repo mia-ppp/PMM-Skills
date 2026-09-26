@@ -236,11 +236,27 @@ def score_rubric(prompt, output, model, hide=None, examples=""):
         return {k: {"score": None, "reason": f"unparseable judge reply: {raw[:80]}"} for k in DIMENSIONS}
 
 def run(skills, args):
-    stamp = time.strftime("%Y%m%d-%H%M%S")
+    global SPENT
+    stamp = args.resume or time.strftime("%Y%m%d-%H%M%S")
+    base = OUT / stamp
+    if args.resume and not base.is_dir():
+        sys.exit(f"No run to resume at {base}")
     jobs = [(name, s, e, cfg, t) for name, s in pick(skills, args.skills).items()
             for e in s["evals"] for cfg in ("with_skill", "baseline") for t in range(args.trials)]
     random.Random(0).shuffle(jobs)  # mix skills and configs so an early budget stop leaves a fair sample
-    print(f"{len(jobs)} runs queued")
+    # Resume: reuse every output already graded in this run folder, and count what it already spent.
+    prior = {}
+    for f in base.glob("*/eval-*/*/grading-*.json"):
+        r = json.loads(f.read_text())
+        prior[(r["skill"], r["eval_id"], r["config"], r["trial"])] = r
+    keys = {(j[0], j[2]["id"], j[3], j[4]) for j in jobs}
+    prior = {k: r for k, r in prior.items() if k in keys}  # only outputs this run would produce
+    ledger = base / "spend.json"
+    if ledger.exists():
+        SPENT = json.loads(ledger.read_text())["spent"]
+    todo = [j for j in jobs if (j[0], j[2]["id"], j[3], j[4]) not in prior]
+    print(f"{len(jobs)} runs in total, {len(jobs) - len(todo)} already done, {len(todo)} queued. "
+          f"${SPENT:.2f} already spent in this run")
     human, _ = graded_rows(CALIBRATION / "grades.csv") if has_grades(CALIBRATION / "grades.csv") else ({}, [])
     examples = graded_examples(CALIBRATION, human, exclude=None) if human else ""
     print(f"Rubric judge sees {len(human)} hand-graded examples")
@@ -248,38 +264,46 @@ def run(skills, args):
         for m in {args.model, args.judge}:
             if m not in PRICES:
                 sys.exit(f"--budget needs a price for {m}; add it to PRICES")
-    done, stop = [0], threading.Event()
+    base.mkdir(parents=True, exist_ok=True)
+    done, halt = [len(jobs) - len(todo)], threading.Event()
+
+    def save_ledger():
+        with _spend_lock:
+            ledger.write_text(json.dumps({"spent": round(SPENT, 4)}))
 
     def one(j):
-        if stop.is_set():
+        if halt.is_set():
             return None
         try:
             return attempt(j)
-        except BudgetExceeded as ex:
-            stop.set()
-            print(f"Stopping: {ex}")
+        except Exception as ex:  # budget, credits, or any API failure: stop cleanly and keep finished work
+            if not halt.is_set():
+                halt.set()
+                print(f"Stopping: {ex}")
             return None
+        finally:
+            save_ledger()
 
     def attempt(j):
         name, s, e, cfg, t = j
         t0 = time.time()
-        out, stop = request(system_for(s, cfg), e["prompt"], args.model)
+        out, stop_reason = request(system_for(s, cfg), e["prompt"], args.model)
         secs = round(time.time() - t0, 1)
         grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge)} for a in e.get("assertions", [])]
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
-               "stop_reason": stop, "output_chars": len(out), "em_dashes": em_dashes(out), "expectations": grades,
+               "stop_reason": stop_reason, "output_chars": len(out), "em_dashes": em_dashes(out), "expectations": grades,
                "pass_rate": sum(g["passed"] for g in grades) / len(grades) if grades else None,
                "judge": args.judge, "judge_examples": len(human),
                "rubric": score_rubric(e["prompt"], out, args.judge, examples=examples)}
-        d = OUT / stamp / name / f"eval-{e['id']}" / cfg
+        d = base / name / f"eval-{e['id']}" / cfg
         d.mkdir(parents=True, exist_ok=True)
         (d / f"trial-{t}.md").write_text(out)
         (d / f"grading-{t}.json").write_text(json.dumps(rec, indent=2))
         with _spend_lock:
             done[0] += 1
             n = done[0]
-        if BUDGET is not None and n >= 10 and SPENT / n * len(jobs) > BUDGET and not stop.is_set():
-            stop.set()
+        if BUDGET is not None and n >= 10 and SPENT / n * len(jobs) > BUDGET and not halt.is_set():
+            halt.set()
             print(f"Stopping: projected ${SPENT / n * len(jobs):.2f} for {len(jobs)} runs is over the ${BUDGET:.2f} budget "
                   f"(${SPENT:.2f} spent on {n})")
         elif n % 20 == 0:
@@ -287,15 +311,18 @@ def run(skills, args):
         return rec
 
     with ThreadPoolExecutor(args.workers) as ex:
-        recs = [r for r in ex.map(one, jobs) if r is not None]
+        new = [r for r in ex.map(one, todo) if r is not None]
+    save_ledger()
+    recs = list(prior.values()) + new
+    (base / "runs.json").write_text(json.dumps(recs, indent=2))
+    print(f"API spend for this run, all attempts: ${SPENT:.2f}")
     if len(recs) < len(jobs):
-        print(f"Warning: only {len(recs)} of {len(jobs)} runs finished. Results are partial.")
-    print(f"API spend this run: ${SPENT:.2f}")
-    (OUT / stamp / "runs.json").write_text(json.dumps(recs, indent=2))
+        print(f"Warning: only {len(recs)} of {len(jobs)} runs finished. Results are partial. "
+              f"Resume with: run --resume {stamp} (same --skills and --trials)")
     cut = [f"{r['skill']} #{r['eval_id']} {r['config']}" for r in recs if r["stop_reason"] != "end_turn"]
     if cut:
         print(f"Warning: {len(cut)} outputs did not end cleanly: {', '.join(cut[:10])}")
-    print(f"Saved to {OUT / stamp}. Run `report` next.")
+    print(f"Saved to {base}. Run `report` next.")
 
 # ---------- report ----------
 
@@ -626,6 +653,7 @@ if __name__ == "__main__":
     ap.add_argument("--judge", default=DEFAULT_MODEL)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--budget", type=float, help="stop API calls before spend passes this many dollars")
+    ap.add_argument("--resume", metavar="STAMP", help="run: continue the run in results/STAMP, reusing finished outputs and counting their spend")
     ap.add_argument("--mock", action="store_true")
     ap.add_argument("--per-skill", type=int, default=3, help="calibrate: prompts per skill")
     ap.add_argument("--seed", type=int, help="calibrate: shuffle seed (random if omitted, saved in the key)")
