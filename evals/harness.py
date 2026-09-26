@@ -7,10 +7,13 @@ Five commands:
   route      Routing eval: can the model pick the right skill from every skill description?
              Reuses every eval prompt as a labeled test case. Cheapest, highest-signal run.
   run        Runs each eval prompt twice: with the skill loaded, and baseline (no skill).
-             Grades every assertion with an LLM judge. Repeats N trials for variance.
+             Grades every assertion with an LLM judge and scores the four rubric dimensions.
+             Repeats N trials for variance. --no-assertions keeps only the rubric scores.
   report     Aggregates results/ into results/REPORT.md.
   calibrate  Generates blind, shuffled outputs (with skill and baseline) for hand-grading
              the L2 rubrics in evals/rubrics/. The unblinding key goes to results/.
+  agree      Leave-one-out check of the rubric judge: scores each hand-graded calibration
+             output with its own anchor hidden and reports agreement with the human grades.
 
 Usage:
   export ANTHROPIC_API_KEY=sk-...
@@ -44,6 +47,8 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
     """One Messages API call. Returns (text, stop_reason)."""
     if MOCK:
         time.sleep(0.01)
+        if "RUBRIC JUDGE" in system:
+            return json.dumps({d: {"score": random.choice([0, 1, 2]), "reason": "mock"} for d in DIMENSIONS}), "end_turn"
         if "JUDGE" in system:
             return json.dumps({"passed": random.random() > 0.35, "evidence": "mock"}), "end_turn"
         if "ROUTER" in system:
@@ -178,6 +183,37 @@ def grade(output, assertion, model):
     except Exception:
         return {"passed": False, "evidence": f"unparseable judge reply: {raw[:80]}"}
 
+RUBRICS = ROOT / "evals" / "rubrics"
+RUBRIC_JUDGE_SYS = (
+    "RUBRIC JUDGE. You grade one AI agent output against the rubrics below: the shared rules in "
+    "README, then one file per dimension with tiers, edge cases, and anchor examples. Score "
+    "grounded, decisive, usable, and sharp independently as 0 (Bad), 1 (OK), or 2 (Great). "
+    "When torn between two tiers, pick the lower one. Reply with JSON only: "
+    '{"grounded": {"score": 0|1|2, "reason": "<one line>"}, "decisive": {...}, "usable": {...}, "sharp": {...}}'
+    "\n\n<rubrics>\n{rubrics}\n</rubrics>")
+
+def rubric_text(hide=None):
+    """All rubric files as one string. `hide` drops anchor rows for that sample id (leave-one-out)."""
+    parts = []
+    for name in ["README"] + DIMENSIONS:
+        text = (RUBRICS / f"{name}.md").read_text()
+        if hide:
+            text = "\n".join(l for l in text.splitlines()
+                             if not re.match(rf"^\|[^|]*\|\s*{re.escape(hide)}\s*\|", l))
+        parts.append(f"<file name=\"{name}.md\">\n{text}\n</file>")
+    return "\n\n".join(parts)
+
+def score_rubric(prompt, output, model, hide=None):
+    """Returns {dimension: {"score": 0-2 or None, "reason": str}}."""
+    sys_p = RUBRIC_JUDGE_SYS.replace("{rubrics}", rubric_text(hide))
+    raw = call(sys_p, f"<prompt>\n{prompt}\n</prompt>\n\n<output>\n{output}\n</output>", model)
+    try:
+        d = json.loads(re.search(r"\{.*\}", raw, re.S).group(0))
+        return {k: {"score": int(d[k]["score"]) if d[k]["score"] in (0, 1, 2) else None,
+                    "reason": str(d[k].get("reason", ""))} for k in DIMENSIONS}
+    except Exception:
+        return {k: {"score": None, "reason": f"unparseable judge reply: {raw[:80]}"} for k in DIMENSIONS}
+
 def run(skills, args):
     stamp = time.strftime("%Y%m%d-%H%M%S")
     jobs = [(name, s, e, cfg, t) for name, s in pick(skills, args.skills).items()
@@ -189,10 +225,11 @@ def run(skills, args):
         t0 = time.time()
         out, stop = request(system_for(s, cfg), e["prompt"], args.model)
         secs = round(time.time() - t0, 1)
-        grades = [{"text": a, **grade(out, a, args.judge)} for a in e.get("assertions", [])]
+        grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge)} for a in e.get("assertions", [])]
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
                "stop_reason": stop, "output_chars": len(out), "expectations": grades,
-               "pass_rate": sum(g["passed"] for g in grades) / max(len(grades), 1)}
+               "pass_rate": sum(g["passed"] for g in grades) / len(grades) if grades else None,
+               "rubric": score_rubric(e["prompt"], out, args.judge)}
         d = OUT / stamp / name / f"eval-{e['id']}" / cfg
         d.mkdir(parents=True, exist_ok=True)
         (d / f"trial-{t}.md").write_text(out)
@@ -224,13 +261,44 @@ def report(skills, args):
     (OUT / "REPORT.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
 
+def rubric_summary(recs):
+    """Rubric lift: mean 0-2 score with skill vs baseline, per dimension and per skill."""
+    recs = [r for r in recs if r.get("rubric")]
+    if not recs:
+        return []
+    by_dim = defaultdict(lambda: defaultdict(list))
+    by_skill = defaultdict(lambda: defaultdict(list))
+    for r in recs:
+        for d in DIMENSIONS:
+            s = r["rubric"][d]["score"]
+            if s is not None:
+                by_dim[d][r["config"]].append(s)
+                by_skill[r["skill"]][r["config"]].append(s)
+    mean = lambda xs: statistics.mean(xs) if xs else float("nan")
+    lines = ["## Rubric scores (0-2), with skill vs baseline", "",
+             "| Dimension | With skill | Baseline | Lift |", "|---|---|---|---|"]
+    for d in DIMENSIONS:
+        w, b = by_dim[d]["with_skill"], by_dim[d]["baseline"]
+        lines.append(f"| {d.title()} | {mean(w):.2f} (n={len(w)}) | {mean(b):.2f} (n={len(b)}) | {mean(w)-mean(b):+.2f} |")
+    lines += ["", "| Skill | With skill | Baseline | Lift |", "|---|---|---|---|"]
+    for k in sorted(by_skill):
+        w, b = by_skill[k]["with_skill"], by_skill[k]["baseline"]
+        lines.append(f"| {k} | {mean(w):.2f} | {mean(b):.2f} | {mean(w)-mean(b):+.2f} |")
+    unscored = sum(r["rubric"][d]["score"] is None for r in recs for d in DIMENSIONS)
+    if unscored:
+        lines.append(f"\n{unscored} rubric scores could not be parsed and are excluded.")
+    return lines + [""]
+
 def run_summary(recs, name):
+    lines = [f"# Eval report ({name})", ""] + rubric_summary(recs)
+    recs = [r for r in recs if r["pass_rate"] is not None]
+    if not recs:
+        return lines
     by = defaultdict(lambda: defaultdict(list))
     for r in recs:
         by[r["skill"]][r["config"]].append(r["pass_rate"])
     ms = lambda xs: (statistics.mean(xs), statistics.pstdev(xs)) if xs else (0, 0)
-    lines = [f"# Eval report ({name})", "",
-             "| Skill | With skill | Baseline | Lift |", "|---|---|---|---|"]
+    lines += ["## Assertion pass rate", "", "| Skill | With skill | Baseline | Lift |", "|---|---|---|---|"]
     lifts = []
     for k in sorted(by):
         (wm, ws), (bm, bs) = ms(by[k]["with_skill"]), ms(by[k]["baseline"])
@@ -327,22 +395,17 @@ def calibrate(skills, args):
     print(f"Wrote {len(jobs)} blind outputs to {outputs}")
     print(f"Grade in {grades_path}. Key (do not open while grading): {key_path}")
 
-def calibration_summary(key_path, cal_dir):
-    """Unblinds grades.csv with the key: mean rubric score per config and dimension."""
-    grades_path = cal_dir / "grades.csv"
-    if not has_grades(grades_path):
-        return []
-    with key_path.open(newline="") as f:
-        cfg = {r["id"]: r["config"] for r in csv.DictReader(f)}
-    scores = defaultdict(lambda: defaultdict(list))
-    graded, skipped = 0, []
+def graded_rows(grades_path):
+    """Fully graded rows as {id: {dimension: score}}, plus ids of partly graded rows."""
+    rows, skipped = {}, []
     with grades_path.open(newline="") as f:
         for r in csv.DictReader(f):
             cells = [(r.get(d) or "").strip() for d in DIMENSIONS]
-            if r["id"] not in cfg or not all(cells):
+            if not all(cells):
                 if any(cells):
                     skipped.append(r["id"])  # partly graded: flag rather than half-count it
                 continue
+            row = {}
             for d, v in zip(DIMENSIONS, cells):
                 try:
                     n = float(v)
@@ -350,9 +413,24 @@ def calibration_summary(key_path, cal_dir):
                     n = None
                 if n not in (0, 1, 2):
                     sys.exit(f"{grades_path}: {r['id']} {d} is {v!r}. Scores must be 0, 1, or 2.")
-                scores[cfg[r["id"]]][d].append(n)
-            graded += 1
-    lines = ["", f"## Calibration rubric scores (0-2), {graded} graded outputs", "",
+                row[d] = int(n)
+            rows[r["id"]] = row
+    return rows, skipped
+
+def calibration_summary(key_path, cal_dir):
+    """Unblinds grades.csv with the key: mean rubric score per config and dimension."""
+    grades_path = cal_dir / "grades.csv"
+    if not has_grades(grades_path):
+        return []
+    with key_path.open(newline="") as f:
+        cfg = {r["id"]: r["config"] for r in csv.DictReader(f)}
+    rows, skipped = graded_rows(grades_path)
+    rows = {k: v for k, v in rows.items() if k in cfg}
+    scores = defaultdict(lambda: defaultdict(list))
+    for k, row in rows.items():
+        for d in DIMENSIONS:
+            scores[cfg[k]][d].append(row[d])
+    lines = ["", f"## Calibration rubric scores (0-2), {len(rows)} graded outputs", "",
              "| Config | " + " | ".join(d.title() for d in DIMENSIONS) + " |", "|---" * (len(DIMENSIONS) + 1) + "|"]
     for c in ("with_skill", "baseline"):
         cells = [f"{statistics.mean(v):.2f} (n={len(v)})" if (v := scores[c][d]) else "-" for d in DIMENSIONS]
@@ -361,11 +439,59 @@ def calibration_summary(key_path, cal_dir):
         lines.append(f"\nSkipped partly graded rows (need all four scores): {', '.join(skipped)}")
     return lines
 
+# ---------- judge agreement ----------
+
+AGREEMENT_BAR = 0.70
+
+def agree(skills, args):
+    """Leave-one-out check: the rubric judge scores each hand-graded calibration output with that
+    output's own anchor rows hidden, then compares with the human grades."""
+    cal = Path(args.out) if args.out else CALIBRATION
+    human, _ = graded_rows(cal / "grades.csv")
+    if not human:
+        sys.exit(f"No fully graded rows in {cal / 'grades.csv'}.")
+
+    def one(bid):
+        text = (cal / "outputs" / f"{bid}.md").read_text()
+        head, _, output = text.partition("\n## Output\n")
+        prompt = head.partition("\n## Prompt\n")[2]
+        return bid, score_rubric(prompt.strip(), output.strip(), args.judge, hide=bid)
+
+    print(f"Judging {len(human)} graded outputs on {args.judge}{' (mock)' if MOCK else ''}, own anchor hidden")
+    with ThreadPoolExecutor(args.workers) as ex:
+        judged = dict(ex.map(one, sorted(human)))
+
+    lines = ["## Judge agreement with hand grades (leave-one-out)", "",
+             "| Dimension | n | Exact | Within one |", "|---|---|---|---|"]
+    below, disagreements, stats = [], [], {}
+    for d in DIMENSIONS:
+        pairs = [(human[k][d], judged[k][d]["score"]) for k in sorted(human) if judged[k][d]["score"] is not None]
+        exact = sum(h == j for h, j in pairs) / len(pairs) if pairs else 0
+        near = sum(abs(h - j) <= 1 for h, j in pairs) / len(pairs) if pairs else 0
+        stats[d] = {"n": len(pairs), "exact": exact, "within_one": near}
+        lines.append(f"| {d.title()} | {len(pairs)} | {exact:.0%} | {near:.0%} |")
+        if exact < AGREEMENT_BAR:
+            below.append(d)
+        for k in sorted(human):
+            j = judged[k][d]
+            if j["score"] != human[k][d]:
+                disagreements.append(f"| {k} | {d} | {human[k][d]} | {j['score']} | {j['reason'].replace('|', '/')} |")
+    if disagreements:
+        lines += ["", "| Output | Dimension | Human | Judge | Judge's reason |", "|---|---|---|---|---|"] + disagreements
+    if below:
+        lines += ["", f"Below the {AGREEMENT_BAR:.0%} exact-agreement bar: {', '.join(below)}. "
+                  "Fix the rubric or anchors before trusting judge scores on these dimensions."]
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "agreement.json").write_text(json.dumps(
+        {"judge": args.judge, "stats": stats, "human": human, "judge_scores": judged}, indent=2))
+    (OUT / "AGREEMENT.md").write_text("\n".join(lines) + "\n")
+    print("\n".join(lines))
+
 # ---------- main ----------
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["lint", "route", "run", "report", "calibrate"])
+    ap.add_argument("cmd", choices=["lint", "route", "run", "report", "calibrate", "agree"])
     ap.add_argument("--skills", help="comma-separated subset")
     ap.add_argument("--trials", type=int, default=3)
     ap.add_argument("--model", default=DEFAULT_MODEL)
@@ -376,8 +502,9 @@ if __name__ == "__main__":
     ap.add_argument("--seed", type=int, help="calibrate: shuffle seed (random if omitted, saved in the key)")
     ap.add_argument("--out", help="calibrate: output directory (default evals/calibration)")
     ap.add_argument("--force", action="store_true", help="calibrate: overwrite ungraded outputs")
+    ap.add_argument("--no-assertions", action="store_true", help="run: skip per-assertion grading, keep rubric scores")
     a = ap.parse_args()
     MOCK = a.mock
     if MOCK:
         OUT = OUT / "mock"
-    {"lint": lint, "route": route, "run": run, "report": report, "calibrate": calibrate}[a.cmd](load_skills(), a)
+    {"lint": lint, "route": route, "run": run, "report": report, "calibrate": calibrate, "agree": agree}[a.cmd](load_skills(), a)

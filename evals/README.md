@@ -11,6 +11,7 @@ Zero-dependency harness for the skills in `skills/`. Reads each skill's existing
 | `run` | Does loading the skill beat no skill on the same prompt? | ~2 x cases x trials, plus judge calls |
 | `report` | Pass rate, lift vs baseline, variance, dead assertions, calibration rubric scores | Free |
 | `calibrate` | Blind outputs for hand-grading the rubrics in `rubrics/` | 30 calls by default |
+| `agree` | Does the rubric judge agree with the hand grades? Leave-one-out: each output is judged with its own anchor hidden | One call per graded output |
 
 ```bash
 export ANTHROPIC_API_KEY=sk-...
