@@ -78,6 +78,7 @@
       "id": 6,
       "prompt": "Can you write a blog post about remote work best practices for our HR software blog?",
       "expected_output": "Should recognize this is a copywriting/content creation task, not a content strategy task. Should defer to or cross-reference the copywriting skill for writing individual pieces of content. May provide strategic context (where this fits in the content strategy, keyword targeting, audience) but should make clear that copywriting is the right skill for writing the actual content.",
+      "handoff_to": "copywriting",
       "assertions": [
         "Recognizes this as content creation, not strategy",
         "References or defers to copywriting skill",

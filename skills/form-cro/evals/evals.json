@@ -79,6 +79,7 @@
       "id": 6,
       "prompt": "Our signup form has too many fields and people keep abandoning it halfway through. Can you help optimize it?",
       "expected_output": "Should recognize this is about signup/registration form optimization, not general form CRO. Should defer to or cross-reference the signup-flow-cro skill, which specifically handles signup, registration, and account creation flows. May provide general form friction advice but should make clear that signup-flow-cro is the right skill for signup forms.",
+      "handoff_to": "signup-flow-cro",
       "assertions": [
         "Recognizes this as signup flow optimization",
         "References or defers to signup-flow-cro skill",

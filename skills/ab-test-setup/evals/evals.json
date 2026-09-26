@@ -79,6 +79,7 @@
       "id": 6,
       "prompt": "Can you help me write copy for our new landing page? We want to test it against the current version.",
       "expected_output": "Should recognize this is primarily a copywriting task, not a test setup task. Should defer to or cross-reference the copywriting skill for writing the actual copy. May help frame the test hypothesis and setup, but should make clear that copywriting is the right skill for creating the page copy itself.",
+      "handoff_to": "copywriting",
       "assertions": [
         "Recognizes this as primarily a copywriting task",
         "References or defers to copywriting skill",

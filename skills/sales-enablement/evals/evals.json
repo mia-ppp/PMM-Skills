@@ -79,6 +79,7 @@
       "id": 6,
       "prompt": "We need a public comparison page showing how we stack up against Zendesk and Intercom.",
       "expected_output": "Should recognize this is a public-facing competitor comparison page, not internal sales collateral. Should defer to or cross-reference the competitor-alternatives skill, which handles public comparison and alternatives pages. Sales-enablement covers internal materials (battle cards, objection handling) while competitor-alternatives handles SEO-focused public comparison content.",
+      "handoff_to": "competitor-alternatives",
       "assertions": [
         "Recognizes this as a public comparison page",
         "References or defers to competitor-alternatives skill",

@@ -79,6 +79,7 @@
       "id": 6,
       "prompt": "Can you write some ad copy for our Facebook ads? We need headlines and descriptions for 5 different angles.",
       "expected_output": "Should recognize this is an ad creative generation task, not campaign strategy. Should defer to or cross-reference the ad-creative skill, which handles platform-specific ad copy generation with character limits, angle-based variation, and batch generation. May provide brief ad copy framework guidance but should make clear that ad-creative is the right skill for generating ad copy at scale.",
+      "handoff_to": "ad-creative",
       "assertions": [
         "Recognizes this as ad creative generation",
         "References or defers to ad-creative skill",

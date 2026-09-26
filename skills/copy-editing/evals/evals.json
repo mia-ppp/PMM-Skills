@@ -77,6 +77,7 @@
       "id": 6,
       "prompt": "Write fresh homepage copy for our new product. We're launching a CRM for real estate agents.",
       "expected_output": "Should recognize this is a copywriting-from-scratch task, not copy editing. Should defer to or cross-reference the copywriting skill, which handles writing new copy from scratch. Copy-editing is specifically for improving existing copy. Should make this distinction clear.",
+      "handoff_to": "copywriting",
       "assertions": [
         "Recognizes this as writing new copy, not editing existing copy",
         "References or defers to copywriting skill",

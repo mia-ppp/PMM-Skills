@@ -78,6 +78,7 @@
       "id": 6,
       "prompt": "We want to set up a referral program. How should we structure it?",
       "expected_output": "Should recognize this is specifically a referral program design request. Should defer to or cross-reference the referral-program skill, which provides detailed guidance on referral loop design, incentive structures, implementation, and optimization. May briefly mention referral programs as a marketing idea but should make clear that referral-program is the right skill for detailed program design.",
+      "handoff_to": "referral-program",
       "assertions": [
         "Recognizes this as a referral program design request",
         "References or defers to referral-program skill",

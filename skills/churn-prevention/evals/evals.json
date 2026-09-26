@@ -81,6 +81,7 @@
       "id": 6,
       "prompt": "We want to set up a win-back email sequence for customers who already cancelled. Can you help write those emails?",
       "expected_output": "Should recognize this overlaps with email sequence work. Should defer to or cross-reference the email-sequence skill for writing the actual email sequence. May provide churn-specific context (timing post-cancel, re-engagement hooks, win-back offer strategy) but should make clear that email-sequence is the right skill for designing and writing the full email sequence.",
+      "handoff_to": "email-sequence",
       "assertions": [
         "Recognizes overlap with email sequence work",
         "References or defers to email-sequence skill",

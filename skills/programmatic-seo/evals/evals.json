@@ -82,6 +82,7 @@
       "id": 6,
       "prompt": "Can you audit our existing programmatic SEO pages for technical issues? We have crawl errors and some pages return 404s.",
       "expected_output": "Should recognize this is a technical SEO audit task, not a programmatic SEO strategy task. Should defer to or cross-reference the seo-audit skill, which handles crawlability, indexation, and technical SEO issues. Programmatic-seo focuses on strategy, template design, and content planning for scaled pages.",
+      "handoff_to": "seo-audit",
       "assertions": [
         "Recognizes this as technical SEO audit task",
         "References or defers to seo-audit skill",

@@ -44,6 +44,8 @@ PRICES = {"claude-sonnet-5": (2.00, 10.00), "claude-opus-5": (5.00, 25.00), "cla
 BUDGET = None  # dollars; set by --budget
 SPENT = 0.0
 MAX_CALL = 0.20  # running max cost of one call, used to reserve room for calls already in flight
+CACHE_WRITE, CACHE_READ = 1.25, 0.10  # 5-minute cache: price multipliers on input tokens
+CACHE_STATS = Counter()  # input tokens: uncached, cache_write, cache_read
 WORKERS = 4
 _spend_lock = threading.Lock()
 
@@ -53,15 +55,21 @@ class BudgetExceeded(RuntimeError):
 def charge(model, usage):
     global SPENT, MAX_CALL
     p_in, p_out = PRICES[model]
-    cost = (usage.get("input_tokens", 0) * p_in + usage.get("output_tokens", 0) * p_out) / 1e6
+    fresh, wrote, read = (usage.get("input_tokens", 0), usage.get("cache_creation_input_tokens", 0) or 0,
+                          usage.get("cache_read_input_tokens", 0) or 0)
+    cost = ((fresh + wrote * CACHE_WRITE + read * CACHE_READ) * p_in + usage.get("output_tokens", 0) * p_out) / 1e6
     with _spend_lock:
+        CACHE_STATS.update(uncached=fresh, cache_write=wrote, cache_read=read)
         SPENT += cost
         MAX_CALL = max(MAX_CALL, cost)
 
 # ---------- model call ----------
 
-def request(system, user, model, max_tokens=MAX_TOKENS):
-    """One Messages API call. Returns (text, stop_reason)."""
+def request(system, user, model, max_tokens=MAX_TOKENS, cache=True):
+    """One Messages API call. Returns (text, stop_reason).
+    With `cache`, the system prompt (skill text, skill catalog, rubrics, graded examples) is marked for
+    prompt caching, so repeated calls with the same system prompt read it at a tenth of the price.
+    Prompts under the model's minimum (1,024 tokens on Sonnet 5) silently skip caching."""
     if MOCK:
         time.sleep(0.01)
         if "RUBRIC JUDGE" in system:
@@ -69,7 +77,7 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
         if "JUDGE" in system:
             return json.dumps({"passed": random.random() > 0.35, "evidence": "mock"}), "end_turn"
         if "ROUTER" in system:
-            names = re.findall(r"^- ([a-z0-9-]+):", user, re.M)
+            names = re.findall(r"^- ([a-z0-9-]+):", system, re.M)
             return random.choice(names + ["none"]), "end_turn"
         first = user.strip().splitlines()[0][:80]
         return f"## Quick Wins\nMock output referencing product-marketing-context.md.\n\nRequest: {first}", "end_turn"
@@ -80,7 +88,8 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
         raise BudgetExceeded(f"${SPENT:.2f} spent; another call could pass the ${BUDGET:.2f} budget")
     # No temperature: current models reject sampling params. Thinking is adaptive by default,
     # and its tokens count toward max_tokens, so even short calls get a generous cap.
-    body = json.dumps({"model": model, "max_tokens": max_tokens, "system": system,
+    sys_blocks = [{"type": "text", "text": system, **({"cache_control": {"type": "ephemeral"}} if cache else {})}]
+    body = json.dumps({"model": model, "max_tokens": max_tokens, "system": sys_blocks,
                        "messages": [{"role": "user", "content": user}]}).encode()
     req = urllib.request.Request(API, body, {"x-api-key": key, "anthropic-version": "2023-06-01",
                                              "content-type": "application/json"})
@@ -102,8 +111,22 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
             wait = 2 ** attempt * 3
         time.sleep(wait)
 
-def call(system, user, model, max_tokens=MAX_TOKENS):
-    return request(system, user, model, max_tokens)[0]
+def call(system, user, model, max_tokens=MAX_TOKENS, cache=True):
+    return request(system, user, model, max_tokens, cache)[0]
+
+def cache_line():
+    c = CACHE_STATS
+    total = sum(c.values())
+    return (f"Input tokens: {total:,} ({c['cache_read']:,} read from cache, {c['cache_write']:,} written, "
+            f"{c['uncached']:,} uncached)") if total else ""
+
+def handoffs(skills):
+    """{(skill, eval_id): target} for evals that test handing off to another skill."""
+    return {(k, e["id"]): e["handoff_to"] for k, v in skills.items() for e in v["evals"] if e.get("handoff_to")}
+
+def route_label(skills):
+    """Prompt prefix -> the skill the router should pick. Hand-off evals expect their target skill."""
+    return {e["prompt"][:160]: e.get("handoff_to") or k for k, v in skills.items() for e in v["evals"]}
 
 # ---------- loading ----------
 
@@ -156,6 +179,14 @@ def lint(skills, _):
           f"{total['process']/max(total['assertions'],1):.0%} check process/format, "
           f"{total['no_evals']} skills with no evals")
     print("process% = assertions a baseline fails by construction (they check the skill's own template).")
+    ho = handoffs(skills)
+    bad = [f"{k} #{i} -> {t}" for (k, i), t in ho.items() if t not in skills]
+    untagged = [f"{k} #{e['id']}" for k, v in skills.items() for e in v["evals"]
+                if not e.get("handoff_to") and re.search(r"defer to or cross-reference the [a-z0-9-]+ skill", e.get("expected_output", ""))]
+    print(f"{len(ho)} hand-off evals (scored against their target skill, left out of rubric lift).")
+    for msg, items in [("hand off to an unknown skill", bad), ("say they defer but have no handoff_to", untagged)]:
+        if items:
+            print(f"Problem: {len(items)} evals {msg}: {', '.join(items)}")
 
 # ---------- routing ----------
 
@@ -164,12 +195,14 @@ ROUTER_SYS = ("ROUTER. You pick which skill an AI agent should load for a user r
 
 def route(skills, args):
     catalog = "\n".join(f"- {k}: {v['desc']}" for k, v in skills.items())
-    cases = [(k, e["prompt"]) for k, v in pick(skills, args.skills).items() for e in v["evals"]]
+    # Hand-off evals test that a request goes to another skill, so that skill is the right pick.
+    cases = [(e.get("handoff_to") or k, e["prompt"]) for k, v in pick(skills, args.skills).items() for e in v["evals"]]
     jobs = [(lbl, p, t) for lbl, p in cases for t in range(args.trials)]
+    system = f"{ROUTER_SYS}\n\nSkills:\n{catalog}"  # same for every call, so it is cached
 
     def one(j):
         lbl, p, _ = j
-        reply = call(ROUTER_SYS, f"Skills:\n{catalog}\n\nUser request:\n{p}", args.model, 4000).split()
+        reply = call(system, f"User request:\n{p}", args.model, 4000).split()
         return {"expected": lbl, "got": reply[0].strip("`'\".") if reply else "none", "prompt": p[:160]}
 
     with ThreadPoolExecutor(args.workers) as ex:
@@ -181,6 +214,8 @@ def route(skills, args):
     conf = Counter((r["expected"], r["got"]) for r in res if r["expected"] != r["got"])
     for (e, g), n in conf.most_common(15):
         print(f"  {e:26} -> {g:26} x{n}")
+    if cache_line():
+        print(cache_line())
 
 # ---------- run + grade ----------
 
@@ -224,10 +259,10 @@ def rubric_text(hide=None):
         parts.append(f"<file name=\"{name}.md\">\n{text}\n</file>")
     return "\n\n".join(parts)
 
-def score_rubric(prompt, output, model, hide=None, examples=""):
+def score_rubric(prompt, output, model, hide=None, examples="", cache=True):
     """Returns {dimension: {"score": 0-2 or None, "reason": str}}. `examples` is appended to the system prompt."""
     sys_p = RUBRIC_JUDGE_SYS.replace("{rubrics}", rubric_text(hide)) + examples
-    raw = call(sys_p, f"<prompt>\n{prompt}\n</prompt>\n\n<output>\n{output}\n</output>", model)
+    raw = call(sys_p, f"<prompt>\n{prompt}\n</prompt>\n\n<output>\n{output}\n</output>", model, cache=cache)
     try:
         d = json.loads(re.search(r"\{.*\}", raw, re.S).group(0))
         return {k: {"score": int(d[k]["score"]) if d[k]["score"] in (0, 1, 2) else None,
@@ -243,6 +278,11 @@ def run(skills, args):
         sys.exit(f"No run to resume at {base}")
     jobs = [(name, s, e, cfg, t) for name, s in pick(skills, args.skills).items()
             for e in s["evals"] for cfg in ("with_skill", "baseline") for t in range(args.trials)]
+    if args.no_assertions:  # hand-off evals are left out of rubric lift, so a rubric-only run skips them
+        skipped = sum(1 for j in jobs if j[2].get("handoff_to"))
+        jobs = [j for j in jobs if not j[2].get("handoff_to")]
+        if skipped:
+            print(f"Skipping {skipped} hand-off runs (rubric-only)")
     random.Random(0).shuffle(jobs)  # mix skills and configs so an early budget stop leaves a fair sample
     # Resume: reuse every output already graded in this run folder, and count what it already spent.
     prior = {}
@@ -293,7 +333,7 @@ def run(skills, args):
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
                "stop_reason": stop_reason, "output_chars": len(out), "em_dashes": em_dashes(out), "expectations": grades,
                "pass_rate": sum(g["passed"] for g in grades) / len(grades) if grades else None,
-               "judge": args.judge, "judge_examples": len(human),
+               "judge": args.judge, "judge_examples": len(human), "handoff": bool(e.get("handoff_to")),
                "rubric": score_rubric(e["prompt"], out, args.judge, examples=examples)}
         d = base / name / f"eval-{e['id']}" / cfg
         d.mkdir(parents=True, exist_ok=True)
@@ -316,6 +356,8 @@ def run(skills, args):
     recs = list(prior.values()) + new
     (base / "runs.json").write_text(json.dumps(recs, indent=2))
     print(f"API spend for this run, all attempts: ${SPENT:.2f}")
+    if cache_line():
+        print(cache_line() + " (this attempt)")
     if len(recs) < len(jobs):
         print(f"Warning: only {len(recs)} of {len(jobs)} runs finished. Results are partial. "
               f"Resume with: run --resume {stamp} (same --skills and --trials)")
@@ -334,21 +376,74 @@ def report(skills, args):
         sys.exit("No runs or calibration grades found. Run `run`, or grade calibration outputs first.")
     lines = ["# Measured results", "",
              "Early result: small samples, one judge model, and rubrics still being calibrated. Treat as directional.", ""]
-    lines += run_summary(json.loads(runs[-1].read_text()), runs[-1].parent.name) if runs else []
+    ho = handoffs(skills)
+    lines += CORRECTION
+    loaded = [(p.parent.name, json.loads(p.read_text())) for p in reversed(runs)]  # newest first
+    if len(loaded) > 1:
+        lines += compare_runs(loaded[0], loaded[1], ho)
+    for name, recs in loaded:
+        lines += run_summary(recs, name, ho)
     rp = OUT / "routing.json"
     if rp.exists():
         rr = json.loads(rp.read_text())
-        lines += ["", "## Routing", "", f"Routing accuracy: {sum(r['expected']==r['got'] for r in rr)/len(rr):.1%} "
-                  f"over {len(rr)} prompts, with every skill competing."]
+        label = route_label(skills)
+        exp = [label.get(r["prompt"], r["expected"]) for r in rr]
+        right = sum(e == r["got"] for e, r in zip(exp, rr))
+        as_run = sum(r["expected"] == r["got"] for r in rr)
+        lines += ["", "## Routing", "",
+                  f"Routing accuracy: {right / len(rr):.1%} over {len(rr)} prompts, with every skill competing. "
+                  f"Hand-off evals count as right when the router picks the skill they hand off to "
+                  f"(scored when run: {as_run / len(rr):.1%}). Last route run: "
+                  f"{time.strftime('%Y-%m-%d', time.localtime(rp.stat().st_mtime))}, with the skill descriptions of that date.", ""]
+        conf = Counter((e, r["got"]) for e, r in zip(exp, rr) if e != r["got"])
+        if conf:
+            lines += ["| Expected | Picked | Count |", "|---|---|---|"]
+            lines += [f"| {e} | {g} | {n} |" for (e, g), n in conf.most_common(10)]
     lines += cal + agreement_summary()
     dest = OUT / "RESULTS.md" if MOCK else ROOT / "evals" / "RESULTS.md"  # tracked, unlike results/
     dest.write_text("\n".join(lines) + "\n")
     print(f"Wrote {dest}")
     print("\n".join(lines))
 
-def rubric_summary(recs):
-    """Rubric lift: mean 0-2 score with skill vs baseline, per dimension and per skill."""
-    recs = [r for r in recs if r.get("rubric")]
+CORRECTION = ["## Correction (2026-09-26)", "",
+              "Each skill has hand-off evals that check a request goes to a different skill. Earlier results "
+              "scored them as routing misses when the router picked that other skill, and counted them in rubric "
+              "lift, where the judge marks a hand-off down for not doing the task. Routing accuracy was reported "
+              "as 81.5%. Hand-off evals are now scored against the skill they hand off to and left out of rubric "
+              "lift. Numbers below use the corrected scoring, including for earlier runs.", ""]
+
+def compare_runs(new, old, ho):
+    """Rubric lift per skill for skills in the newest run, before (older run) and after."""
+    def lift(recs):
+        by = defaultdict(lambda: defaultdict(list))
+        for r in recs:
+            if r.get("rubric") and not is_handoff(r, ho):
+                for d in DIMENSIONS:
+                    if r["rubric"][d]["score"] is not None:
+                        by[(r["skill"], d)][r["config"]].append(r["rubric"][d]["score"])
+        return {k: statistics.mean(v["with_skill"]) - statistics.mean(v["baseline"])
+                for k, v in by.items() if v["with_skill"] and v["baseline"]}
+    (nn, nr), (on, orr) = new, old
+    a, b = lift(nr), lift(orr)
+    skills = sorted({r["skill"] for r in nr})
+    lines = [f"## Changed skills: lift before ({on}) and after ({nn})", "",
+             "Lift is the with-skill mean minus the baseline mean, on the 0-2 scale. Before used 3 trials, after used 1.", "",
+             "| Skill | " + " | ".join(d.title() for d in DIMENSIONS) + " |", "|---" * (len(DIMENSIONS) + 1) + "|"]
+    for k in skills:
+        cells = []
+        for d in DIMENSIONS:
+            x, y = b.get((k, d)), a.get((k, d))
+            cells.append(f"{x:+.2f} → {y:+.2f}" if x is not None and y is not None
+                         else f"n/a → {y:+.2f}" if y is not None else "n/a")
+        lines.append(f"| {k} | " + " | ".join(cells) + " |")
+    return lines + [""]
+
+def is_handoff(r, ho):
+    return r.get("handoff", (r["skill"], r["eval_id"]) in ho)
+
+def rubric_summary(recs, ho=None):
+    """Rubric lift: mean 0-2 score with skill vs baseline, per dimension and per skill. Hand-off evals are excluded."""
+    recs = [r for r in recs if r.get("rubric") and not is_handoff(r, ho or {})]
     if not recs:
         return []
     by_dim = defaultdict(lambda: defaultdict(list))
@@ -386,15 +481,17 @@ def em_dash_table(counts, title):
         v = counts.get(c, [])
         if v:
             lines.append(f"| {c} | {len(v)} | {sum(v)} | {statistics.mean(v):.1f} | {sum(n > 0 for n in v)} |")
-    return lines
+    return lines + [""]
 
-def run_summary(recs, name):
+def run_summary(recs, name, ho=None):
     skills = sorted({r["skill"] for r in recs})
+    n_ho = sum(is_handoff(r, ho or {}) for r in recs)
     lines = [f"## Run {name}", "",
              f"{len(recs)} outputs: {len(skills)} skills ({', '.join(skills)}), "
              f"{len({(r['skill'], r['eval_id']) for r in recs})} prompts, with skill and baseline, "
-             f"{len({r['trial'] for r in recs})} trials. Rubric judge: {recs[0].get('judge', '?')}, "
-             f"shown {recs[0].get('judge_examples', 0)} hand-graded examples.", ""] + rubric_summary(recs)
+             f"{len({r['trial'] for r in recs})} trial{'s' if len({r['trial'] for r in recs}) != 1 else ''}. Rubric judge: {recs[0].get('judge', '?')}, "
+             f"shown {recs[0].get('judge_examples', 0)} hand-graded examples."
+             + (f" {n_ho} hand-off outputs are left out of the rubric tables." if n_ho else ""), ""] + rubric_summary(recs, ho)
     dashes = defaultdict(list)
     for r in recs:
         n = r.get("em_dashes")
@@ -613,8 +710,8 @@ def agree(skills, args):
 
     def one(bid):
         prompt, output = split_output(cal / "outputs" / f"{bid}.md")
-        return bid, score_rubric(prompt, output, args.judge, hide=bid,
-                                 examples=graded_examples(cal, human, exclude=bid))
+        return bid, score_rubric(prompt, output, args.judge, hide=bid,  # unique prompt per call: no cache
+                                 examples=graded_examples(cal, human, exclude=bid), cache=False)
 
     print(f"Judging {len(human)} graded outputs on {args.judge}{' (mock)' if MOCK else ''}, "
           "own anchor and grades hidden, other graded outputs as examples")

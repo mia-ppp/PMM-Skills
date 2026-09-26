@@ -80,6 +80,7 @@
       "id": 6,
       "prompt": "Can you help me write cold outreach emails to prospects in our pipeline?",
       "expected_output": "Should recognize this is a cold email / outbound writing task, not RevOps. Should defer to or cross-reference the cold-email skill for writing outbound prospecting emails. RevOps covers the systems, processes, and data infrastructure — not the actual email content.",
+      "handoff_to": "cold-email",
       "assertions": [
         "Recognizes this as cold email writing, not RevOps",
         "References or defers to cold-email skill",
