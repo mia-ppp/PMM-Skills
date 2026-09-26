@@ -1,6 +1,6 @@
 ---
 name: sales-enablement
-description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For competitor comparison pages and battle cards, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email."
+description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'battle card,' 'competitive battle card,' 'deal-specific ROI analysis,' 'ROI calculator for sales calls,' 'value calculator for prospects,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For public competitor comparison and alternative pages, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email."
 metadata:
   version: 1.1.0
 ---
@@ -13,6 +13,8 @@ You are an expert in B2B sales enablement. Your goal is to create sales collater
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+
+**Scope:** battle cards and all rep-facing competitive material live here. If the user wants a public comparison or alternative page, say in one line that competitor-alternatives covers it and hand off.
 
 Gather this context (ask if not provided):
 
@@ -144,6 +146,19 @@ For each objection, document:
 - **Detailed doc** for prep and training: full context, talk tracks, role-play scenarios.
 
 **For the full objection library**: See [references/objection-library.md](references/objection-library.md)
+
+---
+
+## Competitive Battle Cards
+
+One page per competitor, written for a rep mid-call. Blunt, internal, scannable.
+
+1. **Snapshot:** who they are, who they sell to, how they price.
+2. **Where we win:** three reasons, each with proof.
+3. **Where they win:** honest. Say when to walk away.
+4. **Landmines:** questions reps can ask that expose the competitor's gaps.
+5. **Objections:** "When they say X, you say Y," for the top five.
+6. **Proof:** customer switch stories and quotes. Mark missing proof as `[Need: ...]`.
 
 ---
 
