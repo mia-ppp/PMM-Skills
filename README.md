@@ -259,4 +259,4 @@ See CONTRIBUTING.md for guidelines on adding or improving skills.
 
 ## License
 
-MIT. Use these however you want.
+MIT. Free to use, modify, and share, as long as you keep the copyright notice. See [LICENSE](LICENSE).
