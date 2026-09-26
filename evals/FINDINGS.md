@@ -25,7 +25,7 @@ Audit of `mia-ppp/PMM-Skills` as of September 26, 2026. Static analysis only; no
 
 - 36 of 43 skills have `evals/evals.json`. About 6 cases and 38 assertions per skill.
 - **No evals:** `aso-audit`, `community-marketing`, `competitor-profiling`, `directory-submissions`, `image`, `lead-magnets`, `video`.
-- **Zero of 222 cases include input files.** Prompts point at `example.com` URLs the agent cannot read. Outputs will be generic advice, so graders reward plausible structure over real analysis.
+- **Zero of 222 cases include input files.** Only 2 of 222 prompts contain a URL. The rest describe pages, briefs, or research in a sentence or two, so outputs will be generic advice and graders reward plausible structure over real analysis.
 
 **Action:** add a `fixtures/` folder with 5 to 10 real pages, briefs, and transcripts. Point audit-style evals at them.
 
@@ -42,7 +42,7 @@ Classification of the original 1,323 assertions by keyword. Shares were not reco
 | Checks for context file | ~4% | "Checks for product-marketing-context.md" |
 
 - **About 19% check process, not outcome** (`harness.py lint`, all 1,385 assertions). A baseline agent fails these by definition, so they manufacture lift.
-- **Worst offenders:** `product-marketing-context` (41%), `site-architecture` (40%), `pricing-strategy` (32%).
+- **Worst offenders:** `product-marketing-context` (41%), `site-architecture` (40%), `marketing-psychology` (40%), `pricing-strategy` (32%).
 - **Missing entirely:** negative assertions. Nothing checks for invented stats, fake case studies, or generic filler.
 
 **Action:** for each skill, keep one format check and replace the rest with outcome checks. Add two negative assertions per skill ("Does not invent conversion benchmarks").
@@ -74,6 +74,6 @@ Status: items 1 to 3 fixed in `752e3f4`. Item 4 partly fixed.
 
 1. `lint` to confirm baseline coverage. Free.
 2. `route` across all 222 prompts. Fix descriptions for the top confusion pairs.
-3. `run` on 5 core skills with 3 trials each: `copywriting`, `page-cro`, `competitor-alternatives`, `customer-research`, `launch-strategy`.
+3. `run` on 5 core skills with 3 trials each: `positioning-strategy`, `messaging-framework`, `copywriting`, `page-cro`, `competitor-alternatives`.
 4. Cut or rewrite any skill showing under 5 points of lift. Delete assertions the report flags as non-discriminating.
 5. Publish the lift table in the README. Measured lift per skill is the proof point most skill libraries lack.

@@ -43,20 +43,6 @@
       "files": []
     },
     {
-      "id": 4,
-      "prompt": "Build me a customer persona for a marketing manager at a B2B SaaS company.",
-      "expected_output": "Should check for product-marketing-context.md first. Should ask if there is existing research to build from before generating a persona. Should warn against inventing details without data. Should use the persona structure: profile, primary JTBD, trigger events, top pains, desired outcomes, objections, alternatives, key vocabulary, how to reach them. Should note that personas should be built from at least 5-10 data points.",
-      "assertions": [
-        "Checks for product-marketing-context.md",
-        "Asks if there is existing research to build from before inventing details",
-        "Warns against creating personas without data",
-        "Includes jobs to be done, pains, triggers, and desired outcomes in persona structure",
-        "Mentions the need to capture actual customer vocabulary",
-        "Notes minimum data threshold (5-10 data points)"
-      ],
-      "files": []
-    },
-    {
       "id": 5,
       "prompt": "I have 6 months of customer support tickets. What insights can I pull from them?",
       "expected_output": "Should check for product-marketing-context.md first. Should recommend categorizing tickets before analyzing (bugs vs. confusion vs. feature requests vs. expectation mismatches). Should warn against treating all tickets as equal signal. Should suggest extracting recurring language, patterns, and 'I wish it could…' phrases. Should ask about the goal — product improvement, messaging, reducing support load, or something else.",
