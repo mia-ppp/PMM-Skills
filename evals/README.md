@@ -14,7 +14,7 @@ Zero-dependency harness for the skills in `skills/`. Reads each skill's existing
 | `agree` | Does the rubric judge agree with the hand grades? Leave-one-out: each output is judged with its own anchor hidden | One call per graded output |
 
 ```bash
-export ANTHROPIC_API_KEY=sk-...
+export PMM_EVALS_API_KEY=sk-...
 python evals/harness.py lint
 python evals/harness.py route --trials 1
 python evals/harness.py run --skills page-cro,copywriting --trials 3

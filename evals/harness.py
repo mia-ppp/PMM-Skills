@@ -16,7 +16,7 @@ Five commands:
              output with its own anchor hidden and reports agreement with the human grades.
 
 Usage:
-  export ANTHROPIC_API_KEY=sk-...
+  export PMM_EVALS_API_KEY=sk-...
   python evals/harness.py lint
   python evals/harness.py route --trials 1
   python evals/harness.py run --skills page-cro,copywriting --trials 3
@@ -73,9 +73,9 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
             return random.choice(names + ["none"]), "end_turn"
         first = user.strip().splitlines()[0][:80]
         return f"## Quick Wins\nMock output referencing product-marketing-context.md.\n\nRequest: {first}", "end_turn"
-    key = os.environ.get("ANTHROPIC_API_KEY")
+    key = os.environ.get("PMM_EVALS_API_KEY")
     if not key:
-        sys.exit("Set ANTHROPIC_API_KEY or pass --mock")
+        sys.exit("Set PMM_EVALS_API_KEY or pass --mock")
     if BUDGET is not None and SPENT + MAX_CALL * WORKERS > BUDGET:
         raise BudgetExceeded(f"${SPENT:.2f} spent; another call could pass the ${BUDGET:.2f} budget")
     # No temperature: current models reject sampling params. Thinking is adaptive by default,
