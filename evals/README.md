@@ -26,6 +26,14 @@ Add `--mock` to any command to test the pipeline without a key. Mock results go 
 
 The default model for runs, routing, and the judge is `claude-sonnet-5`. Override with `--model` and `--judge`.
 
+Pass `--budget 15` to stop before API spend passes $15. `run` stops early if its projected cost is over budget, and keeps the outputs it finished.
+
+The rubric judge in `run` and `agree` sees the hand-graded calibration outputs, with scores and notes, as examples. In `agree` the output being judged is always left out.
+
+## Measured results
+
+The latest numbers are in [RESULTS.md](RESULTS.md): rubric lift per dimension, em dash counts, and judge agreement with hand grades. They are early results.
+
 ## How to read results
 
 - **Lift** is the number that matters. A skill that scores 80% with no lift is not adding value.
@@ -40,11 +48,11 @@ The default model for runs, routing, and the judge is `claude-sonnet-5`. Overrid
 |---|---|
 | `calibration/outputs/A-01.md` to `A-30.md` | Shuffled blind outputs: prompt and response only |
 | `calibration/grades.csv` | One row per output. Fill in `grounded`, `decisive`, `usable`, `sharp` (0, 1, or 2) and `notes` |
-| `calibration/split.csv` | Which outputs are anchor pool, holdout, or unused. `calibrate` writes A-01 to A-20 as anchor and A-21 to A-30 as holdout; edit it to change the split |
+| `calibration/split.csv` | Which outputs are anchor pool, holdout, or unused. `calibrate` writes A-01 to A-10 as anchor, A-11 to A-20 as holdout, and the rest as unused; edit it to change the split |
 | `results/calibration-key.csv` | Unblinding key: skill, eval id, config, model, stop reason, seed. Gitignored and kept away from the outputs so it stays out of sight while you grade |
 
 Pick rubric anchors only from the anchor pool. Once grades are in, `report` unblinds them and adds mean rubric scores per config. It works without a `run`, counts only rows with all four scores, skips ungraded rows, and stops if a score is anything other than 0, 1, or 2. The command refuses to overwrite a `grades.csv` that has scores in it. Real runs cache each output in `results/cache/`, so an interrupted run resumes without paying twice.
 
 ## Output
 
-Everything lands in `evals/results/` (gitignore it). Each run keeps raw outputs as markdown so you can read what the agent actually wrote, not just the score.
+Everything lands in `evals/results/` (gitignore it), except `report`, which writes the tracked summary to `evals/RESULTS.md`. Each run keeps raw outputs as markdown so you can read what the agent actually wrote, not just the score.

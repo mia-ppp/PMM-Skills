@@ -8,22 +8,22 @@
 - Uses specific, plain language with no AI tells.
 
 ## OK (1)
-- Correct and competent, but predictable.
+- Correct, competent, and applied to this situation, but predictable.
 - Comprehensive rather than insightful.
 
 ## Bad (0)
-- Generic advice any blog post would give.
+- Generic advice that ignores the details given. It would read the same for any company.
 - Uses AI tells (see list below).
 - Makes a confident strategic read that is wrong.
 
 ## AI tells
 - Headlines or lines in the form "Do this, not that" or "X, not Y."
-- Em dashes.
 - Clichés: unlock, seamless, game-changer, leverage, revolutionize, next-generation.
 
 ## Edge cases
 - Sharp and wrong is Bad. Insight only counts if it holds up.
 - One AI tell in an otherwise strong output: OK at best.
+- Messaging that does not say what it emphasizes and what it gives up: OK at best.
 
 ## Anchors
 

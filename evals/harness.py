@@ -26,7 +26,7 @@ Usage:
 Add --mock to any command to exercise the pipeline with fake model calls (no key needed).
 Mock results go to evals/results/mock/ so they never mix with real runs.
 """
-import argparse, csv, json, os, random, re, statistics, sys, time, urllib.error, urllib.request
+import argparse, csv, json, os, random, re, statistics, sys, threading, time, urllib.error, urllib.request
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -40,6 +40,23 @@ DEFAULT_MODEL = "claude-sonnet-5"
 MAX_TOKENS = 16000
 RETRYABLE = {408, 409, 429, 500, 502, 503, 504, 529}
 MOCK = False
+PRICES = {"claude-sonnet-5": (2.00, 10.00), "claude-opus-5": (5.00, 25.00), "claude-haiku-4-5": (1.00, 5.00)}  # $/MTok in, out
+BUDGET = None  # dollars; set by --budget
+SPENT = 0.0
+MAX_CALL = 0.20  # running max cost of one call, used to reserve room for calls already in flight
+WORKERS = 4
+_spend_lock = threading.Lock()
+
+class BudgetExceeded(RuntimeError):
+    pass
+
+def charge(model, usage):
+    global SPENT, MAX_CALL
+    p_in, p_out = PRICES[model]
+    cost = (usage.get("input_tokens", 0) * p_in + usage.get("output_tokens", 0) * p_out) / 1e6
+    with _spend_lock:
+        SPENT += cost
+        MAX_CALL = max(MAX_CALL, cost)
 
 # ---------- model call ----------
 
@@ -59,6 +76,8 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         sys.exit("Set ANTHROPIC_API_KEY or pass --mock")
+    if BUDGET is not None and SPENT + MAX_CALL * WORKERS > BUDGET:
+        raise BudgetExceeded(f"${SPENT:.2f} spent; another call could pass the ${BUDGET:.2f} budget")
     # No temperature: current models reject sampling params. Thinking is adaptive by default,
     # and its tokens count toward max_tokens, so even short calls get a generous cap.
     body = json.dumps({"model": model, "max_tokens": max_tokens, "system": system,
@@ -69,6 +88,8 @@ def request(system, user, model, max_tokens=MAX_TOKENS):
         try:
             with urllib.request.urlopen(req, timeout=600) as r:
                 d = json.load(r)
+            if model in PRICES:
+                charge(model, d.get("usage", {}))
             return "".join(b.get("text", "") for b in d["content"] if b["type"] == "text"), d.get("stop_reason")
         except urllib.error.HTTPError as e:
             detail = e.read().decode("utf-8", "replace")[:500]
@@ -203,9 +224,9 @@ def rubric_text(hide=None):
         parts.append(f"<file name=\"{name}.md\">\n{text}\n</file>")
     return "\n\n".join(parts)
 
-def score_rubric(prompt, output, model, hide=None):
-    """Returns {dimension: {"score": 0-2 or None, "reason": str}}."""
-    sys_p = RUBRIC_JUDGE_SYS.replace("{rubrics}", rubric_text(hide))
+def score_rubric(prompt, output, model, hide=None, examples=""):
+    """Returns {dimension: {"score": 0-2 or None, "reason": str}}. `examples` is appended to the system prompt."""
+    sys_p = RUBRIC_JUDGE_SYS.replace("{rubrics}", rubric_text(hide)) + examples
     raw = call(sys_p, f"<prompt>\n{prompt}\n</prompt>\n\n<output>\n{output}\n</output>", model)
     try:
         d = json.loads(re.search(r"\{.*\}", raw, re.S).group(0))
@@ -218,26 +239,58 @@ def run(skills, args):
     stamp = time.strftime("%Y%m%d-%H%M%S")
     jobs = [(name, s, e, cfg, t) for name, s in pick(skills, args.skills).items()
             for e in s["evals"] for cfg in ("with_skill", "baseline") for t in range(args.trials)]
+    random.Random(0).shuffle(jobs)  # mix skills and configs so an early budget stop leaves a fair sample
     print(f"{len(jobs)} runs queued")
+    human, _ = graded_rows(CALIBRATION / "grades.csv") if has_grades(CALIBRATION / "grades.csv") else ({}, [])
+    examples = graded_examples(CALIBRATION, human, exclude=None) if human else ""
+    print(f"Rubric judge sees {len(human)} hand-graded examples")
+    if BUDGET is not None and not MOCK:
+        for m in {args.model, args.judge}:
+            if m not in PRICES:
+                sys.exit(f"--budget needs a price for {m}; add it to PRICES")
+    done, stop = [0], threading.Event()
 
     def one(j):
+        if stop.is_set():
+            return None
+        try:
+            return attempt(j)
+        except BudgetExceeded as ex:
+            stop.set()
+            print(f"Stopping: {ex}")
+            return None
+
+    def attempt(j):
         name, s, e, cfg, t = j
         t0 = time.time()
         out, stop = request(system_for(s, cfg), e["prompt"], args.model)
         secs = round(time.time() - t0, 1)
         grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge)} for a in e.get("assertions", [])]
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
-               "stop_reason": stop, "output_chars": len(out), "expectations": grades,
+               "stop_reason": stop, "output_chars": len(out), "em_dashes": em_dashes(out), "expectations": grades,
                "pass_rate": sum(g["passed"] for g in grades) / len(grades) if grades else None,
-               "rubric": score_rubric(e["prompt"], out, args.judge)}
+               "judge": args.judge, "judge_examples": len(human),
+               "rubric": score_rubric(e["prompt"], out, args.judge, examples=examples)}
         d = OUT / stamp / name / f"eval-{e['id']}" / cfg
         d.mkdir(parents=True, exist_ok=True)
         (d / f"trial-{t}.md").write_text(out)
         (d / f"grading-{t}.json").write_text(json.dumps(rec, indent=2))
+        with _spend_lock:
+            done[0] += 1
+            n = done[0]
+        if BUDGET is not None and n >= 10 and SPENT / n * len(jobs) > BUDGET and not stop.is_set():
+            stop.set()
+            print(f"Stopping: projected ${SPENT / n * len(jobs):.2f} for {len(jobs)} runs is over the ${BUDGET:.2f} budget "
+                  f"(${SPENT:.2f} spent on {n})")
+        elif n % 20 == 0:
+            print(f"{n}/{len(jobs)} done, ${SPENT:.2f} spent")
         return rec
 
     with ThreadPoolExecutor(args.workers) as ex:
-        recs = list(ex.map(one, jobs))
+        recs = [r for r in ex.map(one, jobs) if r is not None]
+    if len(recs) < len(jobs):
+        print(f"Warning: only {len(recs)} of {len(jobs)} runs finished. Results are partial.")
+    print(f"API spend this run: ${SPENT:.2f}")
     (OUT / stamp / "runs.json").write_text(json.dumps(recs, indent=2))
     cut = [f"{r['skill']} #{r['eval_id']} {r['config']}" for r in recs if r["stop_reason"] != "end_turn"]
     if cut:
@@ -250,15 +303,19 @@ def report(skills, args):
     runs = sorted(OUT.glob("*/runs.json"))
     kp = OUT / "calibration-key.csv"
     cal = calibration_summary(kp, Path(args.out) if args.out else CALIBRATION) if kp.exists() else []
-    if not runs and not cal:
+    if not runs and not cal and not (OUT / "agreement.json").exists():
         sys.exit("No runs or calibration grades found. Run `run`, or grade calibration outputs first.")
-    lines = run_summary(json.loads(runs[-1].read_text()), runs[-1].parent.name) if runs else ["# Eval report", ""]
+    lines = ["# Measured results", "",
+             "Early result: small samples, one judge model, and rubrics still being calibrated. Treat as directional.", ""]
+    lines += run_summary(json.loads(runs[-1].read_text()), runs[-1].parent.name) if runs else []
     rp = OUT / "routing.json"
     if rp.exists():
         rr = json.loads(rp.read_text())
         lines.append(f"Routing accuracy: {sum(r['expected']==r['got'] for r in rr)/len(rr):.1%}")
-    lines += cal
-    (OUT / "REPORT.md").write_text("\n".join(lines) + "\n")
+    lines += cal + agreement_summary()
+    dest = OUT / "RESULTS.md" if MOCK else ROOT / "evals" / "RESULTS.md"  # tracked, unlike results/
+    dest.write_text("\n".join(lines) + "\n")
+    print(f"Wrote {dest}")
     print("\n".join(lines))
 
 def rubric_summary(recs):
@@ -289,8 +346,36 @@ def rubric_summary(recs):
         lines.append(f"\n{unscored} rubric scores could not be parsed and are excluded.")
     return lines + [""]
 
+EM_DASH = "\u2014"
+
+def em_dashes(text):
+    return text.count(EM_DASH)
+
+def em_dash_table(counts, title):
+    """Hard check, separate from the rubric: em dashes per output, by config. `counts` is {config: [n, ...]}."""
+    lines = ["", f"## {title}", "", "| Config | Outputs | Total | Mean per output | Outputs with any |", "|---|---|---|---|---|"]
+    for c in ("with_skill", "baseline"):
+        v = counts.get(c, [])
+        if v:
+            lines.append(f"| {c} | {len(v)} | {sum(v)} | {statistics.mean(v):.1f} | {sum(n > 0 for n in v)} |")
+    return lines
+
 def run_summary(recs, name):
-    lines = [f"# Eval report ({name})", ""] + rubric_summary(recs)
+    skills = sorted({r["skill"] for r in recs})
+    lines = [f"## Run {name}", "",
+             f"{len(recs)} outputs: {len(skills)} skills ({', '.join(skills)}), "
+             f"{len({(r['skill'], r['eval_id']) for r in recs})} prompts, with skill and baseline, "
+             f"{len({r['trial'] for r in recs})} trials. Rubric judge: {recs[0].get('judge', '?')}, "
+             f"shown {recs[0].get('judge_examples', 0)} hand-graded examples.", ""] + rubric_summary(recs)
+    dashes = defaultdict(list)
+    for r in recs:
+        n = r.get("em_dashes")
+        if n is None:  # runs from before the em-dash check: count from the saved output
+            f = OUT / name / r["skill"] / f"eval-{r['eval_id']}" / r["config"] / f"trial-{r['trial']}.md"
+            n = em_dashes(f.read_text()) if f.exists() else None
+        if n is not None:
+            dashes[r["config"]].append(n)
+    lines += em_dash_table(dashes, "Em dashes (hard check, not part of the rubric)")
     recs = [r for r in recs if r["pass_rate"] is not None]
     if not recs:
         return lines
@@ -318,7 +403,8 @@ def run_summary(recs, name):
 # ---------- calibrate ----------
 
 CALIBRATION_SKILLS = "positioning-strategy,messaging-framework,copywriting,page-cro,competitor-alternatives"
-ANCHOR_POOL = 20
+ANCHOR_POOL = 10  # A-01 to A-10: rubric anchors come only from here
+HOLDOUT = 10      # A-11 to A-20: never anchors; the rest are unused
 DIMENSIONS = ["grounded", "decisive", "usable", "sharp"]
 
 def has_grades(path):
@@ -382,7 +468,7 @@ def calibrate(skills, args):
         (outputs / f"{bid}.md").write_text(
             f"# {bid}\n\n## Prompt\n\n{j['prompt'].strip()}\n\n## Output\n\n{j['text'].strip()}\n")
         key.append([bid, j["skill"], j["eval_id"], j["config"], args.model, j["stop_reason"], seed])
-        split.append([bid, "anchor" if i <= ANCHOR_POOL else "holdout"])
+        split.append([bid, "anchor" if i <= ANCHOR_POOL else "holdout" if i <= ANCHOR_POOL + HOLDOUT else "unused"])
 
     OUT.mkdir(parents=True, exist_ok=True)
     write_csv(key_path, ["id", "skill", "eval_id", "config", "model", "stop_reason", "seed"], key)
@@ -437,27 +523,69 @@ def calibration_summary(key_path, cal_dir):
         lines.append(f"| {c} | " + " | ".join(cells) + " |")
     if skipped:
         lines.append(f"\nSkipped partly graded rows (need all four scores): {', '.join(skipped)}")
+    dashes = defaultdict(list)
+    for k, c in sorted(cfg.items()):
+        f = cal_dir / "outputs" / f"{k}.md"
+        if f.exists():
+            dashes[c].append(em_dashes(split_output(f)[1]))
+    return lines + em_dash_table(dashes, f"Em dashes in calibration outputs (hard check, not part of the rubric)")
+
+def agreement_summary():
+    """Judge agreement from the last `agree`, reported as leave-one-out on the hand-graded outputs."""
+    p = OUT / "agreement.json"
+    if not p.exists():
+        return []
+    a = json.loads(p.read_text())
+    n = len(a["human"])
+    lines = ["", f"## Judge agreement: leave-one-out on {n} hand-graded outputs", "",
+             f"Judge: {a['judge']}. Each output was scored with its own grades and anchors hidden.", "",
+             "| Dimension | Exact | Within one |", "|---|---|---|"]
+    for d in DIMENSIONS:
+        st = a["stats"][d]
+        lines.append(f"| {d.title()} | {st['exact']:.0%} | {st['within_one']:.0%} |")
     return lines
 
 # ---------- judge agreement ----------
 
 AGREEMENT_BAR = 0.70
 
+def split_output(path):
+    """(prompt, output) from a blind calibration output file."""
+    head, _, output = path.read_text().partition("\n## Output\n")
+    return head.partition("\n## Prompt\n")[2].strip(), output.strip()
+
+def graded_examples(cal, human, exclude):
+    """Every fully graded output except `exclude`, with its hand scores and notes, as judge examples."""
+    with (cal / "grades.csv").open(newline="") as f:
+        notes = {r["id"]: (r.get("notes") or "").strip() for r in csv.DictReader(f)}
+    parts = []
+    for k in sorted(human):
+        if exclude and k == exclude:
+            continue
+        prompt, output = split_output(cal / "outputs" / f"{k}.md")
+        scores = ", ".join(f"{d} {human[k][d]}" for d in DIMENSIONS)
+        note = notes.get(k, "").replace(exclude, "another output") if exclude else notes.get(k, "")  # e.g. "same problem as A-04" leaks A-04's grades
+        parts.append(f"<example id=\"{k}\">\n<prompt>\n{prompt}\n</prompt>\n\n<output>\n{output}\n</output>\n\n"
+                     f"<human_grades>{scores}</human_grades>\n<human_notes>{note}</human_notes>\n</example>")
+    return ("\n\n<graded_examples>\nOutputs a human grader scored against these rubrics, with their notes. "
+            "Match this grader's standard.\n\n" + "\n\n".join(parts) + "\n</graded_examples>")
+
 def agree(skills, args):
     """Leave-one-out check: the rubric judge scores each hand-graded calibration output with that
-    output's own anchor rows hidden, then compares with the human grades."""
+    output's own anchor rows hidden and the other graded outputs (scores and notes) as examples,
+    then compares with the human grades."""
     cal = Path(args.out) if args.out else CALIBRATION
     human, _ = graded_rows(cal / "grades.csv")
     if not human:
         sys.exit(f"No fully graded rows in {cal / 'grades.csv'}.")
 
     def one(bid):
-        text = (cal / "outputs" / f"{bid}.md").read_text()
-        head, _, output = text.partition("\n## Output\n")
-        prompt = head.partition("\n## Prompt\n")[2]
-        return bid, score_rubric(prompt.strip(), output.strip(), args.judge, hide=bid)
+        prompt, output = split_output(cal / "outputs" / f"{bid}.md")
+        return bid, score_rubric(prompt, output, args.judge, hide=bid,
+                                 examples=graded_examples(cal, human, exclude=bid))
 
-    print(f"Judging {len(human)} graded outputs on {args.judge}{' (mock)' if MOCK else ''}, own anchor hidden")
+    print(f"Judging {len(human)} graded outputs on {args.judge}{' (mock)' if MOCK else ''}, "
+          "own anchor and grades hidden, other graded outputs as examples")
     with ThreadPoolExecutor(args.workers) as ex:
         judged = dict(ex.map(one, sorted(human)))
 
@@ -497,6 +625,7 @@ if __name__ == "__main__":
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--judge", default=DEFAULT_MODEL)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--budget", type=float, help="stop API calls before spend passes this many dollars")
     ap.add_argument("--mock", action="store_true")
     ap.add_argument("--per-skill", type=int, default=3, help="calibrate: prompts per skill")
     ap.add_argument("--seed", type=int, help="calibrate: shuffle seed (random if omitted, saved in the key)")
@@ -505,6 +634,7 @@ if __name__ == "__main__":
     ap.add_argument("--no-assertions", action="store_true", help="run: skip per-assertion grading, keep rubric scores")
     a = ap.parse_args()
     MOCK = a.mock
+    BUDGET, WORKERS = a.budget, a.workers
     if MOCK:
         OUT = OUT / "mock"
     {"lint": lint, "route": route, "run": run, "report": report, "calibrate": calibrate, "agree": agree}[a.cmd](load_skills(), a)

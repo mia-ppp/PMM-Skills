@@ -5,12 +5,13 @@
 ## Great (2)
 - Uses specific details from the prompt or input files.
 - States every assumption explicitly, as a list or inline.
-- Ends with the questions whose answers would change the recommendation.
+- When information is missing, ends with the questions whose answers would change the recommendation.
 
 ## OK (1)
 - Uses the context, but some advice would fit any company.
 - Makes a key assumption without flagging it, but the rest is grounded.
 - Builds a recommendation on a guess that is plausible but unstated.
+- Key information is missing, and it answers without asking the clarifying questions it needed.
 
 ## Bad (0)
 - Invents stats, pricing tiers, customers, quotes, or case studies and presents them as fact.
@@ -19,7 +20,9 @@
 
 ## Edge cases
 - Answering before asking is fine if assumptions are stated. See the provisional rule.
-- Clearly marked placeholders ("[customer name]", "[X]% lift"): fine.
+- Clearly marked placeholders ("[customer name]", "[X]% lift"): fine. Example stats in draft copy count as placeholders only if bracketed or labeled as examples. Otherwise they are invented.
+- Common benchmarks framed as rough norms ("typically 3-5%"): fine. Precise unsourced stats presented as fact: not fine.
+- Closing questions are required only when information is missing.
 - If there is no product marketing context and the output is full of specifics, ask where they came from. Unexplained specifics are Bad.
 
 ## Anchors

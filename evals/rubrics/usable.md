@@ -16,11 +16,13 @@
 ## Bad (0)
 - Gives advice about the task instead of doing the task.
 - Wrong format for the content, such as segment packaging split across sections instead of a table.
-- Core deliverable is off, even if parts are useful.
+- Core deliverable is off, even if parts are useful. Good format does not save it.
 
 ## Edge cases
 - Strategy tasks: "usable" means a clear recommendation with sequenced next steps.
 - Comprehensive coverage (every channel, every persona) helps Usable only if the core deliverable is right.
+- Two or three clarifying questions before the deliverable are not preamble, if the deliverable follows in the same reply. Ending with questions does not lower Usable.
+- Clearly marked placeholders and short annotations do not count against Usable.
 
 ## Anchors
 
