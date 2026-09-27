@@ -6,7 +6,7 @@ Reference examples curated by Mia. Skills that write positioning, messaging, or 
 
 **Formula:** Positioning = product differentiation (is a) + customer segmentation (for).
 
-Write it as: "[Product] is a [differentiated product description] for [segment]."
+Write it as one sentence of 25 words or fewer: "[Product] is a [category + one short differentiating phrase] for [segment]."
 
 | Product | Is a (product differentiation) | For (customer segmentation) |
 |---|---|---|
@@ -16,10 +16,21 @@ Write it as: "[Product] is a [differentiated product description] for [segment].
 | Product Hunt | curated platform showcasing new tech products daily | entrepreneurs, tech enthusiasts, and early adopters |
 
 Rules:
-- The "is a" slot names the category plus what makes this product different, in capability terms.
+- The statement is one sentence, 25 words or fewer.
+- The "is a" slot is the category plus one short differentiating phrase, a single concrete phrase such as "network-matched" or "built into payments." Never a list of capabilities or checkpoints.
+- All capabilities, checkpoints, and mechanisms go in the capability table, not the statement.
 - The "for" slot is a specific segment, never "everyone" or "businesses."
 - Positioning is internal strategy. It is plain and precise, not clever.
 - Under the statement, show a derivation trace: which research finding or buyer quote supports each slot, and which slots are assumptions.
+
+Bad to good:
+
+| | Statement |
+|---|---|
+| Bad (34 words, lists four checkpoints) | Ledgerline is a treasury platform that tracks multi-chain stablecoin balances in real time, reconciles every transfer against the general ledger, screens wallets before payouts, and generates audit-ready reports for finance teams at crypto-native companies. |
+| Good (12 words) | Ledgerline is a stablecoin-native treasury tool for finance teams at crypto companies. |
+
+The four checkpoints are not lost. They become rows in the capability table: real-time multi-chain balances, ledger-matched transfers, pre-payout wallet screening, and audit-ready reports.
 
 ## 2. Capabilities: the bridge between features and benefits
 

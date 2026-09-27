@@ -48,7 +48,9 @@ Never invent win rates, customer names, market sizes, or quotes. Use placeholder
 
 **Every claim needs a "because."** Each value statement must trace back to a capability and a buyer insight. If you cannot finish the sentence "Buyers care about this because...", cut the claim.
 
-**Capabilities, not assets.** The differentiation in the "is a" slot names what the customer can now do, as a concrete capability. Never what the company has, and never abstract nouns like visibility, insights, or platform. See section 2 of `../_shared/messaging-examples.md`.
+**Capabilities, not assets.** The differentiating phrase names what the customer can now do, as one concrete phrase such as "network-matched" or "built into payments." Never what the company has, and never abstract nouns like visibility, insights, or platform. See section 2 of `../_shared/messaging-examples.md`.
+
+**Crisp statement, detailed table.** The statement is one sentence of 25 words or fewer, with one differentiating phrase. Every other capability, checkpoint, or mechanism goes in the capability table under it. Detail is moved, never deleted.
 
 **Positioning is not copy.** The statement is for the team, not the homepage. Do not polish it into a tagline or add a hero line. If the user asks for a headline, write the statement, then hand the hero line to messaging-framework.
 
@@ -72,7 +74,10 @@ Recommend claim, subcategory, or create. Explain which frame makes the unique va
 ### 6. State the trade-offs
 Say what this positioning gives up: segments de-prioritized, messages dropped, deals you will now lose. Positioning without trade-offs is a wish list.
 
-### 7. Stress-test it
+### 7. Tighten the statement
+Count the words and the capabilities in your draft. If it runs past 25 words, or names more than one capability, move each extra capability to the capability table, pick the single phrase that best sets the product apart, and rewrite. Repeat until it passes.
+
+### 8. Stress-test it
 Run each test and report the result honestly:
 - **Swap test:** could a named competitor say this truthfully? If yes, it is not differentiated.
 - **Proof test:** is every claim backed by something you have or can get this quarter?
@@ -85,18 +90,23 @@ Lead with the statement. Use this structure:
 
 ```
 ## Positioning statement (internal strategy, not copy)
-[Product] is a [differentiated product description] for [segment].
+[Product] is a [category + one short differentiating phrase] for [segment].
+(One sentence, 25 words or fewer, one capability.)
 
 ## Derivation trace
 | Slot | Filled with | Source | Evidence or assumption |
 |---|---|---|---|
 | Category | [claim / subcategory / create, and why] | [research finding or quote] | Evidence / Assumption |
-| Differentiation | [the capability that sets it apart] | | |
+| Differentiating phrase | [one concrete phrase] | | |
 | Segment | [a specific segment, never "everyone" or "businesses"] | | |
 
 Competitive alternatives: [what is on the shortlist]
 Contextual alternative: [what the product truly replaces]
-Proof: Have: ... / Need: ...
+
+## Capabilities
+| Capability | What it does for the buyer | Proof | Buyer voice |
+|---|---|---|---|
+| [every capability, checkpoint, or mechanism not in the statement] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] |
 
 ## Trade-offs we are making
 ## Stress-test results
@@ -104,7 +114,7 @@ Proof: Have: ... / Need: ...
 [At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
 
-Fill every slot in the trace. Cite the finding or quote that supports it, or mark it `Assumption`. Write one statement only, not options. If the user asked for a rework, show the old statement and the new one side by side and say what changed and why.
+Fill every slot in the trace. Cite the finding or quote that supports it, or mark it `Assumption`. Write one statement only, not options. Every capability you considered appears either as the differentiating phrase or as a row in the capability table. If the user asked for a rework, show the old statement and the new one side by side and say what changed and why.
 
 ## Common Failure Modes
 
@@ -115,7 +125,8 @@ Fill every slot in the trace. Cite the finding or quote that supports it, or mar
 - Adding a hero line or a second catchy sentence under the statement. Hand that to messaging-framework.
 - Capabilities phrased as assets ("the data we already have") or abstract nouns ("visibility", "insights").
 - Listing four frameworks instead of producing one position.
-- A statement that breaks the "[Product] is a [differentiated product description] for [segment]" structure.
+- A statement that breaks the "[Product] is a [category + one short differentiating phrase] for [segment]" structure, runs past 25 words, or lists capabilities.
+- Dropping a capability when tightening the statement instead of moving it to the capability table.
 - Trace slots with no source and no `Assumption` label.
 - Choosing a wedge only because a competitor is weak there.
 
@@ -129,7 +140,7 @@ Offer to record the result in `.agents/product-marketing-context.md` so other sk
 
 ## Related Skills
 
-- **messaging-framework**: Turn this positioning into hero lines, a capability table, and persona messaging
+- **messaging-framework**: Carry the capability table forward and turn this positioning into hero lines and persona messaging
 - **buyer-personas**: Define and validate the best-fit customer in depth
 - **competitor-profiling**: Research alternatives before positioning
 - **customer-research**: Gather the evidence this skill depends on

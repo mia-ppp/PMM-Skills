@@ -12,23 +12,29 @@
         "States at least one trade-off the positioning gives up",
         "Does not invent win rates, customer names, or market size figures",
         "Runs a swap test against Vanta or Drata and reports the result",
-        "Leads with one internal positioning statement in the form '[Product] is a [differentiated product description] for [segment]'",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot"
+        "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
+        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "The positioning statement is one sentence of 25 words or fewer",
+        "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
+        "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
       ],
       "files": []
     },
     {
       "id": 2,
       "prompt": "Help me position a new stablecoin payouts API for marketplaces paying international sellers. Competitors are Stripe Connect, Payoneer, and Wise Business. Our edge is same-day settlement in 40+ countries with no FX markup.",
-      "expected_output": "Should decide whether to claim an existing category or a subcategory, and justify it. Should write one internal statement in the form '[Product] is a [differentiated product description] for [segment]' with concrete capabilities, and trace each slot to evidence or an assumption. Should flag which claims need proof.",
+      "expected_output": "Should decide whether to claim an existing category or a subcategory, and justify it. Should write one internal statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]' of 25 words or fewer with concrete capabilities, and trace each slot to evidence or an assumption. Should flag which claims need proof.",
       "assertions": [
         "Recommends claim, subcategory, or create with a reason",
         "Links each value claim to a capability and a buyer reason",
         "Marks proof as have or need rather than asserting unverified numbers",
         "Identifies which claims Stripe Connect or Wise could also make",
-        "Leads with one internal positioning statement in the form '[Product] is a [differentiated product description] for [segment]'",
-        "Phrases the differentiation as a concrete capability, not abstract nouns (visibility, insights, platform) or company assets",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot"
+        "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
+        "Phrases the differentiating phrase as one concrete capability, not abstract nouns (visibility, insights, platform) or company assets",
+        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "The positioning statement is one sentence of 25 words or fewer",
+        "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
+        "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
       ],
       "files": []
     },
@@ -41,8 +47,11 @@
         "Shows the old statement and the new one side by side",
         "Narrows the target customer compared to 'modern teams'",
         "Explains what changed and why",
-        "Phrases the differentiation as a concrete capability, not abstract nouns (visibility, insights, platform) or company assets",
-        "Names a specific segment instead of 'modern teams', 'everyone', or 'businesses'"
+        "Phrases the differentiating phrase as one concrete capability, not abstract nouns (visibility, insights, platform) or company assets",
+        "Names a specific segment instead of 'modern teams', 'everyone', or 'businesses'",
+        "The positioning statement is one sentence of 25 words or fewer",
+        "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
+        "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
       ],
       "files": []
     },
@@ -56,7 +65,10 @@
         "Marks the slots it had to guess as Assumption in the derivation trace",
         "Names the specific facts that would most change the answer",
         "Does not present invented product details as known facts",
-        "Ends with an assumptions and open questions block of at most 5 bullets"
+        "Ends with an assumptions and open questions block of at most 5 bullets",
+        "The positioning statement is one sentence of 25 words or fewer",
+        "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
+        "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
       ],
       "files": []
     },
@@ -77,11 +89,14 @@
       "prompt": "Give me a punchy positioning line for our homepage hero. We make an invoicing tool for freelance designers that auto-drafts invoices from time logs and chases late payments.",
       "expected_output": "Positioning vs hero line split. Should write one internal positioning statement in the required form, labeled as strategy rather than copy, with a derivation trace. Should not write a homepage hero line itself, and should hand hero lines to messaging-framework.",
       "assertions": [
-        "Leads with one internal positioning statement in the form '[Product] is a [differentiated product description] for [segment]'",
+        "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
         "Labels the statement as internal strategy, not copy, and adds no tagline or hero line",
         "Says hero lines are messaging-framework's job and points there",
         "Uses concrete capabilities such as auto-drafting invoices or automatic payment reminders",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot"
+        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "The positioning statement is one sentence of 25 words or fewer",
+        "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
+        "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
       ],
       "files": []
     },
@@ -91,10 +106,13 @@
       "expected_output": "Positioning vs hero line split. Should diagnose that this is a hero line or tagline, not a positioning statement, then rewrite it as an internal statement in the required form, with a derivation trace that marks 'half the time' as a claim needing proof.",
       "assertions": [
         "Identifies the line as a tagline or hero line rather than a positioning statement",
-        "Leads with one internal positioning statement in the form '[Product] is a [differentiated product description] for [segment]'",
+        "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
         "Names spreadsheets and manual reminders as the alternative the differentiation is drawn against",
         "Flags 'half the time' as a claim that needs proof",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot"
+        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "The positioning statement is one sentence of 25 words or fewer",
+        "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
+        "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
       ],
       "files": []
     }

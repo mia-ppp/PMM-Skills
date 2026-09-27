@@ -52,7 +52,7 @@ Open with the capability table. Do not restate the brief.
 Restate the position, best-fit customer, and top two alternatives in three lines. Flag anything you had to assume.
 
 ### 2. Build the capability table
-One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
+One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Start from the positioning: its differentiating phrase and every row of its capability table each become a row here. If the statement you were given lists several capabilities, give each its own row. None may be dropped. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
 
 ### 3. Write the hero line
 1. **Write for the loosely familiar visitor.**
@@ -129,6 +129,7 @@ For launch messaging, add a short block covering target, market, segment, catego
 - Leaving the frame implicit instead of choosing against or for.
 - Capabilities phrased as abstract nouns (visibility, insights, intelligence, protection, platform) or as assets the company holds.
 - Capabilities any competitor could claim.
+- Dropping a capability that the positioning statement or its capability table named.
 - One message for every persona with no change in emphasis.
 - Proof or buyer voice cells full of vague claims like "customers love it" instead of a marked gap.
 - Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written. The one exception is in the shared reference's style notes: a deliberate parallel against-frame, at most once per page.

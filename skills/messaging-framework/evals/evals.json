@@ -7,6 +7,7 @@
       "expected_output": "Should build the capability table first with gaps marked and assumptions under it, then write the hero line for the loosely familiar visitor: walk the decision tree with evidence, choose against or for, write 3 to 5 hero lines with subheads, and recommend one with its source. Then persona translations and three boilerplate lengths.",
       "assertions": [
         "Includes a capability table with the columns Capability, What it does for the buyer, Proof, and Buyer voice, with missing proof or quotes marked as gaps inside the table",
+        "Every capability named in the positioning statement appears as a row in the capability table (real-time multi-chain balances and audit-ready reports)",
         "Places an Assumptions block directly under the capability table",
         "Puts the capability table before the hero line",
         "Walks the decision tree (category maturity, then the branch questions) and states each answer with its evidence in one line",
@@ -64,7 +65,7 @@
       "expected_output": "Positioning vs hero line split. Should explain that the statement is internal strategy and not a headline, carry its capabilities into the capability table, then walk the decision tree with evidence, choose a frame, write 3 to 5 hero lines, and recommend one.",
       "assertions": [
         "Explains that the positioning statement is internal strategy and should not be pasted in as the headline",
-        "Carries the statement's capabilities, such as auto-matching payouts or line-item mismatch flags, into the capability table",
+        "Every capability named in the positioning statement appears as a row in the capability table (auto-matching payouts to orders and line-item mismatch flags)",
         "Walks the decision tree (category maturity, then the branch questions) and states each answer with its evidence in one line",
         "Chooses a frame, against a named alternative or for a job, and says why",
         "Considers spreadsheets as the against-frame alternative, or explains why a for-frame fits better",
