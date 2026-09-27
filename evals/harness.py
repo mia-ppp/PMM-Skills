@@ -184,6 +184,11 @@ def lint(skills, _):
     untagged = [f"{k} #{e['id']}" for k, v in skills.items() for e in v["evals"]
                 if not e.get("handoff_to") and re.search(r"defer to or cross-reference the [a-z0-9-]+ skill", e.get("expected_output", ""))]
     print(f"{len(ho)} hand-off evals (scored against their target skill, left out of rubric lift).")
+    missing = [f"{k} -> {f.name}" for k, v in skills.items() for f in shared_files(v["body"]) if not f.exists()]
+    loaders = sorted(k for k, v in skills.items() if shared_files(v["body"]))
+    print(f"{len(loaders)} skills load shared files: {', '.join(loaders) or 'none'}.")
+    if missing:
+        print(f"Problem: {len(missing)} shared files are referenced but missing: {', '.join(missing)}")
     for msg, items in [("hand off to an unknown skill", bad), ("say they defer but have no handoff_to", untagged)]:
         if items:
             print(f"Problem: {len(items)} evals {msg}: {', '.join(items)}")
@@ -223,9 +228,22 @@ JUDGE_SYS = ("JUDGE. You grade one assertion against an AI agent's output. Be st
              "pass only if the output clearly satisfies it. Reply with JSON only: "
              '{"passed": true|false, "evidence": "<short quote or reason>"}')
 
+def shared_files(body):
+    """Shared reference files a skill loads, e.g. `../_shared/messaging-examples.md`, in order of first mention."""
+    seen = []
+    for name in re.findall(r"_shared/([A-Za-z0-9_.-]+\.md)", body):
+        if name not in seen:
+            seen.append(name)
+    return [SKILLS / "_shared" / n for n in seen]
+
 def with_skill_system(s):
-    return ("You are a marketing agent. Follow this skill file exactly.\n\n<skill>\n"
-            + s["body"] + "\n</skill>")
+    shared = ""
+    for f in shared_files(s["body"]):
+        if not f.exists():
+            sys.exit(f"Skill references missing shared file: {f}")
+        shared += f'\n\n<shared_file path="../_shared/{f.name}">\n{f.read_text()}\n</shared_file>'
+    return ("You are a marketing agent. Follow this skill file exactly. Shared files it tells you to read "
+            "are included below it.\n\n<skill>\n" + s["body"] + "\n</skill>" + shared)
 
 BASELINE_SYS = "You are a marketing agent. Help the user with their request."
 
