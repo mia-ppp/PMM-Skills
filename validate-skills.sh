@@ -28,6 +28,8 @@ echo ""
 
 for skill_dir in "$SKILLS_DIR"/*/; do
     skill_name=$(basename "$skill_dir")
+    # Folders starting with _ hold shared resources (e.g. _shared/), not skills
+    [[ "$skill_name" == _* ]] && continue
     skill_file="$skill_dir/SKILL.md"
     skill_errors=()
     skill_warnings=()

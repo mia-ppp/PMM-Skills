@@ -11,20 +11,24 @@
         "Recommends one best-fit customer rather than a broad audience",
         "States at least one trade-off the positioning gives up",
         "Does not invent win rates, customer names, or market size figures",
-        "Runs a swap test against Vanta or Drata and reports the result"
+        "Runs a swap test against Vanta or Drata and reports the result",
+        "Leads with one internal positioning statement in the structure 'For [target] who [need], [product] is a [category] that [benefit]. Unlike [primary alternative], [product] [differentiator].'",
+        "Includes a derivation trace that gives a source or an Assumption label for every slot"
       ],
       "files": []
     },
     {
       "id": 2,
       "prompt": "Help me position a new stablecoin payouts API for marketplaces paying international sellers. Competitors are Stripe Connect, Payoneer, and Wise Business. Our edge is same-day settlement in 40+ countries with no FX markup.",
-      "expected_output": "Should decide whether to claim an existing category or a subcategory, and justify it. Value should trace to capability with a because. Should flag which claims need proof.",
+      "expected_output": "Should decide whether to claim an existing category or a subcategory, and justify it. Should write one internal statement in the For / who / is a / that / Unlike structure with concrete capabilities, and trace each slot to evidence or an assumption. Should flag which claims need proof.",
       "assertions": [
         "Recommends claim, subcategory, or create with a reason",
         "Links each value claim to a capability and a buyer reason",
         "Marks proof as have or need rather than asserting unverified numbers",
         "Identifies which claims Stripe Connect or Wise could also make",
-        "Output leads with a recommended positioning statement"
+        "Leads with one internal positioning statement in the structure 'For [target] who [need], [product] is a [category] that [benefit]. Unlike [primary alternative], [product] [differentiator].'",
+        "Phrases the benefit and differentiator as concrete 2 to 4 word capabilities, not abstract nouns (visibility, insights, platform) or company assets",
+        "Includes a derivation trace that gives a source or an Assumption label for every slot"
       ],
       "files": []
     },
@@ -34,21 +38,24 @@
       "expected_output": "Should diagnose that the current line fails the swap test. Should show before and after and explain what changed.",
       "assertions": [
         "States that the current positioning could be claimed by Notion or Linear",
-        "Shows before and after positioning side by side",
+        "Shows the old statement and the new one side by side",
         "Narrows the target customer compared to 'modern teams'",
-        "Explains what changed and why"
+        "Explains what changed and why",
+        "Phrases the benefit and differentiator as concrete 2 to 4 word capabilities, not abstract nouns (visibility, insights, platform) or company assets"
       ],
       "files": []
     },
     {
       "id": 4,
       "prompt": "Position my startup. We do AI for sales.",
-      "expected_output": "Missing-context case. Should state assumptions, give a provisional positioning marked as provisional, and name the facts that would change it. Should not invent specifics as if known.",
+      "expected_output": "Missing-context case. Should give one provisional statement in the required structure, mark the unknown slots as assumptions in the derivation trace, and name the facts that would change it. Should not invent specifics as if known.",
       "assertions": [
         "States its assumptions explicitly",
         "Labels the positioning as provisional",
+        "Marks the slots it had to guess as Assumption in the derivation trace",
         "Names the specific facts that would most change the answer",
-        "Does not present invented product details as known facts"
+        "Does not present invented product details as known facts",
+        "Ends with an assumptions and open questions block of at most 5 bullets"
       ],
       "files": []
     },
@@ -61,6 +68,32 @@
         "Explains the cost or evidence bar for category creation",
         "Names the incumbents the buyer would compare against under each frame",
         "Does not recommend creation merely because it sounds differentiated"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Give me a punchy positioning line for our homepage hero. We make an invoicing tool for freelance designers that auto-drafts invoices from time logs and chases late payments.",
+      "expected_output": "Positioning vs hero line split. Should write one internal positioning statement in the required structure, labeled as strategy rather than copy, with a derivation trace. Should not write a homepage hero line itself, and should hand hero lines to messaging-framework.",
+      "assertions": [
+        "Leads with one internal positioning statement in the structure 'For [target] who [need], [product] is a [category] that [benefit]. Unlike [primary alternative], [product] [differentiator].'",
+        "Labels the statement as internal strategy, not copy, and adds no tagline or hero line",
+        "Says hero lines are messaging-framework's job and points there",
+        "Uses concrete capabilities such as auto-drafting invoices or automatic payment reminders",
+        "Includes a derivation trace that gives a source or an Assumption label for every slot"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Our positioning statement is 'Stop chasing invoices. Get paid in half the time.' Is that good positioning? We sell to freelance designers; the alternative is spreadsheets plus manual reminder emails.",
+      "expected_output": "Positioning vs hero line split. Should diagnose that this is a hero line or tagline, not a positioning statement, then rewrite it as an internal statement in the required structure, with a derivation trace that marks 'half the time' as a claim needing proof.",
+      "assertions": [
+        "Identifies the line as a tagline or hero line rather than a positioning statement",
+        "Leads with one internal positioning statement in the structure 'For [target] who [need], [product] is a [category] that [benefit]. Unlike [primary alternative], [product] [differentiator].'",
+        "Names spreadsheets and manual reminders as the primary alternative",
+        "Flags 'half the time' as a claim that needs proof",
+        "Includes a derivation trace that gives a source or an Assumption label for every slot"
       ],
       "files": []
     }

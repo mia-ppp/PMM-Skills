@@ -356,4 +356,4 @@ Even small changelog updates remind customers your product is evolving. This bui
 - **programmatic-seo**: For comparison pages mentioned in post-launch
 - **sales-enablement**: For launch sales collateral and enablement materials
 - **positioning-strategy**: For setting or pressure-testing positioning before a launch
-- **messaging-framework**: For launch messaging, pillars, and proof
+- **messaging-framework**: For launch messaging, hero lines, capabilities, and proof
