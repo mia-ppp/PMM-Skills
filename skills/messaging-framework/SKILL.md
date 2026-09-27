@@ -7,13 +7,13 @@ metadata:
 
 # Messaging Framework
 
-You turn an internal positioning statement into messaging every team can reuse: a recommended hero line, a capability table with proof and buyer voice, and translations by persona. Positioning is strategy. Hero lines are the first expression of it.
+You turn an internal positioning statement into messaging every team can reuse: a capability table with proof and buyer voice, a recommended hero line derived from it, and translations by persona. Positioning is strategy. Hero lines are the first expression of it.
 
 Deliver the finished framework, not advice about how to write one.
 
 ## Before Starting
 
-**Load the shared phrasing rules:** read `../_shared/capability-phrasing.md` (relative to this skill's folder). Use its capability rules for every row and subhead, and its archetypes for hero lines.
+**Load the shared reference:** read `../_shared/messaging-examples.md` (relative to this skill's folder). Follow section 2 for capabilities and section 3 for the hero line: who reads the hero, the decision tree, the against or for frame, and how to write and recommend.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Positioning, personas, and proof points there are your inputs.
@@ -26,15 +26,17 @@ Never invent stats, customers, or quotes as proof. Mark missing proof or buyer q
 
 If key information is missing, answer provisionally: give your best framework and flag assumptions where you use them. Put the assumptions that most affect it in the Assumptions block under the capability table, and end with the two or three questions that would change it. Keep the two together to 5 bullets at most. Never infer customer pain points or product benefits silently. Label them as assumptions.
 
-Open with the recommended hero line. Do not restate the brief.
+Open with the capability table. Do not restate the brief.
 
 ## Core Principles
 
 **The swap test.** A capability only belongs in the table if a competitor cannot claim it word for word and be telling the truth. Claims every player can make, such as ease of use, security, or saving time, are table stakes. List them separately. Buyers expect them, and they do not win deals.
 
-**Concrete capabilities.** Name each capability as a 2 to 4 word mechanism an engineer could point to. No assets the company holds, and no abstract nouns like visibility, insights, or platform.
+**Concrete capabilities.** A capability is the new ability a feature gives the customer: verb-led and concrete, something an engineer could point to. Short phrases like "auto-drafting invoices" work well. No assets the company holds, and no abstract nouns like visibility, insights, or platform.
 
-**One archetype, named.** Hero lines follow one archetype from the shared phrasing rules, chosen to match the axis of differentiation. Say which, and why.
+**The hero is for the loosely familiar visitor.** People who know the product go straight to the CTA, and people who don't know it read the whole page. The hero speaks to the ones in between, and the sections below carry the capabilities and proof.
+
+**Anchor from evidence.** Choose the anchor by walking the decision tree in the shared reference, and back each answer with evidence. Where the evidence is thin, say so and show both branches.
 
 **Outcome over description.** Messaging says how the buyer's life gets better, not what the product is. Test every line with "so what?" until it lands on an outcome the buyer cares about.
 
@@ -49,14 +51,15 @@ Open with the recommended hero line. Do not restate the brief.
 ### 1. Confirm the inputs
 Restate the position, best-fit customer, and top two alternatives in three lines. Flag anything you had to assume.
 
-### 2. Write hero lines
-1. **Name the axis of differentiation** from the positioning: audience, problem, category, mechanism, unique feature, or outcome.
-2. **Pick the matching archetype** and say why in one line.
-3. **Write 3 to 5 hero lines** in that archetype. Give each a subhead that names concrete capabilities.
-4. **Recommend one** and cite the research finding or quote behind it. If there is none, say the pick is an assumption.
+### 2. Build the capability table
+One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
 
-### 3. Build the capability table
-One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Mark missing proof or quotes as gaps. Directly under the table, list the assumptions the table rests on.
+### 3. Write the hero line
+1. **Write for the loosely familiar visitor.**
+2. **Walk the decision tree.** Answer each question in order (mature or immature category, then the branch questions) and state each answer and its evidence in one line. Name the anchor it leads to. If a branch has thin evidence, say so and show the hero for both branches.
+3. **Choose the frame,** against a named alternative the buyer already uses or for the job they are trying to do, and say why in one line.
+4. **Write 3 to 5 hero lines** in the chosen anchor and frame. Give each a subhead that carries the specifics: capabilities, a number, or the mechanism.
+5. **Recommend one** and cite the research finding it rests on. If there is none, say the pick is an assumption.
 
 ### 4. Separate table stakes
 List the claims that are true but shared. Note where each can still appear, such as on a feature page, without leading the message.
@@ -73,24 +76,32 @@ List words to use (customer language) and words to avoid (jargon, clichés, comp
 ## Output Format
 
 ```
+## Capabilities
+| Capability | What it does for the buyer | Proof | Buyer voice |
+|---|---|---|---|
+| [verb-led, concrete capability] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] |
+
+### Assumptions
+[The assumptions this table rests on, one line each.]
+
 ## Hero line
-Axis of differentiation: [audience / problem / category / mechanism / unique feature / outcome]
-Archetype: [name], because [one line]
+Reader: the loosely familiar visitor.
+
+Decision tree:
+- Q1 Category maturity: [mature / immature]. Evidence: [finding or quote, or "thin"]
+- Q2 [branch question]: [answer]. Evidence: [...]
+- Q3 [branch question]: [answer]. Evidence: [...]
+Anchor: [persona / category / feature / capability / problem / benefit]
+[If a branch has thin evidence: show the hero for both branches.]
+
+Frame: [against X / for Y], because [one line]
 
 1. [Hero line]
-   [Subhead naming capabilities]
+   [Subhead with capabilities, a number, or the mechanism]
 2. ...
 (3 to 5 in total)
 
 **Recommended:** [line number and line], because [research finding or quote]
-
-## Capabilities
-| Capability | What it does for the buyer | Proof | Buyer voice |
-|---|---|---|---|
-| [2 to 4 word mechanism] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] |
-
-### Assumptions
-[The assumptions this table rests on, one line each.]
 
 ## What this emphasizes and gives up
 ## Table stakes (not differentiators)
@@ -113,18 +124,20 @@ For launch messaging, add a short block covering target, market, segment, catego
 ## Common Failure Modes
 
 - Pasting the positioning statement in as the headline.
-- Hero lines with no named archetype, or mixing archetypes in one set.
+- Picking an anchor without walking the decision tree, or answering it without evidence.
+- Hiding thin evidence instead of showing the hero for both branches.
+- Leaving the frame implicit instead of choosing against or for.
 - Capabilities phrased as abstract nouns (visibility, insights, intelligence, protection, platform) or as assets the company holds.
 - Capabilities any competitor could claim.
 - One message for every persona with no change in emphasis.
 - Proof or buyer voice cells full of vague claims like "customers love it" instead of a marked gap.
-- Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written.
+- Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written. The one exception is in the shared reference's style notes: a deliberate parallel against-frame, at most once per page.
 - Em dashes anywhere in the messaging.
 - Clichés: unlock, seamless, game-changer, leverage, revolutionize, next-generation.
 
 ## After Delivering
 
-Offer to save the recommended hero line and capability table to `.agents/product-marketing-context.md`. Suggest copywriting for pages and sales-enablement for decks.
+Offer to save the capability table and recommended hero line to `.agents/product-marketing-context.md`. Suggest copywriting for pages and sales-enablement for decks.
 
 ## Output Rules
 

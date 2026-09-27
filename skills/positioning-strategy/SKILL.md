@@ -13,7 +13,7 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 ## Before Starting
 
-**Load the shared phrasing rules:** read `../_shared/capability-phrasing.md` (relative to this skill's folder) and apply it to every capability in the statement.
+**Load the shared reference:** read `../_shared/messaging-examples.md` (relative to this skill's folder). Follow section 1 for the statement and section 2 for capability phrasing.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
@@ -48,7 +48,7 @@ Never invent win rates, customer names, market sizes, or quotes. Use placeholder
 
 **Every claim needs a "because."** Each value statement must trace back to a capability and a buyer insight. If you cannot finish the sentence "Buyers care about this because...", cut the claim.
 
-**Capabilities, not assets.** The benefit and differentiator slots name what the product does, in concrete 2 to 4 word mechanism phrases. Never what the company has, and never abstract nouns like visibility, insights, or platform. See `../_shared/capability-phrasing.md`.
+**Capabilities, not assets.** The differentiation in the "is a" slot names what the customer can now do, as a concrete capability. Never what the company has, and never abstract nouns like visibility, insights, or platform. See section 2 of `../_shared/messaging-examples.md`.
 
 **Positioning is not copy.** The statement is for the team, not the homepage. Do not polish it into a tagline or add a hero line. If the user asks for a headline, write the statement, then hand the hero line to messaging-framework.
 
@@ -85,19 +85,16 @@ Lead with the statement. Use this structure:
 
 ```
 ## Positioning statement (internal strategy, not copy)
-For [target] who [need], [product] is a [category] that [capability-phrased benefit].
-Unlike [primary alternative], [product] [capability-phrased differentiator].
+[Product] is a [differentiated product description] for [segment].
 
 ## Derivation trace
 | Slot | Filled with | Source | Evidence or assumption |
 |---|---|---|---|
-| Target | | [research finding or quote] | Evidence / Assumption |
-| Need | | | |
-| Category | [claim / subcategory / create, and why] | | |
-| Benefit | | | |
-| Primary alternative | [competitive alternative] | | |
-| Differentiator | | | |
+| Category | [claim / subcategory / create, and why] | [research finding or quote] | Evidence / Assumption |
+| Differentiation | [the capability that sets it apart] | | |
+| Segment | [a specific segment, never "everyone" or "businesses"] | | |
 
+Competitive alternatives: [what is on the shortlist]
 Contextual alternative: [what the product truly replaces]
 Proof: Have: ... / Need: ...
 
@@ -118,7 +115,7 @@ Fill every slot in the trace. Cite the finding or quote that supports it, or mar
 - Adding a hero line or a second catchy sentence under the statement. Hand that to messaging-framework.
 - Capabilities phrased as assets ("the data we already have") or abstract nouns ("visibility", "insights").
 - Listing four frameworks instead of producing one position.
-- A statement that breaks the For / who / is a / that / Unlike structure.
+- A statement that breaks the "[Product] is a [differentiated product description] for [segment]" structure.
 - Trace slots with no source and no `Assumption` label.
 - Choosing a wedge only because a competitor is weak there.
 
