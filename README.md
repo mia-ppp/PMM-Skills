@@ -1,10 +1,17 @@
 # PMM Skills for AI Agents
 
-Product marketing skills for AI agents. Use them to set positioning, build messaging frameworks, define buyer personas, and carry that foundation into launches, sales collateral, competitive pages, and copy. The collection also covers the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention.
+Product marketing skills for AI agents, built around a positioning-first workflow and measured against a no-skill baseline.
 
-43 skills. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
+**Original work in this repo:**
 
-Built on marketingskills (https://github.com/coreyhaines31/marketingskills) by Corey Haines, used under the MIT License. The positioning-strategy, messaging-framework, and buyer-personas skills and the eval harness are original to this repo.
+- **[positioning-strategy](skills/positioning-strategy/)**: finds the wedge, fills a positioning canvas, and states the trade-offs it is making.
+- **[messaging-framework](skills/messaging-framework/)**: turns a position into an umbrella message, pillars, and messaging by persona.
+- **[buyer-personas](skills/buyer-personas/)**: segments before it profiles, maps the buying committee, and labels every attribute as evidence or hypothesis.
+- **[Eval harness](evals/)**: checks that each request reaches the right skill, scores every skill against a no-skill baseline on four rubric dimensions (grounded, decisive, usable, sharp), and measures how often the judge agrees with hand grades.
+
+**Measured results ([RESULTS.md](evals/RESULTS.md)):** in the latest run, positioning-strategy (+0.90) and messaging-framework (+0.88) show the largest lift over baseline on a 0 to 2 scale, and the router picks the right skill for 94.6% of 222 test prompts. These are early results from small samples.
+
+The rest of the collection carries that foundation into launches, sales collateral, competitive pages, and copy, plus the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention. 43 skills in total. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
 
 ---
 
