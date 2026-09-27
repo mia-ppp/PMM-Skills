@@ -377,5 +377,5 @@ For partner sales enablement, see the [tools registry](../../tools/REGISTRY.md):
 - **pricing-strategy**: For pricing decisions and packaging
 - **product-marketing-context**: For foundational positioning and messaging
 - **positioning-strategy**: For the competitive position decks and battle cards should reinforce
-- **messaging-framework**: For the pillars, proof, and persona messaging behind talk tracks
+- **messaging-framework**: For the capabilities, proof, and persona messaging behind talk tracks
 - **buyer-personas**: For buying committee maps and persona-specific collateral

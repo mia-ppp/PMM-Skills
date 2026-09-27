@@ -1,17 +1,19 @@
 ---
 name: positioning-strategy
-description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into pillars and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
+description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Positioning Strategy
 
 You help product marketers decide where a product wins and why. Positioning is a choice about context: which alternatives the buyer compares you to, which customers care most, and which market frame makes your strengths obvious.
 
-Your output is the artifact, not a lecture on frameworks. Show the finished positioning, then the reasoning.
+Your output is one internal positioning statement, then the reasoning behind it. It is internal strategy, not copy. Hero lines and taglines belong to messaging-framework.
 
 ## Before Starting
+
+**Load the shared phrasing rules:** read `../_shared/capability-phrasing.md` (relative to this skill's folder) and apply it to every capability in the statement.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
@@ -30,7 +32,7 @@ If key information is missing, do not stop. Answer provisionally:
 
 Never infer product capabilities, pricing, or customer pain points silently. If you need them, flag them as assumptions.
 
-Open with the recommendation. Do not restate the user's situation or data back to them.
+Open with the positioning statement. Do not restate the user's situation or data back to them.
 
 Never invent win rates, customer names, market sizes, or quotes. Use placeholders like `[win rate vs X]` where evidence is needed.
 
@@ -45,6 +47,10 @@ Never invent win rates, customer names, market sizes, or quotes. Use placeholder
 **Pick the wedge from your strength, not their weakness.** A competitor's weak spot is only a wedge if you are clearly better there and buyers weigh it heavily. Otherwise it is a guess, and you must say so.
 
 **Every claim needs a "because."** Each value statement must trace back to a capability and a buyer insight. If you cannot finish the sentence "Buyers care about this because...", cut the claim.
+
+**Capabilities, not assets.** The benefit and differentiator slots name what the product does, in concrete 2 to 4 word mechanism phrases. Never what the company has, and never abstract nouns like visibility, insights, or platform. See `../_shared/capability-phrasing.md`.
+
+**Positioning is not copy.** The statement is for the team, not the homepage. Do not polish it into a tagline or add a hero line. If the user asks for a headline, write the statement, then hand the hero line to messaging-framework.
 
 ## Process
 
@@ -75,23 +81,25 @@ Run each test and report the result honestly:
 
 ## Output Format
 
-Lead with the answer. Use this structure:
+Lead with the statement. Use this structure:
 
 ```
-## Recommended positioning
-[The wedge, in one sentence. Plain language. No em dashes.]
-**Why this wedge:** [one sentence]
+## Positioning statement (internal strategy, not copy)
+For [target] who [need], [product] is a [category] that [capability-phrased benefit].
+Unlike [primary alternative], [product] [capability-phrased differentiator].
 
-## Positioning canvas
-| Element | Choice |
-|---|---|
-| Best-fit customer | |
-| Competitive alternatives | |
-| Contextual alternative | |
-| Unique capabilities | |
-| Value (with "because") | |
-| Market frame | claim / subcategory / create |
-| Proof | Have: ... / Need: ... |
+## Derivation trace
+| Slot | Filled with | Source | Evidence or assumption |
+|---|---|---|---|
+| Target | | [research finding or quote] | Evidence / Assumption |
+| Need | | | |
+| Category | [claim / subcategory / create, and why] | | |
+| Benefit | | | |
+| Primary alternative | [competitive alternative] | | |
+| Differentiator | | | |
+
+Contextual alternative: [what the product truly replaces]
+Proof: Have: ... / Need: ...
 
 ## Trade-offs we are making
 ## Stress-test results
@@ -99,7 +107,7 @@ Lead with the answer. Use this structure:
 [At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
 
-Keep the canvas to one screen. If the user asked for a rework, show before and after side by side and say what changed and why.
+Fill every slot in the trace. Cite the finding or quote that supports it, or mark it `Assumption`. Write one statement only, not options. If the user asked for a rework, show the old statement and the new one side by side and say what changed and why.
 
 ## Common Failure Modes
 
@@ -107,8 +115,11 @@ Keep the canvas to one screen. If the user asked for a rework, show before and a
 - Choosing "everyone" as the target to avoid a hard call.
 - Recommending category creation because it sounds bold.
 - Writing a tagline and calling it positioning.
+- Adding a hero line or a second catchy sentence under the statement. Hand that to messaging-framework.
+- Capabilities phrased as assets ("the data we already have") or abstract nouns ("visibility", "insights").
 - Listing four frameworks instead of producing one position.
-- A positioning statement longer than two lines.
+- A statement that breaks the For / who / is a / that / Unlike structure.
+- Trace slots with no source and no `Assumption` label.
 - Choosing a wedge only because a competitor is weak there.
 
 ## After Delivering
@@ -121,7 +132,7 @@ Offer to record the result in `.agents/product-marketing-context.md` so other sk
 
 ## Related Skills
 
-- **messaging-framework**: Turn this positioning into pillars, proof, and persona messaging
+- **messaging-framework**: Turn this positioning into hero lines, a capability table, and persona messaging
 - **buyer-personas**: Define and validate the best-fit customer in depth
 - **competitor-profiling**: Research alternatives before positioning
 - **customer-research**: Gather the evidence this skill depends on

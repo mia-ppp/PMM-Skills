@@ -254,5 +254,5 @@ For headlines and CTAs, provide 2-3 options:
 - **email-sequence**: For email copywriting
 - **popup-cro**: For popup and modal copy
 - **ab-test-setup**: To test copy variations
-- **messaging-framework**: For the pillars and proof points the copy should express
+- **messaging-framework**: For the hero line, capabilities, and proof points the copy should express
 - **positioning-strategy**: If the core position is unclear, set it before writing copy

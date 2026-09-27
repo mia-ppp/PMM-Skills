@@ -4,27 +4,29 @@
     {
       "id": 1,
       "prompt": "Build a messaging framework for Ledgerline, a treasury tool for crypto-native companies. Positioning: 'The treasury OS for companies that hold stablecoins, with real-time multi-chain balances and audit-ready reports.' Personas: CFO, Head of Finance Ops, external auditor.",
-      "expected_output": "Should produce umbrella message options with a pick, three pillars with pillar test results, table stakes separated, persona translations, and three boilerplate lengths.",
+      "expected_output": "Should name the axis of differentiation and a matching archetype, write 3 to 5 hero lines with capability subheads and recommend one with its source, build the capability table with proof and buyer voice, put assumptions under the table, give persona translations, and three boilerplate lengths.",
       "assertions": [
-        "Provides two or three umbrella options and recommends one",
-        "Includes three or four pillars, not more",
-        "Reports a pillar test result for each pillar",
-        "Lists table stakes separately from pillars",
-        "Gives a distinct lead pillar or first line per persona",
-        "Provides boilerplate at three lengths",
-        "Marks missing proof as a gap instead of inventing metrics"
+        "Names one hero line archetype (super specific who, problem solver, category differentiator, how-to, feature no one has, or big promise) and says why in one line",
+        "Writes 3 to 5 hero lines in that archetype, each with a subhead that names concrete capabilities",
+        "Recommends one hero line and cites the research finding or quote behind it, or says the pick is an assumption",
+        "Includes a capability table with the columns Capability, What it does for the buyer, Proof, and Buyer voice",
+        "Marks missing proof or buyer quotes as gaps in the table instead of inventing them",
+        "Places an Assumptions block directly under the capability table",
+        "Gives a distinct lead capability or first line per persona",
+        "Provides boilerplate at three lengths"
       ],
       "files": []
     },
     {
       "id": 2,
       "prompt": "Our messaging pillars are: Easy to use, Secure, Scalable, Great support. Fix them. We're a B2B data pipeline tool competing with Fivetran.",
-      "expected_output": "Should identify all four as table stakes that Fivetran could claim, and propose differentiated pillars or ask what is unique, with provisional versions.",
+      "expected_output": "Should identify all four as table stakes that Fivetran could claim, replace them with concrete capabilities in the capability table (provisional where needed), and state what information would sharpen them.",
       "assertions": [
-        "Identifies the existing pillars as claims Fivetran could also make",
+        "Identifies the existing claims as ones Fivetran could also make",
         "Moves generic claims into a table stakes list",
-        "Proposes replacement pillars tied to specific capabilities",
-        "States what information would sharpen the pillars"
+        "Names capabilities as concrete 2 to 4 word mechanisms, not abstract nouns such as visibility, insights, intelligence, protection, or platform",
+        "Includes a capability table with the columns Capability, What it does for the buyer, Proof, and Buyer voice",
+        "States what information would sharpen the capabilities"
       ],
       "files": []
     },
@@ -36,19 +38,47 @@
         "Includes a launch block covering target, category, unique value, and proof",
         "Includes words to use and words to avoid",
         "Avoids clich\u00e9s such as unlock, seamless, or game-changer",
-        "Does not invent resolution-rate statistics as fact"
+        "Does not invent resolution-rate statistics as fact",
+        "Names capabilities as concrete 2 to 4 word mechanisms, not abstract nouns such as visibility, insights, intelligence, protection, or platform"
       ],
       "files": []
     },
     {
       "id": 4,
       "prompt": "We need messaging but honestly we haven't figured out our positioning yet. We make a scheduling tool.",
-      "expected_output": "Should flag missing positioning, recommend positioning-strategy, and still give a provisional umbrella message to react to.",
+      "expected_output": "Should flag missing positioning, recommend positioning-strategy, and still give provisional hero lines in a named archetype.",
       "assertions": [
         "Flags that positioning is missing",
         "Recommends positioning-strategy as a first step",
-        "Still provides a provisional umbrella message",
-        "Labels the draft as provisional"
+        "Still provides provisional hero lines in a named archetype",
+        "Labels the draft as provisional",
+        "Places an Assumptions block directly under the capability table"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Here is our positioning: 'For finance teams at Shopify brands who reconcile payouts by hand, Tally is a reconciliation tool that auto-matches payouts to orders. Unlike spreadsheets, Tally flags mismatches at the line-item level.' Put this on our homepage as the headline.",
+      "expected_output": "Positioning vs hero line split. Should explain that the statement is internal strategy and not a headline, then name the axis of differentiation, pick an archetype, write 3 to 5 hero lines with capability subheads, and recommend one.",
+      "assertions": [
+        "Explains that the positioning statement is internal strategy and should not be pasted in as the headline",
+        "Names one hero line archetype (super specific who, problem solver, category differentiator, how-to, feature no one has, or big promise) and says why in one line",
+        "Writes 3 to 5 hero lines in that archetype, each with a subhead that names concrete capabilities",
+        "Recommends one hero line and cites the research finding or quote behind it, or says the pick is an assumption",
+        "Carries the statement's capabilities, such as auto-matching payouts or line-item mismatch flags, into the subheads"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Write hero lines for our analytics platform. We give revenue teams better visibility and insights into their pipeline.",
+      "expected_output": "Positioning vs hero line split, with abstract inputs. Should note there is no positioning statement and point to positioning-strategy, reject visibility and insights as capabilities, propose concrete provisional capabilities as assumptions, and still deliver hero lines in a named archetype.",
+      "assertions": [
+        "Notes that no positioning statement exists and points to positioning-strategy",
+        "Rejects visibility and insights as capabilities and explains why",
+        "Names capabilities as concrete 2 to 4 word mechanisms, not abstract nouns such as visibility, insights, intelligence, protection, or platform",
+        "Names one hero line archetype (super specific who, problem solver, category differentiator, how-to, feature no one has, or big promise) and says why in one line",
+        "Labels the provisional capabilities as assumptions"
       ],
       "files": []
     }
