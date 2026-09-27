@@ -1,24 +1,24 @@
-# Directory List — Full Reference
+# Directory List: Full Reference
 
-Canonical list of directories organized by tier. DR values are approximate and drift over time — verify via Ahrefs or Moz before building a plan around them.
+Canonical list of directories organized by tier. DR values are approximate and drift over time: verify via Ahrefs or Moz before building a plan around them.
 
 **Column legend:**
-- **DR** — Domain Rating (Ahrefs). Higher = more link equity passed.
-- **Dofollow** — Whether the backlink passes SEO value. Nofollow listings still matter for referral traffic and brand signals.
-- **Cost** — Free unless noted.
+- **DR**: Domain Rating (Ahrefs). Higher = more link equity passed.
+- **Dofollow**: Whether the backlink passes SEO value. Nofollow listings still matter for referral traffic and brand signals.
+- **Cost**: Free unless noted.
 
 ---
 
-## Tier 1 — Flagship Launch Platforms
+## Tier 1: Flagship Launch Platforms
 
 Submit only during launch week. These are time-sensitive with limited re-submission windows.
 
 | Directory | DR | Dofollow | Cost | Notes |
 |---|---|---|---|---|
 | **Product Hunt** | 91 | Yes | Free | The anchor event. Requires 3-week warm-up. 2026 algorithm weights comment quality over upvotes. Launch Tue/Wed/Thu at 12:01 AM PT. |
-| **Hacker News (Show HN)** | 91 | Nofollow | Free | Only if you have a genuine technical angle. Post title format: "Show HN: [Product] — [hook]". Moderator death penalty for hype. |
+| **Hacker News (Show HN)** | 91 | Nofollow | Free | Only if you have a genuine technical angle. Post title format: "Show HN: [Product]: [hook]". Moderator death penalty for hype. |
 | **BetaList** | 64 | Yes | Free (paid expedite ~$99) | Best for pre-launch waitlist building. Submission → 2–4 week queue unless expedited. |
-| **Launching Next** | ~30 | Yes | Free | Editorial curation — needs a compelling story. |
+| **Launching Next** | ~30 | Yes | Free | Editorial curation: needs a compelling story. |
 | **Fazier** | ~30 | Yes | Free | Daily ranking with much lower competition than PH. Achievable #1. |
 | **Uneed** | ~40 | Yes | Free | Curated, smaller audience, quality backlink. |
 | **Microlaunch** | ~30 | Yes | Free | Month-long visibility vs one-day spike. |
@@ -35,7 +35,7 @@ Submit only during launch week. These are time-sensitive with limited re-submiss
 
 ---
 
-## Tier 2 — Startup / SaaS / Software Directories
+## Tier 2: Startup / SaaS / Software Directories
 
 Submit during launch week and continue rolling submissions thereafter.
 
@@ -59,11 +59,11 @@ Submit during launch week and continue rolling submissions thereafter.
 
 ---
 
-## Tier 3 — AI Tool Directories
+## Tier 3: AI Tool Directories
 
 Relevant only for AI-native products. Submit during weeks 1–3.
 
-### Tier 3A — Flagship AI directories
+### Tier 3A: Flagship AI directories
 
 | Directory | DR | Monthly Traffic | Notes |
 |---|---|---|---|
@@ -75,7 +75,7 @@ Relevant only for AI-native products. Submit during weeks 1–3.
 | **Good AI Tools** | 66 | n/a | Curated, quality over quantity. |
 | **NewTools.site** | 51 | n/a | Dofollow backlink for every approved submission. |
 
-### Tier 3B — Mid-tier AI directories
+### Tier 3B: Mid-tier AI directories
 
 | Directory | Est. DR | Notes |
 |---|---|---|
@@ -101,14 +101,14 @@ Relevant only for AI-native products. Submit during weeks 1–3.
 
 ---
 
-## Tier 4 — AI Agent & MCP Server Registries
+## Tier 4: AI Agent & MCP Server Registries
 
-Relevant only if the product exposes agent capabilities or MCP servers. These are a real moat for AI-native tools — traditional SaaS products cannot list here.
+Relevant only if the product exposes agent capabilities or MCP servers. These are a real moat for AI-native tools: traditional SaaS products cannot list here.
 
 | Directory | Category | Notes |
 |---|---|---|
 | **AI Agents List (aiagentslist.com)** | Agents | Hosts the 593+ MCP server directory. |
-| **Glama.ai MCP servers** | MCP | 20K+ security-graded MCP servers. A/B/C/F grades matter — optimize for a good grade. |
+| **Glama.ai MCP servers** | MCP | 20K+ security-graded MCP servers. A/B/C/F grades matter: optimize for a good grade. |
 | **APITracker MCP directory** | MCP | 110+ servers, 90 official integrations. |
 | **Linux Foundation MCP Registry** | MCP | Canonical registry (PR-based submission, low volume but high signal). Anthropic donated MCP to LF in Dec 2025. |
 | **AI Agent Store** | Agents | Compare agents, platforms, frameworks. |
@@ -122,7 +122,7 @@ Relevant only if the product exposes agent capabilities or MCP servers. These ar
 
 ---
 
-## Tier 5 — No-Code Directories
+## Tier 5: No-Code Directories
 
 Relevant for no-code platforms and builder tools.
 
@@ -131,15 +131,15 @@ Relevant for no-code platforms and builder tools.
 | **NoCodeFinder** | ~45 | Accepts submissions. |
 | **No Code MBA Tools Directory** | ~55 | Categorized by project type. |
 | **We Are No Code Tools Repository** | ~40 | Curated. |
-| **NoCodeList** | ~30 | — |
-| **NoCodeDevs** | ~25 | — |
-| **NoCode.Tech** | ~35 | — |
+| **NoCodeList** | ~30 | - |
+| **NoCodeDevs** | ~25 | - |
+| **NoCode.Tech** | ~35 | - |
 
 ---
 
-## Tier 6 — "Best of" Listicles (Editorial Outreach)
+## Tier 6: "Best of" Listicles (Editorial Outreach)
 
-Not directories per se — these are blog posts on high-DR domains that you get included in via cold outreach. Often more valuable than directories because they combine a dofollow backlink with editorial trust + in-market buyer traffic + AI citation weight.
+Not directories per se: these are blog posts on high-DR domains that you get included in via cold outreach. Often more valuable than directories because they combine a dofollow backlink with editorial trust + in-market buyer traffic + AI citation weight.
 
 **Search patterns to find opportunities:**
 - `"best [category] tools" 2026`
@@ -148,15 +148,15 @@ Not directories per se — these are blog posts on high-DR domains that you get 
 - `"[category] tools review"`
 
 **Outreach template (short):**
-> Hey [name], saw your post on [best X tools]. We launched [product] recently — thought it might be worth a mention. Happy to give you a free account + credits for readers. Here's a 60s demo: [link]. No worries if not a fit.
+> Hey [name], saw your post on [best X tools]. We launched [product] recently: thought it might be worth a mention. Happy to give you a free account + credits for readers. Here's a 60s demo: [link]. No worries if not a fit.
 
 **Target:** 10 inclusions in 30 days. Each = dofollow backlink from DR 40–70 + referral traffic + AI citation fuel.
 
 ---
 
-## Tier 7 — Integration Marketplaces
+## Tier 7: Integration Marketplaces
 
-Only relevant once the product has integrations. These are the highest-DR backlinks available — worth engineering effort just to land them.
+Only relevant once the product has integrations. These are the highest-DR backlinks available: worth engineering effort just to land them.
 
 | Directory | DR | Notes |
 |---|---|---|
@@ -178,4 +178,4 @@ After any submission goes live, verify the backlink exists and is dofollow. You 
 2. **curl:** `curl -sIL https://directory.com/your-listing | grep -i link`
 3. **SEO tools:** Ahrefs Site Explorer → Backlinks → filter by this directory's domain.
 
-**Re-verify quarterly.** Directories sometimes change all outbound links to nofollow without warning — if DR stops moving, check whether your biggest inbound links have silently flipped.
+**Re-verify quarterly.** Directories sometimes change all outbound links to nofollow without warning. If DR stops moving, check whether your biggest inbound links have silently flipped.
