@@ -14,7 +14,7 @@ Zero-dependency harness for the skills in `skills/`. Reads each skill's existing
 | `agree` | Does the rubric judge agree with the hand grades? Leave-one-out: each output is judged with its own anchor hidden | One call per graded output |
 
 ```bash
-export ANTHROPIC_API_KEY=sk-...
+export PMM_EVALS_API_KEY=sk-...
 python evals/harness.py lint
 python evals/harness.py route --trials 1
 python evals/harness.py run --skills page-cro,copywriting --trials 3
@@ -26,7 +26,9 @@ Add `--mock` to any command to test the pipeline without a key. Mock results go 
 
 The default model for runs, routing, and the judge is `claude-sonnet-5`. Override with `--model` and `--judge`.
 
-Pass `--budget 15` to stop before API spend passes $15. `run` stops early if its projected cost is over budget, and keeps the outputs it finished.
+Pass `--budget 15` to stop before API spend passes $15. `run` stops early if its projected cost is over budget, and keeps the outputs it finished. `run --resume STAMP` continues a stopped run and counts what it already spent.
+
+System prompts (skill text, the skill catalog, rubrics, and graded examples) are sent with prompt caching, so repeated calls read them at a tenth of the input price. `agree` skips caching because each of its calls has a different system prompt.
 
 The rubric judge in `run` and `agree` sees the hand-graded calibration outputs, with scores and notes, as examples. In `agree` the output being judged is always left out.
 
@@ -39,6 +41,7 @@ The latest numbers are in [RESULTS.md](RESULTS.md): rubric lift per dimension, e
 - **Lift** is the number that matters. A skill that scores 80% with no lift is not adding value.
 - **Non-discriminating assertions** pass or fail in every config. Rewrite or delete them.
 - **Routing confusions** list which skill pairs steal each other's prompts. Fix those descriptions first.
+- **Hand-off evals** (`handoff_to` in `evals.json`) check that a request goes to another skill. `route` counts them right when the router picks that skill. They are left out of rubric lift, and rubric-only runs skip them.
 
 ## Calibration
 

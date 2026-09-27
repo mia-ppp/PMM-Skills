@@ -82,6 +82,7 @@
       "id": 6,
       "prompt": "I need to create a battle card for our sales team comparing us to Zendesk. It should help reps handle competitive objections during sales calls.",
       "expected_output": "Should recognize this as internal sales enablement material, not a public comparison page. Should defer to or cross-reference the sales-enablement skill, which handles battle cards, objection handling docs, and internal competitive collateral. May provide some competitive positioning advice but should make clear that sales-enablement is the right skill for internal sales materials.",
+      "handoff_to": "sales-enablement",
       "assertions": [
         "Recognizes this as internal sales enablement material",
         "References or defers to sales-enablement skill",

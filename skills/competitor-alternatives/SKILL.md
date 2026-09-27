@@ -1,6 +1,6 @@
 ---
 name: competitor-alternatives
-description: "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'battle card,' or 'competitor teardown.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For sales-specific competitor docs, see sales-enablement."
+description: "When the user wants to create public competitor comparison or alternative pages for SEO and evaluators. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' or 'competitor teardown.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For battle cards and other internal sales material, see sales-enablement."
 metadata:
   version: 1.1.0
 ---
@@ -9,31 +9,26 @@ metadata:
 
 You are an expert in creating competitor comparison and alternative pages. Your goal is to build pages that rank for competitive search terms, provide genuine value to evaluators, and position your product effectively.
 
-## Initial Assessment
+## Before Starting
 
 **Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
 
-Before creating competitor pages, understand:
+**Scope:** this skill writes public pages that prospects and searchers read. If the user wants a battle card or other internal sales material, say in one line that sales-enablement covers it and hand off. Do not ask which they want.
 
-1. **Your Product**
-   - Core value proposition
-   - Key differentiators
-   - Ideal customer profile
-   - Pricing model
-   - Strengths and honest weaknesses
+Useful inputs (ask only if missing and it would change the page):
 
-2. **Competitive Landscape**
-   - Direct competitors
-   - Indirect/adjacent competitors
-   - Market positioning of each
-   - Search volume for competitor terms
+1. **Your product:** value proposition, differentiators, best-fit customer, pricing, honest weaknesses.
+2. **The competitor:** who they are, how they position, what switchers complain about.
+3. **Goal:** SEO capture, converting competitor users, or supporting sales conversations.
 
-3. **Goals**
-   - SEO traffic capture
-   - Sales enablement
-   - Conversion from competitor users
-   - Brand positioning
+If key information is missing, do not stop. Write the page provisionally:
+1. Pick a provisional wedge from the brief, for example "built for e-commerce" against a general-purpose competitor, and state it as an assumption. Build the page around it.
+2. Write real copy for everything else, using public knowledge of the competitor. Use `[Need: ...]` only for proof points: stats, customer quotes, case studies, and migration numbers.
+3. Flag other assumptions where you use them.
+4. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.
+
+Never invent stats, customer quotes, or competitor weaknesses. Proof you do not have is a `[Need: ...]` placeholder. A page that is mostly placeholders is not a draft.
 
 ---
 
@@ -236,16 +231,14 @@ For each page: URL, meta tags, full page copy organized by section, comparison t
 ### Page Set Plan
 Recommended pages to create with priority order based on search volume.
 
----
-
-## Task-Specific Questions
-
-1. What are common reasons people switch to you?
-2. Do you have customer quotes about switching?
-3. What's your pricing vs. competitors?
-4. Do you offer migration support?
+### Assumptions and open questions
+At most 5 bullets combined, at the end. Key assumptions first, then 2 or 3 questions.
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 
@@ -253,5 +246,5 @@ Recommended pages to create with priority order based on search volume.
 - **copywriting**: For writing compelling comparison copy
 - **seo-audit**: For optimizing competitor pages
 - **schema-markup**: For FAQ and comparison schema
-- **sales-enablement**: For internal sales collateral, decks, and objection docs
+- **sales-enablement**: For battle cards, internal sales collateral, decks, and objection docs
 - **positioning-strategy**: For the competitive position these pages should express

@@ -1,6 +1,6 @@
 ---
 name: ab-test-setup
-description: When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test this," "which version is better," "test two versions," "statistical significance," "how long should I run this test," "growth experiments," "experiment velocity," "experiment backlog," "ICE score," "experimentation program," or "experiment playbook." Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro.
+description: When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test this," "which version is better," "test two versions," "statistical significance," "how long should I run this test," "growth experiments," "experiment velocity," "experiment backlog," "ICE score," "experimentation program," or "experiment playbook." Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro. For writing the variant copy itself, see copywriting.
 metadata:
   version: 1.2.0
 ---
@@ -195,7 +195,7 @@ Looking at results before reaching sample size and stopping early leads to false
 ### Statistical Significance
 - 95% confidence = p-value < 0.05
 - Means <5% chance result is random
-- Not a guarantee—just a threshold
+- Not a guarantee, just a threshold
 
 ### Analysis Checklist
 
@@ -286,18 +286,18 @@ Track your experimentation rate as a leading indicator of growth:
 
 ### The Experiment Playbook
 
-When a test wins, don't just implement it — document the pattern:
+When a test wins, don't just implement it: document the pattern:
 
 ```
 ## [Experiment Name]
 **Date**: [date]
 **Hypothesis**: [the hypothesis]
 **Sample size**: [n per variant]
-**Result**: [winner/loser/inconclusive] — [primary metric] changed by [X%] (95% CI: [range], p=[value])
+**Result**: [winner/loser/inconclusive]: [primary metric] changed by [X%] (95% CI: [range], p=[value])
 **Guardrails**: [any guardrail metrics and their outcomes]
 **Segment deltas**: [notable differences by device, segment, or cohort]
 **Why it worked/failed**: [analysis]
-**Pattern**: [the reusable insight — e.g., "social proof near pricing CTAs increases plan selection"]
+**Pattern**: [the reusable insight, e.g., "social proof near pricing CTAs increases plan selection"]
 **Apply to**: [other pages/flows where this pattern might work]
 **Status**: [implemented / parked / needs follow-up test]
 ```
@@ -306,7 +306,7 @@ Over time, your playbook becomes a library of proven growth patterns specific to
 
 ### Experiment Cadence
 
-**Weekly (30 min)**: Review running experiments for technical issues and guardrail metrics. Don't call winners early — but do stop tests where guardrails are significantly negative.
+**Weekly (30 min)**: Review running experiments for technical issues and guardrail metrics. Don't call winners early, but do stop tests where guardrails are significantly negative.
 
 **Bi-weekly**: Conclude completed experiments. Analyze results, update playbook, launch next experiment from backlog.
 
@@ -345,6 +345,10 @@ Over time, your playbook becomes a library of proven growth patterns specific to
 6. Have you tested this area before?
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

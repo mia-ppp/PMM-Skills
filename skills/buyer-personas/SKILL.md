@@ -20,7 +20,7 @@ Find out which mode applies:
 - **Evidence mode:** the user has interviews, call notes, CRM data, win-loss, or surveys. Build from those.
 - **Hypothesis mode:** little or no research. Draft personas as clearly labeled hypotheses, then give a plan to validate them.
 
-If key information is missing, answer provisionally: give your best personas, state every assumption, and end with the two or three questions that would change them. Open with the recommended segment. Do not restate the brief.
+If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the recommended segment. Do not restate the brief.
 
 Label every persona attribute as `Evidence` or `Hypothesis`. Never present a guess as research. Never invent quotes. If you use a quote, it must come from the user's material.
 
@@ -74,7 +74,8 @@ For hypothesis-mode personas, write the five to eight interview questions that w
 ## Buying committee map
 ## Anti-persona
 ## Validation plan
-## Questions that would change this
+## Assumptions and open questions
+[At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
 
 Use role-based names like "RevOps Lead at a Series B SaaS company," not invented names like "Marketing Mary." Invented names hide weak detail.
@@ -90,6 +91,10 @@ Use role-based names like "RevOps Lead at a Series B SaaS company," not invented
 ## After Delivering
 
 Offer to save personas to the Personas section of `.agents/product-marketing-context.md`. Suggest positioning-strategy or messaging-framework as next steps.
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

@@ -78,11 +78,25 @@
       "id": 6,
       "prompt": "Our pricing page conversion rate is only 1.5%. Can you review the page and suggest improvements?",
       "expected_output": "Should recognize this is a pricing page conversion optimization task, not a pricing strategy task. Should defer to or cross-reference the page-cro skill, which handles pricing page conversion rate optimization including plan comparison clarity, CTA optimization, and trust signals. Pricing-strategy focuses on the actual pricing decisions (what to charge, how to package), not the page design.",
+      "handoff_to": "page-cro",
       "assertions": [
         "Recognizes this as pricing page CRO, not pricing strategy",
         "References or defers to page-cro skill",
         "Explains that pricing-strategy is about pricing decisions",
         "Does not attempt full page CRO audit"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Our pricing page has three tiers but nobody picks the middle one. 60% choose the cheapest plan and 30% bounce entirely. What should we change?",
+      "expected_output": "Should treat this as a tier design and plan-choice problem. Should analyze whether the middle tier is differentiated enough from the cheapest plan (value metric, limits, feature gates). Should apply anchoring and decoy thinking so the middle plan becomes the natural pick. Should treat the 30% who bounce as a possible price-to-value or clarity issue and cross-reference page-cro for page-level fixes. Should suggest specific pricing or packaging experiments.",
+      "assertions": [
+        "Treats it as tier design and plan choice",
+        "Analyzes middle tier differentiation",
+        "Applies anchoring or decoy effect",
+        "Suggests specific pricing or packaging experiments",
+        "Cross-references page-cro for page-level conversion fixes"
       ],
       "files": []
     }

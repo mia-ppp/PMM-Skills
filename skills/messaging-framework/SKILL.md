@@ -22,7 +22,7 @@ You need a position to build from. If none exists:
 
 Never invent stats, customers, or quotes as proof. Mark missing proof as `[Need: ...]`.
 
-If key information is missing, answer provisionally: give your best framework, state every assumption explicitly, and end with the two or three questions that would change it. Never infer customer pain points or product benefits silently. Label them as assumptions.
+If key information is missing, answer provisionally: give your best framework, flag assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the framework, then the two or three questions that would change it. Never infer customer pain points or product benefits silently. Label them as assumptions.
 
 Open with the umbrella message. Do not restate the brief.
 
@@ -86,8 +86,8 @@ One-liner / Elevator / Boilerplate
 Use: ... | Avoid: ...
 
 ## Proof gaps to close
-## Assumptions
-## Questions that would change this
+## Assumptions and open questions
+[At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
 
 For launch messaging, add a short block covering target, market, segment, category, unique value, and proof, so the launch team has one reference.
@@ -105,6 +105,10 @@ For launch messaging, add a short block covering target, market, segment, catego
 ## After Delivering
 
 Offer to save the umbrella message and pillars to `.agents/product-marketing-context.md`. Suggest copywriting for pages and sales-enablement for decks.
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

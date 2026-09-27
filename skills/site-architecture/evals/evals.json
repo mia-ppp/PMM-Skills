@@ -77,6 +77,7 @@
       "id": 6,
       "prompt": "Our XML sitemap hasn't been updated in 6 months and we have crawl errors in Search Console. Can you fix our technical SEO?",
       "expected_output": "Should recognize this is a technical SEO audit task, not a site architecture design task. Should defer to or cross-reference the seo-audit skill, which handles XML sitemaps, crawl errors, and technical SEO issues. Site-architecture focuses on page hierarchy, navigation, and URL structure design — not technical SEO troubleshooting.",
+      "handoff_to": "seo-audit",
       "assertions": [
         "Recognizes this as technical SEO, not site architecture",
         "References or defers to seo-audit skill",

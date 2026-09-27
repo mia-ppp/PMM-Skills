@@ -122,7 +122,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 
 - **Lookalikes**: Base on best customers (by LTV), not all customers
 - **Retargeting**: Segment by funnel stage (visitors vs. cart abandoners)
-- **Exclusions**: Exclude existing customers and recent converters — showing ads to people who already bought wastes spend
+- **Exclusions**: Exclude existing customers and recent converters. Showing ads to people who already bought wastes spend
 
 **For detailed targeting strategies by platform**: See [references/audience-targeting.md](references/audience-targeting.md)
 
@@ -307,6 +307,10 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key adver
 For tracking setup, see [references/conversion-tracking.md](references/conversion-tracking.md), [ga4.md](../../tools/integrations/ga4.md), [segment.md](../../tools/integrations/segment.md)
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

@@ -80,6 +80,7 @@
       "id": 6,
       "prompt": "Write me a 5-email welcome sequence for new email subscribers who came from my LinkedIn audience.",
       "expected_output": "Should recognize this is an email sequence task, not social content. Should defer to or cross-reference the email-sequence skill, which handles welcome sequences, drip campaigns, and lifecycle emails. May note the social-to-email bridge context but should make clear that email-sequence is the right skill for writing email sequences.",
+      "handoff_to": "email-sequence",
       "assertions": [
         "Recognizes this as email sequence work",
         "References or defers to email-sequence skill",

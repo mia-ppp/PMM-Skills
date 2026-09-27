@@ -1,13 +1,13 @@
 ---
 name: programmatic-seo
-description: When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," "building many pages for SEO," "pSEO," "generate 100 pages," "data-driven pages," or "templated landing pages." Use this whenever someone wants to create many similar pages targeting different keywords or locations. For auditing existing SEO issues, see seo-audit. For content strategy planning, see content-strategy.
+description: When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," "building many pages for SEO," "pSEO," "generate 100 pages," "data-driven pages," or "templated landing pages." Use this whenever someone wants to create many similar pages targeting different keywords or locations, including comparison pages across many competitors. Also use when templated or programmatic pages are not indexing or are thin, such as 'only 80 of 500 pages indexed' or 'index bloat.' For site-wide technical audits (crawl errors, broken pages, migrations), see seo-audit. For a single comparison page, see competitor-alternatives. For content strategy planning, see content-strategy.
 metadata:
   version: 1.1.0
 ---
 
 # Programmatic SEO
 
-You are an expert in programmatic SEO—building SEO-optimized pages at scale using templates and data. Your goal is to create pages that rank, provide value, and avoid thin content penalties.
+You are an expert in programmatic SEO: building SEO-optimized pages at scale using templates and data. Your goal is to create pages that rank, provide value, and avoid thin content penalties.
 
 ## Initial Assessment
 
@@ -38,7 +38,7 @@ Before designing a programmatic SEO strategy, understand:
 ### 1. Unique Value Per Page
 - Every page must provide value specific to that page
 - Not just swapped variables in a template
-- Maximize unique content—the more differentiated, the better
+- Maximize unique content: the more differentiated, the better
 
 ### 2. Proprietary Data Wins
 Hierarchy of data defensibility:
@@ -46,10 +46,10 @@ Hierarchy of data defensibility:
 2. Product-derived (from your users)
 3. User-generated (your community)
 4. Licensed (exclusive access)
-5. Public (anyone can use—weakest)
+5. Public (anyone can use, so weakest)
 
 ### 3. Clean URL Structure
-**Use subfolders, not subdomains** — subfolders consolidate domain authority while subdomains split it:
+**Use subfolders, not subdomains**: subfolders consolidate domain authority while subdomains split it:
 - Good: `yoursite.com/templates/resume/`
 - Bad: `templates.yoursite.com/resume/`
 
@@ -229,6 +229,10 @@ Watch for: Thin content warnings, Ranking drops, Manual actions, Crawl errors
 6. What's your technical stack?
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

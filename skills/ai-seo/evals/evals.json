@@ -78,6 +78,7 @@
       "id": 6,
       "prompt": "Our organic search traffic has dropped 30% this quarter. Can you do a full SEO audit to figure out what's going on?",
       "expected_output": "Should recognize this is a traditional SEO audit request, not specifically an AI SEO task. Should defer to or cross-reference the seo-audit skill, which handles comprehensive traditional SEO audits including crawlability, technical foundations, on-page optimization, and content quality. May mention AI search as one factor to investigate but should make clear that seo-audit is the primary skill for this task.",
+      "handoff_to": "seo-audit",
       "assertions": [
         "Recognizes this as a traditional SEO audit request",
         "References or defers to seo-audit skill",

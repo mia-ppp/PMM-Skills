@@ -25,10 +25,10 @@ Gather this (ask only if missing and it would change the answer):
 
 If key information is missing, do not stop. Answer provisionally:
 1. Give your best answer with what you have.
-2. State every assumption explicitly.
-3. End with the two or three questions whose answers would change the recommendation, and say which way the answer moves for each.
+2. Flag assumptions where you use them.
+3. End with one short block of at most 5 bullets combined: the assumptions that most affect the recommendation, then the two or three questions whose answers would change it, with which way the answer moves for each.
 
-Never infer product capabilities, pricing, or customer pain points silently. If you need them, list them as assumptions.
+Never infer product capabilities, pricing, or customer pain points silently. If you need them, flag them as assumptions.
 
 Open with the recommendation. Do not restate the user's situation or data back to them.
 
@@ -95,8 +95,8 @@ Lead with the answer. Use this structure:
 
 ## Trade-offs we are making
 ## Stress-test results
-## Assumptions
-## Questions that would change this
+## Assumptions and open questions
+[At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
 
 Keep the canvas to one screen. If the user asked for a rework, show before and after side by side and say what changed and why.
@@ -114,6 +114,10 @@ Keep the canvas to one screen. If the user asked for a rework, show before and a
 ## After Delivering
 
 Offer to record the result in `.agents/product-marketing-context.md` so other skills use it. Suggest messaging-framework as the next step.
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 

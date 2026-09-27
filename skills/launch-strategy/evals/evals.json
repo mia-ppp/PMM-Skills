@@ -79,6 +79,7 @@
       "id": 6,
       "prompt": "Give me some creative marketing ideas to promote our product. We're bootstrapped and don't have a big budget.",
       "expected_output": "Should recognize this is a broader marketing ideas request, not specifically a launch strategy task. Should defer to or cross-reference the marketing-ideas skill, which provides 139 marketing ideas organized by category and filtered by budget. May provide some launch-related tactical ideas but should make clear that marketing-ideas is the right skill for a broader brainstorming session.",
+      "handoff_to": "marketing-ideas",
       "assertions": [
         "Recognizes this as broader marketing ideas request",
         "References or defers to marketing-ideas skill",

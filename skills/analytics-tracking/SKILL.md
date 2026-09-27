@@ -301,6 +301,10 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key analy
 
 ---
 
+## Output Rules
+
+- No em dashes in output.
+
 ## Related Skills
 
 - **ab-test-setup**: For experiment tracking

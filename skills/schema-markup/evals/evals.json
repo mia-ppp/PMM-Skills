@@ -76,6 +76,7 @@
       "id": 6,
       "prompt": "Our organic search traffic dropped after a site redesign. Can you do a technical SEO audit?",
       "expected_output": "Should recognize this is a technical SEO audit request, not a schema markup task. Should defer to or cross-reference the seo-audit skill, which handles comprehensive technical SEO audits. Schema markup is one component of SEO but doesn't address the broader technical issues (redirects, crawlability, indexation) that likely caused the traffic drop.",
+      "handoff_to": "seo-audit",
       "assertions": [
         "Recognizes this as a technical SEO audit request",
         "References or defers to seo-audit skill",

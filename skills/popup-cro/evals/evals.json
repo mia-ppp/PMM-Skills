@@ -82,6 +82,7 @@
       "id": 6,
       "prompt": "We need to optimize the lead capture form inside our popup. It currently asks for name, email, company, and phone number. Too many fields?",
       "expected_output": "Should recognize this overlaps with form optimization. Should defer to or cross-reference the form-cro skill, which handles form field optimization, layout, and conversion. May provide popup-specific context (popups need minimal fields due to fleeting attention) but should make clear that form-cro is the right skill for detailed form optimization.",
+      "handoff_to": "form-cro",
       "assertions": [
         "Recognizes overlap with form optimization",
         "References or defers to form-cro skill",

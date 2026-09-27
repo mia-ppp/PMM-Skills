@@ -81,6 +81,7 @@
       "id": 6,
       "prompt": "Can you help me optimize our public pricing page? We want more visitors to choose the Pro plan over the Basic plan.",
       "expected_output": "Should recognize this is a public pricing page optimization task, not an in-app paywall task. Should defer to or cross-reference the page-cro skill for pricing page CRO. Paywall-upgrade-cro specifically handles in-app upgrade prompts for existing users, not public-facing pricing pages.",
+      "handoff_to": "page-cro",
       "assertions": [
         "Recognizes this as public pricing page optimization",
         "References or defers to page-cro skill",

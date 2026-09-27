@@ -41,7 +41,7 @@ Gather this context (ask if not provided):
 
 ## Searchable vs Shareable
 
-Every piece of content must be searchable, shareable, or both. Prioritize in that order—search traffic is the foundation.
+Every piece of content must be searchable, shareable, or both. Prioritize in that order: search traffic is the foundation.
 
 **Searchable content** captures existing demand. Optimized for people actively looking for answers.
 
@@ -50,7 +50,7 @@ Every piece of content must be searchable, shareable, or both. Prioritize in tha
 ### When Writing Searchable Content
 
 - Target a specific keyword or question
-- Match search intent exactly—answer what the searcher wants
+- Match search intent exactly: answer what the searcher wants
 - Use clear titles that match search queries
 - Structure with headings that mirror search patterns
 - Place keywords in title, headings, first paragraph, URL
@@ -353,6 +353,10 @@ Visual or structured representation of how content interconnects.
 - **[Headless CMS Guide](references/headless-cms.md)**: CMS selection, content modeling for marketing, editorial workflows, platform comparison (Sanity, Contentful, Strapi)
 
 ---
+
+## Output Rules
+
+- No em dashes in output.
 
 ## Related Skills
 
