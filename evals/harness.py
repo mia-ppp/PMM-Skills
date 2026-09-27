@@ -43,7 +43,7 @@ MOCK = False
 PRICES = {"claude-sonnet-5": (2.00, 10.00), "claude-opus-5": (5.00, 25.00), "claude-haiku-4-5": (1.00, 5.00)}  # $/MTok in, out
 BUDGET = None  # dollars; set by --budget
 SPENT = 0.0
-MAX_CALL = 0.20  # running max cost of one call, used to reserve room for calls already in flight
+MAX_CALL = 0.05  # running max cost of one call (starts low, rises to the costliest call seen), reserved per in-flight call
 CACHE_WRITE, CACHE_READ = 1.25, 0.10  # 5-minute cache: price multipliers on input tokens
 CACHE_STATS = Counter()  # input tokens: uncached, cache_write, cache_read
 WORKERS = 4
@@ -427,7 +427,8 @@ def compare_runs(new, old, ho):
     a, b = lift(nr), lift(orr)
     skills = sorted({r["skill"] for r in nr})
     lines = [f"## Changed skills: lift before ({on}) and after ({nn})", "",
-             "Lift is the with-skill mean minus the baseline mean, on the 0-2 scale. Before used 3 trials, after used 1.", "",
+             "Lift is the with-skill mean minus the baseline mean, on the 0-2 scale. "
+             f"Before used {trials(orr)}, after used {trials(nr)}.", "",
              "| Skill | " + " | ".join(d.title() for d in DIMENSIONS) + " |", "|---" * (len(DIMENSIONS) + 1) + "|"]
     for k in skills:
         cells = []
@@ -437,6 +438,10 @@ def compare_runs(new, old, ho):
                          else f"n/a → {y:+.2f}" if y is not None else "n/a")
         lines.append(f"| {k} | " + " | ".join(cells) + " |")
     return lines + [""]
+
+def trials(recs):
+    n = len({r["trial"] for r in recs})
+    return f"{n} trial{'s' if n != 1 else ''}"
 
 def is_handoff(r, ho):
     return r.get("handoff", (r["skill"], r["eval_id"]) in ho)
@@ -487,7 +492,7 @@ def run_summary(recs, name, ho=None):
     skills = sorted({r["skill"] for r in recs})
     n_ho = sum(is_handoff(r, ho or {}) for r in recs)
     lines = [f"## Run {name}", "",
-             f"{len(recs)} outputs: {len(skills)} skills ({', '.join(skills)}), "
+             f"{len(recs)} outputs: {len(skills)} skill{'s' if len(skills) != 1 else ''} ({', '.join(skills)}), "
              f"{len({(r['skill'], r['eval_id']) for r in recs})} prompts, with skill and baseline, "
              f"{len({r['trial'] for r in recs})} trial{'s' if len({r['trial'] for r in recs}) != 1 else ''}. Rubric judge: {recs[0].get('judge', '?')}, "
              f"shown {recs[0].get('judge_examples', 0)} hand-graded examples."

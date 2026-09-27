@@ -6,16 +6,38 @@ Early result: small samples, one judge model, and rubrics still being calibrated
 
 Each skill has hand-off evals that check a request goes to a different skill. Earlier results scored them as routing misses when the router picked that other skill, and counted them in rubric lift, where the judge marks a hand-off down for not doing the task. Routing accuracy was reported as 81.5%. Hand-off evals are now scored against the skill they hand off to and left out of rubric lift. Numbers below use the corrected scoring, including for earlier runs.
 
-## Changed skills: lift before (20260926-150948) and after (20260926-160737)
+## Changed skills: lift before (20260926-160737) and after (20260926-171721)
 
-Lift is the with-skill mean minus the baseline mean, on the 0-2 scale. Before used 3 trials, after used 1.
+Lift is the with-skill mean minus the baseline mean, on the 0-2 scale. Before used 1 trial, after used 1 trial.
 
 | Skill | Grounded | Decisive | Usable | Sharp |
 |---|---|---|---|---|
-| buyer-personas | n/a → +1.00 | n/a → +0.20 | n/a → +0.00 | n/a → +0.60 |
-| competitor-alternatives | +0.53 → +1.20 | -0.47 → -0.20 | -0.60 → -0.40 | -0.07 → +0.00 |
-| messaging-framework | +1.33 → +1.25 | +0.67 → +0.75 | +0.50 → +0.75 | +0.58 → +0.75 |
-| positioning-strategy | +1.20 → +1.20 | +0.93 → +1.40 | +0.40 → +0.60 | +0.40 → +0.40 |
+| competitor-alternatives | +1.20 → +1.00 | -0.20 → -0.20 | -0.40 → -0.40 | +0.00 → +0.20 |
+
+## Run 20260926-171721
+
+10 outputs: 1 skill (competitor-alternatives), 5 prompts, with skill and baseline, 1 trial. Rubric judge: claude-sonnet-5, shown 10 hand-graded examples.
+
+## Rubric scores (0-2), with skill vs baseline
+
+| Dimension | With skill | Baseline | Lift |
+|---|---|---|---|
+| Grounded | 1.80 (n=5) | 0.80 (n=5) | +1.00 |
+| Decisive | 1.60 (n=5) | 1.80 (n=5) | -0.20 |
+| Usable | 1.60 (n=5) | 2.00 (n=5) | -0.40 |
+| Sharp | 1.00 (n=5) | 0.80 (n=5) | +0.20 |
+
+| Skill | With skill | Baseline | Lift |
+|---|---|---|---|
+| competitor-alternatives | 1.50 | 1.35 | +0.15 |
+
+
+## Em dashes (hard check, not part of the rubric)
+
+| Config | Outputs | Total | Mean per output | Outputs with any |
+|---|---|---|---|---|
+| with_skill | 5 | 11 | 2.2 | 1 |
+| baseline | 5 | 53 | 10.6 | 5 |
 
 ## Run 20260926-160737
 

@@ -23,11 +23,12 @@ Useful inputs (ask only if missing and it would change the page):
 3. **Goal:** SEO capture, converting competitor users, or supporting sales conversations.
 
 If key information is missing, do not stop. Write the page provisionally:
-1. Draft the full page with what you have. Use public knowledge of the competitor, and mark product claims you cannot verify as `[Need: ...]`.
-2. Flag assumptions where you use them.
-3. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.
+1. Pick a provisional wedge from the brief, for example "built for e-commerce" against a general-purpose competitor, and state it as an assumption. Build the page around it.
+2. Write real copy for everything else, using public knowledge of the competitor. Use `[Need: ...]` only for proof points: stats, customer quotes, case studies, and migration numbers.
+3. Flag other assumptions where you use them.
+4. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.
 
-Never invent stats, customer quotes, or competitor weaknesses. Label them as assumptions or placeholders.
+Never invent stats, customer quotes, or competitor weaknesses. Proof you do not have is a `[Need: ...]` placeholder. A page that is mostly placeholders is not a draft.
 
 ---
 
