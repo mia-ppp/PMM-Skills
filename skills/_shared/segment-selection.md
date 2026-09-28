@@ -17,7 +17,8 @@ Example: a fraud tool's pain is card fraud losses, which hit every online mercha
 Size every segment on the list before you score or choose. The reach or revenue score in step 3 comes from these sizes.
 
 - **Size the full addressable market first.** Cover every segment from step 1, then total it.
-- **Never invent market sizes.** An Assumed size shows its method, for example "[count of accounts] x [average price]".
+- **Never invent market sizes.** An Assumed size shows its method, for example "[count of accounts] x [average price]". A size derived from a sourced total is not invented (see step 5).
+- **Build the full market as a range from any sourced total.** Label the total Sourced and each ratio or split Assumed, with its basis. The full market is never "Gap: not sized" when a sourced total exists.
 - **Keep unsized segments in the plan.** Label them "Gap: not sized" and say how to size them, for example "pull merchant counts by vertical from internal data".
 - **Size the market the pain defines, not the market the proof covers.** If the loss pool is cross-industry, the full market is cross-industry.
 - **Reconcile any headline figure with the sizing.** If the brief or research gives a loss pool or market figure, show the steps from it to the full market.
@@ -33,7 +34,7 @@ Size every segment on the list before you score or choose. The reach or revenue 
 | Segment | Accounts (share of anchor) | Revenue per account (formula) | Size | Label |
 |---|---|---|---|---|
 | [segment] | [count] ([x]% of [anchor]) | [price x 12] + [units x unit price x 12] = [$] | [size, or "not sized"] | Sourced / Assumed / Gap |
-| **Full addressable market** | [total] ([x]% of [anchor]) | | [total] | |
+| **Full addressable market** | [total] ([x]% of [anchor]) | | [low to high range] | Derived from [sourced total] |
 
 Excluded from sizing: [segment], because [reason]. (Or: "None.")
 ```
