@@ -13,7 +13,7 @@
         "Does not invent win rates, customer names, or market size figures",
         "Runs a swap test against Vanta or Drata and reports the result",
         "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "Includes a derivation trace that labels every slot Sourced, Assumed, or Gap",
         "The positioning statement is one sentence of 25 words or fewer",
         "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
         "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
@@ -31,7 +31,7 @@
         "Identifies which claims Stripe Connect or Wise could also make",
         "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
         "Phrases the differentiating phrase as one concrete capability, not abstract nouns (visibility, insights, platform) or company assets",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "Includes a derivation trace that labels every slot Sourced, Assumed, or Gap",
         "The positioning statement is one sentence of 25 words or fewer",
         "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
         "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
@@ -93,7 +93,7 @@
         "Labels the statement as internal strategy, not copy, and adds no tagline or hero line",
         "Says hero lines are messaging-framework's job and points there",
         "Uses concrete capabilities such as auto-drafting invoices or automatic payment reminders",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "Includes a derivation trace that labels every slot Sourced, Assumed, or Gap",
         "The positioning statement is one sentence of 25 words or fewer",
         "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
         "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"
@@ -109,7 +109,7 @@
         "Leads with one internal positioning statement in the form '[Product] is a [category + one short differentiating phrase] for [segment]'",
         "Names spreadsheets and manual reminders as the alternative the differentiation is drawn against",
         "Flags 'half the time' as a claim that needs proof",
-        "Includes a derivation trace that gives a source or an Assumption label for every slot",
+        "Includes a derivation trace that labels every slot Sourced, Assumed, or Gap",
         "The positioning statement is one sentence of 25 words or fewer",
         "The positioning statement contains one differentiating phrase, not a list of capabilities or checkpoints",
         "Every capability the answer mentions appears either as the differentiating phrase or as a row in the capability table"

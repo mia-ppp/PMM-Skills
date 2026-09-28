@@ -14,6 +14,8 @@ You are an expert in creating competitor comparison and alternative pages. Your 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
 
+**Load the shared reference:** read `../_shared/evidence-gaps.md` (relative to this skill's folder). Label every claim, finding, and number Sourced, Assumed, or Gap.
+
 **Scope:** this skill writes public pages that prospects and searchers read. If the user wants a battle card or other internal sales material, say in one line that sales-enablement covers it and hand off. Do not ask which they want.
 
 Useful inputs (ask only if missing and it would change the page):
@@ -24,11 +26,11 @@ Useful inputs (ask only if missing and it would change the page):
 
 If key information is missing, do not stop. Write the page provisionally:
 1. Pick a provisional wedge from the brief, for example "built for e-commerce" against a general-purpose competitor, and state it as an assumption. Build the page around it.
-2. Write real copy for everything else, using public knowledge of the competitor. Use `[Need: ...]` only for proof points: stats, customer quotes, case studies, and migration numbers.
+2. Write real copy for everything else, using public knowledge of the competitor. Use `[Gap: ...]` placeholders only for proof points: stats, customer quotes, case studies, and migration numbers. Give each one a provable fallback line.
 3. Flag other assumptions where you use them.
 4. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.
 
-Never invent stats, customer quotes, or competitor weaknesses. Proof you do not have is a `[Need: ...]` placeholder. A page that is mostly placeholders is not a draft.
+Never invent stats, customer quotes, or competitor weaknesses. Proof you do not have is a `[Gap: ...]` placeholder. A page with open Gaps is labeled "Draft, not publish-ready" at the top. A page that is mostly placeholders is not a draft.
 
 ---
 
@@ -231,8 +233,14 @@ For each page: URL, meta tags, full page copy organized by section, comparison t
 ### Page Set Plan
 Recommended pages to create with priority order based on search volume.
 
+### Inputs and assumptions
+A separate note after the page copy, never inside it. See `../_shared/evidence-gaps.md`.
+
 ### Assumptions and open questions
-At most 5 bullets combined, at the end. Key assumptions first, then 2 or 3 questions.
+At most 5 bullets combined. Key assumptions first, then 2 or 3 questions.
+
+### Evidence gaps
+The ranked top five, then an appendix with the rest. The 5-bullet cap above does not apply here.
 
 ---
 

@@ -14,6 +14,8 @@ You are an expert in B2B sales enablement. Your goal is to create sales collater
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
+**Load the shared reference:** read `../_shared/evidence-gaps.md` (relative to this skill's folder). Label every claim, finding, and number Sourced, Assumed, or Gap.
+
 **Scope:** battle cards and all rep-facing competitive material live here. If the user wants a public comparison or alternative page, say in one line that competitor-alternatives covers it and hand off.
 
 Gather this context (ask if not provided):
@@ -158,7 +160,7 @@ One page per competitor, written for a rep mid-call. Blunt, internal, scannable.
 3. **Where they win:** honest. Say when to walk away.
 4. **Landmines:** questions reps can ask that expose the competitor's gaps.
 5. **Objections:** "When they say X, you say Y," for the top five.
-6. **Proof:** customer switch stories and quotes. Mark missing proof as `[Need: ...]`.
+6. **Proof:** customer switch stories and quotes. Mark missing proof as `[Gap: ...]` with a provable fallback line.
 
 ---
 
@@ -339,6 +341,8 @@ Deliver the right format for each asset type:
 | Playbook | Structured document with table of contents and sections |
 | Persona card | One-page card format per persona |
 | Proposal | Section-by-section copy with customization notes |
+
+Rep-facing assets (battle cards, objection docs, playbooks, talk tracks) open with the "Inputs and assumptions" note. Prospect-facing assets (decks, one-pagers, proposals) get it as a separate note after the copy. Every asset ends with the ranked Evidence gaps lists, and every asset with open Gaps is labeled "Draft, not publish-ready".
 
 ---
 
