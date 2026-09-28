@@ -4,9 +4,9 @@
     {
       "id": 1,
       "prompt": "Create buyer personas for a B2B spend management platform selling to companies with 200 to 1000 employees. We have no interview data yet.",
-      "expected_output": "Hypothesis mode. Should label attributes as hypotheses, map a buying committee, define an anti-persona, and give a validation plan with interview questions.",
+      "expected_output": "Hypothesis mode. Should label attributes Assumed or Gap, map a buying committee, define an anti-persona, and give a validation plan with interview questions.",
       "assertions": [
-        "Labels persona attributes as hypotheses",
+        "Labels persona attributes Assumed or Gap",
         "Maps a buying committee with distinct roles",
         "Defines an anti-persona",
         "Provides a validation plan with interview questions",
@@ -25,7 +25,7 @@
         "Captures discovery channels mentioned in the notes",
         "Identifies IT, procurement, or legal as committee roles from the notes",
         "States what decision each persona changes",
-        "Labels sourced attributes as evidence"
+        "Labels attributes drawn from the notes as Sourced"
       ],
       "files": []
     },
@@ -56,11 +56,11 @@
     {
       "id": 5,
       "prompt": "Build me a customer persona for a marketing manager at a B2B SaaS company.",
-      "expected_output": "Should check for product-marketing-context.md first. No research was provided, so should work in hypothesis mode: draft the persona as a labeled hypothesis rather than stopping to ask. Should label every attribute as Evidence or Hypothesis. Should cover background, trigger events, pain points, discovery channels, evaluation process, objections, and committee role. Should include no customer quotes, since the user provided no material to quote from. Should end with a validation plan of five to eight interview questions that would confirm or kill the persona.",
+      "expected_output": "Should check for product-marketing-context.md first. No research was provided, so should work in hypothesis mode: draft the persona as a labeled hypothesis rather than stopping to ask. Should label every attribute Sourced, Assumed, or Gap. Should cover background, trigger events, pain points, discovery channels, evaluation process, objections, and committee role. Should include no customer quotes, since the user provided no material to quote from. Should end with a validation plan of five to eight interview questions that would confirm or kill the persona.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Treats the persona as a hypothesis because no research was provided, and still delivers a draft",
-        "Labels each persona attribute as Evidence or Hypothesis",
+        "Labels each persona attribute Sourced, Assumed, or Gap",
         "Covers trigger events, pain points, discovery channels, and evaluation process",
         "Includes no customer quotes, since the user provided no material to quote from",
         "Includes a validation plan with five to eight interview questions that would confirm or kill the persona"

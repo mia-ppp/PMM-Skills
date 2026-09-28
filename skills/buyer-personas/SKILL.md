@@ -18,11 +18,11 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 
 Find out which mode applies:
 - **Evidence mode:** the user has interviews, call notes, CRM data, win-loss, or surveys. Build from those.
-- **Hypothesis mode:** little or no research. Draft personas as clearly labeled hypotheses, then give a plan to validate them.
+- **Hypothesis mode:** little or no research. Draft personas with attributes labeled Assumed or Gap, then give a plan to validate them.
 
 If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the recommended segment. Do not restate the brief.
 
-Label every persona attribute as `Evidence` or `Hypothesis`. Never present a guess as research. Never invent quotes. If you use a quote, it must come from the user's material.
+Label every persona attribute Sourced, Assumed, or Gap, as defined in the Labels section of `../_shared/evidence-gaps.md`. Never present a guess as research. Never invent quotes. If you use a quote, it must come from the user's material.
 
 ## Core Principles
 
@@ -60,7 +60,7 @@ For hypothesis-mode personas, write the five to eight interview questions that w
 ## Persona: [Role-based name, not a cute alias]
 | Attribute | Detail | Source |
 |---|---|---|
-| Background | | Evidence / Hypothesis |
+| Background | | Sourced / Assumed / Gap |
 | Trigger events | | |
 | Pain points | | |
 | Discovery channels | | |
@@ -83,7 +83,7 @@ Use role-based names like "RevOps Lead at a Series B SaaS company," not invented
 ## Common Failure Modes
 
 - Personas built from demographics instead of buying behavior.
-- Hypotheses presented as findings.
+- Assumed attributes presented as Sourced findings.
 - Too many personas. Three is usually enough for one product.
 - Personas that do not change any decision.
 - Skipping the buying committee in B2B.
