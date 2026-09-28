@@ -66,6 +66,18 @@
         "Includes a validation plan with five to eight interview questions that would confirm or kill the persona"
       ],
       "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Build buyer personas for our compliance automation platform. We sell to SaaS companies with 50 to 500 employees that need SOC 2. No interview data yet.",
+      "expected_output": "Hypothesis mode. Should open with a Persona message map table with three columns: Persona, What matters to them, and Message. Each persona names its buying role in brackets. What matters is 1 to 2 short phrases. Each message is the core message in 1 to 2 sentences with a proof point labeled Sourced, Assumed, or Gap, not a hook. The existing sections follow unchanged.",
+      "assertions": [
+        "Includes a 'Persona message map' section as the first output section",
+        "The message map is a table with exactly three columns: Persona, What matters to them, and Message",
+        "Each Persona cell includes the persona's buying role in brackets, such as (champion), (evaluator), or (financial buyer)",
+        "Each Message cell is 1 to 2 sentences and carries a proof point labeled Sourced, Assumed, or Gap"
+      ],
+      "files": []
     }
   ]
 }

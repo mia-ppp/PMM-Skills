@@ -2,7 +2,7 @@
 name: buyer-personas
 description: "When the user wants to create, research, validate, or refresh buyer personas, ICP profiles, or buying committee maps. Use when the user mentions 'persona,' 'buyer persona,' 'ICP,' 'ideal customer profile,' 'who is our buyer,' 'buying committee,' 'decision maker,' 'champion,' 'persona interviews,' 'segment,' 'which segment should we target,' 'segmentation,' or 'anti-persona.' Use this whenever audience assumptions drive a positioning, messaging, or campaign decision. For interview synthesis across many sources, see customer-research. For using personas in positioning, see positioning-strategy. For recording personas in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Buyer Personas
@@ -20,7 +20,7 @@ Find out which mode applies:
 - **Evidence mode:** the user has interviews, call notes, CRM data, win-loss, or surveys. Build from those.
 - **Hypothesis mode:** little or no research. Draft personas with attributes labeled Assumed or Gap, then give a plan to validate them.
 
-If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the recommended segment. Do not restate the brief.
+If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the persona message map, then the recommended segment. Do not restate the brief.
 
 Label every persona attribute Sourced, Assumed, or Gap, as defined in the Labels section of `../_shared/evidence-gaps.md`. Never present a guess as research. Never invent quotes. If you use a quote, it must come from the user's material.
 
@@ -51,9 +51,20 @@ Describe the look-alike buyer who churns, stalls, or costs too much to serve.
 ### 5. Plan validation
 For hypothesis-mode personas, write the five to eight interview questions that would confirm or kill each one. Cover role, awareness, evaluation, requirements, alternatives considered, and the buying committee. End with: "If you were CEO, what would you do to compete better?" Suggest a short survey to size each segment afterward.
 
+### 6. Write the persona message map
+Summarize the persona profiles and the committee map in one table. It opens the output. Write it last, from the finished profiles.
+- **Persona:** the role-based name, with the buying role in brackets, such as (champion), (evaluator), or (financial buyer).
+- **What matters to them:** 1 to 2 short phrases naming the priorities that decide the deal for this persona. Examples: conversion rate, compliance, compute cost, integration effort.
+- **Message:** the core message for this persona in 1 to 2 sentences, tied to a proof point with its label (Sourced, Assumed, or Gap). It is the argument that wins them over, not an opening line or hook.
+
 ## Output Format
 
 ```
+## Persona message map
+| Persona | What matters to them | Message |
+|---|---|---|
+| [Role-based name] (champion) | [1 to 2 short phrases] | [Core message, 1 to 2 sentences. Proof: [proof point] (Sourced / Assumed / Gap)] |
+
 ## Recommended primary segment
 [Choice + one-line reason] (include scoring table if segments were compared)
 
