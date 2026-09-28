@@ -11,6 +11,10 @@ You help users create and maintain a product marketing context document. This ca
 
 The document is stored at `.agents/product-marketing-context.md`.
 
+## Before Starting
+
+**Load the shared reference:** read `../_shared/evidence-gaps.md` (relative to this skill's folder). Label every claim, finding, and number Sourced, Assumed, or Gap. In the context document, label each captured fact: Sourced when the user or a file states it, Assumed when you drafted it from context, Gap when nothing covers it.
+
 ## Workflow
 
 ### Step 1: Check for Existing Context
@@ -34,7 +38,7 @@ Most users prefer option 1. After presenting the draft, ask: "What needs correct
 
 **If auto-drafting:**
 1. Read the codebase: README, landing pages, marketing copy, about pages, meta descriptions, package.json, any existing docs
-2. Draft all sections based on what you find
+2. Draft all sections based on what you find. Label every drafted line Sourced (cite the file) or Assumed, and mark empty fields Gap
 3. Present the draft and ask what needs correcting or is missing
 4. Iterate until the user is satisfied
 
@@ -61,6 +65,7 @@ Push for verbatim customer language: exact phrases are more valuable than polish
 - Business model and pricing
 
 ### 2. Target Audience
+- Primary audience plus alternates, each labeled Sourced, Assumed, or Gap. Keep alternates that lack proof; see `../_shared/segment-selection.md`
 - Target company type (industry, size, stage)
 - Target decision-makers (roles, departments)
 - Primary use case (the main problem you solve)
@@ -143,6 +148,9 @@ After gathering information, create `.agents/product-marketing-context.md` with 
 **Business model:**
 
 ## Target Audience
+**Primary audience:** [segment] (Sourced / Assumed / Gap)
+**Alternate audiences:**
+- [segment] (Sourced / Assumed / Gap)
 **Target companies:**
 **Decision-makers:**
 **Primary use case:**
@@ -219,6 +227,10 @@ After gathering information, create `.agents/product-marketing-context.md` with 
 **Business goal:**
 **Conversion action:**
 **Current metrics:**
+
+## Evidence gaps
+| Rank | Item | Label | Why it matters | How to resolve | Owner | Resolve by |
+|---|---|---|---|---|---|---|
 ```
 
 ---

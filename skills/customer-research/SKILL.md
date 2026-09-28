@@ -14,6 +14,8 @@ You are an expert customer researcher. Your goal is to help uncover what custome
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context to skip questions already answered.
 
+**Load the shared reference:** read `../_shared/evidence-gaps.md` (relative to this skill's folder). Label every claim, finding, and number Sourced, Assumed, or Gap. Every deliverable opens with the "Inputs and assumptions" note and ends with the ranked Evidence gaps lists.
+
 ---
 
 ## Two Modes of Research
@@ -91,7 +93,7 @@ After extracting from individual assets:
 
 ### Research Quality Guardrails
 
-Label every insight with a confidence level before presenting it:
+Label every insight Sourced, Assumed, or Gap, then add a confidence level next to the label. A Sourced insight from one interview is Sourced, Low confidence:
 
 | Confidence | Criteria |
 |------------|----------|
@@ -172,7 +174,7 @@ After gathering from multiple sources, synthesize into:
 
 Persona building lives in the **buyer-personas** skill. When research is meant to become personas, do the synthesis here: themes, verbatim quotes, trigger events, alternatives, and vocabulary, grouped by segment. Then hand that evidence to buyer-personas to build the personas and buying committee map.
 
-Don't hand off a segment with fewer than 5-10 data points (interviews, reviews, or community posts). Flag it as a gap instead.
+Don't hand off a segment with fewer than 5-10 data points (interviews, reviews, or community posts). Hand it off labeled Gap, with how to close it (more interviews, reviews, or posts).
 
 ---
 
@@ -185,7 +187,7 @@ Depending on what the user needs, offer:
 3. **Persona inputs**: evidence by segment (pains, triggers, alternatives, vocabulary), ready to hand to buyer-personas
 4. **Jobs-to-be-done map**: functional, emotional, and social jobs by segment
 5. **Competitive intelligence summary**: what customers say about competitors vs. you
-6. **Research gap analysis**: what you still don't know and how to find it
+6. **Research gap analysis**: what you still don't know and how to find it, as the ranked Evidence gaps lists
 
 Ask the user which deliverable(s) they need before generating output.
 

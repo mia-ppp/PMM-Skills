@@ -2,7 +2,7 @@
 name: launch-strategy
 description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Also use for launch post-mortems, such as 'our launch flopped,' 'launch didn't work,' or 'what went wrong with our launch.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Launch Strategy
@@ -13,6 +13,33 @@ You are an expert in SaaS product launches and feature announcements. Your goal 
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+
+**Load the shared references:** read `../_shared/evidence-gaps.md` and `../_shared/segment-selection.md` (relative to this skill's folder). Label every claim, segment, and number Sourced, Assumed, or Gap. Never drop a segment or opportunity because it lacks proof.
+
+**Never stop for missing facts.** Proceed with a stated assumption, and record it in the "Inputs and assumptions" note that opens the plan.
+
+---
+
+## Choose the Launch Audience
+
+A launch plan starts with who it is for. Do this before picking channels.
+
+**For any launch that enters a new segment, a new product, or a GTM plan:** follow sections 1 to 5 of `../_shared/segment-selection.md`. This applies at every tier, even a minor feature, if it targets a segment you do not serve today.
+1. List every plausible segment, including ones with zero published proof.
+2. Size the full addressable market across every segment before choosing. Reconcile any headline loss or market figure with it, and name every exclusion and its reason.
+3. Score each on pain intensity, reach or revenue, and proof strength, as separate columns.
+4. Pick a lead segment and say why in 2 to 3 sentences.
+5. Write the sequencing line for the segments that follow, with a trigger for each. Then size the year-one wedge as a share of the full market.
+
+**For a launch only to segments you already serve:** name the customer segments that get the announcement, with labels. Skip scoring and sizing.
+
+A segment with published stats and logos is easier to launch into. That makes it a candidate for lead, not the whole plan.
+
+## Set Launch KPIs
+
+- **Give the lead segment launch KPIs.** Examples: signups, activation, pipeline, or revenue from that segment.
+- **Give each sequenced segment the KPI that measures its trigger.** When the trigger fires, that segment's launch starts.
+- **Tag every KPI with the segment it tracks.** A KPI with no segment shows up as a mismatch in the consistency check.
 
 ---
 
@@ -340,6 +367,55 @@ Even small changelog updates remind customers your product is evolving. This bui
 4. What's your timeline for launch?
 5. Have you launched before? What worked/didn't work?
 6. Are you considering Product Hunt? What's your preparation status?
+7. Who has the problem this solves, beyond the customers you already have proof for?
+
+---
+
+## Output Format
+
+For any launch that enters a new segment, a new product, or a GTM plan, use this structure:
+
+```
+## Inputs and assumptions
+[Files and sources used, facts that were missing, and what was assumed in their place, each labeled. See ../_shared/evidence-gaps.md]
+
+## Market sizing
+[Headline figure reconciled to the full addressable market, every segment sized or labeled "Gap: not sized", counts shown as a share of their anchor, revenue per account built from a formula, exclusions with reasons]
+
+## Lead segment and sequence
+[Scoring table, lead segment with 2 to 3 sentences of reasoning, sequencing lines, year-one wedge as a share of the full market]
+
+## Positioning and copy
+[Statement from positioning-strategy, or a provisional one labeled Assumed. If the plan includes copy: hero line, subhead, and each segment's first line]
+
+## Launch plan
+[Phases, ORB channels, and launch-day plan for the lead segment]
+
+## KPIs
+| KPI | Segment | Target | Label |
+
+## Consistency check
+[Tables from section 6 of ../_shared/segment-selection.md]
+
+## Evidence gaps (top five)
+[Ranked by impact on the main number or lead claim, with why each matters]
+
+## Appendix: Remaining evidence gaps
+[Every other Assumed and Gap item, in ranked order]
+```
+
+If the plan includes launch copy with open Gaps, label it "Draft, not publish-ready" at the top. Give every hero or headline that depends on a Gap a provable fallback line.
+
+The plan is internal, so "Inputs and assumptions" opens it. When the skill delivers customer-facing copy on its own, such as a launch email or announcement post, put the note after the copy as a separate note. Never put it inside the copy.
+
+## Final Review
+
+Run these checks before delivering, and fix what they find. Only the consistency check tables go in the plan. Do not add a pass or fail report.
+
+1. **Consistency check.** Run section 6 of `../_shared/segment-selection.md`. The segments in the sizing, positioning, Phase 2 plan, KPIs, and copy must match. Fix mismatches such as "scale to all customers" in the strategy while every KPI tracks one segment. Also fix segment-specific words, such as "free credits," in a hero meant for several segments.
+2. **Figure trace.** Run section 7 of `../_shared/segment-selection.md`. Remove or relabel any figure that is not Sourced, derived from labeled inputs, or Assumed with a stated basis.
+3. **No silent exclusions.** Every segment from the list appears in the lead, the sequence, or the parked list with a reason.
+4. **Labels and gaps.** Every claim, score, and size is labeled. The plan opens with "Inputs and assumptions" and ends with the ranked Evidence gaps lists.
 
 ---
 
@@ -357,3 +433,4 @@ Even small changelog updates remind customers your product is evolving. This bui
 - **sales-enablement**: For launch sales collateral and enablement materials
 - **positioning-strategy**: For setting or pressure-testing positioning before a launch
 - **messaging-framework**: For launch messaging, hero lines, capabilities, and proof
+- **buyer-personas**: For profiling the lead segment and its buying committee in depth

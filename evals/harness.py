@@ -294,8 +294,10 @@ def run(skills, args):
     base = OUT / stamp
     if args.resume and not base.is_dir():
         sys.exit(f"No run to resume at {base}")
+    ids = {int(i) for i in args.evals.split(",")} if args.evals else None
     jobs = [(name, s, e, cfg, t) for name, s in pick(skills, args.skills).items()
-            for e in s["evals"] for cfg in ("with_skill", "baseline") for t in range(args.trials)]
+            for e in s["evals"] if ids is None or e["id"] in ids
+            for cfg in ("with_skill", "baseline") for t in range(args.trials)]
     if args.no_assertions:  # hand-off evals are left out of rubric lift, so a rubric-only run skips them
         skipped = sum(1 for j in jobs if j[2].get("handoff_to"))
         jobs = [j for j in jobs if not j[2].get("handoff_to")]
@@ -345,7 +347,7 @@ def run(skills, args):
     def attempt(j):
         name, s, e, cfg, t = j
         t0 = time.time()
-        out, stop_reason = request(system_for(s, cfg), e["prompt"], args.model)
+        out, stop_reason = request(system_for(s, cfg), e["prompt"], args.model, args.max_tokens)
         secs = round(time.time() - t0, 1)
         grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge)} for a in e.get("assertions", [])]
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
@@ -784,6 +786,8 @@ if __name__ == "__main__":
     ap.add_argument("--seed", type=int, help="calibrate: shuffle seed (random if omitted, saved in the key)")
     ap.add_argument("--out", help="calibrate: output directory (default evals/calibration)")
     ap.add_argument("--force", action="store_true", help="calibrate: overwrite ungraded outputs")
+    ap.add_argument("--evals", help="run: comma-separated eval ids to run (default: all)")
+    ap.add_argument("--max-tokens", type=int, default=MAX_TOKENS, help="run: output cap per call, thinking included")
     ap.add_argument("--no-assertions", action="store_true", help="run: skip per-assertion grading, keep rubric scores")
     a = ap.parse_args()
     MOCK = a.mock

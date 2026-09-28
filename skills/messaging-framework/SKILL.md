@@ -2,7 +2,7 @@
 name: messaging-framework
 description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'hero line,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see copywriting. For sales materials, see sales-enablement."
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # Messaging Framework
@@ -14,6 +14,8 @@ Deliver the finished framework, not advice about how to write one.
 ## Before Starting
 
 **Load the shared reference:** read `../_shared/messaging-examples.md` (relative to this skill's folder). Follow section 2 for capabilities and section 3 for the hero line: who reads the hero, the decision tree, the against or for frame, and how to write and recommend.
+
+**Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Positioning, personas, and proof points there are your inputs.
@@ -73,6 +75,9 @@ Provide three lengths: a one-liner (about 10 words), an elevator pitch (about 30
 ### 7. Set language rules
 List words to use (customer language) and words to avoid (jargon, clichés, competitor terms).
 
+### 8. Check consistency
+Run section 6 of `../_shared/segment-selection.md`. The segments in the hero line, subhead, and each persona or segment first line must match the positioning's segment, and any sizing or KPIs in the context. Flag segment-specific words in a line meant for several segments. Example: "free credits" or "compute" in a hero meant for AI, SaaS, and consumer subscriptions. Fix each mismatch or state why it is intentional.
+
 ## Output Format
 
 ```
@@ -114,6 +119,9 @@ One-liner / Elevator / Boilerplate
 
 ## Language
 Use: ... | Avoid: ...
+
+## Consistency check
+[Tables from section 6 of ../_shared/segment-selection.md: hero, subhead, and first lines against the positioning's segments]
 
 ## Questions that would change this
 [2 or 3 questions. Together with the Assumptions block, 5 bullets at most.]

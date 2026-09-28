@@ -15,6 +15,7 @@ This repository contains **Agent Skills** for AI agents following the [Agent Ski
 ```
 PMM-Skills/
 ├── skills/                # Agent Skills
+│   ├── _shared/           # Shared references skills load (evidence gaps, segment selection, messaging examples)
 │   └── skill-name/
 │       └── SKILL.md       # Required skill file
 ├── tools/
@@ -113,6 +114,14 @@ skills/skill-name/
 - Active voice over passive
 - One idea per section
 
+### House Style
+
+These rules apply to skill files and to every deliverable a skill produces.
+
+- **No em dashes.** Use a period, comma, colon, or parentheses instead.
+- **Sentences span two lines at most.** Split any longer sentence into two.
+- **Bullets lead with the outcome.** State the result first, then how to get it.
+
 ### Description Field Best Practices
 
 The `description` is critical for skill discovery. Include:
@@ -123,6 +132,27 @@ The `description` is critical for skill discovery. Include:
 ```yaml
 description: When the user wants to optimize conversions on any marketing page. Use when the user says "CRO," "conversion rate optimization," "this page isn't converting." For signup flows, see signup-flow-cro.
 ```
+
+## Evidence gaps
+
+Evidence decides how an item is labeled, never whether it is included. The full rule lives in one place: `skills/_shared/evidence-gaps.md`. It covers the Sourced / Assumed / Gap labels, the "Inputs and assumptions" note every deliverable opens with, relevance cuts, customer-facing copy, and the ranked Evidence gaps lists.
+
+- **Edit the rule only in that file.** It ships with installed skills and the eval harness loads it; this file does neither.
+- **Load it from every skill that produces a deliverable.** Reference it as `../_shared/evidence-gaps.md`.
+- **Load `../_shared/segment-selection.md` too** from any skill that chooses an audience, ICP, beachhead, or wedge.
+
+## Production runs
+
+A production run is a skill producing a real deliverable, such as a GTM plan for an assignment.
+
+- **Never edit skill files during a production run.** Finish the run with the skills as they are.
+- **Report skill problems separately, after the run.** Name the skill, what the run exposed, and the proposed fix.
+- **Test skill fixes with a smoke test, not in the run.** Production runs do not grade themselves with a pass or fail step.
+
+## Testing skill changes
+
+- **Check every skill change with an in-session smoke test.** Run the changed skill once on one of its eval prompts from `evals/evals.json`, save the output to `scratch/`, and hand it to the user to review.
+- **Run the API eval harness only when the user asks.** It is optional. No commit, merge, push, or rollout waits on it.
 
 ## Git Workflow
 
@@ -146,6 +176,8 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) specific
 - [ ] `name` follows naming rules (lowercase, hyphens, no `--`)
 - [ ] `description` is 1-1024 chars with trigger phrases
 - [ ] `SKILL.md` is under 500 lines
+- [ ] No instruction drops content for lacking proof (see Evidence gaps)
+- [ ] Output format ends with an Evidence gaps section
 - [ ] No sensitive data or credentials
 
 ## Tool Integrations

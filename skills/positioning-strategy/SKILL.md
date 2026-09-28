@@ -2,7 +2,7 @@
 name: positioning-strategy
 description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # Positioning Strategy
@@ -14,6 +14,10 @@ Your output is one internal positioning statement, then the reasoning behind it.
 ## Before Starting
 
 **Load the shared reference:** read `../_shared/messaging-examples.md` (relative to this skill's folder). Follow section 1 for the statement and section 2 for capability phrasing.
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
+
+**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 4 in step 4, and run section 6 in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
@@ -63,10 +67,10 @@ List competitive and contextual alternatives separately. For each, note what buy
 List only capabilities the main alternatives lack or do meaningfully worse. Shared features go to a separate "table stakes" list.
 
 ### 3. Translate capability into value
-For each unique capability: capability, then outcome for the buyer, then proof. Mark proof as `Have` or `Need`.
+For each unique capability: capability, then outcome for the buyer, then proof. Label proof Sourced, Assumed, or Gap.
 
 ### 4. Pick the best-fit customer
-Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, score them on JTBD fit, how underserved they are, reachability, and expansion potential. Recommend one primary segment.
+Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, follow sections 1 to 4 of `../_shared/segment-selection.md`: list every plausible segment, size the full market, score pain, reach, and proof in separate columns, and pick one in 2 to 3 sentences. Add JTBD fit, how underserved they are, and expansion potential as extra columns.
 
 ### 5. Choose the market frame
 Recommend claim, subcategory, or create. Explain which frame makes the unique value obvious to the best-fit customer in the fewest words.
@@ -83,6 +87,7 @@ Run each test and report the result honestly:
 - **Proof test:** is every claim backed by something you have or can get this quarter?
 - **Rep test:** can a sales rep say it in one sentence without notes?
 - **Buyer test:** does it use the words customers use, not internal vocabulary?
+- **Consistency test:** run section 6 of `../_shared/segment-selection.md` on everything this work names. That covers the statement's segment, any sizing or KPIs in the context, and any hero line, subhead, or segment first line already written. Flag segment-specific words, such as "free credits," in a line meant for several segments. Fix each mismatch or state why it is intentional.
 
 ## Output Format
 
@@ -94,9 +99,9 @@ Lead with the statement. Use this structure:
 (One sentence, 25 words or fewer, one capability.)
 
 ## Derivation trace
-| Slot | Filled with | Source | Evidence or assumption |
+| Slot | Filled with | Source | Label |
 |---|---|---|---|
-| Category | [claim / subcategory / create, and why] | [research finding or quote] | Evidence / Assumption |
+| Category | [claim / subcategory / create, and why] | [research finding or quote] | Sourced / Assumed / Gap |
 | Differentiating phrase | [one concrete phrase] | | |
 | Segment | [a specific segment, never "everyone" or "businesses"] | | |
 
@@ -110,11 +115,13 @@ Contextual alternative: [what the product truly replaces]
 
 ## Trade-offs we are making
 ## Stress-test results
+## Consistency check
+[Tables from section 6 of ../_shared/segment-selection.md, for the segments this work names]
 ## Assumptions and open questions
 [At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
 
-Fill every slot in the trace. Cite the finding or quote that supports it, or mark it `Assumption`. Write one statement only, not options. Every capability you considered appears either as the differentiating phrase or as a row in the capability table. If the user asked for a rework, show the old statement and the new one side by side and say what changed and why.
+Fill every slot in the trace. Cite the finding or quote that supports it and label it Sourced, or label it Assumed or Gap. Write one statement only, not options. Every capability you considered appears either as the differentiating phrase or as a row in the capability table. If the user asked for a rework, show the old statement and the new one side by side and say what changed and why.
 
 ## Common Failure Modes
 
@@ -127,7 +134,7 @@ Fill every slot in the trace. Cite the finding or quote that supports it, or mar
 - Listing four frameworks instead of producing one position.
 - A statement that breaks the "[Product] is a [category + one short differentiating phrase] for [segment]" structure, runs past 25 words, or lists capabilities.
 - Dropping a capability when tightening the statement instead of moving it to the capability table.
-- Trace slots with no source and no `Assumption` label.
+- Trace slots with no Sourced, Assumed, or Gap label.
 - Choosing a wedge only because a competitor is weak there.
 
 ## After Delivering
