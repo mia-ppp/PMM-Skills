@@ -92,6 +92,11 @@ Then size the **year-one wedge**: the lead segment plus any segment sequenced in
 | **Year-one wedge** | [total] ([x]% of full) | |
 ```
 
+- **Derived is not invented.** When a sourced total exists, such as a loss pool or market figure, always build the full market from it as a range. Label the total Sourced and each ratio or split Assumed, with its basis.
+- **Invented means a number with no sourced anchor and no stated basis.** That stays banned.
+- **"Gap: not sized" is allowed per segment.** It is never allowed for the full market when a sourced total exists.
+- **Make the year-one wedge a subset of segments.** Give a one-line reason for each segment left out of it.
+
 ## 6. Consistency check (GTM final review)
 
 GTM skills run this check in their final review. The segments must match across the market sizing, the positioning statement, the Phase 2 plan, the KPIs, and the copy. Copy means the hero line, the subhead, and each segment's first line.
