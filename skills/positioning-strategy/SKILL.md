@@ -17,7 +17,7 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 **Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
 
-**Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
+**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 4 in step 4, and run section 6 in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
@@ -70,7 +70,7 @@ List only capabilities the main alternatives lack or do meaningfully worse. Shar
 For each unique capability: capability, then outcome for the buyer, then proof. Label proof Sourced, Assumed, or Gap.
 
 ### 4. Pick the best-fit customer
-Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, score them on JTBD fit, how underserved they are, reachability, and expansion potential. Recommend one primary segment.
+Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, follow sections 1 to 4 of `../_shared/segment-selection.md`: list every plausible segment, size the full market, score pain, reach, and proof in separate columns, and pick one in 2 to 3 sentences. Add JTBD fit, how underserved they are, and expansion potential as extra columns.
 
 ### 5. Choose the market frame
 Recommend claim, subcategory, or create. Explain which frame makes the unique value obvious to the best-fit customer in the fewest words.

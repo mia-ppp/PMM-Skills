@@ -22,6 +22,8 @@ Find out which mode applies:
 
 If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the persona message map, then the recommended segment. Do not restate the brief.
 
+When choosing a segment, follow sections 1 to 4 of `../_shared/segment-selection.md`.
+
 Label every persona attribute Sourced, Assumed, or Gap, as defined in the Labels section of `../_shared/evidence-gaps.md`. Never present a guess as research. Never invent quotes. If you use a quote, it must come from the user's material.
 
 ## Core Principles
@@ -37,7 +39,7 @@ Label every persona attribute Sourced, Assumed, or Gap, as defined in the Labels
 ## Process
 
 ### 1. Segment before you profile
-If there are several possible segments, score each from 1 to 5 on these criteria: size, JTBD fit, how underserved they are, differentiation, reachability, acquisition ease, required effort, engagement, stickiness, expansion likelihood, and LTV potential. Recommend a primary segment. Treat vertical prioritization as an investment decision, and say so when that applies.
+If there are several possible segments, list and size them per sections 1 and 2 of `../_shared/segment-selection.md`. Score each from 1 to 5 on pain intensity, reach or revenue, and proof strength as separate columns, then add these as extra columns: JTBD fit, how underserved they are, differentiation, reachability, acquisition ease, required effort, engagement, stickiness, expansion likelihood, and LTV potential. Recommend a primary segment. Treat vertical prioritization as an investment decision, and say so when that applies.
 
 ### 2. Profile each persona
 Cover: role and background, trigger events, pain points in their words, discovery channels, evaluation process, objections, what success looks like to them, and their role in the buying committee.
