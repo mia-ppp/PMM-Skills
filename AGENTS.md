@@ -147,7 +147,12 @@ A production run is a skill producing a real deliverable, such as a GTM plan for
 
 - **Never edit skill files during a production run.** Finish the run with the skills as they are.
 - **Report skill problems separately, after the run.** Name the skill, what the run exposed, and the proposed fix.
-- **Test skill fixes with the eval harness.** Production runs do not grade themselves with a pass or fail step.
+- **Test skill fixes with a smoke test, not in the run.** Production runs do not grade themselves with a pass or fail step.
+
+## Testing skill changes
+
+- **Check every skill change with an in-session smoke test.** Run the changed skill once on one of its eval prompts from `evals/evals.json`, save the output to `scratch/`, and hand it to the user to review.
+- **Run the API eval harness only when the user asks.** It is optional. No commit, merge, push, or rollout waits on it.
 
 ## Git Workflow
 
