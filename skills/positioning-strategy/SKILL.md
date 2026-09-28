@@ -2,7 +2,7 @@
 name: positioning-strategy
 description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # Positioning Strategy
@@ -14,6 +14,8 @@ Your output is one internal positioning statement, then the reasoning behind it.
 ## Before Starting
 
 **Load the shared reference:** read `../_shared/messaging-examples.md` (relative to this skill's folder). Follow section 1 for the statement and section 2 for capability phrasing.
+
+**Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
@@ -83,6 +85,7 @@ Run each test and report the result honestly:
 - **Proof test:** is every claim backed by something you have or can get this quarter?
 - **Rep test:** can a sales rep say it in one sentence without notes?
 - **Buyer test:** does it use the words customers use, not internal vocabulary?
+- **Consistency test:** run section 6 of `../_shared/segment-selection.md` on everything this work names. That covers the statement's segment, any sizing or KPIs in the context, and any hero line, subhead, or segment first line already written. Flag segment-specific words, such as "free credits," in a line meant for several segments. Fix each mismatch or state why it is intentional.
 
 ## Output Format
 
@@ -110,6 +113,8 @@ Contextual alternative: [what the product truly replaces]
 
 ## Trade-offs we are making
 ## Stress-test results
+## Consistency check
+[Tables from section 6 of ../_shared/segment-selection.md, for the segments this work names]
 ## Assumptions and open questions
 [At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
 ```
