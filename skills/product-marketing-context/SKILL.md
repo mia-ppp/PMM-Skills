@@ -65,6 +65,7 @@ Push for verbatim customer language: exact phrases are more valuable than polish
 - Business model and pricing
 
 ### 2. Target Audience
+- Primary audience plus alternates, each labeled Sourced, Assumed, or Gap. Keep alternates that lack proof; see `../_shared/segment-selection.md`
 - Target company type (industry, size, stage)
 - Target decision-makers (roles, departments)
 - Primary use case (the main problem you solve)
@@ -147,6 +148,9 @@ After gathering information, create `.agents/product-marketing-context.md` with 
 **Business model:**
 
 ## Target Audience
+**Primary audience:** [segment] (Sourced / Assumed / Gap)
+**Alternate audiences:**
+- [segment] (Sourced / Assumed / Gap)
 **Target companies:**
 **Decision-makers:**
 **Primary use case:**

@@ -25,7 +25,7 @@ Useful inputs (ask only if missing and it would change the page):
 3. **Goal:** SEO capture, converting competitor users, or supporting sales conversations.
 
 If key information is missing, do not stop. Write the page provisionally:
-1. Pick a provisional wedge from the brief, for example "built for e-commerce" against a general-purpose competitor, and state it as an assumption. Build the page around it.
+1. Pick the wedge with sections 1 to 4 of `../_shared/segment-selection.md`, kept light: list the plausible segments, note any sourced size, score pain, reach, and proof, and pick one in 2 to 3 sentences. Label it, then build the page around it.
 2. Write real copy for everything else, using public knowledge of the competitor. Use `[Gap: ...]` placeholders only for proof points: stats, customer quotes, case studies, and migration numbers. Give each one a provable fallback line.
 3. Flag other assumptions where you use them.
 4. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.
