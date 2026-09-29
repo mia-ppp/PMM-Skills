@@ -2,10 +2,9 @@
 
 Product marketing skills for AI agents. Use them to set positioning, build messaging frameworks, define buyer personas, and carry that foundation into launches, sales collateral, competitive pages, and copy. The collection also covers the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention.
 
-48 skills. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
+Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
 
-**Original work in this repo:**
-
+For instance, 
 - **[positioning-strategy](skills/positioning-strategy/)**: finds the wedge, fills a positioning canvas, and states the trade-offs it is making.
 - **[messaging-framework](skills/messaging-framework/)**: turns a position into an umbrella message, pillars, and messaging by persona.
 - **[market-entry-brief](skills/market-entry-brief/)**: sizes and scores a new market before positioning, with labeled TAM, SAM, and SOM, ranked entry risks, and a go, explore, or pass call.
