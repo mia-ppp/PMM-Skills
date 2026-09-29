@@ -134,6 +134,10 @@ The `description` is critical for skill discovery. Include:
 description: When the user wants to optimize conversions on any marketing page. Use when the user says "CRO," "conversion rate optimization," "this page isn't converting." For signup flows, see signup-flow-cro.
 ```
 
+## Slide-copy humanization
+
+When an agent uses case-deck-builder, it must check for and read an available humanizer skill before drafting or revising slide copy. Apply Humanizer as an editorial pass only. Keep source accuracy, assignment constraints, slide-specific writing rules, and exact quotations intact. Never add unsupported evidence, personal reactions, anecdotes, or details to make slide language sound more human. If Humanizer is unavailable, follow skills/case-deck-builder/references/humanizer-for-slides.md.
+
 ## Evidence gaps
 
 Evidence decides how an item is labeled, never whether it is included. The full rule lives in one place: `skills/_shared/evidence-gaps.md`. It covers the Sourced / Assumed / Gap labels, the "Inputs and assumptions" note every deliverable opens with, relevance cuts, customer-facing copy, and the ranked Evidence gaps lists.

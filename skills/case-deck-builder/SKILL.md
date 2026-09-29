@@ -29,8 +29,21 @@ Read the entire source document, including tables, footnotes, and citations. Pre
 5. For every slide, select one claim, the numbers that prove it, and the strongest proof point. Put remaining useful evidence in the appendix if it fits. Put all other source material in the cut log with a one-line reason.
 6. Tag every factual claim and number as Cited, Assumed, or Gap using the Source Tagging rules below.
 7. Build an appendix within its cap. The appendix does not count toward the requested main-slide count.
-8. Write `output/<company>/deck-outline.md` and `cut-log.md`. Stop and wait for the user's approval or edits. Do not build a PowerPoint before approval.
-9. After approval, convert the approved outline to the JSON input described below and run `scripts/build_deck.js`. Render the deck to images, inspect every slide for overflow and overlap, fix issues, and deliver the `.pptx` and cut log.
+8. Draft slide copy, then run the Humanizer pass below. Preserve the assignment's tone, evidence, and slide constraints.
+9. Write `output/<company>/deck-outline.md` and `cut-log.md`. Stop and wait for the user's approval or edits. Do not build a PowerPoint before approval.
+10. After approval, convert the approved outline to the JSON input described below and run `scripts/build_deck.js`. Render the deck to images, inspect every slide for overflow and overlap, fix issues, and deliver the `.pptx` and cut log.
+
+## Humanizer Pass
+
+Use the Humanizer skill as a copy-editing lens for slide headlines and body copy. It is a writing aid, not a source of facts or permission to change the argument.
+
+1. Check whether a skill named humanizer is available in the current agent environment. If it is, read its SKILL.md before drafting or revising slide language, even if another presentation skill has already been read.
+2. Apply its useful pattern checks to slide copy: remove inflated significance, vague phrasing, filler, forced three-part lists, repetitive sentence shapes, and generic upbeat conclusions. Read each headline and line aloud for naturalness.
+3. Adapt the rules to presentation writing. Do not add personality, first-person reactions, anecdotes, claims, or details that the source and assignment do not support. Do not output the Humanizer skill's conversational audit template in the deck outline.
+4. Resolve conflicts in this order: user instructions and assignment constraints, factual/source accuracy, presentation construction rules, then Humanizer style suggestions. Preserve exact source wording when quoting.
+5. If Humanizer is unavailable, use the portable checklist in references/humanizer-for-slides.md.
+
+The Humanizer pass changes wording only. It must not remove a material caveat, source tag, data point, requested slide, or distinction between evidence, inference, assumption, and gap.
 
 ## Slide Rules
 
