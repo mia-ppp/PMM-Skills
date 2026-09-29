@@ -2,19 +2,6 @@
   "skill_name": "localization-claims",
   "evals": [
     {
-      "id": 1,
-      "prompt": "Localize this MoonPay landing page copy for Germany: 'MoonPay is fully licensed across Europe. Send stablecoins with zero fees. The MoonAgents Card is live now for German customers.'",
-      "expected_output": "Canon mode against moonpay-messaging. Flags 'fully licensed' (claims.md C3, with the C2 MiCA ramp scope), 'zero fees' (claims.md B4), and MoonAgents Card availability in Germany (claims.md C4, live only in the UK and Latin America). Each row cites the claims.md rule ID.",
-      "assertions": [
-        "The first line states canon mode and names the moonpay-messaging canon",
-        "Flags 'fully licensed across Europe' citing claims.md C3 or C2",
-        "Flags 'zero fees' citing claims.md B4",
-        "Flags MoonAgents Card availability in Germany citing claims.md C4",
-        "Every flagged row cites a claims.md rule ID rather than a general rule"
-      ],
-      "files": []
-    },
-    {
       "id": 2,
       "prompt": "Is this claim allowed in France? It's for Acme Pay's homepage: 'AcmeUSD is a fully regulated payment stablecoin under the GENIUS Act, backed one to one by US dollars.'",
       "expected_output": "First-principles mode (no Acme canon). Flags the regulatory status as a Gap for France, because a US GENIUS Act status does not carry over to the EU, where MiCA applies. Gives a Gap placeholder and a provable fallback line, and neither passes nor deletes the claim.",

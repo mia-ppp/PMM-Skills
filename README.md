@@ -10,7 +10,6 @@ Product marketing skills for AI agents. Use them to set positioning, build messa
 - **[messaging-framework](skills/messaging-framework/)**: turns a position into an umbrella message, pillars, and messaging by persona.
 - **[market-entry-brief](skills/market-entry-brief/)**: sizes and scores a new market before positioning, with labeled TAM, SAM, and SOM, ranked entry risks, and a go, explore, or pass call.
 - **[market-launch](skills/market-launch/)**: conducts a new-market launch through four gated rungs, carrying each artifact forward with a canon stamp and evidence labels.
-- **[moonpay-messaging](skills/moonpay-messaging/)**: a company-specific messaging rule book for MoonPay, built from public sources, with draft, review, and answer modes.
 - **[buyer-personas](skills/buyer-personas/)**: segments before it profiles, maps the buying committee, and labels every attribute as evidence or hypothesis.
 - **[Eval harness](evals/)**: checks that each request reaches the right skill, scores every skill against a no-skill baseline on four rubric dimensions (grounded, decisive, usable, sharp), and measures how often the judge agrees with hand grades.
 
@@ -98,7 +97,6 @@ See each skill's Related Skills section for the full dependency map.
 | `marketing-ideas` | Generate marketing ideas, inspiration, and strategies for SaaS or software products. |
 | `marketing-psychology` | Apply psychological principles, mental models, and behavioral science to marketing. |
 | `messaging-framework` | Build or fix a messaging framework: umbrella message, pillars, proof, persona messaging, and boilerplate. |
-| `moonpay-messaging` | Draft, review, or answer questions about MoonPay copy against one company canon built from public sources. |
 | `onboarding-cro` | Optimize post-signup onboarding, user activation, first-run experience, and time-to-value. |
 | `page-cro` | Optimize any marketing page for conversions: homepage, landing pages, product pages. |
 | `paid-ads` | Plan and optimize paid advertising campaigns on Google, Meta, LinkedIn, and other platforms. |
@@ -210,7 +208,6 @@ You can also invoke skills directly:
 ### Positioning & Messaging
 - `positioning-strategy`: Positioning, differentiation, and market category
 - `messaging-framework`: Messaging pillars, proof, and boilerplate
-- `moonpay-messaging`: MoonPay messaging rule book with draft, review, and answer modes
 - `buyer-personas`: Personas, ICP, and buying committees
 - `product-marketing-context`: Shared product, audience, and positioning context
 

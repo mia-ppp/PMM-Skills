@@ -33,7 +33,7 @@ Read the rule book's own `SKILL.md` review mode too. Its severity definitions wi
 
 **One canon, every asset.** Grade every asset against the same canon version. Never mix versions in one scorecard.
 
-**Every flag cites its rule.** Name the file and the rule ID, such as `claims.md B4` or `canon.md section 5, Customers row`. For terminology, name the file and the row, such as `terminology.md, Product names: MoonPay Enterprise`. A flag with no rule is an opinion. Cut it.
+**Every flag cites its rule.** Name the file and the rule ID, such as `claims.md B4` or `canon.md section 5, Customers row`. For terminology, name the file and the row, such as `terminology.md, Product names`. A flag with no rule is an opinion. Cut it.
 
 **A Block anywhere means Not ready.** The launch verdict is only as good as the worst asset.
 
@@ -136,6 +136,5 @@ If the verdict is not Ready, offer to run the company rule book's review mode on
 ## Related Skills
 
 - **market-launch**: Runs the launch chain this check gates
-- **moonpay-messaging**: An example company rule book this check grades against
 - **copy-editing**: Polishes assets after the Fix items are closed
 - **sales-enablement**: Rebuilds decks and battlecards that come back Blocked

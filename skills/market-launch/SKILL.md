@@ -27,7 +27,7 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 | Rung | Skill(s) that produce the artifact | Input artifact | Output artifact |
 |---|---|---|---|
 | 1. Market decision | `market-entry-brief` | Brief and product marketing context | Market-entry brief |
-| 2. Position and canon | `positioning-strategy`, then `messaging-framework`, then the company messaging rule book (for example `moonpay-messaging`) | Market-entry brief | Locked canon |
+| 2. Position and canon | `positioning-strategy`, then `messaging-framework`, then the company messaging rule book | Market-entry brief | Locked canon |
 | 3. Assets | `copywriting`, `email-sequence`, `cold-email`, `social-content`, `seo-audit`, `ai-seo`, `programmatic-seo`, `competitor-alternatives`, `paid-ads`, `ad-creative`, `sales-enablement`, `launch-strategy`, then `localization-claims` on every asset | Locked canon | On-canon launch assets |
 | 4. Guardrail and learn | `launch-readiness-check`, then the eval harness (`evals/`) | On-canon launch assets | Go/no-go scorecard |
 

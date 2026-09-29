@@ -56,7 +56,7 @@ Turn the market decision into one source of truth that every asset copies.
 **Sequence**
 1. `positioning-strategy`: one statement of 25 words or fewer, derivation trace, capability table, trade-offs, stress tests.
 2. `messaging-framework`: capability table with proof and buyer voice, recommended hero line, persona translations, boilerplate, language rules.
-3. Company messaging rule book (for example `moonpay-messaging`): canon, approved numbers, claims register, terminology, audience overlays, changelog.
+3. Company messaging rule book: canon, approved numbers, claims register, terminology, audience overlays, changelog.
 
 **Artifact: locked canon**
 - Positioning statement and its derivation trace.
