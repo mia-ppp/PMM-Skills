@@ -1,6 +1,8 @@
 # PMM Skills for AI Agents
 
-Product marketing skills for AI agents, built around a positioning-first workflow and measured against a no-skill baseline.
+Product marketing skills for AI agents. Use them to set positioning, build messaging frameworks, define buyer personas, and carry that foundation into launches, sales collateral, competitive pages, and copy. The collection also covers the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention.
+
+43 skills. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
 
 **Original work in this repo:**
 
