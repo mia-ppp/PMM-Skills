@@ -8,6 +8,7 @@ Product marketing skills for AI agents. Use them to set positioning, build messa
 
 - **[positioning-strategy](skills/positioning-strategy/)**: finds the wedge, fills a positioning canvas, and states the trade-offs it is making.
 - **[messaging-framework](skills/messaging-framework/)**: turns a position into an umbrella message, pillars, and messaging by persona.
+- **[moonpay-messaging](skills/moonpay-messaging/)**: a company-specific messaging rule book for MoonPay, built from public sources, with draft, review, and answer modes.
 - **[buyer-personas](skills/buyer-personas/)**: segments before it profiles, maps the buying committee, and labels every attribute as evidence or hypothesis.
 - **[Eval harness](evals/)**: checks that each request reaches the right skill, scores every skill against a no-skill baseline on four rubric dimensions (grounded, decisive, usable, sharp), and measures how often the judge agrees with hand grades.
 
