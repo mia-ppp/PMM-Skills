@@ -269,6 +269,7 @@ You can also invoke skills directly:
 ### Sales & RevOps
 - `revops`: Lead lifecycle, scoring, routing, pipeline management
 - `sales-enablement`: Sales decks, one-pagers, objection docs, demo scripts
+- `case-deck-builder`: Turn finished PMM research into take-home case decks
 
 ---
 
