@@ -16,6 +16,7 @@ This repository contains **Agent Skills** for AI agents following the [Agent Ski
 PMM-Skills/
 ├── skills/                # Agent Skills
 │   ├── _shared/           # Shared references skills load (evidence gaps, segment selection, messaging examples)
+│   ├── case-deck-builder/ # Turn agent research into sparse, table-driven case decks
 │   └── skill-name/
 │       └── SKILL.md       # Required skill file
 ├── tools/
