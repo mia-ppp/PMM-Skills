@@ -1,0 +1,70 @@
+{
+  "skill_name": "market-entry-brief",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Should we enter Germany with our AP automation software? We sell to US mid-market companies (200 to 2,000 employees) today. An analyst report we bought says European AP automation spend is about $1.2B a year, and Germany is roughly a quarter of our EU inbound demo requests.",
+      "expected_output": "A brief that builds TAM, SAM, and SOM from the sourced $1.2B European figure, labels every number Sourced, Assumed, or Gap, shows the formula for derived figures, and gives ranges where inputs are assumed.",
+      "assertions": [
+        "Every TAM, SAM, and SOM figure carries a label: Sourced, Assumed, or Gap",
+        "Cites the $1.2B European figure as the Sourced anchor",
+        "Shows the formula for each derived figure and labels each input",
+        "Gives a range, not a single point, where an input is Assumed",
+        "Does not introduce market figures that are neither from the prompt nor labeled with a stated basis"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Is the dental clinic segment in Brazil worth it for our appointment scheduling software? We only sell to US physical therapy clinics today. I don't have any market data for Brazil.",
+      "expected_output": "A brief that proceeds without stopping, marks the unsized figures as labeled Gaps with how to get each one, and still makes a Go, Explore, or Pass call.",
+      "assertions": [
+        "Does not state a specific TAM, SAM, or SOM number without a citation or a stated, labeled basis",
+        "Marks each missing figure as 'Gap' and names how to obtain it",
+        "Proceeds with the brief instead of stopping to ask for data first",
+        "Still gives a one-line recommendation of Go, Explore, or Pass",
+        "Keeps the market size section present even though the numbers are Gaps"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We sell an identity verification API to fintechs. We're thinking about expanding into healthcare (patient onboarding for telehealth platforms). What are the risks, and should we do it?",
+      "expected_output": "A brief with exactly three entry risks, ranked 1 to 3 by impact on the recommendation, each with what happens if true and how to test it.",
+      "assertions": [
+        "Lists exactly three top entry risks",
+        "Numbers the risks by rank, 1 to 3",
+        "States that the ranking is by impact, not likelihood",
+        "Gives, for each risk, what happens if it proves true and how to test it",
+        "Includes regulatory constraints specific to healthcare data, labeled Sourced, Assumed, or Gap"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Our inventory tool sells to SMB ecommerce founders on Shopify. Should we expand into enterprise retail chains with 50+ stores?",
+      "expected_output": "A brief with a buyer delta that compares the current SMB founder buyer against the enterprise retail buyer dimension by dimension, and says what each difference changes.",
+      "assertions": [
+        "Includes a section comparing the current-market buyer with the new-market buyer",
+        "Covers at least three dimensions, such as budget owner, evaluation process, and procurement needs",
+        "States for each difference what it changes: messaging, product, channel, pricing, or sales motion",
+        "Does not treat the enterprise buyer as the same persona as the SMB founder",
+        "Labels buyer attributes Sourced, Assumed, or Gap"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Market sizing for construction project management software in Canada. We're a US company selling to general contractors with 20 to 200 employees.",
+      "expected_output": "Output whose first line is the Go, Explore, or Pass recommendation with a one-line reason, followed by the brief.",
+      "assertions": [
+        "The first line of the output is the recommendation: Go, Explore, or Pass",
+        "The recommendation is one line and names the deciding factor",
+        "The recommendation appears before any market definition, sizing, or background",
+        "Does not restate the user's request before the recommendation",
+        "Makes one call rather than 'it depends'"
+      ],
+      "files": []
+    }
+  ]
+}

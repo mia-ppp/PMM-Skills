@@ -2,12 +2,14 @@
 
 Product marketing skills for AI agents. Use them to set positioning, build messaging frameworks, define buyer personas, and carry that foundation into launches, sales collateral, competitive pages, and copy. The collection also covers the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention.
 
-43 skills. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
+48 skills. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
 
 **Original work in this repo:**
 
 - **[positioning-strategy](skills/positioning-strategy/)**: finds the wedge, fills a positioning canvas, and states the trade-offs it is making.
 - **[messaging-framework](skills/messaging-framework/)**: turns a position into an umbrella message, pillars, and messaging by persona.
+- **[market-entry-brief](skills/market-entry-brief/)**: sizes and scores a new market before positioning, with labeled TAM, SAM, and SOM, ranked entry risks, and a go, explore, or pass call.
+- **[market-launch](skills/market-launch/)**: conducts a new-market launch through four gated rungs, carrying each artifact forward with a canon stamp and evidence labels.
 - **[moonpay-messaging](skills/moonpay-messaging/)**: a company-specific messaging rule book for MoonPay, built from public sources, with draft, review, and answer modes.
 - **[buyer-personas](skills/buyer-personas/)**: segments before it profiles, maps the buying committee, and labels every attribute as evidence or hypothesis.
 - **[Eval harness](evals/)**: checks that each request reaches the right skill, scores every skill against a no-skill baseline on four rubric dimensions (grounded, decisive, usable, sharp), and measures how often the judge agrees with hand grades.
@@ -57,6 +59,7 @@ Skills cross-reference each other:
 - `revops` ↔ `sales-enablement` ↔ `cold-email`
 - `seo-audit` ↔ `schema-markup` ↔ `ai-seo`
 - `customer-research` → `copywriting`, `page-cro`, `competitor-alternatives`
+- Launch chain: `market-entry-brief` → `market-launch`, which sequences `positioning-strategy` → `messaging-framework` → the company rule book → the asset skills → `localization-claims` → `launch-readiness-check`
 
 See each skill's Related Skills section for the full dependency map.
 
@@ -86,8 +89,12 @@ See each skill's Related Skills section for the full dependency map.
 | `form-cro` | Optimize any lead capture or contact form that is not a signup flow. |
 | `free-tool-strategy` | Plan, evaluate, or build a free tool for lead generation or SEO value. |
 | `image` | Create, generate, edit, or optimize images for marketing: blog heroes, social graphics, product visuals. |
+| `launch-readiness-check` | Grade every launch asset against one company canon before go-live and return a go/no-go scorecard. |
 | `launch-strategy` | Plan a product launch, feature announcement, or release strategy. |
 | `lead-magnets` | Create, plan, or optimize a lead magnet for email capture or lead generation. |
+| `localization-claims` | Check that copy and claims survive a move into a new market, enforcing the company's claims register when one exists. |
+| `market-entry-brief` | Size and score a new market before positioning: labeled TAM, SAM, and SOM, buyer delta, constraints, and ranked entry risks. |
+| `market-launch` | Conduct an end-to-end new-market launch by sequencing existing skills through four gated rungs. |
 | `marketing-ideas` | Generate marketing ideas, inspiration, and strategies for SaaS or software products. |
 | `marketing-psychology` | Apply psychological principles, mental models, and behavioral science to marketing. |
 | `messaging-framework` | Build or fix a messaging framework: umbrella message, pillars, proof, persona messaging, and boilerplate. |
@@ -250,6 +257,12 @@ You can also invoke skills directly:
 - `marketing-psychology`: Mental models and psychology
 - `launch-strategy`: Product launches and announcements
 - `pricing-strategy`: Pricing, packaging, and monetization
+
+### Market Launch
+- `market-entry-brief`: Size and score a new market (Rung 1)
+- `market-launch`: Sequence the full launch chain
+- `localization-claims`: Check copy and claims for a new market
+- `launch-readiness-check`: Go/no-go scorecard against the company canon (Rung 4)
 
 ### Sales & RevOps
 - `revops`: Lead lifecycle, scoring, routing, pipeline management

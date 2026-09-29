@@ -1,0 +1,71 @@
+{
+  "skill_name": "localization-claims",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Localize this MoonPay landing page copy for Germany: 'MoonPay is fully licensed across Europe. Send stablecoins with zero fees. The MoonAgents Card is live now for German customers.'",
+      "expected_output": "Canon mode against moonpay-messaging. Flags 'fully licensed' (claims.md C3, with the C2 MiCA ramp scope), 'zero fees' (claims.md B4), and MoonAgents Card availability in Germany (claims.md C4, live only in the UK and Latin America). Each row cites the claims.md rule ID.",
+      "assertions": [
+        "The first line states canon mode and names the moonpay-messaging canon",
+        "Flags 'fully licensed across Europe' citing claims.md C3 or C2",
+        "Flags 'zero fees' citing claims.md B4",
+        "Flags MoonAgents Card availability in Germany citing claims.md C4",
+        "Every flagged row cites a claims.md rule ID rather than a general rule"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Is this claim allowed in France? It's for Acme Pay's homepage: 'AcmeUSD is a fully regulated payment stablecoin under the GENIUS Act, backed one to one by US dollars.'",
+      "expected_output": "First-principles mode (no Acme canon). Flags the regulatory status as a Gap for France, because a US GENIUS Act status does not carry over to the EU, where MiCA applies. Gives a Gap placeholder and a provable fallback line, and neither passes nor deletes the claim.",
+      "assertions": [
+        "States that no company canon was found and that it is checking from first principles",
+        "Flags the regulatory claim as a Gap for France",
+        "Explains that a US regulatory status does not carry over to the EU",
+        "Gives a '[Gap: ...]' placeholder with a provable fallback line",
+        "Does not silently pass the claim and does not delete it",
+        "Does not cite a specific French or EU rule as Sourced without a citation"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Adapt copy for Germany. It's our US pricing page: 'Plans start at $49/month. Your first invoice is billed on 03/04/2026. Includes up to 1,000.50 GB of storage for 10,000 users.'",
+      "expected_output": "Flags the dollar price (currency and possibly VAT display), the ambiguous date format, and the US decimal and thousands separators, with German on-market fixes. Does not convert the price without a sourced exchange rate.",
+      "assertions": [
+        "Flags '$49/month' as the wrong currency for Germany",
+        "Does not state a converted euro price without a sourced exchange rate and date",
+        "Flags '03/04/2026' as an ambiguous date and gives an unambiguous fix",
+        "Flags '1,000.50' and '10,000' for the German decimal and thousands separators",
+        "Presents the issues in a table with item, issue, market rule, and on-market fix columns"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Localize this for the UK: 'Optimize your organization's workflow with Brightline Analyzer. Customize every color and label, and hit a home run on your quarterly reporting.'",
+      "expected_output": "Changes US spellings to en-GB (optimise, organisation, customise, colour), keeps the product name 'Brightline Analyzer' unchanged, and flags the baseball idiom 'hit a home run'.",
+      "assertions": [
+        "Changes 'optimize,' 'organization,' 'customize,' and 'color' to en-GB spellings",
+        "Keeps the product name 'Brightline Analyzer' unchanged",
+        "Flags 'hit a home run' as an idiom that may not land in the UK",
+        "Does not flag lines that are already fine"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Will this messaging work in Japan? 'Zenly Expense is the #1 expense app in America. Free forever, guaranteed savings on every trip.'",
+      "expected_output": "First-principles mode. Flags the '#1' superlative, 'free forever,' and 'guaranteed savings' against local advertising and claims rules, labeling each market rule Assumed or Gap rather than Sourced, with fallbacks for any claim it cannot verify.",
+      "assertions": [
+        "States that no company canon was found and that it is checking from first principles",
+        "Flags '#1 expense app in America' as a superlative needing a source and as scoped to another market",
+        "Flags 'guaranteed savings' as an outcome claim",
+        "Flags 'free forever'",
+        "Labels each Japanese market rule Assumed or Gap unless it gives a citation",
+        "Gives a fallback line for any claim it marks as a Gap"
+      ],
+      "files": []
+    }
+  ]
+}
