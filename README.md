@@ -13,8 +13,6 @@ Product marketing skills for AI agents. Use them to set positioning, build messa
 
 **Measured results ([RESULTS.md](evals/RESULTS.md)):** in the latest run, positioning-strategy (+0.90) and messaging-framework (+0.88) show the largest lift over baseline on a 0 to 2 scale, and the router picks the right skill for 94.6% of 222 test prompts. These are early results from small samples.
 
-The rest of the collection carries that foundation into launches, sales collateral, competitive pages, and copy, plus the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention. 43 skills in total. Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
-
 ---
 
 ## How Skills Work Together
