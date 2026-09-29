@@ -39,19 +39,6 @@
         "Does not improvise a market-entry brief or positioning to fill the gap"
       ],
       "files": []
-    },
-    {
-      "id": 4,
-      "prompt": "Full launch plan for taking MoonPay Enterprise into Brazil. We have a market-entry brief (Canon: pre-canon) and the MoonPay canon is locked at v2026-09-28. No assets yet.",
-      "expected_output": "A plan with Rungs 1 and 2 Passed, Rung 3 open, and every artifact row showing its canon stamp: pre-canon for the brief and v2026-09-28 for the canon and all downstream artifacts.",
-      "assertions": [
-        "Shows the market-entry brief with the stamp 'pre-canon'",
-        "Shows the locked canon with the stamp v2026-09-28",
-        "Gives every Rung 3 and Rung 4 artifact the stamp v2026-09-28",
-        "Marks Rung 3 as open and names the asset skills to run next",
-        "States that every artifact must carry evidence labels (Sourced, Assumed, or Gap)"
-      ],
-      "files": []
     }
   ]
 }

@@ -102,7 +102,6 @@ Suggest sending each open regulatory Gap to counsel for the target market. If a 
 ## Related Skills
 
 - **messaging-framework**: Builds the canon this skill reads
-- **moonpay-messaging**: An example company rule book with market-scoped Conditional claims
 - **copy-editing**: Edits the localized copy for clarity and voice
 - **launch-readiness-check**: Grades the full localized asset set before go-live
 - **market-entry-brief**: Names the regulatory constraints of a new market before copy exists
