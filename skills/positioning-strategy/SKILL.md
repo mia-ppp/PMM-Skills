@@ -19,18 +19,18 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 **Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
 
-**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 5 in step 4 only when no accepted market-entry decision establishes the target segment. Carry an existing segment decision forward; run section 6 in step 8.
+**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 5 in step 4 when no accepted or canonical market-entry/segment decision exists, or after reopening is explicitly approved through the existing SSOT review process. Carry an existing segment decision forward; run section 6 in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover. Read its Switching Dynamics and Personas sections closely: they feed the alternatives, switching costs, trigger, and segment.
 
 **Read competitor profiles if they exist:** if a `competitor-profiles/` directory exists (from competitor-profiling), read `_summary.md` and each profile before mapping alternatives. Cite them as Sourced.
 
-**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, start from buyer-personas' primary segment in the context doc. Evidence may justify proposing a different segment, but does not reopen or replace an accepted decision. Reopen prioritization only on explicit user instruction; a proposal that conflicts with canonical ICP goes through `ssot-context-loop` and explicit human approval before adoption.
+**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, start from buyer-personas' primary segment in the context doc. Conflicting evidence may justify proposing a change or requesting reopening, but cannot automatically replace the accepted segment/ICP. Reopening or changing an accepted decision requires `ssot-context-loop` review and explicit human approval.
 
 If an accepted market-entry brief already selected the target segment, use it
-for positioning. Do not re-score or replace it unless the user explicitly asks
-to reopen market prioritization. If it conflicts with the canonical SSOT ICP,
+for positioning. Do not re-score or replace it unless reopening has passed the existing SSOT
+review and explicit human approval process. If it conflicts with the canonical SSOT ICP,
 flag the conflict and route it through `ssot-context-loop` for review.
 
 Gather this (ask only if missing and it would change the answer):
@@ -84,10 +84,16 @@ For each unique capability: capability, then outcome for the buyer, then proof. 
 
 ### 4. Pick the best-fit customer
 Identify who gets the most value, fastest. Be narrower than feels comfortable.
-If an accepted market-entry decision establishes the segment, carry it forward
-unchanged. Otherwise, use the complete multi-criteria scorecard in sections 1 to
-5 of `../_shared/segment-selection.md`. Do not create a separate scoring method.
-Treat the result as a positioning recommendation, not a canonical SSOT change.
+If no accepted or canonical market-entry/segment decision exists, use the normal
+scoring and selection process in sections 1 to 5 of
+`../_shared/segment-selection.md`. Do not create a separate scoring method.
+If an accepted or canonical decision exists, inherit it. If decisions conflict,
+preserve the canonical ICP and route the disagreement through `ssot-context-loop`.
+Conflicting evidence may justify requesting reopening or proposing a change,
+but must not automatically replace the accepted segment/ICP. Reopening or
+changing an accepted strategic decision requires the existing SSOT review and
+explicit human approval process. Until approved, a different segment remains a
+proposal; saving it does not change canon.
 
 ### 5. Choose the market frame
 First state the category buyers currently place the product in, with evidence (how they search, what they compare you to, what they call you on calls or in reviews). Label it Sourced, Assumed, or Gap.
