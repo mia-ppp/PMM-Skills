@@ -18,12 +18,14 @@ For instance,
 
 ## How Skills Work Together
 
-Skills reference each other and build on shared context. The `product-marketing-context` skill is the foundation. Every other skill checks it first to understand your product, audience, and positioning before doing anything. The Positioning & Messaging skills decide what to say, and the rest of the skills express it.
+Skills reference each other and build on shared context. `product-marketing-context` remains the lightweight bootstrap for product, audience, and positioning. For teams that need persistent, governed PMM knowledge, `ssot-context-loop` maintains canonical strategy separately from living field intelligence, detects drift, and requires PMM approval before core changes. When an SSOT exists for the active client or project, it is authoritative for claims it covers. It does not replace or automatically overwrite the bootstrap document.
+
+The SSOT can map skills to the files they should read through a project-level `manifest.yaml`. This is an opt-in integration point: existing skills are not required to consume it yet. Positioning and messaging skills can use approved core; research and competitive skills can inform living evidence; sales, copy, and launch skills can read the approved canon. The SSOT loop governs changes without creating a circular dependency on those skills.
 
 ```
                     ┌──────────────────────────────────────┐
-                    │      product-marketing-context       │
-                    │    (read by all other skills first)  │
+                    │ product-marketing-context (bootstrap)│
+                    │ ssot-context-loop (governed SSOT)    │
                     └──────────────────┬───────────────────┘
                                        │
                     ┌──────────────────┴───────────────────┐
@@ -51,6 +53,7 @@ Skills reference each other and build on shared context. The `product-marketing-
 ```
 
 Skills cross-reference each other:
+- `ssot-context-loop` → manifest-mapped upstream context for PMM skills; core changes require human approval
 - `positioning-strategy` → `messaging-framework` → `copywriting`, `sales-enablement`
 - `buyer-personas` ↔ `customer-research` ↔ `positioning-strategy`
 - `copywriting` ↔ `page-cro` ↔ `ab-test-setup`
@@ -103,13 +106,14 @@ See each skill's Related Skills section for the full dependency map.
 | `popup-cro` | Create or optimize popups, modals, overlays, slide-ins, and banners for conversion. |
 | `positioning-strategy` | Create, rework, or pressure-test product positioning, differentiation, and market category. |
 | `pricing-strategy` | Make pricing decisions, structure packaging, and improve monetization strategy. |
-| `product-marketing-context` | Create or update the product marketing context document that all other skills read first. |
+| `product-marketing-context` | Create or update lightweight bootstrap context for product, audience, and positioning. |
 | `programmatic-seo` | Create SEO-driven pages at scale using templates and data. |
 | `referral-program` | Create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. |
 | `revops` | Manage revenue operations, lead lifecycle, and marketing-to-sales handoff processes. |
 | `sales-enablement` | Create sales collateral, pitch decks, one-pagers, objection handling docs, and demo scripts. |
 | `schema-markup` | Add, fix, or optimize schema markup and structured data on a site. |
 | `seo-audit` | Audit, review, or diagnose SEO issues on a site. |
+| `ssot-context-loop` | Maintain a governed PMM source of truth, detect drift, and route canon changes through human approval gates. |
 | `signup-flow-cro` | Optimize signup, registration, account creation, or trial activation flows. |
 | `site-architecture` | Plan, map, or restructure a website's page hierarchy, navigation, URL structure, or internal linking. |
 | `social-content` | Create, schedule, or optimize social media content for LinkedIn, Twitter/X, Instagram, and other platforms. |
@@ -189,6 +193,9 @@ Once installed, ask your agent to help with marketing tasks:
 
 "Create a 5-email welcome sequence"
 → Uses email-sequence skill
+
+"Set up our governed PMM source of truth, then scan this week's call notes"
+→ Uses ssot-context-loop with /setup and /scan
 ```
 
 You can also invoke skills directly:
@@ -205,6 +212,7 @@ You can also invoke skills directly:
 ## Skill Categories
 
 ### Positioning & Messaging
+- `ssot-context-loop`: Governed, persistent PMM context, signal scans, and approval gates
 - `positioning-strategy`: Positioning, differentiation, and market category
 - `messaging-framework`: Messaging pillars, proof, and boilerplate
 - `buyer-personas`: Personas, ICP, and buying committees
