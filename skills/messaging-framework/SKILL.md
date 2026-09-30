@@ -1,6 +1,6 @@
 ---
 name: messaging-framework
-description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'hero line,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see copywriting. For sales materials, see sales-enablement."
+description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'hero line,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see marketing-copy. For sales materials, see sales-enablement."
 metadata:
   version: 1.4.0
 ---
@@ -79,7 +79,7 @@ List the claims that are true but shared. Note where each can still appear, such
 ### 5. Translate by persona
 Start from approved mapped SSOT persona messaging where applicable; otherwise use the context doc's Persona message map for uncovered provisional context. For each persona, adapt the emphasis only: which capability leads and the one line they should hear first. Keep the source's facts, proof, and approval status; reword to pass the language rules. A bootstrap map cannot override covered SSOT.
 
-If the bootstrap map is missing, use applicable approved SSOT persona inputs. Where neither source supplies a persona, write provisional lines, label each one Assumed, and recommend buyer-personas to build the map.
+If the bootstrap map is missing, use applicable approved SSOT persona inputs. Where neither source supplies a persona, write provisional lines, label each one Assumed, and recommend icp-and-buyer-personas to build the map.
 
 ### 6. Write the boilerplate
 Provide three lengths: a one-liner (about 10 words), an elevator pitch (about 30 words), and a company boilerplate (about 60 words).
@@ -164,7 +164,7 @@ For launch messaging, add a short block covering target, market, segment, catego
 - Dropping a capability that the positioning statement or its capability table named.
 - One message for every persona with no change in emphasis.
 - Adding differentiators not in positioning. List them under "Proposed for positioning" instead.
-- Treating missing bootstrap sections as missing canon when approved mapped SSOT supplies the inputs. If neither source supplies persona context, label provisional lines Assumed and recommend buyer-personas.
+- Treating missing bootstrap sections as missing canon when approved mapped SSOT supplies the inputs. If neither source supplies persona context, label provisional lines Assumed and recommend icp-and-buyer-personas.
 - Proof or buyer voice cells full of vague claims like "customers love it" instead of a marked gap.
 - Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written. The one exception is in the shared reference's style notes: a deliberate parallel against-frame, at most once per page.
 - Em dashes anywhere in the messaging.
@@ -172,7 +172,7 @@ For launch messaging, add a short block covering target, market, segment, catego
 
 ## After Delivering
 
-Offer to save the capability table and recommended hero line to `.agents/product-marketing-context.md`. Suggest copywriting for pages and sales-enablement for decks.
+Offer to save the capability table and recommended hero line to `.agents/product-marketing-context.md`. Suggest marketing-copy for pages and sales-enablement for decks.
 
 ## Output Rules
 
@@ -181,7 +181,7 @@ Offer to save the capability table and recommended hero line to `.agents/product
 ## Related Skills
 
 - **positioning-strategy**: Set the position before building messaging
-- **buyer-personas**: Define who each message variant is for
-- **copywriting**: Turn the framework into page copy
+- **icp-and-buyer-personas**: Define who each message variant is for
+- **marketing-copy**: Turn the framework into page copy
 - **sales-enablement**: Turn it into decks, one-pagers, and talk tracks
 - **launch-strategy**: Use launch messaging in a release plan

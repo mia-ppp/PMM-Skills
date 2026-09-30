@@ -115,7 +115,7 @@ Use country code: `us`, `uk`, `de`, `fr`, `ca`, `au`, etc.
 
 ## Relevant Skills
 
-- seo-audit
-- programmatic-seo
+- search-discoverability
+- search-discoverability
 - content-strategy
 - competitor-alternatives

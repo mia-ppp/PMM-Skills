@@ -84,6 +84,18 @@
         "Provides specific referral email copy or template"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "We want to set up a referral program. How should we structure it?",
+      "expected_output": "Establish objective, accepted audience, strategy and constraints before consulting the optional tactics library. Compare feasible hypotheses with rationale, owners, resource needs and learning measures; no fabricated benchmarks or universal checklist.",
+      "assertions": [
+        "Establishes objective and accepted audience",
+        "Considers capacity and budget constraints",
+        "Uses tactics as hypotheses with owners and learning measures",
+        "Preserves canon and evidence gaps"
+      ],
+      "files": []
     }
   ]
 }

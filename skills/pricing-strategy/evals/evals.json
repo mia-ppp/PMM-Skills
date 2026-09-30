@@ -63,25 +63,25 @@
     {
       "id": 5,
       "prompt": "What pricing psychology tactics should we use on our pricing page? We want the $79 plan to be the most popular.",
-      "expected_output": "Should apply the pricing psychology section: anchoring (show the $79 plan next to a higher-priced plan), decoy effect (make the lower plan look less valuable), visual emphasis (highlight or 'recommend' the $79 plan), charm pricing ($79 vs $80), Rule of 100 (percentage discounts below $100, dollar discounts above), loss framing (show what lower plans miss). Should provide specific pricing page design recommendations. Should cross-reference page-cro for broader pricing page optimization.",
+      "expected_output": "Should apply the pricing psychology section: anchoring (show the $79 plan next to a higher-priced plan), decoy effect (make the lower plan look less valuable), visual emphasis (highlight or 'recommend' the $79 plan), charm pricing ($79 vs $80), Rule of 100 (percentage discounts below $100, dollar discounts above), loss framing (show what lower plans miss). Should provide specific pricing page design recommendations. Should cross-reference acquisition-conversion for broader pricing page optimization.",
       "assertions": [
         "Applies pricing psychology tactics",
         "Applies anchoring effect",
         "Applies decoy effect or visual emphasis",
         "Applies charm pricing or Rule of 100",
         "Provides specific pricing page recommendations",
-        "Cross-references page-cro or marketing-psychology"
+        "Cross-references acquisition-conversion or behavioral-principles"
       ],
       "files": []
     },
     {
       "id": 6,
       "prompt": "Our pricing page conversion rate is only 1.5%. Can you review the page and suggest improvements?",
-      "expected_output": "Should recognize this is a pricing page conversion optimization task, not a pricing strategy task. Should defer to or cross-reference the page-cro skill, which handles pricing page conversion rate optimization including plan comparison clarity, CTA optimization, and trust signals. Pricing-strategy focuses on the actual pricing decisions (what to charge, how to package), not the page design.",
-      "handoff_to": "page-cro",
+      "expected_output": "Should recognize this is a pricing page conversion optimization task, not a pricing strategy task. Should defer to or cross-reference the acquisition-conversion skill, which handles pricing page conversion rate optimization including plan comparison clarity, CTA optimization, and trust signals. Pricing-strategy focuses on the actual pricing decisions (what to charge, how to package), not the page design.",
+      "handoff_to": "acquisition-conversion",
       "assertions": [
         "Recognizes this as pricing page CRO, not pricing strategy",
-        "References or defers to page-cro skill",
+        "References or defers to acquisition-conversion skill",
         "Explains that pricing-strategy is about pricing decisions",
         "Does not attempt full page CRO audit"
       ],
@@ -90,15 +90,52 @@
     {
       "id": 7,
       "prompt": "Our pricing page has three tiers but nobody picks the middle one. 60% choose the cheapest plan and 30% bounce entirely. What should we change?",
-      "expected_output": "Should treat this as a tier design and plan-choice problem. Should analyze whether the middle tier is differentiated enough from the cheapest plan (value metric, limits, feature gates). Should apply anchoring and decoy thinking so the middle plan becomes the natural pick. Should treat the 30% who bounce as a possible price-to-value or clarity issue and cross-reference page-cro for page-level fixes. Should suggest specific pricing or packaging experiments.",
+      "expected_output": "Should treat this as a tier design and plan-choice problem. Should analyze whether the middle tier is differentiated enough from the cheapest plan (value metric, limits, feature gates). Should apply anchoring and decoy thinking so the middle plan becomes the natural pick. Should treat the 30% who bounce as a possible price-to-value or clarity issue and cross-reference acquisition-conversion for page-level fixes. Should suggest specific pricing or packaging experiments.",
       "assertions": [
         "Treats it as tier design and plan choice",
         "Analyzes middle tier differentiation",
         "Applies anchoring or decoy effect",
         "Suggests specific pricing or packaging experiments",
-        "Cross-references page-cro for page-level conversion fixes"
+        "Cross-references acquisition-conversion for page-level conversion fixes"
       ],
       "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "How can I use psychology to increase conversions on our pricing page? We sell a B2B SaaS tool with three tiers ($29, $79, $199/month).",
+      "expected_output": "Should check for product-marketing-context.md first. Should apply relevant pricing psychology models: anchoring (show the highest plan first or use a decoy), charm pricing (consider $29 vs $30), Rule of 100 (percentage vs dollar discounts), Good-Better-Best framing, loss aversion (show what they miss on lower tiers). Should also apply broader persuasion models: social proof near pricing, scarcity for limited-time offers, default effect (pre-select recommended plan). Should provide specific, actionable recommendations tied to their price points. Treat behavioral principles as context-dependent hypotheses, not guarantees; validate with buyer evidence and customer-respect guardrails.",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Applies pricing psychology models (anchoring, charm pricing, Rule of 100)",
+        "Applies Good-Better-Best framing",
+        "Applies loss aversion to tier differentiation",
+        "Applies social proof near pricing",
+        "Provides specific recommendations for their price points",
+        "References specific mental models by name",
+        "Treats behavioral principles as hypotheses rather than universal truths"
+      ],
+      "files": [],
+      "references": [
+        "skills/_shared/behavioral-principles.md"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "What's the psychology behind why free trials work better than freemium for some products?",
+      "expected_output": "Should apply relevant mental models: loss aversion (trial users fear losing access), endowment effect (they feel ownership after using), sunk cost (time invested during trial), Zero-Price Effect (free removes psychological barrier to start), status quo bias (inertia to keep what they have). Should explain how these models interact in trial vs freemium contexts. Should note when each model works best (trial for products with high activation effort, freemium for products with network effects). Treat behavioral principles as context-dependent hypotheses, not guarantees; validate with buyer evidence and customer-respect guardrails.",
+      "assertions": [
+        "Applies loss aversion to trial context",
+        "Applies endowment effect",
+        "Applies Zero-Price Effect",
+        "Explains how models interact in trial vs freemium",
+        "Notes when each approach works best",
+        "Provides clear, educational explanation",
+        "Treats behavioral principles as hypotheses rather than universal truths"
+      ],
+      "files": [],
+      "references": [
+        "skills/_shared/behavioral-principles.md"
+      ]
     }
   ]
 }

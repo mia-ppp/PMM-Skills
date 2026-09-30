@@ -77,7 +77,7 @@ assets the plan needs:
 
 | Need | Owning skill |
 |---|---|
-| Event landing or registration page | `copywriting` |
+| Event landing or registration page | `marketing-copy` |
 | Invitations, reminders, registration nurture, no-show or attendee nurture | `email-sequence` |
 | Named-account or executive outreach | `cold-email` |
 | Event promotion, live coverage, clips, recap posts | `social-content` |
@@ -165,7 +165,7 @@ a section.
 ## Related skills
 
 - `launch-strategy`: event as one component of a product or feature launch.
-- `copywriting`, `email-sequence`, `cold-email`, `social-content`,
+- `marketing-copy`, `email-sequence`, `cold-email`, `social-content`,
   `sales-enablement`: channel artifacts and sales execution.
 - `analytics-tracking`: tracking implementation and instrumentation.
 - `messaging-consistency-audit`: SSOT alignment and cross-asset narrative checks.

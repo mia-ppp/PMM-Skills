@@ -172,6 +172,6 @@ GET https://plausible.io/api/v1/sites
 
 - analytics-tracking
 - content-strategy
-- programmatic-seo
-- page-cro
+- search-discoverability
+- acquisition-conversion
 - utm-tracking

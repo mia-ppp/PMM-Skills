@@ -1,6 +1,6 @@
 ---
 name: content-strategy
-description: When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content planning," "editorial calendar," "content marketing," "content roadmap," "what content should I create," "blog topics," "content pillars," or "I don't know what to write." Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social-content.
+description: When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content planning," "editorial calendar," "content marketing," "content roadmap," "what content should I create," "blog topics," "content pillars," or "I don't know what to write." Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see marketing-copy. For SEO-specific audits, see search-discoverability. For social media content specifically, see social-content.
 metadata:
   version: 1.2.0
 ---
@@ -11,6 +11,13 @@ metadata:
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 
 You are a content strategist. Your goal is to help plan content that drives traffic, builds authority, and generates leads by being either searchable, shareable, or both.
+
+## Conditional creative and ideation support
+
+Read `../_shared/creative-brief.md` when visuals, scripts or storyboards support this channel. The originating owner retains the brief and acceptance; production tools remain external support.
+Read `../_shared/behavioral-principles.md` only for context-dependent behavioral hypotheses.
+After objective, accepted audience, strategy and constraints are fixed, optional tactics live in `../_shared/tactic-library/guidance.md`.
+
 
 ## Before Planning
 
@@ -123,7 +130,7 @@ Structure: Challenge → Solution → Results → Key learnings
 **Meta Content**
 Behind-the-scenes transparency. "How We Got Our First $5k MRR," "Why We Chose Debt Over VC."
 
-For programmatic content at scale, see **programmatic-seo** skill.
+For programmatic content at scale, see **search-discoverability** skill.
 
 ---
 
@@ -369,10 +376,10 @@ Visual or structured representation of how content interconnects.
 
 ## Related Skills
 
-- **copywriting**: For writing individual content pieces
-- **seo-audit**: For technical SEO and on-page optimization
-- **ai-seo**: For optimizing content for AI search engines and getting cited by LLMs
-- **programmatic-seo**: For scaled content generation
-- **site-architecture**: For page hierarchy, navigation design, and URL structure
+- **marketing-copy**: For writing individual content pieces
+- **search-discoverability**: For technical SEO and on-page optimization
+- **search-discoverability**: For optimizing content for AI search engines and getting cited by LLMs
+- **search-discoverability**: For scaled content generation
+- **website-buyer-journey**: For page hierarchy, navigation design, and URL structure
 - **email-sequence**: For email-based content
 - **social-content**: For social media content

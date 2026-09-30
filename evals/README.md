@@ -17,7 +17,7 @@ Zero-dependency harness for the skills in `skills/`. Reads each skill's existing
 export PMM_EVALS_API_KEY=sk-...
 python evals/harness.py lint
 python evals/harness.py route --trials 1
-python evals/harness.py run --skills page-cro,copywriting --trials 3
+python evals/harness.py run --skills acquisition-conversion,marketing-copy --trials 3
 python evals/harness.py report
 python evals/harness.py calibrate
 ```
@@ -93,7 +93,7 @@ The latest numbers are in [RESULTS.md](RESULTS.md): rubric lift per dimension, e
 
 ## Calibration
 
-`calibrate` runs 3 prompts from each of 5 skills (`positioning-strategy`, `messaging-framework`, `copywriting`, `page-cro`, `competitor-alternatives`), once with the skill and once without. That makes 30 outputs.
+`calibrate` runs 3 prompts from each of 5 skills (`positioning-strategy`, `messaging-framework`, `marketing-copy`, `acquisition-conversion`, `competitor-alternatives`), once with the skill and once without. That makes 30 outputs.
 
 | File | Contents |
 |---|---|
@@ -107,3 +107,9 @@ Pick rubric anchors only from the anchor pool. Once grades are in, `report` unbl
 ## Output
 
 Everything lands in `evals/results/` (gitignore it), except `report`, which writes the tracked summary to `evals/RESULTS.md`. Each run keeps raw outputs as markdown so you can read what the agent actually wrote, not just the score.
+
+### Consolidated mode coverage
+
+A case may declare `references`, a list of explicit repository-relative instruction files. These enter only the with-skill system context, never the baseline/user evidence. `files` remains case-specific user evidence. Local lint/reference checks validate both using the same traversal-safe resolver. Runs preflight references and include their contents in resume fingerprints.
+
+Old-to-new eval IDs are recorded in `skills/_shared/portfolio-migration.json`. Historical measured results and calibration are retained unchanged. Migration unit tests check ownership, case destinations, fixture isolation and mode loading; they do not establish model behavior.

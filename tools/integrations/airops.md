@@ -122,7 +122,7 @@ POST https://api.airops.com/public_api/v1/workspaces/{workspace_id}/workflows/{w
 
 ## Relevant Skills
 
-- ai-seo
+- search-discoverability
 - content-strategy
-- programmatic-seo
-- copywriting
+- search-discoverability
+- marketing-copy

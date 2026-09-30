@@ -199,6 +199,18 @@ class HarnessTests(unittest.TestCase):
         files = h.shared_files("Read ../_shared/evidence-gaps.md twice ../_shared/evidence-gaps.md")
         self.assertEqual([p.name for p in files], ["evidence-gaps.md", "ssot-consumption.md"])
 
+    def test_mode_references_reject_unsafe_paths_and_invalid_container(self):
+        for refs in (["../secret.md"], ["/tmp/secret.md"], "one.md", [42]):
+            with self.subTest(refs=refs), self.assertRaises(ValueError):
+                h.eval_references("sample", {"references": refs})
+
+    def test_run_preflights_missing_mode_reference_without_api_calls(self):
+        case = dict(self.case, references=["skills/sample/references/missing.md"])
+        with patch.object(h, "request") as request, self.assertRaisesRegex(ValueError, "Missing"):
+            h.run(self.skills([case]), self.args())
+        request.assert_not_called()
+        self.assertFalse(h.OUT.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

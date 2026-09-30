@@ -140,6 +140,6 @@ GET https://api.supermetrics.com/enterprise/v2/users
 
 - analytics-tracking
 - paid-ads
-- seo-audit
+- search-discoverability
 - content-strategy
 - social-content

@@ -171,5 +171,5 @@ wp plugin update --all
 ## Relevant Skills
 
 - content-strategy
-- seo-audit
-- programmatic-seo
+- search-discoverability
+- search-discoverability

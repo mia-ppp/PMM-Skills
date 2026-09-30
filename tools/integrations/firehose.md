@@ -156,4 +156,4 @@ query: "best [category] tools" OR "top [category] software" AND publish_time:[no
 - customer-research
 - content-strategy
 - cold-email
-- marketing-ideas
+- tactic-library

@@ -203,6 +203,6 @@ GET https://app.pendo.io/api/v1/metadata/schema/parentAccount
 ## Relevant Skills
 
 - analytics-tracking
-- onboarding-cro
-- churn-prevention
-- ab-test-setup
+- product-activation
+- customer-marketing
+- marketing-experimentation

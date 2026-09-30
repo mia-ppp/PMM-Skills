@@ -12,6 +12,11 @@ narrative brief, contribution and approval map, activation plan, and learning.
 Do not expand into corporate development, M&A, or generic partnership
 operations.
 
+## Integration marketplace presence
+
+For approved integration listings read [marketplace brief](references/integration-marketplaces.md). Keep bilateral GTM and partner approval separate from referral incentive mechanics.
+
+
 ## Before planning
 
 Read `../_shared/evidence-gaps.md` and `../_shared/ssot-consumption.md`.
@@ -51,7 +56,7 @@ and tracking. For a joint product release, `launch-strategy` owns release phases
 and sequencing; this skill owns partner contributions and bilateral approvals.
 
 Route joint event strategy to `events`; co-sell material to
-`sales-enablement`; copy to `copywriting`; email to `email-sequence` or
+`sales-enablement`; copy to `marketing-copy`; email to `email-sequence` or
 `cold-email`; social activation to `social-content`; tracking to
 `analytics-tracking`. This skill does not write final channel assets. Joint
 market-facing messaging should pass `messaging-consistency-audit` and partner
@@ -61,6 +66,6 @@ until approved by the named speaker and relevant parties.
 
 ## Related skills
 
-`referral-program`, `launch-strategy`, `events`, `sales-enablement`, `copywriting`, `email-sequence`, `cold-email`,
+`referral-program`, `launch-strategy`, `events`, `sales-enablement`, `marketing-copy`, `email-sequence`, `cold-email`,
 `social-content`, `analytics-tracking`, `messaging-consistency-audit`,
 `ssot-context-loop`, `output-quality-check`.

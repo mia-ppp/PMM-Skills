@@ -28,6 +28,6 @@
 
 | Tier | Sample | Skill (config) | Excerpt | Why |
 |---|---|---|---|---|
-| Great | A-06 | page-cro (baseline) | Since traffic is from Google Ads, mismatch between ad copy and landing page is the #1 suspect:<br>- Pull up your top 5 ad groups and their exact headlines/keywords<br>- Compare against your landing page H1 | Leads with the main culprit, then details. |
+| Great | A-06 | acquisition-conversion (baseline) | Since traffic is from Google Ads, mismatch between ad copy and landing page is the #1 suspect:<br>- Pull up your top 5 ad groups and their exact headlines/keywords<br>- Compare against your landing page H1 | Leads with the main culprit, then details. |
 | OK | A-03 | messaging-framework (baseline) | Before I rewrite these, I need you to answer (or let me propose hypotheses to react to):<br>If your wedge is **pricing predictability**:<br>- "Transparent, predictable pricing" (vs. Fivetran's MAR surprise-bill reputation) | Lists four conditional wedges with pricing first, but never commits to one. |
 | Bad | _none yet_ | | | No 0 in A-01 to A-10. Pick one from a future run, never from the holdout. |

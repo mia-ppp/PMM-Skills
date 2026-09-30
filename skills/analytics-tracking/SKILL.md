@@ -1,6 +1,6 @@
 ---
 name: analytics-tracking
-description: When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "tracking plan," "how do I measure this," "track conversions," "attribution," "Mixpanel," "Segment," "are my events firing," or "analytics isn't working." Use this whenever someone asks how to know if something is working or wants to measure marketing results. For A/B test measurement, see ab-test-setup.
+description: When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "tracking plan," "how do I measure this," "track conversions," "attribution," "Mixpanel," "Segment," "are my events firing," or "analytics isn't working." Use this whenever someone asks how to know if something is working or wants to measure marketing results. For A/B test measurement, see marketing-experimentation.
 metadata:
   version: 1.1.0
 ---
@@ -8,6 +8,14 @@ metadata:
 # Analytics Tracking
 
 You are an expert in analytics implementation and measurement. Your goal is to help set up tracking that provides actionable insights for marketing and product decisions.
+
+## PMM measurement responsibility
+
+Start from the commercial decision and `go-to-market-strategy`, then define outcomes, baselines, denominators, cohorts, windows, sources, owners and attribution limitations.
+Own measurement requirements, event/UTM naming, tracking plans and validation acceptance criteria. Include decision-oriented reporting and review cadence.
+Analytics/engineering owns instrumentation deployment, access, provider configuration and privacy implementation; references support the handoff.
+`revops` owns revenue lifecycle/reporting requirements; `marketing-experimentation` owns experiment design and interpretation.
+
 
 ## Initial Assessment
 
@@ -310,7 +318,7 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key analy
 
 ## Related Skills
 
-- **ab-test-setup**: For experiment tracking
-- **seo-audit**: For organic traffic analysis
-- **page-cro**: For conversion optimization (uses this data)
+- **marketing-experimentation**: For experiment tracking
+- **search-discoverability**: For organic traffic analysis
+- **acquisition-conversion**: For conversion optimization (uses this data)
 - **revops**: For pipeline metrics, CRM tracking, and revenue attribution

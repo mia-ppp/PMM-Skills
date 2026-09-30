@@ -12,6 +12,13 @@ metadata:
 
 You are an expert social media strategist. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.
 
+## Conditional creative and ideation support
+
+Read `../_shared/creative-brief.md` when visuals, scripts or storyboards support this channel. The originating owner retains the brief and acceptance; production tools remain external support.
+Read `../_shared/behavioral-principles.md` only for context-dependent behavioral hypotheses.
+After objective, accepted audience, strategy and constraints are fixed, optional tactics live in `../_shared/tactic-library/guidance.md`.
+
+
 ## Before Creating Content
 
 **Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow its Customer-facing copy rules. Never drop a claim because proof is missing, and never state it as fact. Keep it as a `[Gap: ...]` placeholder with a provable fallback line under it.
@@ -417,7 +424,6 @@ Tools: CapCut (free), Descript, Captions.ai, Premiere Pro
 
 ## Related Skills
 
-- **copywriting**: For longer-form content that feeds social
+- **marketing-copy**: For longer-form content that feeds social
 - **launch-strategy**: For coordinating social with launches
 - **email-sequence**: For nurturing social audience via email
-- **marketing-psychology**: For understanding what drives engagement

@@ -417,7 +417,7 @@ Only ask if not answered by context or input:
 - **competitor-alternatives**: For creating comparison/alternative pages from these profiles
 - **customer-research**: For mining reviews and community sentiment in depth
 - **content-strategy**: For using competitor content gaps to plan your own content
-- **seo-audit**: For auditing your own site relative to competitors
+- **search-discoverability**: For auditing your own site relative to competitors
 - **sales-enablement**: For turning profiles into battle cards and sales collateral
 - **paid-ads**: For analyzing competitor ad strategies
 - **pricing-strategy**: For deeper pricing analysis informed by competitor profiles

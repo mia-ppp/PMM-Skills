@@ -19,8 +19,8 @@ def check():
     errors = []
     incoming = {name: set() for name in skills}
     edges = set()
-    documents = [ROOT / "README.md", *harness.SKILLS.glob("*/SKILL.md"),
-                 *harness.SKILLS.glob("_shared/*.md")]
+    documents = [ROOT / "README.md",
+                 *harness.SKILLS.rglob("*.md")]
     fixture_count = 0
     cases = 0
     for name, skill in skills.items():
@@ -59,6 +59,7 @@ def check():
                 errors.append(f"BROKEN_HANDOFF: {name} #{case['id']} -> {case['handoff_to']}")
             try:
                 harness.eval_prompt(name, case)
+                harness.eval_references(name, case)
                 fixture_count += len(case.get("files", []))
             except (ValueError, OSError, UnicodeError) as ex:
                 errors.append(f"Invalid fixture: {name} #{case['id']}: {ex}")

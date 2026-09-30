@@ -1,0 +1,1765 @@
+{
+  "legacy_routes": {
+    "page-cro": "acquisition-conversion",
+    "form-cro": "acquisition-conversion",
+    "popup-cro": "acquisition-conversion",
+    "signup-flow-cro": "acquisition-conversion",
+    "copywriting": "marketing-copy",
+    "copy-editing": "marketing-copy",
+    "seo-audit": "search-discoverability",
+    "ai-seo": "search-discoverability",
+    "programmatic-seo": "search-discoverability",
+    "lead-magnets": "buyer-resources",
+    "free-tool-strategy": "buyer-resources",
+    "buyer-personas": "icp-and-buyer-personas",
+    "market-launch": "market-entry-orchestration",
+    "onboarding-cro": "product-activation",
+    "paywall-upgrade-cro": "upgrade-conversion",
+    "site-architecture": "website-buyer-journey",
+    "ab-test-setup": "marketing-experimentation",
+    "churn-prevention": "customer-marketing",
+    "marketing-psychology": "_shared/behavioral-principles.md",
+    "image": "_shared/creative-brief.md",
+    "video": "_shared/creative-brief.md",
+    "directory-submissions": "search-discoverability (listing mode; other programs have owners)",
+    "schema-markup": "search-discoverability (technical brief)",
+    "marketing-ideas": "_shared/tactic-library/guidance.md"
+  },
+  "eval_id_migrations": [
+    {
+      "from_skill": "market-launch",
+      "from_id": 1,
+      "to_skill": "market-entry-orchestration",
+      "to_id": 1
+    },
+    {
+      "from_skill": "market-launch",
+      "from_id": 2,
+      "to_skill": "market-entry-orchestration",
+      "to_id": 2
+    },
+    {
+      "from_skill": "market-launch",
+      "from_id": 3,
+      "to_skill": "market-entry-orchestration",
+      "to_id": 3
+    },
+    {
+      "from_skill": "programmatic-seo",
+      "from_id": 1,
+      "to_skill": "search-discoverability",
+      "to_id": 1
+    },
+    {
+      "from_skill": "programmatic-seo",
+      "from_id": 2,
+      "to_skill": "search-discoverability",
+      "to_id": 2
+    },
+    {
+      "from_skill": "programmatic-seo",
+      "from_id": 3,
+      "to_skill": "search-discoverability",
+      "to_id": 3
+    },
+    {
+      "from_skill": "programmatic-seo",
+      "from_id": 4,
+      "to_skill": "search-discoverability",
+      "to_id": 4
+    },
+    {
+      "from_skill": "programmatic-seo",
+      "from_id": 5,
+      "to_skill": "search-discoverability",
+      "to_id": 5
+    },
+    {
+      "from_skill": "programmatic-seo",
+      "from_id": 6,
+      "to_skill": "search-discoverability",
+      "to_id": 6
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 1,
+      "to_skill": "search-discoverability",
+      "to_id": 7
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 2,
+      "to_skill": "search-discoverability",
+      "to_id": 8
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 3,
+      "to_skill": "search-discoverability",
+      "to_id": 9
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 4,
+      "to_skill": "search-discoverability",
+      "to_id": 10
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 5,
+      "to_skill": "search-discoverability",
+      "to_id": 11
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 6,
+      "to_skill": "search-discoverability",
+      "to_id": 12
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 7,
+      "to_skill": "search-discoverability",
+      "to_id": 13
+    },
+    {
+      "from_skill": "seo-audit",
+      "from_id": 8,
+      "to_skill": "search-discoverability",
+      "to_id": 14
+    },
+    {
+      "from_skill": "ai-seo",
+      "from_id": 1,
+      "to_skill": "search-discoverability",
+      "to_id": 15
+    },
+    {
+      "from_skill": "ai-seo",
+      "from_id": 2,
+      "to_skill": "search-discoverability",
+      "to_id": 16
+    },
+    {
+      "from_skill": "ai-seo",
+      "from_id": 3,
+      "to_skill": "search-discoverability",
+      "to_id": 17
+    },
+    {
+      "from_skill": "ai-seo",
+      "from_id": 4,
+      "to_skill": "search-discoverability",
+      "to_id": 18
+    },
+    {
+      "from_skill": "ai-seo",
+      "from_id": 5,
+      "to_skill": "search-discoverability",
+      "to_id": 19
+    },
+    {
+      "from_skill": "ai-seo",
+      "from_id": 6,
+      "to_skill": "search-discoverability",
+      "to_id": 20
+    },
+    {
+      "from_skill": "schema-markup",
+      "from_id": 1,
+      "to_skill": "search-discoverability",
+      "to_id": 21
+    },
+    {
+      "from_skill": "schema-markup",
+      "from_id": 2,
+      "to_skill": "search-discoverability",
+      "to_id": 22
+    },
+    {
+      "from_skill": "schema-markup",
+      "from_id": 3,
+      "to_skill": "search-discoverability",
+      "to_id": 23
+    },
+    {
+      "from_skill": "schema-markup",
+      "from_id": 4,
+      "to_skill": "search-discoverability",
+      "to_id": 24
+    },
+    {
+      "from_skill": "schema-markup",
+      "from_id": 5,
+      "to_skill": "search-discoverability",
+      "to_id": 25
+    },
+    {
+      "from_skill": "schema-markup",
+      "from_id": 6,
+      "to_skill": "search-discoverability",
+      "to_id": 26
+    },
+    {
+      "from_skill": "site-architecture",
+      "from_id": 1,
+      "to_skill": "website-buyer-journey",
+      "to_id": 1
+    },
+    {
+      "from_skill": "site-architecture",
+      "from_id": 2,
+      "to_skill": "website-buyer-journey",
+      "to_id": 2
+    },
+    {
+      "from_skill": "site-architecture",
+      "from_id": 3,
+      "to_skill": "website-buyer-journey",
+      "to_id": 3
+    },
+    {
+      "from_skill": "site-architecture",
+      "from_id": 4,
+      "to_skill": "website-buyer-journey",
+      "to_id": 4
+    },
+    {
+      "from_skill": "site-architecture",
+      "from_id": 5,
+      "to_skill": "website-buyer-journey",
+      "to_id": 5
+    },
+    {
+      "from_skill": "site-architecture",
+      "from_id": 6,
+      "to_skill": "website-buyer-journey",
+      "to_id": 6
+    },
+    {
+      "from_skill": "cold-email",
+      "from_id": 1,
+      "to_skill": "cold-email",
+      "to_id": 1
+    },
+    {
+      "from_skill": "cold-email",
+      "from_id": 2,
+      "to_skill": "cold-email",
+      "to_id": 2
+    },
+    {
+      "from_skill": "cold-email",
+      "from_id": 3,
+      "to_skill": "cold-email",
+      "to_id": 3
+    },
+    {
+      "from_skill": "cold-email",
+      "from_id": 4,
+      "to_skill": "cold-email",
+      "to_id": 4
+    },
+    {
+      "from_skill": "cold-email",
+      "from_id": 5,
+      "to_skill": "cold-email",
+      "to_id": 5
+    },
+    {
+      "from_skill": "cold-email",
+      "from_id": 6,
+      "to_skill": "cold-email",
+      "to_id": 6
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 1,
+      "to_skill": "marketing-copy",
+      "to_id": 1
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 2,
+      "to_skill": "marketing-copy",
+      "to_id": 2
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 3,
+      "to_skill": "marketing-copy",
+      "to_id": 3
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 4,
+      "to_skill": "marketing-copy",
+      "to_id": 4
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 5,
+      "to_skill": "marketing-copy",
+      "to_id": 5
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 6,
+      "to_skill": "marketing-copy",
+      "to_id": 6
+    },
+    {
+      "from_skill": "copywriting",
+      "from_id": 7,
+      "to_skill": "marketing-copy",
+      "to_id": 7
+    },
+    {
+      "from_skill": "copy-editing",
+      "from_id": 1,
+      "to_skill": "marketing-copy",
+      "to_id": 8
+    },
+    {
+      "from_skill": "copy-editing",
+      "from_id": 2,
+      "to_skill": "marketing-copy",
+      "to_id": 9
+    },
+    {
+      "from_skill": "copy-editing",
+      "from_id": 3,
+      "to_skill": "marketing-copy",
+      "to_id": 10
+    },
+    {
+      "from_skill": "copy-editing",
+      "from_id": 4,
+      "to_skill": "marketing-copy",
+      "to_id": 11
+    },
+    {
+      "from_skill": "copy-editing",
+      "from_id": 5,
+      "to_skill": "marketing-copy",
+      "to_id": 12
+    },
+    {
+      "from_skill": "copy-editing",
+      "from_id": 6,
+      "to_skill": "marketing-copy",
+      "to_id": 13
+    },
+    {
+      "from_skill": "marketing-psychology",
+      "from_id": 2,
+      "to_skill": "marketing-copy",
+      "to_id": 14
+    },
+    {
+      "from_skill": "marketing-psychology",
+      "from_id": 3,
+      "to_skill": "marketing-copy",
+      "to_id": 15
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 1,
+      "to_skill": "launch-strategy",
+      "to_id": 1
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 2,
+      "to_skill": "launch-strategy",
+      "to_id": 2
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 3,
+      "to_skill": "launch-strategy",
+      "to_id": 3
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 4,
+      "to_skill": "launch-strategy",
+      "to_id": 4
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 5,
+      "to_skill": "launch-strategy",
+      "to_id": 5
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 6,
+      "to_skill": "launch-strategy",
+      "to_id": 6
+    },
+    {
+      "from_skill": "launch-strategy",
+      "from_id": 7,
+      "to_skill": "launch-strategy",
+      "to_id": 7
+    },
+    {
+      "from_skill": "social-content",
+      "from_id": 1,
+      "to_skill": "social-content",
+      "to_id": 1
+    },
+    {
+      "from_skill": "social-content",
+      "from_id": 2,
+      "to_skill": "social-content",
+      "to_id": 2
+    },
+    {
+      "from_skill": "social-content",
+      "from_id": 3,
+      "to_skill": "social-content",
+      "to_id": 3
+    },
+    {
+      "from_skill": "social-content",
+      "from_id": 4,
+      "to_skill": "social-content",
+      "to_id": 4
+    },
+    {
+      "from_skill": "social-content",
+      "from_id": 5,
+      "to_skill": "social-content",
+      "to_id": 5
+    },
+    {
+      "from_skill": "social-content",
+      "from_id": 6,
+      "to_skill": "social-content",
+      "to_id": 6
+    },
+    {
+      "from_skill": "ssot-context-loop",
+      "from_id": 1,
+      "to_skill": "ssot-context-loop",
+      "to_id": 1
+    },
+    {
+      "from_skill": "ssot-context-loop",
+      "from_id": 2,
+      "to_skill": "ssot-context-loop",
+      "to_id": 2
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 1,
+      "to_skill": "messaging-framework",
+      "to_id": 1
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 2,
+      "to_skill": "messaging-framework",
+      "to_id": 2
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 3,
+      "to_skill": "messaging-framework",
+      "to_id": 3
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 4,
+      "to_skill": "messaging-framework",
+      "to_id": 4
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 5,
+      "to_skill": "messaging-framework",
+      "to_id": 5
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 6,
+      "to_skill": "messaging-framework",
+      "to_id": 6
+    },
+    {
+      "from_skill": "messaging-framework",
+      "from_id": 7,
+      "to_skill": "messaging-framework",
+      "to_id": 7
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 1,
+      "to_skill": "output-quality-check",
+      "to_id": 1
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 2,
+      "to_skill": "output-quality-check",
+      "to_id": 2
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 3,
+      "to_skill": "output-quality-check",
+      "to_id": 3
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 4,
+      "to_skill": "output-quality-check",
+      "to_id": 4
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 5,
+      "to_skill": "output-quality-check",
+      "to_id": 5
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 6,
+      "to_skill": "output-quality-check",
+      "to_id": 6
+    },
+    {
+      "from_skill": "output-quality-check",
+      "from_id": 7,
+      "to_skill": "output-quality-check",
+      "to_id": 7
+    },
+    {
+      "from_skill": "competitor-alternatives",
+      "from_id": 1,
+      "to_skill": "competitor-alternatives",
+      "to_id": 1
+    },
+    {
+      "from_skill": "competitor-alternatives",
+      "from_id": 2,
+      "to_skill": "competitor-alternatives",
+      "to_id": 2
+    },
+    {
+      "from_skill": "competitor-alternatives",
+      "from_id": 3,
+      "to_skill": "competitor-alternatives",
+      "to_id": 3
+    },
+    {
+      "from_skill": "competitor-alternatives",
+      "from_id": 4,
+      "to_skill": "competitor-alternatives",
+      "to_id": 4
+    },
+    {
+      "from_skill": "competitor-alternatives",
+      "from_id": 5,
+      "to_skill": "competitor-alternatives",
+      "to_id": 5
+    },
+    {
+      "from_skill": "competitor-alternatives",
+      "from_id": 6,
+      "to_skill": "competitor-alternatives",
+      "to_id": 6
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 1,
+      "to_skill": "product-marketing-context",
+      "to_id": 1
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 2,
+      "to_skill": "product-marketing-context",
+      "to_id": 2
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 3,
+      "to_skill": "product-marketing-context",
+      "to_id": 3
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 4,
+      "to_skill": "product-marketing-context",
+      "to_id": 4
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 5,
+      "to_skill": "product-marketing-context",
+      "to_id": 5
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 6,
+      "to_skill": "product-marketing-context",
+      "to_id": 6
+    },
+    {
+      "from_skill": "product-marketing-context",
+      "from_id": 7,
+      "to_skill": "product-marketing-context",
+      "to_id": 7
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 1,
+      "to_skill": "pricing-strategy",
+      "to_id": 1
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 2,
+      "to_skill": "pricing-strategy",
+      "to_id": 2
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 3,
+      "to_skill": "pricing-strategy",
+      "to_id": 3
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 4,
+      "to_skill": "pricing-strategy",
+      "to_id": 4
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 5,
+      "to_skill": "pricing-strategy",
+      "to_id": 5
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 6,
+      "to_skill": "pricing-strategy",
+      "to_id": 6
+    },
+    {
+      "from_skill": "pricing-strategy",
+      "from_id": 7,
+      "to_skill": "pricing-strategy",
+      "to_id": 7
+    },
+    {
+      "from_skill": "marketing-psychology",
+      "from_id": 1,
+      "to_skill": "pricing-strategy",
+      "to_id": 8
+    },
+    {
+      "from_skill": "marketing-psychology",
+      "from_id": 5,
+      "to_skill": "pricing-strategy",
+      "to_id": 9
+    },
+    {
+      "from_skill": "free-tool-strategy",
+      "from_id": 1,
+      "to_skill": "buyer-resources",
+      "to_id": 1
+    },
+    {
+      "from_skill": "free-tool-strategy",
+      "from_id": 2,
+      "to_skill": "buyer-resources",
+      "to_id": 2
+    },
+    {
+      "from_skill": "free-tool-strategy",
+      "from_id": 3,
+      "to_skill": "buyer-resources",
+      "to_id": 3
+    },
+    {
+      "from_skill": "free-tool-strategy",
+      "from_id": 4,
+      "to_skill": "buyer-resources",
+      "to_id": 4
+    },
+    {
+      "from_skill": "free-tool-strategy",
+      "from_id": 5,
+      "to_skill": "buyer-resources",
+      "to_id": 5
+    },
+    {
+      "from_skill": "free-tool-strategy",
+      "from_id": 6,
+      "to_skill": "buyer-resources",
+      "to_id": 6
+    },
+    {
+      "from_skill": "content-strategy",
+      "from_id": 1,
+      "to_skill": "content-strategy",
+      "to_id": 1
+    },
+    {
+      "from_skill": "content-strategy",
+      "from_id": 2,
+      "to_skill": "content-strategy",
+      "to_id": 2
+    },
+    {
+      "from_skill": "content-strategy",
+      "from_id": 3,
+      "to_skill": "content-strategy",
+      "to_id": 3
+    },
+    {
+      "from_skill": "content-strategy",
+      "from_id": 4,
+      "to_skill": "content-strategy",
+      "to_id": 4
+    },
+    {
+      "from_skill": "content-strategy",
+      "from_id": 5,
+      "to_skill": "content-strategy",
+      "to_id": 5
+    },
+    {
+      "from_skill": "content-strategy",
+      "from_id": 6,
+      "to_skill": "content-strategy",
+      "to_id": 6
+    },
+    {
+      "from_skill": "marketing-ideas",
+      "from_id": 4,
+      "to_skill": "content-strategy",
+      "to_id": 7
+    },
+    {
+      "from_skill": "market-entry-brief",
+      "from_id": 1,
+      "to_skill": "market-entry-brief",
+      "to_id": 1
+    },
+    {
+      "from_skill": "market-entry-brief",
+      "from_id": 2,
+      "to_skill": "market-entry-brief",
+      "to_id": 2
+    },
+    {
+      "from_skill": "market-entry-brief",
+      "from_id": 3,
+      "to_skill": "market-entry-brief",
+      "to_id": 3
+    },
+    {
+      "from_skill": "market-entry-brief",
+      "from_id": 4,
+      "to_skill": "market-entry-brief",
+      "to_id": 4
+    },
+    {
+      "from_skill": "market-entry-brief",
+      "from_id": 5,
+      "to_skill": "market-entry-brief",
+      "to_id": 5
+    },
+    {
+      "from_skill": "market-entry-brief",
+      "from_id": 6,
+      "to_skill": "market-entry-brief",
+      "to_id": 6
+    },
+    {
+      "from_skill": "analytics-tracking",
+      "from_id": 1,
+      "to_skill": "analytics-tracking",
+      "to_id": 1
+    },
+    {
+      "from_skill": "analytics-tracking",
+      "from_id": 2,
+      "to_skill": "analytics-tracking",
+      "to_id": 2
+    },
+    {
+      "from_skill": "analytics-tracking",
+      "from_id": 3,
+      "to_skill": "analytics-tracking",
+      "to_id": 3
+    },
+    {
+      "from_skill": "analytics-tracking",
+      "from_id": 4,
+      "to_skill": "analytics-tracking",
+      "to_id": 4
+    },
+    {
+      "from_skill": "analytics-tracking",
+      "from_id": 5,
+      "to_skill": "analytics-tracking",
+      "to_id": 5
+    },
+    {
+      "from_skill": "analytics-tracking",
+      "from_id": 6,
+      "to_skill": "analytics-tracking",
+      "to_id": 6
+    },
+    {
+      "from_skill": "paid-ads",
+      "from_id": 1,
+      "to_skill": "paid-ads",
+      "to_id": 1
+    },
+    {
+      "from_skill": "paid-ads",
+      "from_id": 2,
+      "to_skill": "paid-ads",
+      "to_id": 2
+    },
+    {
+      "from_skill": "paid-ads",
+      "from_id": 3,
+      "to_skill": "paid-ads",
+      "to_id": 3
+    },
+    {
+      "from_skill": "paid-ads",
+      "from_id": 4,
+      "to_skill": "paid-ads",
+      "to_id": 4
+    },
+    {
+      "from_skill": "paid-ads",
+      "from_id": 5,
+      "to_skill": "paid-ads",
+      "to_id": 5
+    },
+    {
+      "from_skill": "paid-ads",
+      "from_id": 6,
+      "to_skill": "paid-ads",
+      "to_id": 6
+    },
+    {
+      "from_skill": "launch-readiness-check",
+      "from_id": 1,
+      "to_skill": "launch-readiness-check",
+      "to_id": 1
+    },
+    {
+      "from_skill": "launch-readiness-check",
+      "from_id": 2,
+      "to_skill": "launch-readiness-check",
+      "to_id": 2
+    },
+    {
+      "from_skill": "launch-readiness-check",
+      "from_id": 3,
+      "to_skill": "launch-readiness-check",
+      "to_id": 3
+    },
+    {
+      "from_skill": "launch-readiness-check",
+      "from_id": 4,
+      "to_skill": "launch-readiness-check",
+      "to_id": 4
+    },
+    {
+      "from_skill": "form-cro",
+      "from_id": 1,
+      "to_skill": "acquisition-conversion",
+      "to_id": 1
+    },
+    {
+      "from_skill": "form-cro",
+      "from_id": 2,
+      "to_skill": "acquisition-conversion",
+      "to_id": 2
+    },
+    {
+      "from_skill": "form-cro",
+      "from_id": 3,
+      "to_skill": "acquisition-conversion",
+      "to_id": 3
+    },
+    {
+      "from_skill": "form-cro",
+      "from_id": 4,
+      "to_skill": "acquisition-conversion",
+      "to_id": 4
+    },
+    {
+      "from_skill": "form-cro",
+      "from_id": 5,
+      "to_skill": "acquisition-conversion",
+      "to_id": 5
+    },
+    {
+      "from_skill": "form-cro",
+      "from_id": 6,
+      "to_skill": "acquisition-conversion",
+      "to_id": 6
+    },
+    {
+      "from_skill": "page-cro",
+      "from_id": 1,
+      "to_skill": "acquisition-conversion",
+      "to_id": 7
+    },
+    {
+      "from_skill": "page-cro",
+      "from_id": 3,
+      "to_skill": "acquisition-conversion",
+      "to_id": 8
+    },
+    {
+      "from_skill": "page-cro",
+      "from_id": 4,
+      "to_skill": "acquisition-conversion",
+      "to_id": 9
+    },
+    {
+      "from_skill": "page-cro",
+      "from_id": 5,
+      "to_skill": "acquisition-conversion",
+      "to_id": 10
+    },
+    {
+      "from_skill": "page-cro",
+      "from_id": 6,
+      "to_skill": "acquisition-conversion",
+      "to_id": 6,
+      "deduplicated": true
+    },
+    {
+      "from_skill": "page-cro",
+      "from_id": 7,
+      "to_skill": "acquisition-conversion",
+      "to_id": 12
+    },
+    {
+      "from_skill": "signup-flow-cro",
+      "from_id": 1,
+      "to_skill": "acquisition-conversion",
+      "to_id": 13
+    },
+    {
+      "from_skill": "signup-flow-cro",
+      "from_id": 2,
+      "to_skill": "acquisition-conversion",
+      "to_id": 14
+    },
+    {
+      "from_skill": "signup-flow-cro",
+      "from_id": 3,
+      "to_skill": "acquisition-conversion",
+      "to_id": 15
+    },
+    {
+      "from_skill": "signup-flow-cro",
+      "from_id": 4,
+      "to_skill": "acquisition-conversion",
+      "to_id": 16
+    },
+    {
+      "from_skill": "signup-flow-cro",
+      "from_id": 5,
+      "to_skill": "acquisition-conversion",
+      "to_id": 17
+    },
+    {
+      "from_skill": "signup-flow-cro",
+      "from_id": 6,
+      "to_skill": "acquisition-conversion",
+      "to_id": 18
+    },
+    {
+      "from_skill": "popup-cro",
+      "from_id": 1,
+      "to_skill": "acquisition-conversion",
+      "to_id": 19
+    },
+    {
+      "from_skill": "popup-cro",
+      "from_id": 2,
+      "to_skill": "acquisition-conversion",
+      "to_id": 20
+    },
+    {
+      "from_skill": "popup-cro",
+      "from_id": 3,
+      "to_skill": "acquisition-conversion",
+      "to_id": 21
+    },
+    {
+      "from_skill": "popup-cro",
+      "from_id": 4,
+      "to_skill": "acquisition-conversion",
+      "to_id": 22
+    },
+    {
+      "from_skill": "popup-cro",
+      "from_id": 5,
+      "to_skill": "acquisition-conversion",
+      "to_id": 23
+    },
+    {
+      "from_skill": "popup-cro",
+      "from_id": 6,
+      "to_skill": "acquisition-conversion",
+      "to_id": 24
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 1,
+      "to_skill": "positioning-strategy",
+      "to_id": 1
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 2,
+      "to_skill": "positioning-strategy",
+      "to_id": 2
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 3,
+      "to_skill": "positioning-strategy",
+      "to_id": 3
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 4,
+      "to_skill": "positioning-strategy",
+      "to_id": 4
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 5,
+      "to_skill": "positioning-strategy",
+      "to_id": 5
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 6,
+      "to_skill": "positioning-strategy",
+      "to_id": 6
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 7,
+      "to_skill": "positioning-strategy",
+      "to_id": 7
+    },
+    {
+      "from_skill": "positioning-strategy",
+      "from_id": 8,
+      "to_skill": "positioning-strategy",
+      "to_id": 8
+    },
+    {
+      "from_skill": "ad-creative",
+      "from_id": 1,
+      "to_skill": "ad-creative",
+      "to_id": 1
+    },
+    {
+      "from_skill": "ad-creative",
+      "from_id": 2,
+      "to_skill": "ad-creative",
+      "to_id": 2
+    },
+    {
+      "from_skill": "ad-creative",
+      "from_id": 3,
+      "to_skill": "ad-creative",
+      "to_id": 3
+    },
+    {
+      "from_skill": "ad-creative",
+      "from_id": 4,
+      "to_skill": "ad-creative",
+      "to_id": 4
+    },
+    {
+      "from_skill": "ad-creative",
+      "from_id": 5,
+      "to_skill": "ad-creative",
+      "to_id": 5
+    },
+    {
+      "from_skill": "ad-creative",
+      "from_id": 6,
+      "to_skill": "ad-creative",
+      "to_id": 6
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 1,
+      "to_skill": "customer-research",
+      "to_id": 1
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 2,
+      "to_skill": "customer-research",
+      "to_id": 2
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 3,
+      "to_skill": "customer-research",
+      "to_id": 3
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 5,
+      "to_skill": "customer-research",
+      "to_id": 5
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 6,
+      "to_skill": "customer-research",
+      "to_id": 6
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 7,
+      "to_skill": "customer-research",
+      "to_id": 7
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 8,
+      "to_skill": "customer-research",
+      "to_id": 8
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 9,
+      "to_skill": "customer-research",
+      "to_id": 9
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 10,
+      "to_skill": "customer-research",
+      "to_id": 10
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 11,
+      "to_skill": "customer-research",
+      "to_id": 11
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 12,
+      "to_skill": "customer-research",
+      "to_id": 12
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 13,
+      "to_skill": "customer-research",
+      "to_id": 13
+    },
+    {
+      "from_skill": "customer-research",
+      "from_id": 14,
+      "to_skill": "customer-research",
+      "to_id": 14
+    },
+    {
+      "from_skill": "partner-marketing",
+      "from_id": 1,
+      "to_skill": "partner-marketing",
+      "to_id": 1
+    },
+    {
+      "from_skill": "partner-marketing",
+      "from_id": 2,
+      "to_skill": "partner-marketing",
+      "to_id": 2
+    },
+    {
+      "from_skill": "partner-marketing",
+      "from_id": 3,
+      "to_skill": "partner-marketing",
+      "to_id": 3
+    },
+    {
+      "from_skill": "win-loss-intelligence",
+      "from_id": 1,
+      "to_skill": "win-loss-intelligence",
+      "to_id": 1
+    },
+    {
+      "from_skill": "win-loss-intelligence",
+      "from_id": 2,
+      "to_skill": "win-loss-intelligence",
+      "to_id": 2
+    },
+    {
+      "from_skill": "win-loss-intelligence",
+      "from_id": 3,
+      "to_skill": "win-loss-intelligence",
+      "to_id": 3
+    },
+    {
+      "from_skill": "sales-enablement",
+      "from_id": 1,
+      "to_skill": "sales-enablement",
+      "to_id": 1
+    },
+    {
+      "from_skill": "sales-enablement",
+      "from_id": 2,
+      "to_skill": "sales-enablement",
+      "to_id": 2
+    },
+    {
+      "from_skill": "sales-enablement",
+      "from_id": 3,
+      "to_skill": "sales-enablement",
+      "to_id": 3
+    },
+    {
+      "from_skill": "sales-enablement",
+      "from_id": 4,
+      "to_skill": "sales-enablement",
+      "to_id": 4
+    },
+    {
+      "from_skill": "sales-enablement",
+      "from_id": 5,
+      "to_skill": "sales-enablement",
+      "to_id": 5
+    },
+    {
+      "from_skill": "sales-enablement",
+      "from_id": 6,
+      "to_skill": "sales-enablement",
+      "to_id": 6
+    },
+    {
+      "from_skill": "onboarding-cro",
+      "from_id": 1,
+      "to_skill": "product-activation",
+      "to_id": 1
+    },
+    {
+      "from_skill": "onboarding-cro",
+      "from_id": 2,
+      "to_skill": "product-activation",
+      "to_id": 2
+    },
+    {
+      "from_skill": "onboarding-cro",
+      "from_id": 3,
+      "to_skill": "product-activation",
+      "to_id": 3
+    },
+    {
+      "from_skill": "onboarding-cro",
+      "from_id": 4,
+      "to_skill": "product-activation",
+      "to_id": 4
+    },
+    {
+      "from_skill": "onboarding-cro",
+      "from_id": 5,
+      "to_skill": "product-activation",
+      "to_id": 5
+    },
+    {
+      "from_skill": "onboarding-cro",
+      "from_id": 6,
+      "to_skill": "product-activation",
+      "to_id": 6
+    },
+    {
+      "from_skill": "marketing-psychology",
+      "from_id": 4,
+      "to_skill": "product-activation",
+      "to_id": 7
+    },
+    {
+      "from_skill": "paywall-upgrade-cro",
+      "from_id": 1,
+      "to_skill": "upgrade-conversion",
+      "to_id": 1
+    },
+    {
+      "from_skill": "paywall-upgrade-cro",
+      "from_id": 2,
+      "to_skill": "upgrade-conversion",
+      "to_id": 2
+    },
+    {
+      "from_skill": "paywall-upgrade-cro",
+      "from_id": 3,
+      "to_skill": "upgrade-conversion",
+      "to_id": 3
+    },
+    {
+      "from_skill": "paywall-upgrade-cro",
+      "from_id": 4,
+      "to_skill": "upgrade-conversion",
+      "to_id": 4
+    },
+    {
+      "from_skill": "paywall-upgrade-cro",
+      "from_id": 5,
+      "to_skill": "upgrade-conversion",
+      "to_id": 5
+    },
+    {
+      "from_skill": "paywall-upgrade-cro",
+      "from_id": 6,
+      "to_skill": "upgrade-conversion",
+      "to_id": 6
+    },
+    {
+      "from_skill": "objection-intelligence",
+      "from_id": 1,
+      "to_skill": "objection-intelligence",
+      "to_id": 1
+    },
+    {
+      "from_skill": "objection-intelligence",
+      "from_id": 2,
+      "to_skill": "objection-intelligence",
+      "to_id": 2
+    },
+    {
+      "from_skill": "objection-intelligence",
+      "from_id": 3,
+      "to_skill": "objection-intelligence",
+      "to_id": 3
+    },
+    {
+      "from_skill": "account-based-marketing",
+      "from_id": 1,
+      "to_skill": "account-based-marketing",
+      "to_id": 1
+    },
+    {
+      "from_skill": "account-based-marketing",
+      "from_id": 2,
+      "to_skill": "account-based-marketing",
+      "to_id": 2
+    },
+    {
+      "from_skill": "account-based-marketing",
+      "from_id": 3,
+      "to_skill": "account-based-marketing",
+      "to_id": 3
+    },
+    {
+      "from_skill": "events",
+      "from_id": 1,
+      "to_skill": "events",
+      "to_id": 1
+    },
+    {
+      "from_skill": "events",
+      "from_id": 2,
+      "to_skill": "events",
+      "to_id": 2
+    },
+    {
+      "from_skill": "events",
+      "from_id": 3,
+      "to_skill": "events",
+      "to_id": 3
+    },
+    {
+      "from_skill": "events",
+      "from_id": 4,
+      "to_skill": "events",
+      "to_id": 4
+    },
+    {
+      "from_skill": "events",
+      "from_id": 5,
+      "to_skill": "events",
+      "to_id": 5
+    },
+    {
+      "from_skill": "events",
+      "from_id": 6,
+      "to_skill": "events",
+      "to_id": 6
+    },
+    {
+      "from_skill": "events",
+      "from_id": 7,
+      "to_skill": "events",
+      "to_id": 7
+    },
+    {
+      "from_skill": "messaging-consistency-audit",
+      "from_id": 1,
+      "to_skill": "messaging-consistency-audit",
+      "to_id": 1
+    },
+    {
+      "from_skill": "messaging-consistency-audit",
+      "from_id": 2,
+      "to_skill": "messaging-consistency-audit",
+      "to_id": 2
+    },
+    {
+      "from_skill": "messaging-consistency-audit",
+      "from_id": 3,
+      "to_skill": "messaging-consistency-audit",
+      "to_id": 3
+    },
+    {
+      "from_skill": "revops",
+      "from_id": 1,
+      "to_skill": "revops",
+      "to_id": 1
+    },
+    {
+      "from_skill": "revops",
+      "from_id": 2,
+      "to_skill": "revops",
+      "to_id": 2
+    },
+    {
+      "from_skill": "revops",
+      "from_id": 3,
+      "to_skill": "revops",
+      "to_id": 3
+    },
+    {
+      "from_skill": "revops",
+      "from_id": 4,
+      "to_skill": "revops",
+      "to_id": 4
+    },
+    {
+      "from_skill": "revops",
+      "from_id": 5,
+      "to_skill": "revops",
+      "to_id": 5
+    },
+    {
+      "from_skill": "revops",
+      "from_id": 6,
+      "to_skill": "revops",
+      "to_id": 6
+    },
+    {
+      "from_skill": "email-sequence",
+      "from_id": 1,
+      "to_skill": "email-sequence",
+      "to_id": 1
+    },
+    {
+      "from_skill": "email-sequence",
+      "from_id": 2,
+      "to_skill": "email-sequence",
+      "to_id": 2
+    },
+    {
+      "from_skill": "email-sequence",
+      "from_id": 3,
+      "to_skill": "email-sequence",
+      "to_id": 3
+    },
+    {
+      "from_skill": "email-sequence",
+      "from_id": 4,
+      "to_skill": "email-sequence",
+      "to_id": 4
+    },
+    {
+      "from_skill": "email-sequence",
+      "from_id": 5,
+      "to_skill": "email-sequence",
+      "to_id": 5
+    },
+    {
+      "from_skill": "email-sequence",
+      "from_id": 6,
+      "to_skill": "email-sequence",
+      "to_id": 6
+    },
+    {
+      "from_skill": "product-communications",
+      "from_id": 1,
+      "to_skill": "product-communications",
+      "to_id": 1
+    },
+    {
+      "from_skill": "product-communications",
+      "from_id": 2,
+      "to_skill": "product-communications",
+      "to_id": 2
+    },
+    {
+      "from_skill": "product-communications",
+      "from_id": 3,
+      "to_skill": "product-communications",
+      "to_id": 3
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 1,
+      "to_skill": "marketing-experimentation",
+      "to_id": 1
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 2,
+      "to_skill": "marketing-experimentation",
+      "to_id": 2
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 3,
+      "to_skill": "marketing-experimentation",
+      "to_id": 3
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 4,
+      "to_skill": "marketing-experimentation",
+      "to_id": 4
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 5,
+      "to_skill": "marketing-experimentation",
+      "to_id": 5
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 6,
+      "to_skill": "marketing-experimentation",
+      "to_id": 6
+    },
+    {
+      "from_skill": "ab-test-setup",
+      "from_id": 7,
+      "to_skill": "marketing-experimentation",
+      "to_id": 7
+    },
+    {
+      "from_skill": "marketing-psychology",
+      "from_id": 6,
+      "to_skill": "marketing-experimentation",
+      "to_id": 8
+    },
+    {
+      "from_skill": "referral-program",
+      "from_id": 1,
+      "to_skill": "referral-program",
+      "to_id": 1
+    },
+    {
+      "from_skill": "referral-program",
+      "from_id": 2,
+      "to_skill": "referral-program",
+      "to_id": 2
+    },
+    {
+      "from_skill": "referral-program",
+      "from_id": 3,
+      "to_skill": "referral-program",
+      "to_id": 3
+    },
+    {
+      "from_skill": "referral-program",
+      "from_id": 4,
+      "to_skill": "referral-program",
+      "to_id": 4
+    },
+    {
+      "from_skill": "referral-program",
+      "from_id": 5,
+      "to_skill": "referral-program",
+      "to_id": 5
+    },
+    {
+      "from_skill": "referral-program",
+      "from_id": 6,
+      "to_skill": "referral-program",
+      "to_id": 6
+    },
+    {
+      "from_skill": "marketing-ideas",
+      "from_id": 6,
+      "to_skill": "referral-program",
+      "to_id": 7
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 1,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 1
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 2,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 2
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 3,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 3
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 4,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 4
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 5,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 5
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 6,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 6
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 7,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 7
+    },
+    {
+      "from_skill": "buyer-personas",
+      "from_id": 8,
+      "to_skill": "icp-and-buyer-personas",
+      "to_id": 8
+    },
+    {
+      "from_skill": "customer-marketing",
+      "from_id": 1,
+      "to_skill": "customer-marketing",
+      "to_id": 1
+    },
+    {
+      "from_skill": "customer-marketing",
+      "from_id": 2,
+      "to_skill": "customer-marketing",
+      "to_id": 2
+    },
+    {
+      "from_skill": "customer-marketing",
+      "from_id": 3,
+      "to_skill": "customer-marketing",
+      "to_id": 3
+    },
+    {
+      "from_skill": "churn-prevention",
+      "from_id": 1,
+      "to_skill": "customer-marketing",
+      "to_id": 4
+    },
+    {
+      "from_skill": "churn-prevention",
+      "from_id": 2,
+      "to_skill": "customer-marketing",
+      "to_id": 5
+    },
+    {
+      "from_skill": "churn-prevention",
+      "from_id": 3,
+      "to_skill": "customer-marketing",
+      "to_id": 6
+    },
+    {
+      "from_skill": "churn-prevention",
+      "from_id": 4,
+      "to_skill": "customer-marketing",
+      "to_id": 7
+    },
+    {
+      "from_skill": "churn-prevention",
+      "from_id": 5,
+      "to_skill": "customer-marketing",
+      "to_id": 8
+    },
+    {
+      "from_skill": "churn-prevention",
+      "from_id": 6,
+      "to_skill": "customer-marketing",
+      "to_id": 9
+    },
+    {
+      "from_skill": "localization-claims",
+      "from_id": 2,
+      "to_skill": "localization-claims",
+      "to_id": 2
+    },
+    {
+      "from_skill": "localization-claims",
+      "from_id": 3,
+      "to_skill": "localization-claims",
+      "to_id": 3
+    },
+    {
+      "from_skill": "localization-claims",
+      "from_id": 4,
+      "to_skill": "localization-claims",
+      "to_id": 4
+    },
+    {
+      "from_skill": "localization-claims",
+      "from_id": 5,
+      "to_skill": "localization-claims",
+      "to_id": 5
+    },
+    {
+      "from_skill": "marketing-ideas",
+      "from_id": 1,
+      "to_skill": "go-to-market-strategy",
+      "to_id": 1
+    },
+    {
+      "from_skill": "marketing-ideas",
+      "from_id": 2,
+      "to_skill": "go-to-market-strategy",
+      "to_id": 2
+    },
+    {
+      "from_skill": "marketing-ideas",
+      "from_id": 3,
+      "to_skill": "go-to-market-strategy",
+      "to_id": 3
+    },
+    {
+      "from_skill": "marketing-ideas",
+      "from_id": 5,
+      "to_skill": "go-to-market-strategy",
+      "to_id": 4
+    }
+  ]
+}

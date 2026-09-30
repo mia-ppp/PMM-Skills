@@ -183,5 +183,5 @@ _cio.page();
 ## Relevant Skills
 
 - email-sequence
-- onboarding-cro
+- product-activation
 - analytics-tracking

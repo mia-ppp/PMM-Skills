@@ -142,6 +142,6 @@ POST https://indexing.googleapis.com/v3/urlNotifications:publish
 
 ## Relevant Skills
 
-- seo-audit
-- programmatic-seo
+- search-discoverability
+- search-discoverability
 - analytics-tracking

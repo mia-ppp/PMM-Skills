@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Help me build a content strategy for our B2B SaaS product. We sell expense management software to finance teams at companies with 50-500 employees. We currently have no blog and want to start from scratch.",
-      "expected_output": "Should check for product-marketing-context.md first. Should establish content pillars (3-5 core topic areas). Should map content types by buyer stage (awareness → consideration → decision → implementation). Should identify keyword research opportunities by buyer stage. Should recommend a mix of searchable (SEO-driven) and shareable (thought leadership, data) content. Should use the prioritization scoring framework (customer impact 40%, content-market fit 30%, search potential 20%, resources 10%). Should provide an initial content calendar or publishing cadence. Should recommend content types appropriate for starting from scratch.",
+      "expected_output": "Should check for product-marketing-context.md first. Should establish content pillars (3-5 core topic areas). Should map content types by buyer stage (awareness \u2192 consideration \u2192 decision \u2192 implementation). Should identify keyword research opportunities by buyer stage. Should recommend a mix of searchable (SEO-driven) and shareable (thought leadership, data) content. Should use the prioritization scoring framework (customer impact 40%, content-market fit 30%, search potential 20%, resources 10%). Should provide an initial content calendar or publishing cadence. Should recommend content types appropriate for starting from scratch.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Establishes 3-5 content pillars",
@@ -77,13 +77,25 @@
     {
       "id": 6,
       "prompt": "Can you write a blog post about remote work best practices for our HR software blog?",
-      "expected_output": "Should recognize this is a copywriting/content creation task, not a content strategy task. Should defer to or cross-reference the copywriting skill for writing individual pieces of content. May provide strategic context (where this fits in the content strategy, keyword targeting, audience) but should make clear that copywriting is the right skill for writing the actual content.",
-      "handoff_to": "copywriting",
+      "expected_output": "Should recognize this is a marketing-copy/content creation task, not a content strategy task. Should defer to or cross-reference the marketing-copy skill for writing individual pieces of content. May provide strategic context (where this fits in the content strategy, keyword targeting, audience) but should make clear that marketing-copy is the right skill for writing the actual content.",
+      "handoff_to": "marketing-copy",
       "assertions": [
         "Recognizes this as content creation, not strategy",
-        "References or defers to copywriting skill",
+        "References or defers to marketing-copy skill",
         "Does not attempt to write the full blog post",
         "May provide strategic context for the piece"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "We want to build authority and thought leadership in the HR tech space. We're a newer company and nobody knows who we are yet.",
+      "expected_output": "Establish objective, accepted audience, strategy and constraints before consulting the optional tactics library. Compare feasible hypotheses with rationale, owners, resource needs and learning measures; no fabricated benchmarks or universal checklist.",
+      "assertions": [
+        "Establishes objective and accepted audience",
+        "Considers capacity and budget constraints",
+        "Uses tactics as hypotheses with owners and learning measures",
+        "Preserves canon and evidence gaps"
       ],
       "files": []
     }

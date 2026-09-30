@@ -11,7 +11,9 @@
         "Does not use the conflicting AI fraud platform positioning as approved messaging",
         "Keeps the canonical ICP and message or routes the conflict to SSOT review"
       ],
-      "files": ["fixtures/account-signals.md"]
+      "files": [
+        "fixtures/account-signals.md"
+      ]
     },
     {
       "id": 2,
@@ -22,7 +24,8 @@
         "Does not fabricate buying committee or account-specific pain",
         "Defines team ownership and engagement/outcome measurement",
         "Routes event, sales, channel, and measurement work to appropriate skills"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 3,
@@ -32,7 +35,8 @@
         "Treats account learning as evidence rather than an automatic ICP change",
         "Routes canonical ICP review through ssot-context-loop",
         "Does not begin unsupported account personalization"
-      ]
+      ],
+      "files": []
     }
   ]
 }

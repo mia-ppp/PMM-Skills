@@ -24,7 +24,8 @@
         "Does not claim a recurring pattern from one deal",
         "Marks missing buyer evidence as a gap",
         "Routes any price strategy implication without changing canon"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 3,

@@ -1,0 +1,44 @@
+{
+  "skill_name": "market-entry-orchestration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We want to take our payroll software from the US to the UK. Give me the full launch plan, end to end. We haven't done any work on the UK yet.",
+      "expected_output": "A launch plan table showing all four rungs in order (market decision, position and canon, assets, guardrail and learn), with Rung 1 open and Rungs 2 to 4 not started.",
+      "assertions": [
+        "Shows all four rungs: market decision, position and canon, assets, and guardrail and learn",
+        "Lists the rungs in order 1, 2, 3, 4",
+        "Marks Rung 1 as the open rung and later rungs as Not started",
+        "Names a single next action",
+        "Does not write positioning, copy, or market sizing itself"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run the launch playbook for taking our expense management app into the Australian SMB market. Which skill handles each step?",
+      "expected_output": "A plan that names market-entry-brief for Rung 1; positioning-strategy, then messaging-framework, then a company messaging rule book for Rung 2; the asset skills for Rung 3; and launch-readiness-check then the eval harness for Rung 4.",
+      "assertions": [
+        "Names market-entry-brief for Rung 1",
+        "Names positioning-strategy, then messaging-framework, then a company messaging rule book for Rung 2, in that order",
+        "Names asset skills such as marketing-copy, sales-enablement, paid-ads, or seo skills for Rung 3",
+        "Names launch-readiness-check, then the eval harness, for Rung 4",
+        "Does not assign one rung's work to a skill from another rung"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Launch into a new market: we're taking our AP tool to Germany. Skip the market analysis, we already know it's worth it. Go straight to writing the German website hero and sales deck.",
+      "expected_output": "Refuses to skip ahead. Rung 3 needs the locked canon, which needs the market-entry brief, and neither exists. Says to run market-entry-brief first and marks later rungs Blocked or Not started.",
+      "assertions": [
+        "Does not write the website hero or the sales deck",
+        "States that the input artifact for the asset rung (the locked canon) is missing",
+        "Says which skill to run first: market-entry-brief",
+        "Marks the asset rung Blocked or Not started, not Passed",
+        "Does not improvise a market-entry brief or positioning to fill the gap"
+      ],
+      "files": []
+    }
+  ]
+}

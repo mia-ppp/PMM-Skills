@@ -1,6 +1,6 @@
 ---
 name: product-marketing-context
-description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'who is my target audience,' 'describe my product,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills. It creates `.agents/product-marketing-context.md` that all other skills reference for product, audience, and positioning context. For creating positioning, see positioning-strategy. For personas and ICP, see buyer-personas."
+description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'who is my target audience,' 'describe my product,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills. It creates `.agents/product-marketing-context.md` that all other skills reference for product, audience, and positioning context. For creating positioning, see positioning-strategy. For personas and ICP, see icp-and-buyer-personas."
 metadata:
   version: 1.2.0
 ---
@@ -144,7 +144,7 @@ Written by positioning-strategy for bootstrap initialization and chaining. Appro
 messaging-framework uses approved mapped SSOT capabilities where applicable and this table for uncovered provisional context. If the section is empty, approved SSOT inputs remain available; recommend positioning-strategy only for missing positioning.
 
 ### 14. Persona message map
-Written by buyer-personas for bootstrap chaining. messaging-framework uses approved mapped SSOT persona messaging where applicable, and this map for uncovered provisional context. Preserve evidence labels and proposal/approval status; the map does not change canon.
+Written by icp-and-buyer-personas for bootstrap chaining. messaging-framework uses approved mapped SSOT persona messaging where applicable, and this map for uncovered provisional context. Preserve evidence labels and proposal/approval status; the map does not change canon.
 - **Persona:** role-based name with the buying role in brackets, such as (champion) or (financial buyer)
 - **What matters to them:** 1 to 2 short phrases
 - **Message:** the core message in 1 to 2 sentences

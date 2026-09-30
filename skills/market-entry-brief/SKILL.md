@@ -1,6 +1,6 @@
 ---
 name: market-entry-brief
-description: "When the user wants to size and score a new market before any positioning work. Use when the user asks 'should we enter [market],' or mentions 'market entry,' 'new market,' 'expand into,' 'TAM for,' 'is [segment/region] worth it,' or 'market sizing.' Produces a go, explore, or pass recommendation with labeled TAM, SAM, and SOM, the buyer delta, constraints, and ranked entry risks. It is Rung 1 of the launch chain. For a single product or feature launch's tactics, see launch-strategy. For the buyer detail inside a chosen market, see buyer-personas."
+description: "When the user wants to size and score a new market before any positioning work. Use when the user asks 'should we enter [market],' or mentions 'market entry,' 'new market,' 'expand into,' 'TAM for,' 'is [segment/region] worth it,' or 'market sizing.' Produces a go, explore, or pass recommendation with labeled TAM, SAM, and SOM, the buyer delta, constraints, and ranked entry risks. It is Rung 1 of the launch chain. For a single product or feature launch's tactics, see launch-strategy. For the buyer detail inside a chosen market, see icp-and-buyer-personas."
 metadata:
   version: 1.0.0
 ---
@@ -217,7 +217,7 @@ Offer to save the market definition and buyer delta to `.agents/product-marketin
 ## Related Skills
 
 - **positioning-strategy**: Position the product for the market this brief chooses
-- **buyer-personas**: Profile the buyers and committee inside the chosen market
+- **icp-and-buyer-personas**: Profile the buyers and committee inside the chosen market
 - **customer-research**: Close the evidence gaps the brief names
 - **competitor-profiling**: Map the alternatives buyers use in the new market
 - **launch-strategy**: Plan the launch once positioning is set

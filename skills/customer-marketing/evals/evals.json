@@ -11,7 +11,9 @@
         "Does not publish the quote without source and permission handling",
         "Routes messaging/assets and measurement to existing owners"
       ],
-      "files": ["fixtures/customer-cohorts.md"]
+      "files": [
+        "fixtures/customer-cohorts.md"
+      ]
     },
     {
       "id": 2,
@@ -21,7 +23,8 @@
         "Keeps Customer Success operational onboarding responsibility distinct from PMM orchestration",
         "Routes feedback into customer-research rather than treating campaign assumptions as evidence",
         "Defines an adoption measure with source and window rather than inventing outcomes"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 3,
@@ -31,6 +34,103 @@
         "Routes campaign output to messaging-consistency-audit",
         "Separates the output-quality-check result from canonical alignment",
         "Does not silently alter the SSOT"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Our SaaS product has a 7% monthly churn rate and we need to bring it down. We're a $49/month project management tool with about 2,000 paying customers. Can you help us design a churn prevention strategy?",
+      "expected_output": "Synthesize supplied cancellation/retention evidence without invented causes. Propose cohort interventions, value-realization or win-back briefs, consent and customer-respect guardrails, retained-value measures and learning. Billing/payment-provider retries, access and configuration belong to external operational owners. Final messages route to marketing-copy or email-sequence; pricing/save-offer changes require pricing-strategy and approval.",
+      "assertions": [
+        "Separates evidence from intervention hypotheses",
+        "Defines customer cohort and learning measures",
+        "Preserves cancellation access and customer respect",
+        "Routes billing/payment operations to operational owners",
+        "Does not invent discounts, causes or health-score thresholds"
+      ],
+      "files": [],
+      "references": [
+        "skills/customer-marketing/references/retention-programs.md"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We keep losing customers because their credit cards expire. About 15% of our churn is from failed payments. How do we fix this?",
+      "expected_output": "Synthesize supplied cancellation/retention evidence without invented causes. Propose cohort interventions, value-realization or win-back briefs, consent and customer-respect guardrails, retained-value measures and learning. Billing/payment-provider retries, access and configuration belong to external operational owners. Final messages route to marketing-copy or email-sequence; pricing/save-offer changes require pricing-strategy and approval.",
+      "assertions": [
+        "Separates evidence from intervention hypotheses",
+        "Defines customer cohort and learning measures",
+        "Preserves cancellation access and customer respect",
+        "Routes billing/payment operations to operational owners",
+        "Does not invent discounts, causes or health-score thresholds"
+      ],
+      "files": [],
+      "references": [
+        "skills/customer-marketing/references/retention-programs.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "what should we show users when they click the cancel button? right now they just go straight to cancellation with no attempt to save them",
+      "expected_output": "Synthesize supplied cancellation/retention evidence without invented causes. Propose cohort interventions, value-realization or win-back briefs, consent and customer-respect guardrails, retained-value measures and learning. Billing/payment-provider retries, access and configuration belong to external operational owners. Final messages route to marketing-copy or email-sequence; pricing/save-offer changes require pricing-strategy and approval.",
+      "assertions": [
+        "Separates evidence from intervention hypotheses",
+        "Defines customer cohort and learning measures",
+        "Preserves cancellation access and customer respect",
+        "Routes billing/payment operations to operational owners",
+        "Does not invent discounts, causes or health-score thresholds"
+      ],
+      "files": [],
+      "references": [
+        "skills/customer-marketing/references/retention-programs.md"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "How do we identify which customers are at risk of churning before they actually cancel? We want to be proactive.",
+      "expected_output": "Synthesize supplied cancellation/retention evidence without invented causes. Propose cohort interventions, value-realization or win-back briefs, consent and customer-respect guardrails, retained-value measures and learning. Billing/payment-provider retries, access and configuration belong to external operational owners. Final messages route to marketing-copy or email-sequence; pricing/save-offer changes require pricing-strategy and approval.",
+      "assertions": [
+        "Separates evidence from intervention hypotheses",
+        "Defines customer cohort and learning measures",
+        "Preserves cancellation access and customer respect",
+        "Routes billing/payment operations to operational owners",
+        "Does not invent discounts, causes or health-score thresholds"
+      ],
+      "files": [],
+      "references": [
+        "skills/customer-marketing/references/retention-programs.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Our exit survey shows that 40% of cancellations say 'too expensive' as the reason. What save offers should we try?",
+      "expected_output": "Synthesize supplied cancellation/retention evidence without invented causes. Propose cohort interventions, value-realization or win-back briefs, consent and customer-respect guardrails, retained-value measures and learning. Billing/payment-provider retries, access and configuration belong to external operational owners. Final messages route to marketing-copy or email-sequence; pricing/save-offer changes require pricing-strategy and approval.",
+      "assertions": [
+        "Separates evidence from intervention hypotheses",
+        "Defines customer cohort and learning measures",
+        "Preserves cancellation access and customer respect",
+        "Routes billing/payment operations to operational owners",
+        "Does not invent discounts, causes or health-score thresholds"
+      ],
+      "files": [],
+      "references": [
+        "skills/customer-marketing/references/retention-programs.md"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "We want to set up a win-back email sequence for customers who already cancelled. Can you help write those emails?",
+      "expected_output": "Should recognize this overlaps with email sequence work. Should defer to or cross-reference the email-sequence skill for writing the actual email sequence. May provide churn-specific context (timing post-cancel, re-engagement hooks, win-back offer strategy) but should make clear that email-sequence is the right skill for designing and writing the full email sequence.",
+      "handoff_to": "email-sequence",
+      "assertions": [
+        "Recognizes overlap with email sequence work",
+        "References or defers to email-sequence skill",
+        "May provide churn-specific context for the sequence",
+        "Does not attempt to write a full email sequence"
+      ],
+      "files": [],
+      "references": [
+        "skills/customer-marketing/references/retention-programs.md"
       ]
     }
   ]

@@ -108,6 +108,6 @@ For BYO plan users: bring your own SendGrid, Postmark, SES, or Resend account an
 ## Relevant Skills
 
 - email-sequence
-- onboarding-cro
-- churn-prevention
-- lead-magnets
+- product-activation
+- customer-marketing
+- buyer-resources

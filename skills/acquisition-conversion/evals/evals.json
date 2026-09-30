@@ -1,0 +1,410 @@
+{
+  "skill_name": "acquisition-conversion",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit our demo request form. It currently has these fields: First Name, Last Name, Work Email, Phone Number, Company Name, Company Size, Job Title, Industry, Current Solution, Budget Range, and a 'Tell us about your needs' textarea. Our conversion rate is 3.1% and we want to improve it.",
+      "expected_output": "Should check for product-marketing-context.md first. Should apply the 'every field has a cost' principle: 11 fields is excessive for a demo form. Should reference the field cost data (3 fields baseline, 7+ fields = 25-50% conversion reduction). Should evaluate each field: which are essential for demo prep, which can be collected later or inferred. Should recommend cutting to essential fields (likely Work Email, Company Name, and maybe one qualifier). Should provide audit findings in the structured format (Issue, Impact, Fix, Priority). Should recommend Quick Wins, High-Impact Changes, and Test Ideas.",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Applies 'every field has a cost' principle",
+        "References field count impact data",
+        "Evaluates each field for necessity",
+        "Recommends cutting to essential fields",
+        "Provides findings in structured format (Issue, Impact, Fix, Priority)",
+        "Includes Quick Wins, High-Impact Changes, Test Ideas"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/forms.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our contact form just has Name, Email, and Message fields but we're getting a lot of spam submissions and low-quality leads. How do we fix this without adding too much friction?",
+      "expected_output": "Should apply the contact form type guidance. Should address spam with non-friction solutions first: honeypot fields, reCAPTCHA, server-side validation. Should then address lead quality: suggest adding one qualifying field (company name or budget range) to filter without excessive friction. Should apply the error handling guidance for validation. Should recommend form layout and submit button optimization. Should balance quality vs quantity in recommendations.",
+      "assertions": [
+        "Applies contact form type guidance",
+        "Recommends anti-spam solutions (honeypot, reCAPTCHA)",
+        "Suggests minimal qualifying fields for lead quality",
+        "Balances quality vs quantity",
+        "Addresses error handling and validation",
+        "Recommends non-friction solutions first"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/forms.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "should we use a single-step or multi-step form for our quote request? we need company info, project details, timeline, and budget.",
+      "expected_output": "Should trigger on casual phrasing. Should apply the multi-step form guidance: with this many required data types, multi-step is likely better. Should reference the threshold: multi-step recommended when more than 5-6 fields. Should recommend grouping by type (contact info \u2192 project details \u2192 budget/timeline). Should include progress indicator recommendation. Should apply best practices: easy questions first, save progress, allow back navigation. Should note that multi-step often increases completion for longer forms.",
+      "assertions": [
+        "Triggers on casual phrasing",
+        "Recommends multi-step based on field count",
+        "References the 5-6 field threshold for multi-step",
+        "Suggests logical field grouping",
+        "Recommends progress indicator",
+        "Applies multi-step best practices",
+        "Notes multi-step increases completion for longer forms"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/forms.md"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "How should we handle form errors? Users keep getting frustrated and abandoning our lead capture form when they hit validation errors.",
+      "expected_output": "Should apply the error handling guidance. Should recommend inline validation (not just on submit). Should provide specific error message examples (helpful, not generic). Should recommend: don't clear the form on error, focus on the problem field, show requirements upfront not after failure. Should address common validation UX issues: email format, phone format, required field indicators. Should provide examples of good vs bad error messages.",
+      "assertions": [
+        "Applies error handling guidance",
+        "Recommends inline validation",
+        "Provides specific error message examples",
+        "Recommends not clearing form on error",
+        "Recommends showing requirements upfront",
+        "Provides good vs bad error message examples",
+        "Addresses common validation UX issues"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/forms.md"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We need to optimize our form for mobile. Over 60% of our traffic is mobile but our form conversion rate on mobile is half of desktop.",
+      "expected_output": "Should apply the mobile optimization guidance. Should recommend: larger touch targets (44px+ height), appropriate keyboard types (email, tel), autofill support, single column layout, sticky CTA button, reduce typing (use dropdowns, toggles). Should address mobile-specific form issues: viewport, font size, button placement, scroll behavior. Should recommend testing with actual devices.",
+      "assertions": [
+        "Applies mobile optimization guidance",
+        "Recommends larger touch targets (44px+)",
+        "Recommends appropriate keyboard types",
+        "Recommends autofill support",
+        "Recommends single column layout",
+        "Addresses mobile-specific issues",
+        "Recommends testing with actual devices"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/forms.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our signup form has too many fields and people keep abandoning it halfway through. Can you help optimize it?",
+      "expected_output": "Select the signup mode within acquisition-conversion; diagnose the specific bottleneck rather than handing off to a duplicate standalone skill.",
+      "assertions": [
+        "Selects signup mode",
+        "Preserves approved canon and labels evidence gaps",
+        "Addresses the requested journey or content task"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Here's my SaaS landing page: https://example.com/product. We get about 5,000 visitors/month from Google Ads but only 1.2% convert to free trial signups. Can you help me figure out what's wrong?",
+      "expected_output": "Should check for product-marketing-context.md first. Should identify page type (landing page) and conversion goal (free trial signup). Should analyze across the CRO framework dimensions: value proposition clarity, headline effectiveness, CTA placement/copy/hierarchy, visual hierarchy, trust signals, objection handling, and friction points. Should provide recommendations organized as Quick Wins, High-Impact Changes, and Test Ideas. Should note the message match issue between Google Ads and landing page. Should provide 2-3 headline and CTA copy alternatives with rationale.",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Identifies page type as landing page",
+        "Identifies conversion goal as free trial signup",
+        "Analyzes value proposition clarity",
+        "Analyzes CTA placement and copy",
+        "Notes message match between ads and landing page",
+        "Output has Quick Wins section",
+        "Output has High-Impact Changes section",
+        "Output has Test Ideas section",
+        "Provides 2-3 headline or CTA alternatives"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/page.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "this page isn't converting. can you take a look? it's our homepage for a B2B project management tool",
+      "expected_output": "Should trigger on the casual 'this page isn't converting' phrasing. Should identify this as a Homepage CRO analysis. Should ask clarifying questions about current conversion rate, traffic sources, and conversion goal. Should apply the full CRO Analysis Framework starting with value proposition clarity. Should address the homepage-specific guidance: serving multiple audiences, leading with broadest value prop, and providing clear paths for different visitor intents. Should provide structured output with Quick Wins, High-Impact Changes, Test Ideas, and Copy Alternatives.",
+      "assertions": [
+        "Triggers on casual phrasing",
+        "Identifies as Homepage CRO",
+        "Asks about current conversion rate",
+        "Asks about traffic sources",
+        "Applies CRO Analysis Framework",
+        "Addresses serving multiple audiences",
+        "Addresses clear paths for different visitor intents",
+        "Output has structured sections"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/page.md"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "We have a blog that gets 20k organic visits/month but almost nobody clicks through to our product. How do we get more conversions from blog readers?",
+      "expected_output": "Should apply the Blog Post CRO framework. Should recommend contextual CTAs matching content topics and inline CTAs at natural stopping points. Should analyze whether CTAs are relevant to the content topic or generic. Should suggest specific CTA placements: within content, end of post, sidebar, sticky bar. Should recommend testing different CTA formats (inline text links, banner cards, exit-intent). Should cross-reference marketing-copy skill for CTA copy improvement.",
+      "assertions": [
+        "Applies Blog Post CRO framework",
+        "Recommends contextual CTAs matching content",
+        "Recommends inline CTAs at natural stopping points",
+        "Suggests specific CTA placements",
+        "Suggests testing different CTA formats",
+        "Cross-references marketing-copy or related skill"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/page.md"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "We redesigned our landing page and conversions dropped from 4.2% to 2.8%. Here's the new page. What went wrong?",
+      "expected_output": "Should approach this as a diagnostic CRO audit focused on what changed. Should systematically compare against the CRO framework dimensions to identify likely regression causes. Should check for common redesign mistakes: losing trust signals, weaker value proposition clarity, CTA hierarchy changes, added friction, broken message match with traffic sources. Should provide specific fixes organized by likely impact. Should recommend reverting high-risk changes while testing others.",
+      "assertions": [
+        "Approaches as diagnostic audit",
+        "Checks for lost trust signals",
+        "Checks for weakened value proposition",
+        "Checks for CTA hierarchy changes",
+        "Checks for added friction",
+        "Checks for broken message match with traffic sources",
+        "Provides fixes organized by impact",
+        "Recommends reverting high-risk changes"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/page.md"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Review this feature page for our API monitoring tool. Most traffic comes from organic search for 'API monitoring tools'. We want them to start a free trial.",
+      "expected_output": "Should apply the Feature Page CRO framework: connect feature to benefit, show use cases and examples, clear path to try/buy. Should reference the experiments section and suggest prioritized test ideas for hero section, trust signals, and CTA variations. Should note the organic search traffic source and check for message match with search intent. Should cross-reference marketing-experimentation skill for proper test implementation.",
+      "assertions": [
+        "Applies Feature Page CRO framework",
+        "Connects features to benefits",
+        "Suggests use cases and examples",
+        "Provides clear path to try/buy",
+        "Notes organic traffic source and search intent match",
+        "Suggests specific experiment hypotheses",
+        "Cross-references marketing-experimentation skill"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/page.md"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Audit our signup flow. We have a 3-step process: Step 1 asks for email, password, and full name. Step 2 asks for company name, company size, role, and industry. Step 3 asks for use case and how they heard about us. Current completion rate is 45%.",
+      "expected_output": "Should check for product-marketing-context.md first. Should identify the flow type (likely B2B SaaS trial). Should apply the core principles: minimize required fields (which of these are genuinely needed before they can use the product?). Should evaluate each step: Step 1 is reasonable, Step 2 fields are mostly deferrable to progressive profiling, Step 3 is entirely deferrable. Should recommend cutting to Step 1 only or at most 2 steps. Should provide audit findings in structured format (Issue, Impact, Fix, Priority). Should include Quick Wins, High-Impact Changes, and Test Hypotheses.",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Identifies flow type",
+        "Applies minimize required fields principle",
+        "Evaluates each field for necessity",
+        "Recommends deferring most Step 2 and all Step 3 fields",
+        "Provides findings in structured format",
+        "Includes Quick Wins, High-Impact Changes, Test Hypotheses"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Should we add Google and Microsoft SSO to our signup page? We're a B2B project management tool and currently only have email/password signup.",
+      "expected_output": "Should apply the social auth options guidance. For B2B, should recommend Google and Microsoft as the primary SSO options (matching the B2B recommendation). Should explain benefits: higher conversion (less friction), pre-verified email, faster onboarding. Should recommend placing SSO prominently (often higher conversion than email). Should address implementation considerations: clear visual separation from email signup, button copy ('Sign up with Google' not just Google icon), consider which option to emphasize based on audience.",
+      "assertions": [
+        "Applies social auth options guidance",
+        "Recommends Google and Microsoft for B2B",
+        "Explains conversion benefits of SSO",
+        "Recommends prominent placement",
+        "Addresses visual separation from email signup",
+        "Provides implementation recommendations"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "our signup form is just email and password but we still only get 35% of visitors to complete it. what else could be wrong?",
+      "expected_output": "Should trigger on casual phrasing. Should investigate beyond just form fields since the form is already minimal. Should apply trust and friction reduction guidance: is there a 'No credit card required' message? Privacy assurance? Testimonial near the form? Should check form-level issues: error handling, password requirements clarity, submit button copy. Should also look at pre-form factors: is the value proposition clear? Is the page optimized? (cross-reference acquisition-conversion). Should provide diagnostic checklist and recommendations.",
+      "assertions": [
+        "Triggers on casual phrasing",
+        "Investigates beyond form fields",
+        "Applies trust and friction reduction",
+        "Checks for 'No credit card required' messaging",
+        "Checks error handling and password UX",
+        "Considers pre-form factors (value prop, page CRO)",
+        "Provides diagnostic checklist"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "We require email verification before users can access the product. Is that hurting our conversion? Should we change it?",
+      "expected_output": "Should apply the verification flows guidance. Should explain that requiring verification before product access does create friction and likely reduces activation. Should recommend alternatives: delay verification until needed (let users explore first), magic link as alternative to password, let users start while verification is pending. Should discuss when email verification IS required (compliance, preventing abuse). Should provide specific recommendations for improving the verification experience if kept.",
+      "assertions": [
+        "Applies verification flows guidance",
+        "Explains verification friction impact",
+        "Recommends delaying verification",
+        "Suggests letting users explore while pending",
+        "Discusses when verification is required",
+        "Provides improvements if verification is kept"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "What experiments should we run on our signup page? We want to improve our trial signup rate.",
+      "expected_output": "Should apply the experiment ideas section. Should provide experiments across categories: form design experiments (layout, field count, SSO), copy and messaging experiments (headline, CTA text, trust elements), trial and commitment experiments (credit card required vs not, trial length), and post-submit experiments. Should prioritize experiments by likely impact. Should cross-reference marketing-experimentation for proper experiment design.",
+      "assertions": [
+        "Applies experiment ideas section",
+        "Covers form design experiments",
+        "Covers copy and messaging experiments",
+        "Covers trial and commitment experiments",
+        "Prioritizes by likely impact",
+        "Cross-references marketing-experimentation skill"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "Users sign up fine but then never activate. Only 20% complete onboarding. What do we do?",
+      "expected_output": "Should recognize this is a post-signup onboarding problem, not a signup flow problem. Should defer to or cross-reference the product-activation skill, which handles post-signup activation and onboarding optimization. Signup-flow-cro covers getting users through the signup form, not what happens after.",
+      "handoff_to": "product-activation",
+      "assertions": [
+        "Recognizes this as post-signup onboarding, not signup flow",
+        "References or defers to product-activation skill",
+        "Explains acquisition-conversion covers the signup form, not post-signup"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/signup.md"
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "Help me create an exit-intent popup for our SaaS landing page. We want to capture emails from visitors who are about to leave without signing up. Our product is a social media scheduling tool.",
+      "expected_output": "Should check for product-marketing-context.md first. Should identify the popup type as exit-intent email capture. Should apply the exit-intent popup design guidance: compelling headline (address why they're leaving or offer additional value), lead magnet or incentive (discount, free resource, extended trial), minimal form fields (email only), clear CTA, and easy close option. Should apply copy formulas from the skill. Should address trigger configuration (exit intent detection). Should recommend frequency rules (don't show again if dismissed). Should include benchmarks (exit intent popups typically 3-10% conversion).",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Identifies as exit-intent popup type",
+        "Includes compelling headline",
+        "Includes lead magnet or incentive",
+        "Minimal form fields (email only)",
+        "Applies copy formulas from the skill",
+        "Addresses trigger configuration",
+        "Recommends frequency rules",
+        "Includes conversion benchmarks"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/popups.md"
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "We want to offer a 10% discount to first-time visitors via a popup. When should we show it and what should it say?",
+      "expected_output": "Should identify this as a discount/offer popup type. Should apply trigger strategy guidance: recommend against showing immediately on page load (too aggressive). Should suggest time-based delay (30-60 seconds), scroll-based trigger (50%+ page scroll), or exit intent as better alternatives. Should apply the copy formula for discount popups: headline that frames the value, clear offer terms, urgency element, email capture, and CTA. Should address compliance (GDPR cookie consent if applicable). Should recommend frequency capping.",
+      "assertions": [
+        "Identifies as discount popup type",
+        "Recommends against immediate page load trigger",
+        "Suggests better trigger alternatives (time, scroll, exit)",
+        "Applies copy formula for discount popups",
+        "Includes urgency element",
+        "Addresses frequency capping",
+        "Addresses compliance considerations"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/popups.md"
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "our popups are annoying everyone. we keep getting complaints but we also get a lot of email signups from them. how do we balance this?",
+      "expected_output": "Should trigger on casual phrasing. Should apply the frequency and rules guidance. Should address the balance: reduce annoyance while preserving conversions. Should recommend: frequency capping (once per session or once per X days), don't show to returning visitors who already dismissed, don't show to existing subscribers, respect 'close' action, consider less intrusive formats (slide-in instead of full modal, announcement bar instead of overlay). Should address compliance and accessibility requirements. Should suggest A/B testing different triggers and formats to find the best balance.",
+      "assertions": [
+        "Triggers on casual phrasing",
+        "Applies frequency and rules guidance",
+        "Addresses balance between conversions and UX",
+        "Recommends frequency capping",
+        "Suggests excluding existing subscribers",
+        "Recommends less intrusive alternatives",
+        "Suggests A/B testing to optimize"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/popups.md"
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "What types of popups should we use on our blog? We publish content about email marketing and want to grow our email list.",
+      "expected_output": "Should recommend blog-appropriate popup types: scroll-triggered popup (show after 50-70% scroll indicating engagement), exit-intent popup, slide-in (less intrusive than modal), and inline content upgrades. Should recommend lead magnets relevant to the blog topic (email marketing templates, checklist, swipe file). Should address different popup placements: mid-content, end of post, sidebar slide-in. Should recommend behavior-based triggers over time-based for blog content. Should apply copy formulas with blog-specific hooks.",
+      "assertions": [
+        "Recommends blog-appropriate popup types",
+        "Includes scroll-triggered and exit-intent",
+        "Suggests less intrusive formats (slide-in)",
+        "Recommends relevant lead magnets",
+        "Addresses popup placement on blog pages",
+        "Recommends behavior-based triggers for blog",
+        "Applies copy formulas"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/popups.md"
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "Design an announcement banner for our new feature launch. We want it to show at the top of the site for 2 weeks.",
+      "expected_output": "Should identify this as an announcement banner popup type. Should apply banner design guidance: short, clear headline announcing the feature, brief description of benefit, CTA to learn more or try it, dismiss option. Should recommend banner positioning (top of page, sticky or static). Should address duration (2 weeks as stated). Should recommend targeting (show to existing users who'd benefit, not just everyone). Should provide copy recommendations.",
+      "assertions": [
+        "Identifies as announcement banner type",
+        "Provides short, clear headline",
+        "Includes brief benefit description and CTA",
+        "Includes dismiss option",
+        "Addresses banner positioning",
+        "Recommends audience targeting",
+        "Provides copy recommendations"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/popups.md"
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "We need to optimize the lead capture form inside our popup. It currently asks for name, email, company, and phone number. Too many fields?",
+      "expected_output": "Select the forms mode within acquisition-conversion; diagnose the specific bottleneck rather than handing off to a duplicate standalone skill.",
+      "assertions": [
+        "Selects forms mode",
+        "Preserves approved canon and labels evidence gaps",
+        "Addresses the requested journey or content task"
+      ],
+      "files": [],
+      "references": [
+        "skills/acquisition-conversion/references/popups.md"
+      ]
+    }
+  ]
+}

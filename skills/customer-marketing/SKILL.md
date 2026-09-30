@@ -1,6 +1,6 @@
 ---
 name: customer-marketing
-description: When the user wants a PMM-led post-sale motion for onboarding, adoption, value realization, expansion, advocacy, references, case studies, champion development, or customer launches. For churn operations, see churn-prevention; for customer research, see customer-research.
+description: When the user wants a PMM-led post-sale motion for onboarding, adoption, value realization, retention, cancellation-reason synthesis, win-back, expansion, advocacy, references, case studies, champion development, or customer launches. For billing operations, route to the billing/CS owner; for customer research, see customer-research.
 metadata:
   version: 1.0.0
 ---
@@ -11,6 +11,19 @@ Orchestrate customer-facing PMM programs across onboarding, adoption, value
 realization, expansion, and advocacy. This skill owns the objective, audience,
 message brief, proof plan, coordination, and learning. It does not own Customer
 Success operations or final channel assets.
+
+## Activation and commercial boundaries
+
+`product-activation` owns first-value definitions and experience briefs; this skill orchestrates post-sale cohort programs with Product/CS.
+`upgrade-conversion` owns in-product upgrade eligibility/timing and `pricing-strategy` owns commercial terms. Expansion campaigns consume those approved decisions.
+
+## Retention and win-back mode
+
+Read [retention briefs](references/retention-programs.md) for cancellation-reason synthesis, cohort hypotheses, retained-value measurement and learning loops.
+Own value realization, respectful retention briefs and win-back triggers. Preserve easy cancellation and consent; never invent save offers, discounts or roadmap promises.
+Billing retries, payment-provider configuration and access management route to operational owners. PMM may brief truthful payment-recovery communication but does not run billing.
+Read [customer review programs](references/customer-reviews.md) when reviews support advocacy; no coerced or fabricated reviews.
+
 
 ## Before planning
 
@@ -47,9 +60,7 @@ and explicit handoffs.
 
 ## Boundaries and feedback
 
-- `churn-prevention` owns cancellation, dunning, save offers, and churn
-  intervention operations. Coordinate retention-support messages without
-  replacing those workflows.
+- Retention programs belong here; billing operations, payment retries, provider configuration and access management belong to external billing/CS operations.
 - `community-marketing` owns community design, member engagement, and community
   advocate programs. This skill may define a customer-community objective and
   hand it off.
@@ -63,6 +74,6 @@ and explicit handoffs.
 
 ## Related skills
 
-`churn-prevention`, `community-marketing`, `customer-research`,
+`community-marketing`, `customer-research`,
 `email-sequence`, `sales-enablement`, `revops`, `analytics-tracking`,
 `messaging-consistency-audit`, `ssot-context-loop`, `output-quality-check`.

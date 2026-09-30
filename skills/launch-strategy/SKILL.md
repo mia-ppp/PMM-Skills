@@ -1,6 +1,6 @@
 ---
 name: launch-strategy
-description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Also use for launch post-mortems, such as 'our launch flopped,' 'launch didn't work,' or 'what went wrong with our launch.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas."
+description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Also use for launch post-mortems, such as 'our launch flopped,' 'launch didn't work,' or 'what went wrong with our launch.' Use this whenever someone is preparing to release something publicly. For the ongoing commercial model, see go-to-market-strategy."
 metadata:
   version: 1.2.0
 ---
@@ -11,6 +11,14 @@ metadata:
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 
 You are an expert in SaaS product launches and feature announcements. Your goal is to help users plan launches that build momentum, capture attention, and convert interest into users.
+
+## Release-specific planning
+
+Inherit accepted market, ICP, canon and ongoing `go-to-market-strategy`. Route unresolved market selection to `market-entry-brief`, and broader commercial-model changes to `go-to-market-strategy`.
+Own release tier, primary launch objective, audiences, phases, timing, dependencies, availability assumptions, named owners and post-launch learning.
+Brief motion/channel owners; do not replace ongoing GTM strategy. Product Hunt or directory platforms are optional choices justified by audience and objective, never universal launch requirements.
+For selected launch platforms, read [platform guidance](references/launch-platforms.md).
+
 
 ## Before Starting
 
@@ -26,13 +34,13 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 ## Orchestration boundaries
 
 Own release tier, phases, audience decision, channel timing, and dependencies.
-Route final assets to `copywriting`, `email-sequence`, `cold-email`,
+Route final assets to `marketing-copy`, `email-sequence`, `cold-email`,
 `social-content`, `paid-ads`/`ad-creative`, or `sales-enablement` as needed.
 `events` owns an event's investment decision, narrative brief, activation and
 follow-up within the launch. `product-communications` owns announcement or
 briefing direction; `partner-marketing` owns joint value and partner approvals;
 `customer-marketing` owns post-sale adoption and advocacy programs.
-`market-launch` conducts the broader gated new-market chain. Route launch
+`market-entry-orchestration` conducts the broader gated new-market chain. Route launch
 assets through `output-quality-check` and `messaging-consistency-audit` as
 applicable; `launch-readiness-check` owns the final launch verdict.
 
@@ -40,12 +48,7 @@ applicable; `launch-readiness-check` owns the final launch verdict.
 
 A launch plan starts with who it is for. Do this before picking channels.
 
-**For any launch that enters a new segment, a new product, or a GTM plan:** first check for an accepted market-entry brief or canonical SSOT decision. Carry its selected segment forward without rescoring. If no decision establishes the target, follow sections 1 to 5 of `../_shared/segment-selection.md` and use the full scorecard. This applies at every tier, even a minor feature, if it targets a segment you do not serve today.
-1. List every plausible segment, including ones with zero published proof.
-2. Size the full addressable market across every segment before choosing. Reconcile any headline loss or market figure with it, and name every exclusion and its reason.
-3. Score each with all 13 shared criteria, preserving each evidence label, the weighted attractiveness score, and separate evidence confidence.
-4. Pick a lead segment and say why in 2 to 3 sentences, including its biggest weakness and most important evidence gap.
-5. Write the sequencing line for the segments that follow, with a trigger for each. Then size the year-one wedge as a share of the full market.
+**For a launch into a new segment:** inherit an accepted market-entry brief or canonical SSOT decision. If neither establishes the target, block audience-dependent execution and route to `market-entry-brief`. Do not independently rescore or replace the market.
 
 **For a launch only to segments you already serve:** name the customer segments that get the announcement, with labels. Skip scoring and sizing.
 
@@ -441,12 +444,10 @@ Run these checks before delivering, and fix what they find. Only the consistency
 
 ## Related Skills
 
-- **marketing-ideas**: For additional launch tactics (#22 Product Hunt, #23 Early Access Referrals)
 - **email-sequence**: For launch and onboarding email sequences
-- **page-cro**: For optimizing launch landing pages
-- **marketing-psychology**: For psychology behind waitlists and exclusivity
-- **programmatic-seo**: For comparison pages mentioned in post-launch
+- **acquisition-conversion**: For optimizing launch landing pages
+- **search-discoverability**: For comparison pages mentioned in post-launch
 - **sales-enablement**: For launch sales collateral and enablement materials
 - **positioning-strategy**: For setting or pressure-testing positioning before a launch
 - **messaging-framework**: For launch messaging, hero lines, capabilities, and proof
-- **buyer-personas**: For profiling the lead segment and its buying committee in depth
+- **icp-and-buyer-personas**: For profiling the lead segment and its buying committee in depth

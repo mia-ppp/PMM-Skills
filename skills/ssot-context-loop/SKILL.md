@@ -29,9 +29,9 @@ specification for the file schemas, commands, signal model, gates, and templates
   only through its evidence and approval gates.
 - `messaging-framework` should source differentiators from core and persona
   messaging from SSOT persona research. Do not create either standalone.
-- `buyer-personas` and `customer-research` can inform persona and living evidence
+- `icp-and-buyer-personas` and `customer-research` can inform persona and living evidence
   files. `competitor-profiling` can inform competitive and market evidence.
-- `sales-enablement`, `copywriting`, `launch-strategy`, `market-launch`, and
+- `sales-enablement`, `marketing-copy`, `launch-strategy`, `market-entry-orchestration`, and
   `launch-readiness-check` can read mapped SSOT files to keep assets aligned.
 - `events` can adapt approved messages for event context and routes material
   narrative conflicts through this SSOT's evidence and human-approval gates.

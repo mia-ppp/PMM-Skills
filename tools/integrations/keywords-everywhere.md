@@ -201,7 +201,7 @@ Authorization: Bearer {api_key}
 
 ## Relevant Skills
 
-- seo-audit
+- search-discoverability
 - content-strategy
-- programmatic-seo
+- search-discoverability
 - competitor-alternatives

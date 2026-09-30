@@ -1,0 +1,112 @@
+{
+  "skill_name": "icp-and-buyer-personas",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create buyer personas for a B2B spend management platform selling to companies with 200 to 1000 employees. We have no interview data yet.",
+      "expected_output": "Hypothesis mode. Should label attributes Assumed or Gap, map a buying committee, define an anti-persona, and give a validation plan with interview questions.",
+      "assertions": [
+        "Labels persona attributes Assumed or Gap",
+        "Maps a buying committee with distinct roles",
+        "Defines an anti-persona",
+        "Provides a validation plan with interview questions",
+        "Uses role-based persona names rather than invented human names",
+        "Does not invent quotes"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Here are notes from 6 customer calls. Build personas.\n\nCall 1 (Controller, 400-person SaaS): 'Month-end close takes 9 days because receipts come in late.' Found us via a peer on a CFO Slack.\nCall 2 (VP Finance, 800-person retailer): wants card controls by store. Evaluated Ramp and Brex. Procurement required SOC 2.\nCall 3 (Controller, 250-person agency): 'I chase people for receipts every Friday.' Found us through G2.\nCall 4 (CFO, 600-person manufacturer): cares about ERP sync with NetSuite. IT vetoed one vendor.\nCall 5 (AP Manager, 400-person SaaS): hates manual coding of transactions.\nCall 6 (VP Finance, 900-person healthcare co): needed approval chains; legal reviewed contract for 5 weeks.",
+      "expected_output": "Evidence mode. Should build personas from the notes, quote only from the notes, and tie each persona to a decision.",
+      "assertions": [
+        "Only uses quotes that appear in the provided notes",
+        "Groups the calls into a small number of personas",
+        "Captures discovery channels mentioned in the notes",
+        "Identifies IT, procurement, or legal as committee roles from the notes",
+        "States what decision each persona changes",
+        "Labels attributes drawn from the notes as Sourced"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We could target law firms, accounting firms, or consulting firms with our document automation tool. Which segment should we go after first?",
+      "expected_output": "Recognize that choosing between candidate markets/segments without an accepted market decision belongs to market-entry-brief. Route market selection upstream; persona work inherits the accepted decision and must not independently select or approve a market.",
+      "assertions": [
+        "Recognizes unresolved market/segment selection",
+        "Routes the decision to market-entry-brief",
+        "Does not independently select or approve a target within persona work",
+        "Explains persona work inherits the accepted market decision"
+      ],
+      "files": [],
+      "handoff_to": "market-entry-brief"
+    },
+    {
+      "id": 4,
+      "prompt": "Make me a persona. Name her Marketing Mary. She's 34, loves yoga and lattes.",
+      "expected_output": "Should steer toward buying-behavior attributes and a role-based name, without refusing, and explain briefly why.",
+      "assertions": [
+        "Refocuses on buying-behavior attributes such as pain points and evaluation process",
+        "Suggests a role-based name",
+        "Explains briefly why demographic details are less useful",
+        "Still delivers a usable persona"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Build me a customer persona for a marketing manager at a B2B SaaS company.",
+      "expected_output": "Should check for product-marketing-context.md first. No research was provided, so should work in hypothesis mode: draft the persona as a labeled hypothesis rather than stopping to ask. Should label every attribute Sourced, Assumed, or Gap. Should cover background, trigger events, pain points, discovery channels, evaluation process, objections, and committee role. Should include no customer quotes, since the user provided no material to quote from. Should end with a validation plan of five to eight interview questions that would confirm or kill the persona.",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Treats the persona as a hypothesis because no research was provided, and still delivers a draft",
+        "Labels each persona attribute Sourced, Assumed, or Gap",
+        "Covers trigger events, pain points, discovery channels, and evaluation process",
+        "Includes no customer quotes, since the user provided no material to quote from",
+        "Includes a validation plan with five to eight interview questions that would confirm or kill the persona"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Build buyer personas for our compliance automation platform. We sell to SaaS companies with 50 to 500 employees that need SOC 2. No interview data yet.",
+      "expected_output": "Hypothesis mode. Should open with a Persona message map table with three columns: Persona, What matters to them, and Message. Each persona names its buying role in brackets. What matters is 1 to 2 short phrases. Each message is the core message in 1 to 2 sentences with a proof point labeled Sourced, Assumed, or Gap, not a hook. The existing sections follow unchanged.",
+      "assertions": [
+        "Includes a 'Persona message map' section as the first output section",
+        "The message map is a table with exactly three columns: Persona, What matters to them, and Message",
+        "Each Persona cell includes the persona's buying role in brackets, such as (champion), (evaluator), or (financial buyer)",
+        "Each Message cell is 1 to 2 sentences and carries a proof point labeled Sourced, Assumed, or Gap"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Use skills/icp-and-buyer-personas/evals/fixtures/canonical-icp-conflict.md. Create personas for the established target segment and handle the disagreement between the canonical ICP and the newer market-entry scorecard.",
+      "expected_output": "Personas are scoped to Regional clinics, the approved canonical ICP. The newer scorecard's Multi-site care groups result is called out as a conflict/review item, with route through the existing SSOT review and human approval process. The persona skill does not re-score segments, independently pick a different ICP, or update canonical SSOT.",
+      "assertions": [
+        "Uses Regional clinics from canonical SSOT as the selected segment",
+        "Identifies the scorecard recommendation as a potential conflict requiring SSOT review",
+        "Routes proposed canonical ICP change through existing SSOT review and human approval",
+        "Does not independently rescore or select Multi-site care groups as the persona target",
+        "Does not modify canonical SSOT content"
+      ],
+      "files": [
+        "skills/icp-and-buyer-personas/evals/fixtures/canonical-icp-conflict.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Build buyer personas for Ledgerly, a bank reconciliation tool for finance teams at 50 to 300 person SaaS companies. We have notes from 6 Controller interviews saying close takes 9 days. Save the results to our context doc when you're done.",
+      "expected_output": "Should open with the persona message map, build the personas, and save the map to the context doc's Persona message map section with columns Persona (buying role), What matters to them, Message, and Proof label, with each row labeled Sourced, Assumed, or Gap.",
+      "assertions": [
+        "Opens with a Persona message map",
+        "Saves the map to the Persona message map section of .agents/product-marketing-context.md by default, without asking first",
+        "The saved map has the columns Persona (buying role), What matters to them, Message, and Proof label",
+        "Every saved row carries a proof label of Sourced, Assumed, or Gap",
+        "Labels the 9-day close finding Sourced to the Controller interviews and does not present non-interview personas as Sourced"
+      ],
+      "files": []
+    }
+  ]
+}

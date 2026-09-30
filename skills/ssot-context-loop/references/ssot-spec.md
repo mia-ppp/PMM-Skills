@@ -335,16 +335,35 @@ starting points, not a requirement that downstream skills change in this commit.
 | `product-marketing-context` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md` | Lightweight bootstrap stays distinct. Existing context can be used when no SSOT exists; covered claims defer to SSOT when it does. Never auto-overwrite the context document. |
 | `positioning-strategy` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/06-competitive.md`, `living/07-evidence.md` | Reads canon and field evidence. It may propose strategy; only SSOT gates can change canon. |
 | `messaging-framework` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md`, `living/08-objection-handling.md` | Uses core differentiators and researched persona messages. Never creates positioning or persona research standalone. |
-| `buyer-personas` | `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/05-use-cases.md`, `living/07-evidence.md` | Uses canon and validates persona/ICP hypotheses with signals. |
+| `icp-and-buyer-personas` | `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/05-use-cases.md`, `living/07-evidence.md` | Uses canon and validates persona/ICP hypotheses with signals. |
 | `customer-research` | `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/05-use-cases.md`, `living/07-evidence.md`, `living/08-objection-handling.md` | Generates sourced findings that may enter living files through the loop. |
 | `competitor-profiling` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `living/06-competitive.md`, `living/07-evidence.md` | Uses current client context and contributes dated market evidence. |
 | `sales-enablement` | `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/05-use-cases.md`, `living/07-evidence.md`, `living/08-objection-handling.md` | Builds rep assets from approved positioning, evidence, use cases, and objections. |
-| `copywriting` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md` | Uses approved claims and voice evidence; audit generated copy when requested. |
+| `marketing-copy` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md` | Uses approved claims and voice evidence; audit generated copy when requested. |
 | `launch-strategy` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/05-use-cases.md`, `living/07-evidence.md` | Builds a launch from current canon and field evidence. |
-| `market-launch` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/06-competitive.md`, `living/07-evidence.md` | Orchestrates a market launch using canon and market signals. |
+| `market-entry-orchestration` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/06-competitive.md`, `living/07-evidence.md` | Orchestrates a market launch using canon and market signals. |
 | `launch-readiness-check` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md`, `living/08-objection-handling.md` | Checks supplied launch assets against approved claims and anti-patterns. |
 
 The direction is one-way: downstream skills read the manifest and SSOT when
 configured. They do not govern SSOT decisions. Avoid requiring the SSOT skill to
 read downstream-generated artifacts as truth; treat them as inputs to scan and
 cite their original sources.
+
+## Portfolio migration reader example
+
+For go-to-market-strategy, map existing approved context rather than inventing canonical files:
+
+```yaml
+agents:
+  go-to-market-strategy:
+    reads:
+      - core/00-what-it-is.md
+      - core/01-how-you-position-it.md
+      - core/02-product.md
+      - core/03-who-it-is-for.md
+      - living/06-competitive.md
+      - living/07-evidence.md
+      - living/08-objection-handling.md
+```
+
+Include applicable approved decision records for market, pricing and GTM when present. Use the actual manifest schema defined above; this is a reader selection example, not authority to create or approve strategy. Legacy reader keys migrate through the owner/mode map in `../../_shared/portfolio-migration.json`; do not overwrite user manifests automatically.

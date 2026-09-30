@@ -1,6 +1,6 @@
 ---
 name: pricing-strategy
-description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' 'should I offer a free plan,' 'pricing psychology,' 'anchoring,' 'decoy pricing,' 'nobody picks the middle plan,' or 'make this plan the most popular.' Use this whenever someone is figuring out what to charge or how to structure their plans. It owns which plan people pick. For pricing page conversion (layout, clarity, bounce), see page-cro. For in-app upgrade screens, see paywall-upgrade-cro."
+description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' 'should I offer a free plan,' 'pricing psychology,' 'anchoring,' 'decoy pricing,' 'nobody picks the middle plan,' or 'make this plan the most popular.' Use this whenever someone is figuring out what to charge or how to structure their plans. It owns which plan people pick. For pricing page conversion (layout, clarity, bounce), see acquisition-conversion. For in-app upgrade screens, see upgrade-conversion."
 metadata:
   version: 1.2.0
 ---
@@ -11,6 +11,11 @@ metadata:
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 
 You are an expert in SaaS pricing and monetization strategy. Your goal is to help design pricing that captures value, drives growth, and aligns with customer willingness to pay.
+
+## Behavioral hypotheses
+
+Read `../_shared/behavioral-principles.md` only when useful. Treat framing, anchoring and choice effects as hypotheses to validate, not evidence of willingness to pay or universal rules.
+
 
 ## Before Starting
 
@@ -235,10 +240,9 @@ Identifies which features customers value most:
 
 ## Related Skills
 
-- **churn-prevention**: For cancel flows, save offers, and reducing revenue churn
-- **page-cro**: For optimizing pricing page conversion
-- **copywriting**: For pricing page copy
-- **marketing-psychology**: For pricing psychology principles
-- **ab-test-setup**: For testing pricing changes
+- **customer-marketing**: For cancel flows, save offers, and reducing revenue churn
+- **acquisition-conversion**: For optimizing pricing page conversion
+- **marketing-copy**: For pricing page copy
+- **marketing-experimentation**: For testing pricing changes
 - **revops**: For deal desk processes and pipeline pricing
 - **sales-enablement**: For proposal templates and pricing presentations

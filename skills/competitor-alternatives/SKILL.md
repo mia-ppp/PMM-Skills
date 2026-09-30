@@ -258,9 +258,9 @@ The ranked top five, then an appendix with the rest. The 5-bullet cap above does
 
 ## Related Skills
 
-- **programmatic-seo**: For building competitor pages at scale
-- **copywriting**: For writing compelling comparison copy
-- **seo-audit**: For optimizing competitor pages
-- **schema-markup**: For FAQ and comparison schema
+- **search-discoverability**: For building competitor pages at scale
+- **marketing-copy**: For writing compelling comparison copy
+- **search-discoverability**: For optimizing competitor pages
+- **search-discoverability**: For FAQ and comparison schema
 - **sales-enablement**: For battle cards, internal sales collateral, decks, and objection docs
 - **positioning-strategy**: For the competitive position these pages should express

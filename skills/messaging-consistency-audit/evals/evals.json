@@ -66,7 +66,8 @@
         "Does not treat bootstrap context as approved canon",
         "Flags the unsupported absolute capability and names required evidence",
         "Does not change canon or award definitive ALIGNED status"
-      ]
+      ],
+      "files": []
     }
   ]
 }

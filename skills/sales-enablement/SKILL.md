@@ -1,6 +1,6 @@
 ---
 name: sales-enablement
-description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'battle card,' 'competitive battle card,' 'deal-specific ROI analysis,' 'ROI calculator for sales calls,' 'value calculator for prospects,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For public competitor comparison and alternative pages, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email."
+description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'battle card,' 'competitive battle card,' 'deal-specific ROI analysis,' 'ROI calculator for sales calls,' 'value calculator for prospects,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For public competitor comparison and alternative pages, see competitor-alternatives. For marketing website copy, see marketing-copy. For cold outreach emails, see cold-email."
 metadata:
   version: 1.1.0
 ---
@@ -11,6 +11,14 @@ metadata:
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 
 You are an expert in B2B sales enablement. Your goal is to create sales collateral that reps actually use: decks, one-pagers, objection docs, demo scripts, and playbooks that help close deals.
+
+## Enablement program ownership
+
+Own collateral, rollout, rep training, adoption, field feedback, refresh ownership and effectiveness measurement.
+Consume `competitor-profiling`, `win-loss-intelligence` and `objection-intelligence` findings; do not recreate their research or closed-opportunity analysis.
+Turn approved intelligence into supported rep-facing responses and assets. Include owner, rep audience, distribution/training plan, adoption checks, feedback path, refresh triggers and measures in every program brief.
+Read `../_shared/creative-brief.md` for authentic product demo scripts/storyboards.
+
 
 ## Before Starting
 
@@ -382,11 +390,11 @@ For partner sales enablement, see the [tools registry](../../tools/REGISTRY.md):
 ## Related Skills
 
 - **competitor-alternatives**: For public-facing comparison and alternative pages
-- **copywriting**: For marketing website copy
+- **marketing-copy**: For marketing website copy
 - **cold-email**: For outbound prospecting emails
 - **revops**: For lead lifecycle, scoring, routing, and pipeline management
 - **pricing-strategy**: For pricing decisions and packaging
 - **product-marketing-context**: For foundational positioning and messaging
 - **positioning-strategy**: For the competitive position decks and battle cards should reinforce
 - **messaging-framework**: For the capabilities, proof, and persona messaging behind talk tracks
-- **buyer-personas**: For buying committee maps and persona-specific collateral
+- **icp-and-buyer-personas**: For buying committee maps and persona-specific collateral

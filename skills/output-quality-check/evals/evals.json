@@ -9,21 +9,22 @@
         "Requests the complete artifact before verification",
         "Does not report PASS based on a stakeholder description",
         "Does not invent artifact citations or a universal PMM rubric"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 2,
-      "prompt": "Verify the attached page-without-alternatives.md against the supplied copywriting/SKILL.md and shared standards. Identify any missing declared output, give a stable finding ID, and route correction to copywriting. Do not assess SSOT semantics.",
-      "expected_output": "Reports missing headline/CTA alternatives as FAIL, cites the actual Alternatives requirement, and routes correction to copywriting.",
+      "prompt": "Verify the attached page-without-alternatives.md against the supplied marketing-copy/SKILL.md and shared standards. Identify any missing declared output, give a stable finding ID, and route correction to marketing-copy. Do not assess SSOT semantics.",
+      "expected_output": "Reports missing headline/CTA alternatives as FAIL, cites the actual Alternatives requirement, and routes correction to marketing-copy.",
       "assertions": [
-        "Reports the absent headline/CTA alternatives as FAIL under copywriting Output Format / Alternatives",
+        "Reports the absent headline/CTA alternatives as FAIL under marketing-copy Output Format / Alternatives",
         "Cites the originating skill requirement and artifact omission",
         "Provides a stable finding ID and specific correction",
         "Routes correction to the originating skill without rewriting the artifact"
       ],
       "files": [
         "skills/output-quality-check/evals/fixtures/page-without-alternatives.md",
-        "skills/copywriting/SKILL.md",
+        "skills/marketing-copy/SKILL.md",
         "skills/_shared/evidence-gaps.md",
         "skills/_shared/ssot-consumption.md"
       ]
@@ -64,7 +65,7 @@
     },
     {
       "id": 5,
-      "prompt": "An event landing page satisfies all explicit requirements in copywriting/SKILL.md, but calls the company a category that conflicts with the active SSOT. Run output-quality-check only and explain which review owns that issue. Only this description is supplied; the complete artifact is unavailable. State what can be concluded and what input is needed before full verification.",
+      "prompt": "An event landing page satisfies all explicit requirements in marketing-copy/SKILL.md, but calls the company a category that conflicts with the active SSOT. Run output-quality-check only and explain which review owns that issue. Only this description is supplied; the complete artifact is unavailable. State what can be concluded and what input is needed before full verification.",
       "expected_output": "Requests the full page before verification, keeps output-quality and canon alignment separate, and routes the reported category issue to messaging-consistency-audit.",
       "assertions": [
         "Keeps originating-skill output quality separate from canon alignment",
@@ -74,7 +75,7 @@
         "Does not claim to have inspected a complete artifact that was not supplied"
       ],
       "files": [
-        "skills/copywriting/SKILL.md",
+        "skills/marketing-copy/SKILL.md",
         "skills/_shared/evidence-gaps.md",
         "skills/_shared/ssot-consumption.md"
       ]

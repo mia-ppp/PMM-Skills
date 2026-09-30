@@ -140,8 +140,8 @@ Authorization: Bearer {access_token}
 
 ## Relevant Skills
 
-- page-cro
-- ab-test-setup
+- acquisition-conversion
+- marketing-experimentation
 - analytics-tracking
 - ux-audit
 - landing-page

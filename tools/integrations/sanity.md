@@ -144,5 +144,5 @@ Rate limits vary by plan. Documented defaults:
 ## Relevant Skills
 
 - content-strategy (CMS selection, content modeling)
-- programmatic-seo (CMS as data source for generated pages)
-- site-architecture (URL structure from CMS slugs)
+- search-discoverability (CMS as data source for generated pages)
+- website-buyer-journey (URL structure from CMS slugs)

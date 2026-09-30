@@ -171,6 +171,6 @@ Always be specific. Generic advice ("be consistent," "provide value") is not use
 ## Related Skills
 
 - **referral-program**: For structured referral and ambassador incentive programs
-- **churn-prevention**: For retention strategies that complement community engagement
+- **customer-marketing**: For retention strategies that complement community engagement
 - **social-content**: For content creation across social platforms
 - **customer-research**: For understanding your community members' needs and language

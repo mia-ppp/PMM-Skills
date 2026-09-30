@@ -11,7 +11,9 @@
         "Separates each party's approved claims from jointly approved claims",
         "Routes the webinar motion to events"
       ],
-      "files": ["fixtures/partner-claims.md"]
+      "files": [
+        "fixtures/partner-claims.md"
+      ]
     },
     {
       "id": 2,
@@ -21,8 +23,9 @@
         "Does not adopt the conflicting joint narrative as approved",
         "Requires partner and company approval for joint claims",
         "Routes canon conflict through ssot-context-loop without changing canon",
-        "Routes final external asset through copywriting and messaging consistency"
-      ]
+        "Routes final external asset through marketing-copy and messaging consistency"
+      ],
+      "files": []
     },
     {
       "id": 3,
@@ -32,7 +35,8 @@
         "Labels unverified audience overlap and mutual value as assumptions or gaps",
         "Defines both parties' contributions, owners, and approval responsibilities",
         "Separates leading measures from revenue outcomes and avoids fabricated influence"
-      ]
+      ],
+      "files": []
     }
   ]
 }

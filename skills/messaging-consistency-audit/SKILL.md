@@ -106,21 +106,21 @@ state when no dedicated skill exists.
 
 | Asset or channel | Route to |
 |---|---|
-| Website, landing page, product page | `copywriting` |
-| Existing copy edits | `copy-editing` |
+| Website, landing page, product page | `marketing-copy` |
+| Existing copy edits | `marketing-copy` |
 | Cold outbound | `cold-email` |
 | Lifecycle or nurture sequence | `email-sequence` |
 | LinkedIn or social | `social-content` |
 | Feature or product launch | `launch-strategy` |
 | Sales deck, battlecard, talk track | `sales-enablement` |
 | Ads | `ad-creative` or `paid-ads`, based on whether copy or campaign is being changed |
-| Scaled SEO pages | `programmatic-seo` |
+| Scaled SEO pages | `search-discoverability` |
 | Localized claims | `localization-claims` |
 | Event strategy and event-level narrative | `events` |
-| Individual event assets | Skill that owns the artifact: `copywriting`, `email-sequence`, `cold-email`, `social-content`, `sales-enablement`, or other best fit |
+| Individual event assets | Skill that owns the artifact: `marketing-copy`, `email-sequence`, `cold-email`, `social-content`, `sales-enablement`, or other best fit |
 | Possible canon issue | `ssot-context-loop` for evidence and approval workflow |
 
-Do not duplicate channel copywriting frameworks here. The routed skill owns the
+Do not duplicate channel marketing-copy frameworks here. The routed skill owns the
 rewrite. This auditor owns the finding and re-audit.
 
 ## Human approval and safety

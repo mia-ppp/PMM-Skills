@@ -45,7 +45,7 @@
     {
       "id": 5,
       "prompt": "I have 6 months of customer support tickets. What insights can I pull from them?",
-      "expected_output": "Should check for product-marketing-context.md first. Should recommend categorizing tickets before analyzing (bugs vs. confusion vs. feature requests vs. expectation mismatches). Should warn against treating all tickets as equal signal. Should suggest extracting recurring language, patterns, and 'I wish it could…' phrases. Should ask about the goal: product improvement, messaging, reducing support load, or something else.",
+      "expected_output": "Should check for product-marketing-context.md first. Should recommend categorizing tickets before analyzing (bugs vs. confusion vs. feature requests vs. expectation mismatches). Should warn against treating all tickets as equal signal. Should suggest extracting recurring language, patterns, and 'I wish it could\u2026' phrases. Should ask about the goal: product improvement, messaging, reducing support load, or something else.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Recommends categorizing tickets before analyzing (bugs vs confusion vs feature requests)",
@@ -109,12 +109,12 @@
     {
       "id": 10,
       "prompt": "Turn my customer research into messaging I can use on my homepage.",
-      "expected_output": "Should check for product-marketing-context.md first. Should extract VOC language and top themes before moving to copy. Should identify the highest-signal quotes and language patterns. Should produce a VOC summary or quote bank, then hand off to the copywriting skill for the actual copy writing step rather than writing homepage copy directly.",
+      "expected_output": "Should check for product-marketing-context.md first. Should extract VOC language and top themes before moving to copy. Should identify the highest-signal quotes and language patterns. Should produce a VOC summary or quote bank, then hand off to the marketing-copy skill for the actual copy writing step rather than writing homepage copy directly.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Extracts the VOC language and themes first before jumping to copy",
         "Identifies the highest-signal quotes for messaging",
-        "References the copywriting skill for the actual copy writing step"
+        "References the marketing-copy skill for the actual copy writing step"
       ],
       "files": []
     },
@@ -154,7 +154,9 @@
         "Preserves the different segment and lifecycle contexts rather than averaging them",
         "Marks patterns as low confidence or sparse evidence and does not claim broad prevalence"
       ],
-      "files": ["fixtures/voc-sample.md"]
+      "files": [
+        "fixtures/voc-sample.md"
+      ]
     },
     {
       "id": 14,

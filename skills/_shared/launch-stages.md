@@ -10,7 +10,7 @@ Evidence labels follow `evidence-gaps.md`. Segment choices follow `segment-selec
 |---|---|---|---|
 | 1 | Market decision | `market-entry-brief`, fed by `product-marketing-context`, `customer-research`, `competitor-profiling` | Market-entry brief |
 | 2 | Position and canon | `positioning-strategy`, then `messaging-framework`, then `ssot-context-loop` or an existing company messaging rule book | Locked canon |
-| 3 | Assets | `copywriting`, SEO skills, ads skills, `sales-enablement`, each grounded in the canon | On-canon launch assets |
+| 3 | Assets | `marketing-copy`, SEO skills, ads skills, `sales-enablement`, each grounded in the canon | On-canon launch assets |
 | 4 | Guardrail and learn | `launch-readiness-check`; optional skill evaluation after launch (`evals/`) | Go/no-go scorecard |
 
 - **Run the rungs in order.** A rung starts only when the gate before it passes.
@@ -88,8 +88,8 @@ Produce launch assets that say only what the canon allows.
 - Each asset brief names its audience overlay, channel, and the canon version it builds on.
 
 **Skills** (pick what the launch tier needs)
-- Copy: `copywriting`, `email-sequence`, `cold-email`, `social-content`, `copy-editing`.
-- SEO: `seo-audit`, `ai-seo`, `programmatic-seo`, `schema-markup`, `competitor-alternatives`.
+- Copy: `marketing-copy`, `email-sequence`, `cold-email`, `social-content`, `marketing-copy`.
+- SEO: `search-discoverability`, `search-discoverability`, `search-discoverability`, `search-discoverability`, `competitor-alternatives`.
 - Ads: `paid-ads`, `ad-creative`.
 - Sales enablement: `sales-enablement`.
 - Plan and sequence: `launch-strategy`.
@@ -160,3 +160,9 @@ Built from: [input artifacts and their canon stamps]
 - Every artifact opens with the "Inputs and assumptions" note, or carries it after the copy for customer-facing assets.
 - Labels travel with the claim. A later rung never upgrades Assumed or Gap to Sourced without adding the source.
 - A resolved Gap names the source that closed it and the rung where it closed.
+
+## Ongoing GTM strategy and launch-wide readiness
+
+After accepted market and approved canon, go-to-market-strategy defines the ongoing commercial model and motion priorities. launch-strategy turns that accepted direction into release-specific phases and briefs. market-entry-orchestration conducts accepted entry; it does not own market choice.
+Rung 3 requires accepted ongoing GTM direction where the launch depends on it; missing approval is a stated dependency, never silently invented.
+Rung 4 also requires current originating-output reviews, messaging reviews, coverage, approvals, enablement, availability, operational handoffs and measurement readiness. Missing required evidence blocks launch-wide clearance.

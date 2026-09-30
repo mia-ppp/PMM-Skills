@@ -1,6 +1,6 @@
 ---
 name: positioning-strategy
-description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
+description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see icp-and-buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
   version: 1.4.0
 ---
@@ -26,7 +26,7 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 
 **Read competitor profiles if they exist:** if a `competitor-profiles/` directory exists (from competitor-profiling), read `_summary.md` and each profile before mapping alternatives. Cite them as Sourced.
 
-**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, start from buyer-personas' primary segment in the context doc. Conflicting evidence may justify proposing a change or requesting reopening, but cannot automatically replace the accepted segment/ICP. Reopening or changing an accepted decision requires `ssot-context-loop` review and explicit human approval.
+**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, start from icp-and-buyer-personas' primary segment in the context doc. Conflicting evidence may justify proposing a change or requesting reopening, but cannot automatically replace the accepted segment/ICP. Reopening or changing an accepted decision requires `ssot-context-loop` review and explicit human approval.
 
 If an accepted market-entry brief already selected the target segment, use it
 for positioning. Do not re-score or replace it unless reopening has passed the existing SSOT
@@ -181,7 +181,7 @@ Save the statement, derivation trace (including Trigger), and capability table w
 ## Related Skills
 
 - **messaging-framework**: Carry the capability table forward and turn this positioning into hero lines and persona messaging
-- **buyer-personas**: Define and validate the best-fit customer in depth
+- **icp-and-buyer-personas**: Define and validate the best-fit customer in depth
 - **competitor-profiling**: Research alternatives before positioning
 - **customer-research**: Gather the evidence this skill depends on
 - **product-marketing-context**: Save the positioning so every skill uses it

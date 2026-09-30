@@ -10,7 +10,8 @@
         "Separates verified target-account attendance from unknown pipeline outcomes",
         "Includes follow-up and a measurement plan tied to opportunity acceleration",
         "Does not manufacture ROI or conversion estimates"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 2,
@@ -21,7 +22,8 @@
         "Names the information needed to decide whether investment is justified",
         "Does not fabricate costs, audience counts, pipeline, or ROI",
         "Distinguishes leading indicators from business outcomes"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 3,
@@ -32,7 +34,8 @@
         "Includes audience offer, CTA, and desired buyer/customer action",
         "Does not imply an unsupported attendance target or benchmark",
         "Routes webinar copy and nurture to downstream skills"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 4,
@@ -43,7 +46,8 @@
         "Includes session narrative and audience action",
         "Does not add booth or sponsorship motions",
         "Plans pre-event, during-event, and post-event activity"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 5,
@@ -54,7 +58,8 @@
         "Allows contextual wording when meaning is preserved",
         "Records canonical inputs and version",
         "Does not redefine positioning or approved claims"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 6,
@@ -65,7 +70,8 @@
         "Does not repeat the banned claim as approved event messaging",
         "Routes the potential strategic change through the SSOT process",
         "Does not change canonical files"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 7,
@@ -76,7 +82,8 @@
         "States what evidence is missing and how to collect it",
         "Separates leading indicators from business outcomes",
         "Does not claim causal revenue impact from influence data"
-      ]
+      ],
+      "files": []
     }
   ]
 }

@@ -159,7 +159,7 @@ Request bodies are always JSON arrays (even for single requests).
 
 ## Relevant Skills
 
-- seo-audit
-- programmatic-seo
+- search-discoverability
+- search-discoverability
 - content-strategy
 - competitor-alternatives

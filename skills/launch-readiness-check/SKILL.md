@@ -1,6 +1,6 @@
 ---
 name: launch-readiness-check
-description: "When the user wants to grade a full set of launch assets against the company canon before go-live. Reads the project SSOT and any stricter company claims register, then returns a go/no-go scorecard. Use for launch QA, pre-launch audits, and launch readiness. It is the Rung 4 gate. For cross-channel consistency outside a launch gate, see messaging-consistency-audit. For the launch sequence itself, see market-launch."
+description: "When the user wants to grade a full set of launch assets against the company canon before go-live. Reads the project SSOT and any stricter company claims register, then returns a go/no-go scorecard. Use for launch QA, pre-launch audits, and launch readiness. It is the Rung 4 gate. For cross-channel consistency outside a launch gate, see messaging-consistency-audit. For the launch sequence itself, see market-entry-orchestration."
 metadata:
   version: 1.0.0
 ---
@@ -13,6 +13,16 @@ metadata:
 You are the last gate before go-live. You grade every launch asset against one company canon and return a go/no-go scorecard. One banned claim in one asset is enough to stop the launch.
 
 Deliver the scorecard, not advice about how to review copy.
+
+## Launch-wide readiness and independent reviews
+
+Read the approved launch plan and required scope, not only supplied assets. Inventory review coverage, canon version, approvals, enablement/training, product availability, operational handoffs and measurement readiness.
+Consume current `output-quality-check` reports and `messaging-consistency-audit` results; they retain separate responsibilities. Missing/stale required reports are unverified dependencies, not implicit passes.
+The asset claim checks below apply stricter launch safeguards and do not replace those reviews. A clean asset alone cannot clear the launch.
+Record each readiness item with requirement, evidence, owner, status, blocker, resolve-by milestone and approval. Product/Sales/CS/RevOps/analytics owners confirm availability and operational readiness.
+Launch-wide Ready requires all required assets, review results, approvals, enablement, availability, handoffs and measurement gates to pass. Unknown coverage or an unresolved required dependency means Not ready.
+Append this launch-wide checklist and remediation ownership to the scorecard; preserve evidence labels and human launch approval.
+
 
 ## Before Starting
 
@@ -51,7 +61,7 @@ cannot be confirmed rather than imply launch-wide clearance.
 
 **A Block anywhere means Not ready.** The launch verdict is only as good as the worst asset.
 
-**Never invent flags.** A clean asset gets zero flags and the verdict Ready. Padding the table to look thorough erodes trust in the real Blocks.
+**Never invent flags.** A clean asset gets zero claim flags and an asset-level Ready verdict. Launch-wide clearance still requires every readiness gate. Padding the table to look thorough erodes trust in the real Blocks.
 
 **Grade the asset, not the brief.** A good reason for a claim does not make it on-canon.
 
@@ -80,9 +90,9 @@ Give each asset its own verdict:
 Count assets and flags by severity. Pick the top blocking issues: every Block, ordered by how many assets repeat it, then by customer exposure (web and email before internal decks).
 
 ### 4. Give the launch verdict
-- **Ready:** every required launch asset has been reviewed and is Ready.
-- **Ready after fixes:** every required launch asset has been reviewed, no asset is Blocked, and at least one has Fix items. Launch once the Fix items close.
-- **Not ready:** any asset is Blocked, or a required launch asset is not reviewed.
+- **Ready:** every required launch asset is Ready and every required launch-wide readiness gate has passed.
+- **Ready after fixes:** every required launch asset has been reviewed, no asset is Blocked, at least one has Fix items, and all required non-asset readiness gates have passed. Launch only after the Fix items close. An unresolved required gate means Not ready.
+- **Not ready:** any asset is Blocked, a required launch asset is not reviewed, or any required launch-wide gate is unresolved.
 
 Write the verdict as one line and put it first.
 
@@ -149,6 +159,6 @@ If the verdict is not Ready, offer to run the company rule book's review mode on
 
 ## Related Skills
 
-- **market-launch**: Runs the launch chain this check gates
-- **copy-editing**: Polishes assets after the Fix items are closed
+- **market-entry-orchestration**: Runs the launch chain this check gates
+- **marketing-copy**: Polishes assets after the Fix items are closed
 - **sales-enablement**: Rebuilds decks and battlecards that come back Blocked

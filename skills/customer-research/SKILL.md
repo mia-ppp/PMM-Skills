@@ -1,6 +1,6 @@
 ---
 name: customer-research
-description: When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey analysis," "support ticket analysis," "voice of customer," "VOC," "jobs to be done," "JTBD," "what do customers say," "what are customers struggling with," "Reddit mining," "G2 reviews," "review mining," "digital watering holes," "community research," "forum research," "competitor reviews," "customer sentiment," or "find out why customers churn/convert/buy." Use for both analyzing existing research assets AND gathering new research from online sources. For writing copy informed by research, see copywriting. For acting on research to improve pages, see page-cro. For building personas from research, see buyer-personas.
+description: When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey analysis," "support ticket analysis," "voice of customer," "VOC," "jobs to be done," "JTBD," "what do customers say," "what are customers struggling with," "Reddit mining," "G2 reviews," "review mining," "digital watering holes," "community research," "forum research," "competitor reviews," "customer sentiment," or "find out why customers churn/convert/buy." Use for both analyzing existing research assets AND gathering new research from online sources. For writing copy informed by research, see marketing-copy. For acting on research to improve pages, see acquisition-conversion. For building personas from research, see icp-and-buyer-personas.
 metadata:
   version: 1.0.0
 ---
@@ -65,7 +65,7 @@ The VoC output includes a customer-language bank, a separate interpretation
 table, contradictions, limitations, and ranked evidence gaps. Identify
 implications for messaging or strategy, but do not write final market-facing
 copy or change canonical SSOT. Route copy to `messaging-framework` or
-`copywriting`; route possible canon changes through `ssot-context-loop` for
+`marketing-copy`; route possible canon changes through `ssot-context-loop` for
 human review. Objection evidence may be handed to `objection-intelligence`.
 
 **VoC quality check:** A reviewer using `output-quality-check` can verify that
@@ -219,7 +219,7 @@ After gathering from multiple sources, synthesize into:
 
 ## Personas
 
-Persona building lives in the **buyer-personas** skill. When research is meant to become personas, do the synthesis here: themes, verbatim quotes, trigger events, alternatives, and vocabulary, grouped by segment. Then hand that evidence to buyer-personas to build the personas and buying committee map.
+Persona building lives in the **icp-and-buyer-personas** skill. When research is meant to become personas, do the synthesis here: themes, verbatim quotes, trigger events, alternatives, and vocabulary, grouped by segment. Then hand that evidence to icp-and-buyer-personas to build the personas and buying committee map.
 
 Don't hand off a segment with fewer than 5-10 data points (interviews, reviews, or community posts). Hand it off labeled Gap, with how to close it (more interviews, reviews, or posts).
 
@@ -231,7 +231,7 @@ Depending on what the user needs, offer:
 
 1. **Research synthesis report**: themes, quotes, patterns, and implications
 2. **VOC quote bank**: organized verbatim quotes by theme, for use in copy
-3. **Persona inputs**: evidence by segment (pains, triggers, alternatives, vocabulary), ready to hand to buyer-personas
+3. **Persona inputs**: evidence by segment (pains, triggers, alternatives, vocabulary), ready to hand to icp-and-buyer-personas
 4. **Jobs-to-be-done map**: functional, emotional, and social jobs by segment
 5. **Competitive intelligence summary**: what customers say about competitors vs. you
 6. **Research gap analysis**: what you still don't know and how to find it, as the ranked Evidence gaps lists
@@ -244,7 +244,7 @@ Ask the user which deliverable(s) they need before generating output.
 
 If context is unclear:
 
-1. **What's the goal?** Improve messaging? Feed persona work (see buyer-personas)? Find product gaps? Understand churn?
+1. **What's the goal?** Improve messaging? Feed persona work (see icp-and-buyer-personas)? Find product gaps? Understand churn?
 2. **What do you already have?** (transcripts, surveys, tickets, G2 reviews, nothing)
 3. **Who is the target segment?** (all customers, a specific tier, churned users, prospects who didn't buy)
 4. **What's your product?** (if not in the product marketing context file)
@@ -262,12 +262,12 @@ Don't ask all five at once: lead with #1 and #2, then follow up as needed.
 
 | When to hand off | Skill |
 |-----------------|-------|
-| Writing copy informed by the research | `copywriting` |
-| Optimizing a page using VOC insights | `page-cro` |
+| Writing copy informed by the research | `marketing-copy` |
+| Optimizing a page using VOC insights | `acquisition-conversion` |
 | Building a competitor comparison page | `competitor-alternatives` |
-| Creating a churn prevention strategy from churn research | `churn-prevention` |
+| Creating a churn prevention strategy from churn research | `customer-marketing` |
 | Planning paid ads informed by research | `paid-ads` |
 | Writing cold email using research on pain/trigger | `cold-email` |
 | Planning content based on discovered topics | `content-strategy` |
-| Turning research into buyer personas or a buying committee map | `buyer-personas` |
+| Turning research into buyer personas or a buying committee map | `icp-and-buyer-personas` |
 | Using win-loss or interview evidence to set positioning | `positioning-strategy` |

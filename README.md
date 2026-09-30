@@ -2,7 +2,17 @@
 
 PMM Skills is an open-source collection of product marketing skills for AI agents, including Claude Code and OpenAI Codex. Product marketers can use them for customer research, competitive intelligence, positioning, messaging, go-to-market (GTM) planning, launches, and sales enablement.
 
-The skills work from shared company context, so research can feed strategy, approved strategy can feed launches and channel execution, and market-facing assets can be checked against the same source of truth. Each skill owns a specific job and hands work to the right downstream skill. Changes to approved strategy still require human approval.
+The collection is for product marketers and teams using AI for structured product marketing work, from research and strategy through GTM, execution, and review.
+
+## Why PMM skills?
+
+Individual prompts can produce isolated outputs. PMM work connects across jobs: customer research informs segmentation, segmentation informs positioning, and positioning informs messaging.
+
+Messaging then guides launch strategy, sales enablement, and channel execution. These AI agent skills provide reusable workflows and shared company context so work can pass between skills while preserving approved strategy.
+
+The skills distinguish evidence from assumptions and gaps, and check downstream assets against the same source of truth. Changes to approved positioning, messaging, or other strategy require human approval.
+
+Jump to: [What you can do](#what-you-can-do) · [Quick start](#quick-start) · [How it works](#how-the-system-works) · [Example workflows](#example-workflows) · [Capability map](#capability-map) · [Shared context / SSOT](#shared-context-and-approval) · [Reviews](#three-separate-reviews) · [Installation](#installation-and-use) · [Validation & contributing](#validation-and-extending-the-system)
 
 ## What you can do
 
@@ -48,27 +58,52 @@ For a project with approved company context, try `positioning-strategy`, `messag
 
 ## How the system works
 
-SSOT means single source of truth: the approved company context skills use for product claims, positioning, messaging, and strategy. Research informs strategy proposals, channel skills produce assets from approved context, and new findings return for review:
+Product marketing connects customer evidence to decisions, launches, and the assets buyers see. The skills share approved company context, or SSOT (single source of truth), so each workflow builds on the same product claims, positioning, and messaging.
 
 ```text
-Evidence & intelligence → company context / SSOT → strategy proposals
-                               ↑                         ↓
-                     human-approved changes          GTM motions
-                               ↑                         ↓
-                     learning & evidence ← review ← channel execution
+CUSTOMER & MARKET INTELLIGENCE
+Customer Research • Voice of Customer
+Competitive Intelligence • Win/Loss • Objection Intelligence
+                         ↓
+COMPANY CONTEXT / SSOT
+Approved Product Truth • Evidence • Decisions • Approval Gates
+                         ↓
+PMM STRATEGY (proposals require human approval)
+Market Segmentation • ICP • Buyer Personas
+Positioning • Messaging • Pricing & Packaging
+                         ↓
+GO-TO-MARKET (GTM)
+GTM Strategy • Market Entry • Launch Strategy • ABM • Events
+Customer Marketing • Partner Marketing • Product Communications
+                         ↓
+EXECUTION (from approved strategy)
+Sales Enablement • Website & Copy • Email • Social • Paid Ads
+Acquisition Conversion • Search • Content • Buyer Resources • Creative
+                         ↓
+REVIEW & LEARNING
+Output Quality • Messaging Consistency • Launch Readiness
+Analytics • RevOps • Evidence & Field Learning
+                         │
+                         └──→ Propose updates to company context
+                              and strategy; human approval is
+                              required before changing canon.
 ```
 
 Start at the point your task needs. A page edit can use approved context directly; a new-market decision needs evidence and segment analysis first.
 
-| Layer | Responsibility |
-|---|---|
-| Evidence & intelligence | Collect and synthesize customer language, opportunity outcomes, objections, and competitor observations. Separate sources from interpretations. |
-| Company context / SSOT | Bootstrap a project, or maintain governed core strategy and living field intelligence with explicit approval gates. |
-| Strategy | Decide markets, segments, personas, positioning, messaging, and pricing. Recommendations remain proposals until approved. |
-| GTM motions | Set objectives, audiences, narrative briefs, owners, dependencies, and learning plans. Hand final assets to channel skills. |
-| Channel execution | Express approved strategy for the channel, persona, and stage. Wording and emphasis can vary while meaning stays consistent. |
-| Quality & governance | Check originating-skill requirements, audit market-facing messaging, and apply the final launch readiness gate. |
-| Operations & learning | Instrument results, manage revenue handoffs, and return observed evidence to the appropriate owner. |
+Channel skills express approved strategy. Observed evidence can challenge it and trigger review, but does not silently rewrite canon.
+
+| PMM job | What the skills help you do | Example capabilities |
+|---|---|---|
+| Customer & market intelligence | Find recurring customer needs, competitive patterns, and reasons deals are won or lost. Keep customer language and sourced findings separate from interpretation. | Customer research, Voice of Customer, competitive intelligence, win/loss, objection intelligence |
+| Segmentation & audience | Compare candidate segments and evidence gaps, then develop personas from the accepted audience decision. | Market segmentation, ICP, buyer personas, buying committee maps |
+| Positioning & messaging | Propose a positioning direction and build messaging from approved positioning and buyer context. Route strategic changes for human approval. | Positioning, messaging frameworks, value propositions |
+| Pricing & packaging | Evaluate what to charge and how to structure plans using buyer needs and willingness-to-pay evidence. | Pricing research, packaging, value metrics, pricing tiers |
+| Go-to-market & launches | Plan the market entry or launch, assign owners and dependencies, and hand asset briefs to channel skills. | GTM model, market entry, launch strategy, ABM, events, partner marketing, product communications |
+| Customer & revenue growth | Plan customer adoption, expansion, advocacy, and retention programs from approved context. | Customer marketing, onboarding, churn prevention, referral programs, community marketing |
+| Channels & execution | Turn approved strategy into sales materials and channel assets, then improve discovery and conversion. | Sales enablement, website/copy, email, social, paid acquisition, CRO, SEO, content, lead magnets, creative |
+| Quality & governance | Check outputs against their originating skill, audit market-facing messaging against approved context, and assess overall launch readiness. Maintain approval gates for strategic changes. | Output quality, messaging consistency, launch readiness, SSOT governance |
+| Learning loop | Measure results, manage revenue handoffs, and return field evidence for review and proposed updates to company context and strategy. | Analytics, RevOps, win/loss and objection findings, human-approved SSOT updates |
 
 ### Shared context and approval
 
@@ -114,42 +149,56 @@ Use messaging audits for market-facing assets; definitive canon judgments requir
 
 ## Example workflows
 
+Ask Claude Code or Codex in plain language, supplying your sources and approved context. These requests connect product marketing workflows; recommendations remain proposals until the required human approval.
+
 ### Market / ICP
 
-customer and competitor evidence → `market-entry-brief` and shared segment scoring → accepted market decision → `buyer-personas` → `positioning-strategy` → `messaging-framework` → `ssot-context-loop` approval and canonical record. With existing canon, proposed changes enter its review gates.
+> Compare these market segments using the segmentation framework. Show the evidence gaps before recommending a target, then develop buyer personas from the accepted decision.
+
+> Analyze these customer interviews, identify recurring pain points, and use the evidence and accepted segment to propose a positioning direction. Once positioning is approved, build a messaging framework from it and our buyer personas.
+
+customer and competitor evidence → `market-entry-brief` and shared segment scoring → accepted market decision → `icp-and-buyer-personas` → `positioning-strategy` → `messaging-framework` → `ssot-context-loop` approval and canonical record. With existing canon, proposed changes enter its review gates.
 
 ### Launch
 
-approved SSOT → `launch-strategy` → channel owners and assets → `output-quality-check` → `messaging-consistency-audit` → `launch-readiness-check`. For new-market entry, `market-launch` conducts the four gated rungs in the [launch contract](skills/_shared/launch-stages.md).
+> Build a launch plan from our approved positioning and messaging, then brief the channel owners. Audit the launch assets for contradictions and unsupported claims, and assess launch readiness after the required reviews.
+
+approved SSOT → `launch-strategy` → channel owners and assets → `output-quality-check` → `messaging-consistency-audit` → `launch-readiness-check`. For new-market entry, `market-entry-orchestration` conducts the four gated rungs in the [launch contract](skills/_shared/launch-stages.md).
 
 ### Evidence feedback
+
+> Analyze our closed-won and closed-lost opportunities for recurring competitive and objection patterns. Separate buyer evidence from seller interpretation, and route implications for strategy review without changing approved context.
 
 `customer-research` / `win-loss-intelligence` / `objection-intelligence` → sourced findings and limitations → SSOT scan and proposals → human approval → affected readers and assets → re-audit. Repetition alone never makes a message canonical.
 
 ### Event
 
-approved SSOT → `events` investment decision, narrative and activation plan → `copywriting`, `email-sequence`, `cold-email`, `social-content`, or `sales-enablement` → output verification → messaging audit → measured follow-up and learning. Events owns the GTM motion; channel owners produce the assets.
+> Evaluate this event against our ICP and goals. If we decide to proceed, build the activation plan from approved messaging and brief the email, social, and sales enablement work.
+
+approved SSOT → `events` investment decision, narrative and activation plan → `marketing-copy`, `email-sequence`, `cold-email`, `social-content`, or `sales-enablement` → output verification → messaging audit → measured follow-up and learning. Events owns the GTM motion; channel owners produce the assets.
 
 ### ABM
+
+> Use our accepted ICP to propose account tiers and buying committee hypotheses. Plan coordinated outreach from approved messaging, then define how we will measure account engagement and return findings for review.
 
 accepted ICP and SSOT → `account-based-marketing` account selection and tiers → account buying committee and message hypotheses → coordinated outreach, paid, event, and sales execution → `revops` / `analytics-tracking` measurement → account learning and evidence review. Account hypotheses cannot redefine ICP.
 
 ## Capability map
 
-Skills are installed as sibling folders so their shared references resolve. Open a skill to see its inputs, output requirements, and handoffs.
+The portfolio contains **44 standalone skills**. Skills are installed as sibling folders so their shared references resolve. Open a skill to see its inputs, output requirements, and handoffs.
 
 | Capability area | Skills |
 |---|---|
 | Evidence & intelligence | [customer-research](skills/customer-research/SKILL.md), [win-loss-intelligence](skills/win-loss-intelligence/SKILL.md), [objection-intelligence](skills/objection-intelligence/SKILL.md), [competitor-profiling](skills/competitor-profiling/SKILL.md) |
-| Market & buyer strategy | [market-entry-brief](skills/market-entry-brief/SKILL.md), [buyer-personas](skills/buyer-personas/SKILL.md), [pricing-strategy](skills/pricing-strategy/SKILL.md), [marketing-ideas](skills/marketing-ideas/SKILL.md), [marketing-psychology](skills/marketing-psychology/SKILL.md) |
+| Market & buyer strategy | [market-entry-brief](skills/market-entry-brief/SKILL.md), [icp-and-buyer-personas](skills/icp-and-buyer-personas/SKILL.md), [pricing-strategy](skills/pricing-strategy/SKILL.md) |
 | Positioning & messaging | [positioning-strategy](skills/positioning-strategy/SKILL.md), [messaging-framework](skills/messaging-framework/SKILL.md) |
-| GTM motions | [market-launch](skills/market-launch/SKILL.md), [launch-strategy](skills/launch-strategy/SKILL.md), [events](skills/events/SKILL.md), [account-based-marketing](skills/account-based-marketing/SKILL.md), [customer-marketing](skills/customer-marketing/SKILL.md), [partner-marketing](skills/partner-marketing/SKILL.md), [product-communications](skills/product-communications/SKILL.md) |
-| Channel execution: copy & sales | [copywriting](skills/copywriting/SKILL.md), [copy-editing](skills/copy-editing/SKILL.md), [cold-email](skills/cold-email/SKILL.md), [email-sequence](skills/email-sequence/SKILL.md), [social-content](skills/social-content/SKILL.md), [sales-enablement](skills/sales-enablement/SKILL.md) |
-| Channel execution: paid & media | [paid-ads](skills/paid-ads/SKILL.md), [ad-creative](skills/ad-creative/SKILL.md), [image](skills/image/SKILL.md), [video](skills/video/SKILL.md) |
-| Channel execution: content & discovery | [content-strategy](skills/content-strategy/SKILL.md), [seo-audit](skills/seo-audit/SKILL.md), [ai-seo](skills/ai-seo/SKILL.md), [programmatic-seo](skills/programmatic-seo/SKILL.md), [site-architecture](skills/site-architecture/SKILL.md), [schema-markup](skills/schema-markup/SKILL.md), [aso-audit](skills/aso-audit/SKILL.md), [competitor-alternatives](skills/competitor-alternatives/SKILL.md), [directory-submissions](skills/directory-submissions/SKILL.md) |
-| Growth & conversion | [page-cro](skills/page-cro/SKILL.md), [signup-flow-cro](skills/signup-flow-cro/SKILL.md), [onboarding-cro](skills/onboarding-cro/SKILL.md), [form-cro](skills/form-cro/SKILL.md), [popup-cro](skills/popup-cro/SKILL.md), [paywall-upgrade-cro](skills/paywall-upgrade-cro/SKILL.md) |
-| Growth & retention programs | [community-marketing](skills/community-marketing/SKILL.md), [churn-prevention](skills/churn-prevention/SKILL.md), [referral-program](skills/referral-program/SKILL.md), [lead-magnets](skills/lead-magnets/SKILL.md), [free-tool-strategy](skills/free-tool-strategy/SKILL.md) |
-| Operations & measurement | [revops](skills/revops/SKILL.md), [analytics-tracking](skills/analytics-tracking/SKILL.md), [ab-test-setup](skills/ab-test-setup/SKILL.md) |
+| GTM strategy & motions | [go-to-market-strategy](skills/go-to-market-strategy/SKILL.md), [market-entry-orchestration](skills/market-entry-orchestration/SKILL.md), [launch-strategy](skills/launch-strategy/SKILL.md), [events](skills/events/SKILL.md), [account-based-marketing](skills/account-based-marketing/SKILL.md), [customer-marketing](skills/customer-marketing/SKILL.md), [partner-marketing](skills/partner-marketing/SKILL.md), [product-communications](skills/product-communications/SKILL.md) |
+| Channel execution: copy & sales | [marketing-copy](skills/marketing-copy/SKILL.md), [cold-email](skills/cold-email/SKILL.md), [email-sequence](skills/email-sequence/SKILL.md), [social-content](skills/social-content/SKILL.md), [sales-enablement](skills/sales-enablement/SKILL.md) |
+| Channel execution: paid & media | [paid-ads](skills/paid-ads/SKILL.md), [ad-creative](skills/ad-creative/SKILL.md) |
+| Channel execution: content & discovery | [content-strategy](skills/content-strategy/SKILL.md), [search-discoverability](skills/search-discoverability/SKILL.md), [website-buyer-journey](skills/website-buyer-journey/SKILL.md), [aso-audit](skills/aso-audit/SKILL.md), [competitor-alternatives](skills/competitor-alternatives/SKILL.md) |
+| Growth & conversion | [acquisition-conversion](skills/acquisition-conversion/SKILL.md), [product-activation](skills/product-activation/SKILL.md), [upgrade-conversion](skills/upgrade-conversion/SKILL.md) |
+| Growth & retention programs | [community-marketing](skills/community-marketing/SKILL.md), [referral-program](skills/referral-program/SKILL.md), [buyer-resources](skills/buyer-resources/SKILL.md) |
+| Operations & measurement | [revops](skills/revops/SKILL.md), [analytics-tracking](skills/analytics-tracking/SKILL.md), [marketing-experimentation](skills/marketing-experimentation/SKILL.md) |
 | Company context & SSOT | [product-marketing-context](skills/product-marketing-context/SKILL.md), [ssot-context-loop](skills/ssot-context-loop/SKILL.md) |
 | Quality & governance | [output-quality-check](skills/output-quality-check/SKILL.md), [messaging-consistency-audit](skills/messaging-consistency-audit/SKILL.md), [launch-readiness-check](skills/launch-readiness-check/SKILL.md), [localization-claims](skills/localization-claims/SKILL.md) |
 

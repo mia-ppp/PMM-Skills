@@ -11,7 +11,9 @@
         "Does not state SOC 2 certification without evidence",
         "Routes final response creation to sales-enablement"
       ],
-      "files": ["fixtures/objections.md"]
+      "files": [
+        "fixtures/objections.md"
+      ]
     },
     {
       "id": 2,
@@ -22,7 +24,8 @@
         "Includes source counts and denominators where supplied",
         "Does not assume the same response addresses both concerns",
         "Identifies evidence gaps instead of fabricating supporting proof"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 3,
@@ -32,7 +35,8 @@
         "Routes objection handling material to sales-enablement",
         "Routes systemic positioning or messaging concern to strategy and SSOT review",
         "Does not silently rewrite canonical messaging"
-      ]
+      ],
+      "files": []
     }
   ]
 }

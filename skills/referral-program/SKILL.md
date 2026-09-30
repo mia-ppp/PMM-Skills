@@ -266,5 +266,4 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key tools
 
 - **launch-strategy**: For launching referral program effectively
 - **email-sequence**: For referral nurture campaigns
-- **marketing-psychology**: For understanding referral motivation
 - **analytics-tracking**: For tracking referral attribution

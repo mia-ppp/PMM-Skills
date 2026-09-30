@@ -148,7 +148,7 @@ The references contain performance data if you need to make informed choices:
 - [personalization.md](references/personalization.md): 4-level personalization system, research signals
 - [subject-lines.md](references/subject-lines.md): Subject line data and optimization
 - [follow-up-sequences.md](references/follow-up-sequences.md): Cadence, angles, breakup emails
-- [frameworks.md](references/frameworks.md): All copywriting frameworks with examples
+- [frameworks.md](references/frameworks.md): All marketing-copy frameworks with examples
 
 Use this data to inform your writing, not as a checklist to satisfy.
 
@@ -165,7 +165,7 @@ Use this data to inform your writing, not as a checklist to satisfy.
 
 ## Related Skills
 
-- **copywriting**: For landing pages and web copy
+- **marketing-copy**: For landing pages and web copy
 - **email-sequence**: For lifecycle/nurture email sequences (not cold outreach)
 - **social-content**: For LinkedIn and social posts
 - **product-marketing-context**: For establishing foundational positioning

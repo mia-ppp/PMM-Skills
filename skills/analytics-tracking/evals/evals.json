@@ -77,11 +77,11 @@
     {
       "id": 6,
       "prompt": "Help me set up tracking for our A/B test. We want to measure which version of our pricing page converts better.",
-      "expected_output": "Should recognize this overlaps with A/B test setup, not just analytics tracking. Should defer to or cross-reference the ab-test-setup skill for the experiment design, hypothesis, and statistical analysis. May help with the tracking implementation (events to fire, parameters to include) but should make clear that ab-test-setup is the right skill for the experiment framework.",
-      "handoff_to": "ab-test-setup",
+      "expected_output": "Should recognize this overlaps with A/B test setup, not just analytics tracking. Should defer to or cross-reference the marketing-experimentation skill for the experiment design, hypothesis, and statistical analysis. May help with the tracking implementation (events to fire, parameters to include) but should make clear that marketing-experimentation is the right skill for the experiment framework.",
+      "handoff_to": "marketing-experimentation",
       "assertions": [
         "Recognizes overlap with A/B test setup",
-        "References or defers to ab-test-setup skill",
+        "References or defers to marketing-experimentation skill",
         "May help with tracking implementation specifics",
         "Does not attempt to design the full experiment"
       ],

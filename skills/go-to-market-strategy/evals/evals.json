@@ -1,0 +1,120 @@
+{
+  "skill_name": "go-to-market-strategy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need marketing ideas for my SaaS product. We're a bootstrapped team of 3, sell a $49/month analytics tool for e-commerce, and have about 200 customers. Budget is tight: maybe $500/month for marketing.",
+      "expected_output": "Establish objective, accepted audience, strategy and constraints before consulting the optional tactics library. Compare feasible hypotheses with rationale, owners, resource needs and learning measures; no fabricated benchmarks or universal checklist.",
+      "assertions": [
+        "Establishes objective and accepted audience",
+        "Considers capacity and budget constraints",
+        "Uses tactics as hypotheses with owners and learning measures",
+        "Preserves canon and evidence gaps"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "What's the fastest way to get more leads? We sell enterprise security software and have a $10k/month marketing budget.",
+      "expected_output": "Establish objective, accepted audience, strategy and constraints before consulting the optional tactics library. Compare feasible hypotheses with rationale, owners, resource needs and learning measures; no fabricated benchmarks or universal checklist.",
+      "assertions": [
+        "Establishes objective and accepted audience",
+        "Considers capacity and budget constraints",
+        "Uses tactics as hypotheses with owners and learning measures",
+        "Preserves canon and evidence gaps"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "how do we grow without spending money on ads? we're a PLG (product-led growth) company with a freemium model",
+      "expected_output": "Establish objective, accepted audience, strategy and constraints before consulting the optional tactics library. Compare feasible hypotheses with rationale, owners, resource needs and learning measures; no fabricated benchmarks or universal checklist.",
+      "assertions": [
+        "Establishes objective and accepted audience",
+        "Considers capacity and budget constraints",
+        "Uses tactics as hypotheses with owners and learning measures",
+        "Preserves canon and evidence gaps"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Give me 20 marketing ideas. We sell project management software.",
+      "expected_output": "Establish objective, accepted audience, strategy and constraints before consulting the optional tactics library. Compare feasible hypotheses with rationale, owners, resource needs and learning measures; no fabricated benchmarks or universal checklist.",
+      "assertions": [
+        "Establishes objective and accepted audience",
+        "Considers capacity and budget constraints",
+        "Uses tactics as hypotheses with owners and learning measures",
+        "Preserves canon and evidence gaps"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Choose and structure an ongoing GTM model using the accepted context. Do not redefine upstream canon.",
+      "expected_output": "Ground the GTM decision in the attached scenario; preserve accepted canon, separate evidence from proposals, and produce a strategy/validation/owner brief. Preserves accepted market, ICP, positioning, messaging and pricing. Compares sales-led/product-led/partner-led/hybrid with evidence. Defines responsibilities and validation without fabricated economics",
+      "assertions": [
+        "Preserves accepted market, ICP, positioning, messaging and pricing",
+        "Compares sales-led/product-led/partner-led/hybrid with evidence",
+        "Defines responsibilities and validation without fabricated economics"
+      ],
+      "files": [
+        "fixtures/accepted.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "New evidence conflicts with our accepted GTM strategy. What should we do?",
+      "expected_output": "Ground the GTM decision in the attached scenario; preserve accepted canon, separate evidence from proposals, and produce a strategy/validation/owner brief. Shows evidence conflict and sample limitations. Proposes review with ssot-context-loop and upstream owner. Does not silently replace accepted GTM or ICP",
+      "assertions": [
+        "Shows evidence conflict and sample limitations",
+        "Proposes review with ssot-context-loop and upstream owner",
+        "Does not silently replace accepted GTM or ICP"
+      ],
+      "files": [
+        "fixtures/conflict.md"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We launch a feature next month. Decide our ongoing GTM strategy for the next year and explain the launch handoff.",
+      "expected_output": "Ground the GTM decision in the attached scenario; preserve accepted canon, separate evidence from proposals, and produce a strategy/validation/owner brief. Separates ongoing GTM model from release-specific launch planning. Routes release tier, phases and assets to launch-strategy. Keeps accepted commercial and audience context intact",
+      "assertions": [
+        "Separates ongoing GTM model from release-specific launch planning",
+        "Routes release tier, phases and assets to launch-strategy",
+        "Keeps accepted commercial and audience context intact"
+      ],
+      "files": [
+        "fixtures/ongoing.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Turn accepted GTM priorities into execution briefs, including ownership, rather than final assets.",
+      "expected_output": "Ground the GTM decision in the attached scenario; preserve accepted canon, separate evidence from proposals, and produce a strategy/validation/owner brief. Routes to ABM, events, partner marketing, customer marketing and product communications. Routes seller/content/paid work to execution owners as appropriate. Routes activation/upgrade and measurement/RevOps requirements. Does not create final channel assets",
+      "assertions": [
+        "Routes to ABM, events, partner marketing, customer marketing and product communications",
+        "Routes seller/content/paid work to execution owners as appropriate",
+        "Routes activation/upgrade and measurement/RevOps requirements",
+        "Does not create final channel assets"
+      ],
+      "files": [
+        "fixtures/routing.md"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Select a GTM model with the available evidence and show what remains unresolved.",
+      "expected_output": "Ground the GTM decision in the attached scenario; preserve accepted canon, separate evidence from proposals, and produce a strategy/validation/owner brief. Labels assumptions and gaps rather than fabricating certainty. Provides provisional option comparison and upstream dependencies. Defines validation owners and review triggers. Does not invent approved prices or replace canon",
+      "assertions": [
+        "Labels assumptions and gaps rather than fabricating certainty",
+        "Provides provisional option comparison and upstream dependencies",
+        "Defines validation owners and review triggers",
+        "Does not invent approved prices or replace canon"
+      ],
+      "files": [
+        "fixtures/gaps.md"
+      ]
+    }
+  ]
+}

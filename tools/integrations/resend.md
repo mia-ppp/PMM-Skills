@@ -209,4 +209,4 @@ await resend.emails.send({
 ## Relevant Skills
 
 - email-sequence
-- onboarding-cro
+- product-activation

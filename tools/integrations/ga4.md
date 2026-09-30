@@ -121,6 +121,6 @@ POST https://www.google-analytics.com/mp/collect?measurement_id={measurement_id}
 ## Relevant Skills
 
 - analytics-tracking
-- ab-test-setup
-- seo-audit
-- page-cro
+- marketing-experimentation
+- search-discoverability
+- acquisition-conversion

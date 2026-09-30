@@ -19,7 +19,7 @@ Usage:
   export PMM_EVALS_API_KEY=sk-...
   python evals/harness.py lint
   python evals/harness.py route --trials 1
-  python evals/harness.py run --skills page-cro,copywriting --trials 3
+  python evals/harness.py run --skills acquisition-conversion,marketing-copy --trials 3
   python evals/harness.py report
   python evals/harness.py calibrate
 
@@ -191,6 +191,7 @@ def lint(skills, _):
         for e in v["evals"]:
             try:
                 eval_prompt(k, e)
+                eval_references(k, e)
             except (ValueError, OSError, UnicodeError) as ex:
                 fixture_errors.append(f"{k} #{e['id']}: {ex}")
     loaders = sorted(k for k, v in skills.items() if shared_files(v["body"]))
@@ -311,8 +312,22 @@ def with_skill_system(s):
 
 BASELINE_SYS = "You are a marketing agent. Help the user with their request."
 
-def system_for(s, cfg):
-    return with_skill_system(s) if cfg == "with_skill" else BASELINE_SYS
+def eval_references(skill, case):
+    """Resolve only explicitly declared mode instructions, never user fixtures."""
+    refs = case.get("references", [])
+    if not isinstance(refs, list):
+        raise ValueError("Eval references must be a list")
+    return [eval_fixture(skill, ref) for ref in refs]
+
+def system_for(s, cfg, skill=None, case=None):
+    if cfg != "with_skill":
+        return BASELINE_SYS
+    system = with_skill_system(s)
+    if skill is not None and case is not None:
+        for path in eval_references(skill, case):
+            system += (f'\n\n<skill_reference path="{escape(str(path.relative_to(ROOT)), quote=True)}">\n'
+                       f'{path.read_text(encoding="utf-8")}\n</skill_reference>')
+    return system
 
 def grade(output, assertion, model, prompt=None):
     context = f"<prompt>\n{prompt}\n</prompt>\n\n" if prompt is not None else ""
@@ -370,6 +385,11 @@ def run(skills, args):
             print(f"Skipping {skipped} hand-off runs (rubric-only)")
     prompts = {(name, e["id"]): eval_prompt(name, e) for name, _, e, _, _ in jobs}
     fingerprints = {key: hashlib.sha256(prompt.encode()).hexdigest() for key, prompt in prompts.items()}
+    for name, s, e, _, _ in jobs:
+        refs = eval_references(name, e)  # preflight before requests or result writes
+        if refs:
+            payload = prompts[(name, e["id"])] + s["body"] + "".join(p.read_text() for p in refs)
+            fingerprints[(name, e["id"])] = hashlib.sha256(payload.encode()).hexdigest()
     random.Random(0).shuffle(jobs)  # mix skills and configs so an early budget stop leaves a fair sample
     # Resume: reuse every output already graded in this run folder, and count what it already spent.
     prior = {}
@@ -377,7 +397,7 @@ def run(skills, args):
         r = json.loads(f.read_text())
         prior[(r["skill"], r["eval_id"], r["config"], r["trial"])] = r
     keys = {(j[0], j[2]["id"], j[3], j[4]) for j in jobs}
-    fixture_cases = {(j[0], j[2]["id"]) for j in jobs if j[2].get("files")}
+    fixture_cases = {(j[0], j[2]["id"]) for j in jobs if j[2].get("files") or j[2].get("references")}
     prior = {k: r for k, r in prior.items() if k in keys and
              ((k[0], k[1]) not in fixture_cases or
               r.get("input_sha256") == fingerprints[(k[0], k[1])])}  # only outputs this run would produce
@@ -417,7 +437,7 @@ def run(skills, args):
     def attempt(j):
         name, s, e, cfg, t = j
         t0 = time.time()
-        out, stop_reason = request(system_for(s, cfg), prompts[(name, e["id"])], args.model, args.max_tokens)
+        out, stop_reason = request(system_for(s, cfg, name, e), prompts[(name, e["id"])], args.model, args.max_tokens)
         secs = round(time.time() - t0, 1)
         grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge, prompt=prompts[(name, e["id"])] if e.get("files") else None)} for a in e.get("assertions", [])]
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
@@ -425,7 +445,7 @@ def run(skills, args):
                "pass_rate": sum(g["passed"] for g in grades) / len(grades) if grades else None,
                "judge": args.judge, "judge_examples": len(human), "handoff": bool(e.get("handoff_to")),
                "rubric": score_rubric(prompts[(name, e["id"])], out, args.judge, examples=examples)}
-        if e.get("files"):
+        if e.get("files") or e.get("references"):
             rec["input_sha256"] = fingerprints[(name, e["id"])]
         d = base / name / f"eval-{e['id']}" / cfg
         d.mkdir(parents=True, exist_ok=True)
@@ -624,7 +644,7 @@ def run_summary(recs, name, ho=None):
 
 # ---------- calibrate ----------
 
-CALIBRATION_SKILLS = "positioning-strategy,messaging-framework,copywriting,page-cro,competitor-alternatives"
+CALIBRATION_SKILLS = "positioning-strategy,messaging-framework,marketing-copy,acquisition-conversion,competitor-alternatives"
 ANCHOR_POOL = 10  # A-01 to A-10: rubric anchors come only from here
 HOLDOUT = 10      # A-11 to A-20: never anchors; the rest are unused
 DIMENSIONS = ["grounded", "decisive", "usable", "sharp"]

@@ -193,6 +193,6 @@ webflow devlink sync
 
 ## Relevant Skills
 
-- programmatic-seo
+- search-discoverability
 - content-strategy
-- page-cro
+- acquisition-conversion

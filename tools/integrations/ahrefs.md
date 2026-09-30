@@ -137,6 +137,6 @@ Authorization: Bearer {api_token}
 
 ## Relevant Skills
 
-- seo-audit
+- search-discoverability
 - content-strategy
 - competitor-alternatives

@@ -157,15 +157,15 @@ Exact permission models vary by platform. Sanity uses role-based access. Content
 
 ### Programmatic SEO
 
-Use CMS as the data source for programmatic pages. Store structured data (FAQs, comparisons, city pages) as content types and generate pages from queries. See **programmatic-seo** skill.
+Use CMS as the data source for programmatic pages. Store structured data (FAQs, comparisons, city pages) as content types and generate pages from queries. See **search-discoverability** skill.
 
 ### Copywriting
 
-CMS content models enforce consistent structure. Define fields that match your copy frameworks (headline, subheadline, social proof, CTA). See **copywriting** skill.
+CMS content models enforce consistent structure. Define fields that match your copy frameworks (headline, subheadline, social proof, CTA). See **marketing-copy** skill.
 
 ### Site Architecture
 
-URL structure, navigation hierarchy, and internal linking all depend on how content is organized in the CMS. Plan your content model and site architecture together. See **site-architecture** skill.
+URL structure, navigation hierarchy, and internal linking all depend on how content is organized in the CMS. Plan your content model and site architecture together. See **website-buyer-journey** skill.
 
 ### Email Sequences
 

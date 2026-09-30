@@ -79,7 +79,9 @@
         "Marks Segment B engagement as Gap and excludes its weight instead of assigning a numeric score",
         "Names a lead, its weakness, the most important evidence gap, and observable trigger/unlock sequencing for remaining segments"
       ],
-      "files": ["skills/market-entry-brief/evals/fixtures/segment-scorecard.md"]
+      "files": [
+        "skills/market-entry-brief/evals/fixtures/segment-scorecard.md"
+      ]
     }
   ]
 }

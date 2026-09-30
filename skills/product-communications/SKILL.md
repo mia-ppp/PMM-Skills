@@ -1,18 +1,26 @@
 ---
 name: product-communications
-description: When the user wants a product or company announcement, media or analyst briefing, executive thought leadership, reactive messaging, or a PR narrative. For launch sequencing, see launch-strategy; for final copy, see copywriting.
+description: When the user wants a product announcement, media or analyst briefing, executive thought leadership, reactive messaging, or a PR narrative. For launch sequencing, see launch-strategy; for final copy, see marketing-copy.
 metadata:
   version: 1.0.0
 ---
 
 # Product Communications
 
-Develop PMM narrative and orchestration for product/company communications.
+Develop PMM narrative and orchestration for product-related communications.
 This is not a generic PR agency toolkit. It does not promise coverage, media
-interest, or analyst endorsement, and it does not own final copywriting.
+interest, or analyst endorsement, and it does not own final marketing-copy.
 
 Before planning, read `../_shared/evidence-gaps.md` for evidence labels,
 Inputs and assumptions, and ranked evidence gaps.
+
+## Product communications boundary
+
+Own product narrative, newsworthiness, spokesperson briefs and product-related media/analyst coordination.
+Company, partnership, research or executive material is in scope only when it supports a product/category story. Funding, corporate affairs, investor relations and crises route to the corporate communications owner.
+Consume approved `go-to-market-strategy`; final assets remain with execution owners.
+Read `../_shared/creative-brief.md` when briefing announcement visuals or explainer narrative.
+
 
 ## Workflow
 
@@ -28,7 +36,7 @@ Inputs and assumptions, and ranked evidence gaps.
    assets, distribution/outreach direction, owners and approvals, and measures.
 5. Mark proposed quotes exactly `DRAFT / REQUIRES APPROVAL` until approved by
    the named speaker. Do not simulate external interest or endorsement.
-6. Route final copy to `copywriting`; coordinate product launches with
+6. Route final copy to `marketing-copy`; coordinate product launches with
    `launch-strategy`, partnerships with `partner-marketing`, and asset review
    with `messaging-consistency-audit`.
 
@@ -53,10 +61,10 @@ approval states, news rationale, and prohibited inventions.
 - Route potential canonical changes through `ssot-context-loop`; never edit
   canon. For launch readiness, use `launch-readiness-check` after the launch
   assets and approvals are ready.
-- This skill provides narrative and orchestration. `copywriting` owns final
+- This skill provides narrative and orchestration. `marketing-copy` owns final
   press release, pitch, FAQ, and announcement copy where requested.
 
 ## Related skills
 
-`launch-strategy`, `launch-readiness-check`, `partner-marketing`, `copywriting`,
+`launch-strategy`, `launch-readiness-check`, `partner-marketing`, `marketing-copy`,
 `messaging-consistency-audit`, `ssot-context-loop`, `output-quality-check`.

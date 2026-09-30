@@ -4,13 +4,15 @@
     {
       "id": 1,
       "prompt": "Review launch readiness. The complete required asset set is one homepage using the supplied synthetic SSOT excerpt, canon v2026-09-01: core/00-what-it-is.md category is payment risk analytics; core/02-product.md capabilities say review risk before authorization; living/07-evidence.md approves no quantified outcome. Homepage stamp v2026-09-01 says \"Review payment risk before authorization\" and CTA \"Request a walkthrough\". No separate rule-book skill exists.",
-      "expected_output": "Uses supplied applicable SSOT as canon without requiring an optional rule-book skill; reports Ready if no genuine issues, cites sources and stamp, invents no flags.",
+      "expected_output": "Uses supplied applicable SSOT without requiring an optional rule-book skill. The homepage is asset-level Ready with no invented claim flags. Launch-wide readiness remains Not ready or unverified until required independent reviews, approvals, availability, enablement, operational handoffs and measurement evidence are confirmed.",
       "assertions": [
         "Uses the applicable SSOT without blocking solely for absent company rule-book skill",
         "Does not invent a metric, capability, or issue",
         "Returns an individual asset verdict and launch verdict with reviewed scope",
-        "Preserves the approved message and canon stamp"
-      ]
+        "Preserves the approved message and canon stamp",
+        "Does not infer launch-wide readiness from clean copy without readiness evidence"
+      ],
+      "files": []
     },
     {
       "id": 2,
@@ -21,7 +23,8 @@
         "Does not issue launch-wide Ready for an incomplete required asset set",
         "Separates the supplied page result from the whole-launch verdict",
         "Does not fabricate contents or findings for missing assets"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 3,
@@ -32,7 +35,8 @@
         "States that company canon must be established",
         "Does not return Ready",
         "Does not silently create or approve positioning"
-      ]
+      ],
+      "files": []
     },
     {
       "id": 4,
@@ -43,7 +47,20 @@
         "Checks each product claim against the supplied approved sources",
         "Does not invent comparative superiority or outcome evidence",
         "Reports actual issues only and preserves the final launch gate scope"
-      ]
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "All required launch copy is approved and passes current output-quality and messaging-consistency reviews. Approved canon and complete asset set are available. Product availability is unconfirmed, sales training is not complete and the measurement owner has not validated events. Can we launch?",
+      "expected_output": "Hold launch-wide readiness because required availability, enablement and measurement gates are unresolved, despite clean assets and completed independent reviews. Name operational owners, evidence needed and closure milestones; do not rewrite canon or replace the reviews.",
+      "assertions": [
+        "Gives Not ready launch-wide verdict",
+        "Preserves clean asset review results without conflating reviews",
+        "Identifies availability, enablement and measurement blockers",
+        "Assigns closure owners and required evidence"
+      ],
+      "files": []
     }
   ]
 }

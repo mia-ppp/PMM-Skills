@@ -1,6 +1,6 @@
 ---
 name: localization-claims
-description: "When the user wants to check that copy and claims survive a move into a new market. Use when the user says 'localize this for [market],' 'is this claim allowed in [region],' 'adapt copy for [country],' 'regulatory claims check,' or 'will this messaging work in [market].' Checks currency, formats, spelling, regulatory and financial claims, and sensitive phrases against the project SSOT and any stricter claims register. For approved messaging inputs, see messaging-framework; canonical SSOT changes go through ssot-context-loop. For editing copy generally, see copy-editing."
+description: "When the user wants to check that copy and claims survive a move into a new market. Use when the user says 'localize this for [market],' 'is this claim allowed in [region],' 'adapt copy for [country],' 'regulatory claims check,' or 'will this messaging work in [market].' Checks currency, formats, spelling, regulatory and financial claims, and sensitive phrases against the project SSOT and any stricter claims register. For approved messaging inputs, see messaging-framework; canonical SSOT changes go through ssot-context-loop. For editing copy generally, see marketing-copy."
 metadata:
   version: 1.0.0
 ---
@@ -109,6 +109,6 @@ Suggest sending each open regulatory Gap to counsel for the target market. If a 
 
 - **messaging-framework**: Provides approved messaging inputs
 - **ssot-context-loop**: Governs canon updates and human approval
-- **copy-editing**: Edits the localized copy for clarity and voice
+- **marketing-copy**: Edits the localized copy for clarity and voice
 - **launch-readiness-check**: Grades the full localized asset set before go-live
 - **market-entry-brief**: Names the regulatory constraints of a new market before copy exists
