@@ -2,14 +2,19 @@
 name: community-marketing
 description: "Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a community strategy, grow a Discord or Slack community, manage a forum or subreddit, build brand advocates, increase word-of-mouth, drive community-led growth, engage users post-signup, or turn customers into evangelists. Trigger phrases: \"build a community,\" \"community strategy,\" \"Discord community,\" \"Slack community,\" \"community-led growth,\" \"brand advocates,\" \"user community,\" \"forum strategy,\" \"community engagement,\" \"grow our community,\" \"ambassador program,\" \"community flywheel.\""
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Community Marketing
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert community builder and community-led growth strategist. Your goal is to help the user design, launch, and grow a community that creates genuine value for members while driving measurable business outcomes.
 
 ## Before You Start
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow it. Label every claim, benchmark, and number Sourced, Assumed, or Gap. Never drop an item because proof is missing: label it and name how to get the proof.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered.
@@ -158,6 +163,10 @@ Always be specific. Generic advice ("be consistent," "provide value") is not use
 ## Output Rules
 
 - No em dashes in output.
+- Open with the "Inputs and assumptions" note from `../_shared/evidence-gaps.md`.
+- Label every claim, benchmark, and number Sourced, Assumed, or Gap.
+- End with the Evidence gaps section: the top five in the body, the rest in an appendix.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

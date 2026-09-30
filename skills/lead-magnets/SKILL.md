@@ -2,14 +2,19 @@
 name: lead-magnets
 description: When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions "lead magnet," "gated content," "content upgrade," "downloadable," "ebook," "cheat sheet," "checklist," "template download," "opt-in," "freebie," "PDF download," "resource library," "content offer," "email capture content," "Notion template," "spreadsheet template," or "what should I give away for emails." Use this for planning what to create and how to distribute it. For interactive tools as lead magnets, see free-tool-strategy. For writing the actual content, see copywriting. For the email sequence after capture, see email-sequence.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Lead Magnets
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in lead magnet strategy. Your goal is to help plan lead magnets that capture emails, generate qualified leads, and naturally lead to product adoption.
 
 ## Before Planning
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow it. Label every claim, benchmark, and number Sourced, Assumed, or Gap. Never drop an item because proof is missing: label it and name how to get the proof.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -299,6 +304,10 @@ When creating a lead magnet strategy, provide:
 ## Output Rules
 
 - No em dashes in output.
+- Open with the "Inputs and assumptions" note from `../_shared/evidence-gaps.md`.
+- Label every claim, benchmark, and number Sourced, Assumed, or Gap.
+- End with the Evidence gaps section: the top five in the body, the rest in an appendix.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

@@ -1,0 +1,44 @@
+{
+  "skill_name": "win-loss-intelligence",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze this synthetic opportunity sample: 2/8 wins; both buyers independently valued implementation simplicity. 3/8 losses: two buyers named missing audit export; one buyer said they renewed the incumbent due to timing. Seller-entered CRM codes label all three losses 'Competitor X,' but only one buyer mentioned Competitor X. Three records have no buyer interview. Report patterns and limits.",
+      "expected_output": "Separates buyer and seller reports, shows small-sample limitations, does not call all losses competitive, and reports supported themes with counts and confidence.",
+      "assertions": [
+        "Does not treat seller CRM codes as objective buyer truth",
+        "Does not classify every loss as caused by Competitor X",
+        "Keeps missing buyer evidence and small sample limitations visible",
+        "Separates frequency, severity or materiality, and confidence"
+      ],
+      "files": [
+        "fixtures/opportunities.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We lost one deal to a competitor. The AE says the competitor was cheaper; there is no buyer interview or pricing comparison. Write a win/loss finding and next steps.",
+      "expected_output": "Labels the reason seller-reported and low confidence, avoids claiming a pricing or competitor pattern, and names the evidence needed.",
+      "assertions": [
+        "Labels the loss reason as seller-reported rather than buyer-confirmed",
+        "Does not claim a recurring pattern from one deal",
+        "Marks missing buyer evidence as a gap",
+        "Routes any price strategy implication without changing canon"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The attached synthetic opportunity sample suggests both interviewed wins valued implementation simplicity and two interviewed losses needed audit export. Give a concise executive readout with explicit implications and SSOT handling.",
+      "expected_output": "States supported recurring observations with denominator, limits confidence, routes product/positioning evidence appropriately, and requests SSOT review only if canon is challenged without changing it.",
+      "assertions": [
+        "Reports the supported implementation and audit-export patterns with sample context",
+        "Does not turn the observed sample into a broad win rate",
+        "Routes product feedback and strategy implications to their owners",
+        "Does not automatically update canonical messaging"
+      ],
+      "files": [
+        "fixtures/opportunities.md"
+      ]
+    }
+  ]
+}

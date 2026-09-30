@@ -19,6 +19,12 @@ The document is stored at `.agents/product-marketing-context.md`.
 
 ### Step 1: Check for Existing Context
 
+When an applicable SSOT exists, load the relevant manifest-mapped files using
+`../_shared/ssot-consumption.md`. Covered claims defer to that SSOT. Keep this
+bootstrap document separate; proposed positioning, messaging, or ICP changes
+must go through `ssot-context-loop` and its human approval gates. Saving this
+context document never approves or changes canon.
+
 First, check if `.agents/product-marketing-context.md` already exists. Also check `.claude/product-marketing-context.md` for older setups. If found there but not in `.agents/`, offer to move it.
 
 **If it exists:**
@@ -130,15 +136,15 @@ The JTBD Four Forces:
 - Current metrics (if known)
 
 ### 13. Positioning
-Written by positioning-strategy. Other skills read it as the source of truth for the position.
+Written by positioning-strategy for bootstrap initialization and chaining. Approved mapped SSOT remains authoritative for covered positioning; this section supplies uncovered provisional context. Saving it does not approve strategy or modify canonical SSOT.
 - **Statement:** one sentence in the form "[Product] is a [category + one short differentiating phrase] for [segment]."
 - **Derivation trace:** Category, Differentiating phrase, Segment, and Trigger (the event that starts the search), each with its source and label
 - **Capability table:** every differentiating capability, with what it does for the buyer, proof, buyer voice, and label
 
-messaging-framework builds its capability rows only from this table. If the section is empty, recommend positioning-strategy.
+messaging-framework uses approved mapped SSOT capabilities where applicable and this table for uncovered provisional context. If the section is empty, approved SSOT inputs remain available; recommend positioning-strategy only for missing positioning.
 
 ### 14. Persona message map
-Written by buyer-personas. messaging-framework starts its persona lines from it.
+Written by buyer-personas for bootstrap chaining. messaging-framework uses approved mapped SSOT persona messaging where applicable, and this map for uncovered provisional context. Preserve evidence labels and proposal/approval status; the map does not change canon.
 - **Persona:** role-based name with the buying role in brackets, such as (champion) or (financial buyer)
 - **What matters to them:** 1 to 2 short phrases
 - **Message:** the core message in 1 to 2 sentences

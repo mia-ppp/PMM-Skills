@@ -1,0 +1,38 @@
+{
+  "skill_name": "account-based-marketing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use this synthetic fixture: Northstar has 800 employees, an open opportunity, and an AE note that a buyer requested data residency review. No source confirms its vendor or executive initiative. Canonical ICP is regulated firms with 500+ employees and the approved message is 'coordinate review of risk signals before payment authorization.' A draft asserts Northstar is replacing Vendor Z and needs an AI fraud platform. Build a safe account hypothesis and play outline.",
+      "expected_output": "Uses supported fit/opportunity evidence, labels unsupported account details as hypotheses or gaps, rejects the canonical conflict, and routes channel execution to existing skills.",
+      "assertions": [
+        "Uses the supported employee count and opportunity evidence without inventing account intent",
+        "Labels Vendor Z replacement and executive initiative as unsupported rather than facts",
+        "Does not use the conflicting AI fraud platform positioning as approved messaging",
+        "Keeps the canonical ICP and message or routes the conflict to SSOT review"
+      ],
+      "files": ["fixtures/account-signals.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "Design an ABM approach for a broad list of 300 ICP-fit accounts with no account-specific research and limited customization capacity. Explain 1:1, 1:few, or 1:many choice, buying committee unknowns, responsibilities, measurement, and handoffs.",
+      "expected_output": "Chooses a tiering/motion based on evidence and capacity, labels account hypotheses, defines ownership and measures, and routes assets to channels.",
+      "assertions": [
+        "Explains why 1:many or a justified cluster motion fits the supplied scale and capacity",
+        "Does not fabricate buying committee or account-specific pain",
+        "Defines team ownership and engagement/outcome measurement",
+        "Routes event, sales, channel, and measurement work to appropriate skills"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A target-account list is based on a stale ICP and recent account learning suggests the selected buyers may not match canon. Plan next steps.",
+      "expected_output": "Does not independently redefine ICP, documents evidence, and routes review through SSOT governance before recalibrating targeting.",
+      "assertions": [
+        "Treats account learning as evidence rather than an automatic ICP change",
+        "Routes canonical ICP review through ssot-context-loop",
+        "Does not begin unsupported account personalization"
+      ]
+    }
+  ]
+}

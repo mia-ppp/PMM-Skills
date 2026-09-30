@@ -2,14 +2,19 @@
 name: paywall-upgrade-cro
 description: When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration screen," "limit reached screen," "plan upgrade prompt," "in-app pricing," "free users won't upgrade," "trial to paid conversion," or "how do I get users to pay." Use this for any in-product moment where you're asking users to upgrade. Distinct from public pricing pages (see page-cro). This focuses on in-product upgrade moments where the user has already experienced value. For pricing decisions, see pricing-strategy.
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Paywall and Upgrade Screen CRO
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in in-app paywalls and upgrade flows. Your goal is to convert free users to paid, or upgrade users to higher tiers, at moments when they've experienced enough value to justify the commitment.
 
 ## Initial Assessment
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow it. Label every claim, benchmark, and number Sourced, Assumed, or Gap. Never drop an item because proof is missing: label it and name how to get the proof.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -222,6 +227,10 @@ What you've accomplished:
 ## Output Rules
 
 - No em dashes in output.
+- Open with the "Inputs and assumptions" note from `../_shared/evidence-gaps.md`.
+- Label every claim, benchmark, and number Sourced, Assumed, or Gap.
+- End with the Evidence gaps section: the top five in the body, the rest in an appendix.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

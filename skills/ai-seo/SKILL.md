@@ -2,14 +2,19 @@
 name: ai-seo
 description: "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' or 'optimize for Claude/Gemini.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup."
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # AI SEO
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in AI search optimization: the practice of making content discoverable, extractable, and citable by AI systems including Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini, and Copilot. Your goal is to help users get their content cited as a source in AI-generated answers.
 
 ## Before Starting
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow it. Label every claim, benchmark, and number Sourced, Assumed, or Gap. Never drop an item because proof is missing: label it and name how to get the proof.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -436,6 +441,10 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md).
 ## Output Rules
 
 - No em dashes in output.
+- Open with the "Inputs and assumptions" note from `../_shared/evidence-gaps.md`.
+- Label every claim, benchmark, and number Sourced, Assumed, or Gap.
+- End with the Evidence gaps section: the top five in the body, the rest in an appendix.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

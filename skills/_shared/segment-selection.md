@@ -39,36 +39,146 @@ Size every segment on the list before you score or choose. The reach or revenue 
 Excluded from sizing: [segment], because [reason]. (Or: "None.")
 ```
 
-## 3. Score each segment on three separate axes
+## 3. Score each segment and calculate attractiveness
 
-Score each axis from 1 to 5 and label every score. Base reach or revenue on the step 2 sizes.
+When comparing segments, build one side-by-side scorecard. Score each criterion
+from 1 to 5, keep every criterion visible, and label each score `Sourced`,
+`Assumed`, or `Gap`. Use the market sizing from section 2 for market opportunity.
 
-| Axis | Question | 1 | 5 |
-|---|---|---|---|
-| **Pain intensity** | How costly and frequent is the problem for them? | Rare or cheap | Frequent and expensive |
-| **Reach or revenue** | How much revenue can this segment bring, or how many buyers can we reach? | Small or hard to reach | Large and reachable |
-| **Proof strength** | How much evidence do we have today that they buy and succeed? | None | Customers, data, and quotes |
+| Criterion | What a high score means | Default weight |
+|---|---|---:|
+| **Market opportunity** | Large, serviceable opportunity against the company's stated goals | 12% |
+| **Pain intensity** | Frequent, costly, urgent problem | 12% |
+| **JTBD fit** | The product directly addresses an important job-to-be-done | 10% |
+| **Underserved** | Current alternatives leave meaningful needs unmet | 7% |
+| **Differentiation / ability to win** | Clear advantage buyers value and competitors cannot easily match | 10% |
+| **Reachability** | The company can identify and reach buyers through available channels | 8% |
+| **Acquisition ease** | Buyers can be acquired with reasonable cost, time, and sales friction | 7% |
+| **Customer effort required** | Low implementation, onboarding, support, or behavior-change burden | 5% |
+| **Existing product engagement** | Strong usage or adoption in this segment, when a cohort exists | 6% |
+| **Stickiness / retention** | The solution becomes durable in the customer's workflow | 6% |
+| **Expansion / upgrade potential** | Clear path to additional teams, use cases, or higher plans | 6% |
+| **LTV potential** | Attractive lifetime value based on labeled retention, expansion, and revenue inputs | 6% |
+| **Proof strength** | Existing customers, outcomes, data, and quotes support success in this segment | 5% |
+| **Total** | | **100%** |
 
-- **Keep the three axes in separate columns.** Never collapse them into one score that hides a low proof score.
-- **Read a high-pain, high-reach, low-proof segment as a validation priority.** It is not a reject.
-- **Add skill-specific criteria as extra columns if needed.** Examples: JTBD fit, reachability, expansion. The three axes always stay.
+Use the same default weights for every candidate in a comparison. They favor the
+size of the opportunity, intensity of the need, fit, and ability to win, while
+also accounting for go-to-market practicality and durable economics. Proof gets
+a deliberately smaller weight so a lack of historical proof does not screen out
+a promising segment. The weights are an `Assumed` starting model, not a universal
+truth.
 
+### Consistent scale
+
+Use the same scale for every criterion and segment:
+
+| Score | General meaning |
+|---:|---|
+| 1 | Very weak attractiveness on this criterion |
+| 2 | Below average or materially constrained |
+| 3 | Adequate, mixed, or near the decision threshold |
+| 4 | Strong attractiveness with a manageable weakness |
+| 5 | Exceptional attractiveness relative to the alternatives |
+
+For **customer effort required**, score in the favorable direction: 5 means low
+effort for the customer and company; 1 means substantial implementation,
+adoption, or support burden. For all other criteria, higher means more attractive.
+State the specific basis for each score. For market opportunity, anchor the score
+to the sized TAM/SAM/SOM and the company's stated threshold. For acquisition ease,
+use cost or sales-cycle evidence where available. Do not substitute a guessed
+number for absent data.
+
+### Weighted Segment Attractiveness Score
+
+Calculate a weighted average on the same 1-to-5 scale:
+
+```text
+Segment Attractiveness Score =
+  sum(score × criterion weight for scoreable criteria)
+  ÷ sum(weights for scoreable criteria)
 ```
-| Segment | Pain intensity | Reach or revenue | Proof strength | Notes and labels |
-|---|---|---|---|---|
-| [segment] | [1-5] (Sourced / Assumed / Gap) | [1-5] (...) | [1-5] (...) | [source, assumption, or missing proof] |
+
+With all criteria scored, the denominator is 100. Show the weights and result
+explicitly. Label the composite `Derived`; retain the evidence label and source
+or assumption beside every individual score. If a criterion cannot reasonably be
+scored, write `Gap: [what evidence is missing]`, assign no number, and omit only
+that criterion's weight from the denominator. Show the **weight coverage** as the
+sum of scoreable weights over 100. Mark the composite provisional whenever
+coverage is below 100%. If no criteria can be scored, mark the composite
+unavailable. Never treat a Gap as zero or silently fill it with an estimate.
+
+If company strategy makes another factor more important, the decision owner may
+change the weights. State who set them and why, list the revised weight for every
+criterion, keep the total at 100%, and apply the same weights to all candidates.
+Do not change weights after seeing scores just to make a preferred segment win.
+Avoid double-counting overlapping criteria; if one is folded into another, say
+which criterion and keep the original dimension visible as a separate diagnostic
+only if it can be scored without duplication.
+
+### Evidence confidence
+
+Report `Evidence confidence: High / Medium / Low` separately from attractiveness.
+It reflects weighted evidence support, not market attractiveness and not a
+statistical probability. Calculate the support coverage using each criterion's
+weight:
+
+```text
+Evidence support =
+  (100% × weights labeled Sourced
+   + 50% × weights labeled Assumed
+   + 0% × weights labeled Gap) ÷ total criterion weights
 ```
+
+Use `High` for support coverage of 80% or more, `Medium` for 50% to less than
+80%, and `Low` below 50%. Also consider source recency, directness, independence,
+and contradictions: lower the rating and explain why if these make the evidence
+less reliable. Show the support percentage and the main reason beside the rating.
+These cutoffs are a consistent decision aid, not statistical confidence bounds.
+
+A high-scoring segment with low confidence is a validation priority, not an
+automatic lead or rejection. A lower-scoring segment with high confidence remains
+visible and may be the safer near-term choice. Never let the composite hide a
+weak dimension, an evidence gap, a blocking constraint, or the decision owner's
+strategic priority.
+
+```markdown
+| Criterion | Weight | Segment A | Segment B | Segment C |
+|---|---:|---|---|---|
+| Market opportunity | 12% | [1-5, label, source/basis] | | |
+| Pain intensity | 12% | [1-5, label, source/basis] | | |
+| JTBD fit | 10% | [1-5, label, source/basis] | | |
+| Underserved | 7% | [1-5, label, source/basis] | | |
+| Differentiation / ability to win | 10% | [1-5, label, source/basis] | | |
+| Reachability | 8% | [1-5, label, source/basis] | | |
+| Acquisition ease | 7% | [1-5, label, source/basis] | | |
+| Customer effort required | 5% | [1-5, label, source/basis] | | |
+| Existing product engagement | 6% | [1-5 or Gap, label, source/basis] | | |
+| Stickiness / retention | 6% | [1-5, label, source/basis] | | |
+| Expansion / upgrade potential | 6% | [1-5, label, source/basis] | | |
+| LTV potential | 6% | [1-5, label, formula/source] | | |
+| Proof strength | 5% | [1-5, label, source/basis] | | |
+| **Segment Attractiveness Score** | **100%** | [formula] / 5, Derived; weight coverage: [%] | | |
+| **Evidence confidence** | | [High / Medium / Low; support coverage and basis] | | |
+```
+
+Keep the 13 criteria as their own rows. If the task-specific output needs the
+former compact three-axis view, include it as a summary, not a replacement for
+this scorecard.
 
 ## 4. Pick a lead segment
 
-Name one lead segment and say why in 2 to 3 sentences in total. The limit covers everything below.
+Name one lead segment and explain the 2 to 3 decision factors that drove the choice.
+Then state its biggest weakness and the most important evidence gap separately.
 
 - **Name the axes that drove the choice.**
 - **Say so when proof strength decided it,** and name what the larger or higher-pain segment needs before it can lead.
 - **Put anything longer in the sequence.** The sequencing line carries the detail.
 
 ```
-Lead: [segment]. [Why, naming the axes.] [If proof decided it: which segment lost on proof, and what it needs to lead.]
+Lead: [segment]. [2 to 3 decision factors, naming the criteria and evidence labels.]
+Biggest weakness: [one line.]
+Most important evidence gap: [one line and how to close it.]
 ```
 
 ## 5. Sequence the segments that follow and size the wedge

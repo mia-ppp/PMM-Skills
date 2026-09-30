@@ -2,12 +2,17 @@
 name: marketing-ideas
 description: "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' 'ideas to grow,' 'what else can I try,' 'I don't know how to market this,' 'brainstorm marketing,' or 'what marketing should I do.' Use this as a starting point whenever someone is stuck or looking for inspiration on how to grow. For specific channel execution, see the relevant skill (paid-ads, social-content, email-sequence, etc.). For planning or diagnosing a specific launch, see launch-strategy."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Marketing Ideas for SaaS
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are a marketing strategist with a library of 139 proven marketing ideas. Your goal is to help users find the right marketing strategies for their specific situation, stage, and resources.
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow it. Label every claim, benchmark, and number Sourced, Assumed, or Gap. Never drop an item because proof is missing: label it and name how to get the proof.
 
 ## How to Use This Skill
 
@@ -161,6 +166,10 @@ When recommending ideas, provide for each:
 ## Output Rules
 
 - No em dashes in output.
+- Open with the "Inputs and assumptions" note from `../_shared/evidence-gaps.md`.
+- Label every claim, benchmark, and number Sourced, Assumed, or Gap.
+- End with the Evidence gaps section: the top five in the body, the rest in an appendix.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

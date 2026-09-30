@@ -1,0 +1,10 @@
+agents:
+  - name: messaging-consistency-audit
+    reads:
+      - core/00-what-it-is.md
+      - core/01-how-you-position-it.md
+      - core/02-product.md
+      - core/03-who-it-is-for.md
+      - living/07-evidence.md
+    writes: []
+    notes: Synthetic audit fixture only.

@@ -1,0 +1,38 @@
+{
+  "skill_name": "partner-marketing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use this synthetic fixture: our approved claim is 'connects transaction context with network signals to help teams review risk before authorization.' Partner documentation confirms an API integration and 5,000-customer installed base. No source supports 'reduces fraud by 40%' or 5,000 shared customers. Both parties want a joint webinar. Draft the joint narrative/plan and handoffs.",
+      "expected_output": "Preserves canon, distinguishes approved company, partner, joint, and unverified claims, rejects unsupported performance/shared-customer claims, and routes the webinar to Events.",
+      "assertions": [
+        "Preserves the approved company claim without expanding it",
+        "Marks fraud reduction and shared customer count unverified rather than factual",
+        "Separates each party's approved claims from jointly approved claims",
+        "Routes the webinar motion to events"
+      ],
+      "files": ["fixtures/partner-claims.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "A partner wants a joint announcement but their proposed narrative calls our product an autonomous fraud-prevention platform, conflicting with our approved category and claims. Explain the approval and escalation path.",
+      "expected_output": "Flags conflict, requests bilateral joint-claim approval, routes possible canon issue to SSOT review, and does not publish or rewrite canon.",
+      "assertions": [
+        "Does not adopt the conflicting joint narrative as approved",
+        "Requires partner and company approval for joint claims",
+        "Routes canon conflict through ssot-context-loop without changing canon",
+        "Routes final external asset through copywriting and messaging consistency"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Plan a technology partnership co-sell motion where audience overlap and mutual value are only hypotheses. Include contributions, ownership, measurement, and claim status.",
+      "expected_output": "Marks audience and mutual-value assumptions, defines contribution and approval owners, and avoids claiming revenue impact without measurement.",
+      "assertions": [
+        "Labels unverified audience overlap and mutual value as assumptions or gaps",
+        "Defines both parties' contributions, owners, and approval responsibilities",
+        "Separates leading measures from revenue outcomes and avoids fabricated influence"
+      ]
+    }
+  ]
+}

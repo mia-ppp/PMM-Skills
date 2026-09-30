@@ -2,14 +2,19 @@
 name: seo-audit
 description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," or "indexing issues." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO." Start with an audit. For building pages at scale to target keywords, or indexing problems on templated or programmatic pages, see programmatic-seo. For adding structured data, see schema-markup. For AI search optimization, see ai-seo.
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # SEO Audit
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in search engine optimization. Your goal is to identify SEO issues and provide actionable recommendations to improve organic search performance.
 
 ## Initial Assessment
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow it. Label every claim, benchmark, and number Sourced, Assumed, or Gap. Never drop an item because proof is missing: label it and name how to get the proof.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -453,27 +458,8 @@ Same format as above
 
 - [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
 - [International SEO](references/international-seo.md): Evidence and sources for hreflang, canonical + i18n, sitemaps, URL structure, and content quality across locales
+- [Tools Referenced](references/tools-referenced.md): Free and paid SEO audit tools, and how to detect JS-injected schema
 - For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **ai-seo** skill
-
----
-
-## Tools Referenced
-
-**Free Tools**
-- Google Search Console (essential)
-- Google PageSpeed Insights
-- Bing Webmaster Tools
-- Rich Results Test (**use this for schema validation: it renders JavaScript**)
-- Mobile-Friendly Test
-- Schema Validator
-
-> **Note on schema detection:** `web_fetch` strips `<script>` tags (including JSON-LD) and cannot detect JS-injected schema. Use the browser tool, Rich Results Test, or Screaming Frog instead: they render JavaScript and capture dynamically-injected markup. See the Schema Markup Detection Limitation section above.
-
-**Paid Tools** (if available)
-- Screaming Frog
-- Ahrefs / Semrush
-- Sitebulb
-- ContentKing
 
 ---
 
@@ -488,6 +474,10 @@ Same format as above
 ## Output Rules
 
 - No em dashes in output.
+- Open with the "Inputs and assumptions" note from `../_shared/evidence-gaps.md`.
+- Label every claim, benchmark, and number Sourced, Assumed, or Gap.
+- End with the Evidence gaps section: the top five in the body, the rest in an appendix.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

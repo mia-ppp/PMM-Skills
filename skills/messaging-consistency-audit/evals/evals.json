@@ -1,0 +1,72 @@
+{
+  "skill_name": "messaging-consistency-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run /audit sample-co on the supplied manifest, synthetic SSOT, website, LinkedIn post, outbound email, and sales deck. Return the remediation bundle and keep canon changes approval-gated.",
+      "expected_output": "Produces a four-asset remediation bundle. Marks website messaging ALIGNED and LinkedIn copy APPROVED_VARIATION. Flags the outbound category/persona expansion and genericized/overstated value as DRIFT, the automation claim and material website versus email/deck product-definition conflict as CONTRADICTION, and the 40% savings point as UNSUPPORTED_CLAIM. Detects the same category frame in outbound and the deck as a repeated pattern and queues SSOT_REVIEW_REQUIRED without changing canon. Routes asset fixes to cold-email and sales-enablement, includes exact SSOT references, and leaves corrected items open until re-audited.",
+      "assertions": [
+        "Performs both vertical SSOT validation and horizontal comparison across assets",
+        "Distinguishes aligned wording from legitimate LinkedIn channel variation",
+        "Flags category and persona drift without treating the wording difference itself as drift",
+        "Flags the unshipped automation claim as a contradiction against core/02-product.md",
+        "Flags the unsupported 40% result against living/07-evidence.md",
+        "Detects the horizontal product-definition contradiction across website, email, and deck",
+        "Detects the repeated category frame across two assets and queues SSOT_REVIEW_REQUIRED separately from asset fixes",
+        "Does not treat repetition as approval or modify canonical content",
+        "Routes outbound to cold-email and deck corrections to sales-enablement",
+        "Includes location, severity, why it matters, canonical reference, recommendation, route, and status",
+        "Does not mark any open asset fix verified before corrected content is re-audited"
+      ],
+      "files": [
+        "skills/messaging-consistency-audit/evals/fixtures/manifest.yaml",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/00-what-it-is.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/01-how-you-position-it.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/02-product.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/03-who-it-is-for.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/living/07-evidence.md",
+        "skills/messaging-consistency-audit/evals/fixtures/assets/website.md",
+        "skills/messaging-consistency-audit/evals/fixtures/assets/linkedin.md",
+        "skills/messaging-consistency-audit/evals/fixtures/assets/outbound.md",
+        "skills/messaging-consistency-audit/evals/fixtures/assets/sales-deck.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Run /reaudit on the corrected outbound email and sales deck against the same SampleCo SSOT, website, and LinkedIn fixtures. Report which original finding IDs are verified and what remains open.",
+      "expected_output": "Verifies the corrected capability, proof, category, persona, and value proposition in the revised assets. Confirms the vertical and horizontal mismatches are resolved. Keeps the SSOT review item open until its evidence question is handled through ssot-context-loop, and makes no canonical edit.",
+      "assertions": [
+        "Rechecks corrected versions against the SSOT rather than relying on the correction description",
+        "Rechecks corrected assets horizontally against website, LinkedIn, and each other",
+        "Verifies the original cross-asset product-definition contradiction is resolved",
+        "Marks resolved asset findings Verified only after checking the new wording",
+        "Keeps the SSOT review finding separate and open until its evidence question is resolved",
+        "Does not change canonical SSOT files"
+      ],
+      "files": [
+        "skills/messaging-consistency-audit/evals/fixtures/manifest.yaml",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/00-what-it-is.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/01-how-you-position-it.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/02-product.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/core/03-who-it-is-for.md",
+        "skills/messaging-consistency-audit/evals/fixtures/ssot/living/07-evidence.md",
+        "skills/messaging-consistency-audit/evals/fixtures/assets/website.md",
+        "skills/messaging-consistency-audit/evals/fixtures/assets/linkedin.md",
+        "skills/messaging-consistency-audit/evals/fixtures/corrections/outbound-corrected.md",
+        "skills/messaging-consistency-audit/evals/fixtures/corrections/sales-deck-corrected.md",
+        "skills/messaging-consistency-audit/evals/sample-remediation.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Audit this supplied landing-page sentence: \"We automatically prevent every fraudulent transaction.\" Only provisional .agents/product-marketing-context.md notes call the product payment risk analytics; no approved SSOT, manifest, product proof, or claims register is supplied. Report the limits of this review without silently creating canon.",
+      "expected_output": "Inventories the claim and evidence gap, marks definitive canon comparison unavailable, and requests applicable SSOT instead of treating bootstrap or repeated wording as approved.",
+      "assertions": [
+        "Marks definitive canonical comparison unavailable without an applicable SSOT",
+        "Does not treat bootstrap context as approved canon",
+        "Flags the unsupported absolute capability and names required evidence",
+        "Does not change canon or award definitive ALIGNED status"
+      ]
+    }
+  ]
+}

@@ -7,6 +7,8 @@ metadata:
 
 # Messaging Framework
 
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only this task’s approved context. Build the framework from approved positioning and persona research; route proposed canon changes through `ssot-context-loop` for human approval.
+
 You turn an internal positioning statement into messaging every team can reuse: a capability table with proof and buyer voice, a recommended hero line derived from it, and translations by persona. Positioning is strategy. Hero lines are the first expression of it.
 
 Deliver the finished framework, not advice about how to write one.
@@ -20,7 +22,7 @@ Deliver the finished framework, not advice about how to write one.
 **Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
 
 **Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Its Positioning section (statement, trace, and capability table) and Persona message map are your inputs, along with its proof points.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Its Positioning section (statement, trace, and capability table), Persona message map, and proof points support initialization and chaining. Approved mapped SSOT is authoritative for covered claims; bootstrap inputs may fill uncovered provisional context but cannot override it. Missing bootstrap sections do not make approved SSOT unavailable.
 
 You need a position to build from. If none exists:
 - If the user gave enough detail, infer a provisional position, label it clearly, and continue.
@@ -58,11 +60,11 @@ Restate the position, best-fit customer, and top two alternatives in three lines
 Write one line on the cost of doing nothing, taken from the positioning's contextual alternative: what the buyer keeps paying in time, money, or risk if they stay with it. Label it Sourced, Assumed, or Gap.
 
 ### 2. Build the capability table
-One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Build rows only from the context doc's Positioning section: its differentiating phrase and every row of its capability table each become a row here, with their labels. None may be dropped. If the differentiating phrase and a table row name the same capability, merge them into one row. Log the merge in Inputs and assumptions as an upstream positioning issue. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
+One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Build rows from approved mapped SSOT positioning and capabilities where applicable. For uncovered provisional context, use the context doc's Positioning section: its differentiating phrase and every row of its capability table each become a row here, with their labels. Do not carry bootstrap rows that contradict covered canon into messaging; flag them for SSOT review. No applicable upstream capability may be silently dropped; excluded contradictory bootstrap rows remain review items. If the differentiating phrase and a table row name the same capability, merge them into one row. Log the merge in Inputs and assumptions as an upstream positioning issue. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
 
 **Never add a differentiator.** If one seems missing, list it under "Proposed for positioning" with a one-line reason, and do not use it anywhere in the messaging. The fix belongs in positioning-strategy.
 
-If the Positioning section is missing, build rows from the position the user gave (or your provisional one), label them Assumed, and recommend positioning-strategy.
+If bootstrap Positioning is missing, use applicable approved SSOT inputs. Only where neither source supplies the needed position, build provisional rows from the user-given or inferred position, label them Assumed, and recommend positioning-strategy. Do not invent differentiators for covered canon.
 
 ### 3. Write the hero line
 1. **Write for the loosely familiar visitor.**
@@ -75,9 +77,9 @@ If the Positioning section is missing, build rows from the position the user gav
 List the claims that are true but shared. Note where each can still appear, such as on a feature page, without leading the message.
 
 ### 5. Translate by persona
-Start from the context doc's Persona message map. For each persona in it, adapt the emphasis only: which capability leads and the one line they should hear first. Keep the map's facts and proof; reword to pass the language rules.
+Start from approved mapped SSOT persona messaging where applicable; otherwise use the context doc's Persona message map for uncovered provisional context. For each persona, adapt the emphasis only: which capability leads and the one line they should hear first. Keep the source's facts, proof, and approval status; reword to pass the language rules. A bootstrap map cannot override covered SSOT.
 
-If the map is missing, write the persona lines anyway, label each one Assumed, and recommend buyer-personas to build the map.
+If the bootstrap map is missing, use applicable approved SSOT persona inputs. Where neither source supplies a persona, write provisional lines, label each one Assumed, and recommend buyer-personas to build the map.
 
 ### 6. Write the boilerplate
 Provide three lengths: a one-liner (about 10 words), an elevator pitch (about 30 words), and a company boilerplate (about 60 words).
@@ -92,12 +94,12 @@ Run section 6 of `../_shared/segment-selection.md`. The segments in the hero lin
 
 ```
 ## Inputs and assumptions
-[Table from ../_shared/evidence-gaps.md. Name the Positioning section and Persona message map as Sourced, or as missing.]
+[Table from ../_shared/evidence-gaps.md. Record approved mapped SSOT and/or bootstrap Positioning and Persona message map inputs, their evidence labels, approval status, and missing context.]
 
 ## Capabilities
 | Capability | What it does for the buyer | Proof | Buyer voice | Label |
 |---|---|---|---|---|
-| [row from the positioning's capability table] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] | Sourced / Assumed / Gap |
+| [row from approved SSOT or uncovered provisional positioning] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] | Sourced / Assumed / Gap |
 
 ### Assumptions
 [The assumptions this table rests on, one line each.]
@@ -162,7 +164,7 @@ For launch messaging, add a short block covering target, market, segment, catego
 - Dropping a capability that the positioning statement or its capability table named.
 - One message for every persona with no change in emphasis.
 - Adding differentiators not in positioning. List them under "Proposed for positioning" instead.
-- Writing persona lines without the message map. If it is missing, label the lines Assumed and recommend buyer-personas.
+- Treating missing bootstrap sections as missing canon when approved mapped SSOT supplies the inputs. If neither source supplies persona context, label provisional lines Assumed and recommend buyer-personas.
 - Proof or buyer voice cells full of vague claims like "customers love it" instead of a marked gap.
 - Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written. The one exception is in the shared reference's style notes: a deliberate parallel against-frame, at most once per page.
 - Em dashes anywhere in the messaging.

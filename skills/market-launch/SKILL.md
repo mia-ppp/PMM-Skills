@@ -7,6 +7,9 @@ metadata:
 
 # Market Launch
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You conduct a new-market launch through the four rungs in `../_shared/launch-stages.md`. At each rung you name the skill that produces the artifact, check the entry gate, and carry the prior artifact forward. You never write a rung's artifact yourself.
 
 Deliver the launch plan with gate status, not a lecture on launch theory.
@@ -27,9 +30,9 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 | Rung | Skill(s) that produce the artifact | Input artifact | Output artifact |
 |---|---|---|---|
 | 1. Market decision | `market-entry-brief` | Brief and product marketing context | Market-entry brief |
-| 2. Position and canon | `positioning-strategy`, then `messaging-framework`, then the company messaging rule book | Market-entry brief | Locked canon |
-| 3. Assets | `copywriting`, `email-sequence`, `cold-email`, `social-content`, `seo-audit`, `ai-seo`, `programmatic-seo`, `competitor-alternatives`, `paid-ads`, `ad-creative`, `sales-enablement`, `launch-strategy`, then `localization-claims` on every asset | Locked canon | On-canon launch assets |
-| 4. Guardrail and learn | `launch-readiness-check`, then the eval harness (`evals/`) | On-canon launch assets | Go/no-go scorecard |
+| 2. Position and canon | `positioning-strategy`, then `messaging-framework`, then `ssot-context-loop` or an existing company messaging rule book | Market-entry brief | Locked canon |
+| 3. Assets | `copywriting`, `email-sequence`, `cold-email`, `social-content`, `seo-audit`, `ai-seo`, `programmatic-seo`, `competitor-alternatives`, `paid-ads`, `ad-creative`, `sales-enablement`, `launch-strategy`, and `events` when an event is part of the launch; then `localization-claims` on every applicable asset | Locked canon | On-canon launch assets |
+| 4. Guardrail and learn | `launch-readiness-check`; optional post-launch skill evals (`evals/`) | On-canon launch assets | Go/no-go scorecard |
 
 ## Core Principles
 
@@ -41,7 +44,7 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 
 **The handoff contract is not optional.** Every artifact carries the header block, a canon version stamp, and evidence labels. An artifact missing any of these fails its gate, even if the content is good.
 
-**A missing skill is a Blocked gate.** If a named skill is not installed, such as the rule book for this company, say so and mark that rung Blocked. Never substitute a generic version.
+**A missing required skill is a Blocked gate.** An applicable approved SSOT may supply canon without a separate company rule-book skill, per `../_shared/launch-stages.md`. If neither canon source exists, block Rung 2 and route setup/approval to `ssot-context-loop`. Never substitute generic or unapproved canon.
 
 **Carry artifacts forward unchanged.** Pass the prior artifact as the next rung's input. Labels travel with it. Never upgrade an Assumed or Gap label on the way through.
 
@@ -88,9 +91,9 @@ Current canon: v[YYYY-MM-DD] (or "pre-canon" if Rung 2 has not passed)
 | Rung | Skill used | Input artifact (stamp) | Output artifact (stamp) | Gate status |
 |---|---|---|---|---|
 | 1. Market decision | market-entry-brief | Brief (n/a) | Market-entry brief (pre-canon) | Passed / Open / Blocked / Not started |
-| 2. Position and canon | positioning-strategy, messaging-framework, [company rule book] | Market-entry brief (pre-canon) | Locked canon (v[date]) | |
+| 2. Position and canon | positioning-strategy, messaging-framework, ssot-context-loop / [existing company rule book] | Market-entry brief (pre-canon) | Locked canon (v[date]) | |
 | 3. Assets | [asset skills chosen], localization-claims | Locked canon (v[date]) | [asset list] (v[date]) | |
-| 4. Guardrail and learn | launch-readiness-check, eval harness | Launch assets (v[date]) | Go/no-go scorecard (v[date]) | |
+| 4. Guardrail and learn | launch-readiness-check | Launch assets (v[date]) | Go/no-go scorecard (v[date]) | |
 
 ## Next action
 [One line: the skill to run now and the artifact it takes as input. If blocked, the skill to run first.]
@@ -129,4 +132,6 @@ Suggest the one skill to run next, with the artifact it takes as input. After la
 - **positioning-strategy**: Rung 2, sets the position
 - **messaging-framework**: Rung 2, turns the position into messaging
 - **launch-strategy**: Rung 3, plans launch channels and phases
+- **events**: Rung 3, owns GTM event strategy when an event is part of the launch and routes its assets to channel skills
 - **sales-enablement**: Rung 3, builds decks and talk tracks from the canon
+- **output-quality-check**: independently checks an artifact against its producing skill's declared requirements; separate from messaging consistency

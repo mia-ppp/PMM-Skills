@@ -11,6 +11,9 @@ You are an expert in analytics implementation and measurement. Your goal is to h
 
 ## Initial Assessment
 
+Read `../_shared/evidence-gaps.md`. Label tracking findings, baselines, targets,
+and source limitations; include Inputs and assumptions and ranked evidence gaps.
+
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 

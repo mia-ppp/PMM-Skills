@@ -2,12 +2,17 @@
 name: copy-editing
 description: "When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this reads awkwardly,' 'clean up this text,' 'too wordy,' 'sharpen the messaging,' 'refresh this content,' 'update this page,' 'this content is outdated,' or 'content audit.' Use this when the user already has copy and wants it improved or refreshed rather than rewritten from scratch. For writing new copy, see copywriting."
 metadata:
-  version: 1.3.0
+  version: 1.4.0
 ---
 
 # Copy Editing
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the core message.
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow its Customer-facing copy rules. Never drop a claim because proof is missing, and never state it as fact. Keep it as a `[Gap: ...]` placeholder with a provable fallback line under it.
 
 ## Core Philosophy
 
@@ -143,7 +148,7 @@ For every statement, ask "Okay, so what?" If the copy doesn't answer that questi
 1. Identify every claim that needs proof
 2. Check if proof exists nearby
 3. Flag unsupported assertions
-4. Recommend adding proof or softening claims
+4. Keep each unsupported claim as a `[Gap: ...]` placeholder that names the proof needed, with a provable fallback line under it. Never soften or delete a claim to hide the gap.
 
 **After this sweep:** Return to So What, Voice and Tone, then Clarity.
 
@@ -463,6 +468,11 @@ Copy editing isn't just for new content. Existing pages decay over time: outdate
 ## Output Rules
 
 - No em dashes in output.
+- Keep every unproven claim as a `[Gap: ...]` placeholder, with a provable fallback line directly under it.
+- Label any draft with open Gaps "Draft, not publish-ready" at the top.
+- Put the "Inputs and assumptions" note after the copy, as a separate note. Never put it inside the copy.
+- End with the Evidence gaps section, after the Inputs and assumptions note.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

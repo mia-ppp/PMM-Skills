@@ -1,0 +1,38 @@
+{
+  "skill_name": "objection-intelligence",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use this synthetic evidence: in 20 call notes, 9 prospects ask about CSV export, but none pause evaluation. One late-stage enterprise security reviewer rejected the product because required SSO evidence was missing. An AE proposes saying 'certified to SOC 2,' but no report or approved claim exists. Prioritize the library entries.",
+      "expected_output": "Separates frequency from severity, surfaces the rare deal-blocking security issue, and flags unsupported proof as a gap rather than creating a response.",
+      "assertions": [
+        "Does not equate the most frequent CSV question with highest impact",
+        "Flags the single security issue as potentially high severity while preserving low sample confidence",
+        "Does not state SOC 2 certification without evidence",
+        "Routes final response creation to sales-enablement"
+      ],
+      "files": ["fixtures/objections.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "Synthetic call evidence: early-stage buyers use 'too expensive' to mean the price is high in 2 calls; procurement-stage buyers use it to mean there is no approved budget in 3 calls. Build the objection records and preserve the difference.",
+      "expected_output": "Keeps persona/stage/context differences visible instead of merging them into one generic price objection.",
+      "assertions": [
+        "Records the stage-specific meanings separately or explicitly preserves both meanings",
+        "Includes source counts and denominators where supplied",
+        "Does not assume the same response addresses both concerns",
+        "Identifies evidence gaps instead of fabricating supporting proof"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A recurring objection library suggests our approved differentiation no longer addresses what late-stage buyers ask about. Document the implication and next owner.",
+      "expected_output": "Treats the library as evidence, routes response material to Sales Enablement and potential strategy conflict through SSOT review, without changing canon.",
+      "assertions": [
+        "Routes objection handling material to sales-enablement",
+        "Routes systemic positioning or messaging concern to strategy and SSOT review",
+        "Does not silently rewrite canonical messaging"
+      ]
+    }
+  ]
+}

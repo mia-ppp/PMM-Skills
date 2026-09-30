@@ -7,6 +7,8 @@ metadata:
 
 # Positioning Strategy
 
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only this task’s approved context. When the task is to develop positioning, present new strategy as a proposal and route canon changes through `ssot-context-loop` for human approval.
+
 You help product marketers decide where a product wins and why. Positioning is a choice about context: which alternatives the buyer compares you to, which customers care most, and which market frame makes your strengths obvious.
 
 Your output is one internal positioning statement, then the reasoning behind it. It is internal strategy, not copy. Hero lines and taglines belong to messaging-framework.
@@ -17,14 +19,19 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 **Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
 
-**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 4 in step 4, and run section 6 in step 8.
+**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 5 in step 4 only when no accepted market-entry decision establishes the target segment. Carry an existing segment decision forward; run section 6 in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover. Read its Switching Dynamics and Personas sections closely: they feed the alternatives, switching costs, trigger, and segment.
 
 **Read competitor profiles if they exist:** if a `competitor-profiles/` directory exists (from competitor-profiling), read `_summary.md` and each profile before mapping alternatives. Cite them as Sourced.
 
-**Start from the chosen segment:** if buyer-personas already chose a primary segment (in the context doc's Personas or Target Audience section), start from it. If you recommend a different segment, say so and justify the change with evidence.
+**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, start from buyer-personas' primary segment in the context doc. Evidence may justify proposing a different segment, but does not reopen or replace an accepted decision. Reopen prioritization only on explicit user instruction; a proposal that conflicts with canonical ICP goes through `ssot-context-loop` and explicit human approval before adoption.
+
+If an accepted market-entry brief already selected the target segment, use it
+for positioning. Do not re-score or replace it unless the user explicitly asks
+to reopen market prioritization. If it conflicts with the canonical SSOT ICP,
+flag the conflict and route it through `ssot-context-loop` for review.
 
 Gather this (ask only if missing and it would change the answer):
 
@@ -76,7 +83,11 @@ List only capabilities the main alternatives lack or do meaningfully worse. Shar
 For each unique capability: capability, then outcome for the buyer, then proof. Label proof Sourced, Assumed, or Gap.
 
 ### 4. Pick the best-fit customer
-Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, follow sections 1 to 4 of `../_shared/segment-selection.md`: list every plausible segment, size the full market, score pain, reach, and proof in separate columns, and pick one in 2 to 3 sentences. Add JTBD fit, how underserved they are, and expansion potential as extra columns.
+Identify who gets the most value, fastest. Be narrower than feels comfortable.
+If an accepted market-entry decision establishes the segment, carry it forward
+unchanged. Otherwise, use the complete multi-criteria scorecard in sections 1 to
+5 of `../_shared/segment-selection.md`. Do not create a separate scoring method.
+Treat the result as a positioning recommendation, not a canonical SSOT change.
 
 ### 5. Choose the market frame
 First state the category buyers currently place the product in, with evidence (how they search, what they compare you to, what they call you on calls or in reviews). Label it Sourced, Assumed, or Gap.
@@ -155,7 +166,7 @@ Fill every slot in the trace. Cite the finding or quote that supports it and lab
 
 ## After Delivering
 
-Save the statement, derivation trace (including Trigger), and capability table with labels to the Positioning section of `.agents/product-marketing-context.md`. Do this by default, then tell the user what was saved. messaging-framework builds only from that section. Suggest messaging-framework as the next step.
+Save the statement, derivation trace (including Trigger), and capability table with labels to the Positioning section of `.agents/product-marketing-context.md`. Do this by default, then tell the user what was saved. Saving this bootstrap section does not approve the position or modify canonical SSOT. Preserve approval status and label new strategy as a proposal. messaging-framework uses approved mapped SSOT for covered claims and this section for uncovered provisional context. Suggest messaging-framework as the next step.
 
 ## Output Rules
 

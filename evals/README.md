@@ -24,6 +24,54 @@ python evals/harness.py calibrate
 
 Add `--mock` to any command to test the pipeline without a key. Mock results go to `evals/results/mock/` so they never mix with real runs.
 
+## Local regression checks and interpretation
+
+```bash
+bash validate-skills.sh
+python3 evals/harness.py lint
+python3 evals/check_references.py
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s evals/tests -v
+git diff --check
+```
+
+- **Structural validation:** skill frontmatter, eval fields/IDs, fixture paths,
+  shared references, explicit handoff targets, and README catalog/links. Lint
+  exits nonzero on invalid fixtures, missing shared files, or invalid handoffs.
+- **Regression/unit validation:** deterministic tests of prompt assembly,
+  repository boundaries, failure reporting, isolation, calibration inputs,
+  judge inputs, and fixture-sensitive reuse. These never call an API.
+- **Mock pipeline validation:** fake generation/routing and random mock grades
+  exercise orchestration and result persistence. Mock scores are not evidence
+  that a skill makes correct PMM decisions.
+- **Real model evaluation:** generation and grading through the configured API.
+  Requires authorization for any spend. Historical results describe their own
+  samples and revisions, not later additions.
+
+### Fixture convention
+
+Each eval may declare `files` as a list of UTF-8 input paths. Omitted `files` and
+`files: []` leave the user prompt unchanged. Paths can be relative to that
+skill's `evals/` directory (`fixtures/sample.md`) or the repository root
+(`skills/skill-name/evals/fixtures/sample.md`). Reference only the inputs needed
+by the case. A verifier case may also name the originating `SKILL.md` and its
+required standards. Do not include expected answers as input evidence.
+
+`run` and `calibrate` append exactly the named inputs, in order, to both loaded
+and baseline prompts. Fixture cases provide the same assembled evidence to
+assertion and rubric judges. The scoring rules, rubric dimensions, and handoff
+exclusions remain unchanged. `route` deliberately uses the request text alone
+to test skill discovery, without attaching evidence or grading its substance.
+
+Absolute paths, parent traversal, malformed `files` values, symlink escapes,
+missing/non-text inputs, and ambiguous local/repository matches fail validation.
+Run inputs are assembled before model calls. Fixture content changes invalidate
+fixture-case resume reuse and calibration cache keys. Existing no-fixture
+calibration cache names and assertion payloads remain compatible.
+
+Cases are independent. Re-audit cases must supply previous finding IDs as well
+as revised assets; a reference to a sample from a previous test is insufficient.
+Keep expected calculations and verdicts in assertions, not in input fixtures.
+
 The default model for runs, routing, and the judge is `claude-sonnet-5`. Override with `--model` and `--judge`.
 
 Pass `--budget 15` to stop before API spend passes $15. `run` stops early if its projected cost is over budget, and keeps the outputs it finished. `run --resume STAMP` continues a stopped run and counts what it already spent.

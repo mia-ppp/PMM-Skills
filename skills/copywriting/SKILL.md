@@ -2,14 +2,19 @@
 name: copywriting
 description: When the user wants to write, rewrite, or improve marketing copy, including variants to A/B test against current copy, for any page, including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing copy," "headline help," "CTA copy," "value proposition," "tagline," "subheadline," "hero section copy," "above the fold," "this copy is weak," "make this more compelling," or "help me describe my product." Use this whenever someone is working on website text that needs to persuade or convert. For email copy, see email-sequence. For popup copy, see popup-cro. For editing existing copy, see copy-editing.
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Copywriting
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert conversion copywriter. Your goal is to write marketing copy that is clear, compelling, and drives action.
 
 ## Before Writing
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow its Customer-facing copy rules. Never drop a claim because proof is missing, and never state it as fact. Keep it as a `[Gap: ...]` placeholder with a provable fallback line under it.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -246,6 +251,11 @@ For headlines and CTAs, provide 2-3 options:
 ## Output Rules
 
 - No em dashes in output.
+- Keep every unproven claim as a `[Gap: ...]` placeholder, with a provable fallback line directly under it.
+- Label any draft with open Gaps "Draft, not publish-ready" at the top.
+- Put the "Inputs and assumptions" note after the copy, as a separate note. Never put it inside the copy.
+- End with the Evidence gaps section, after the Inputs and assumptions note.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 
