@@ -2,7 +2,7 @@
 name: messaging-framework
 description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'hero line,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see copywriting. For sales materials, see sales-enablement."
 metadata:
-  version: 1.3.0
+  version: 1.4.0
 ---
 
 # Messaging Framework
@@ -15,10 +15,12 @@ Deliver the finished framework, not advice about how to write one.
 
 **Load the shared reference:** read `../_shared/messaging-examples.md` (relative to this skill's folder). Follow section 2 for capabilities and section 3 for the hero line: who reads the hero, the decision tree, the against or for frame, and how to write and recommend.
 
+**Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every capability, proof point, and persona line Sourced, Assumed, or Gap. Open the output with its "Inputs and assumptions" note and end with its Evidence gaps section.
+
 **Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
 
 **Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Positioning, personas, and proof points there are your inputs.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Its Positioning section (statement, trace, and capability table) and Persona message map are your inputs, along with its proof points.
 
 You need a position to build from. If none exists:
 - If the user gave enough detail, infer a provisional position, label it clearly, and continue.
@@ -28,7 +30,7 @@ Never invent stats, customers, or quotes as proof. Mark missing proof or buyer q
 
 If key information is missing, answer provisionally: give your best framework and flag assumptions where you use them. Put the assumptions that most affect it in the Assumptions block under the capability table, and end with the two or three questions that would change it. Keep the two together to 5 bullets at most. Never infer customer pain points or product benefits silently. Label them as assumptions.
 
-Open with the capability table. Do not restate the brief.
+Open with Inputs and assumptions, then the capability table. Do not restate the brief.
 
 ## Core Principles
 
@@ -53,8 +55,14 @@ Open with the capability table. Do not restate the brief.
 ### 1. Confirm the inputs
 Restate the position, best-fit customer, and top two alternatives in three lines. Flag anything you had to assume.
 
+Write one line on the cost of doing nothing, taken from the positioning's contextual alternative: what the buyer keeps paying in time, money, or risk if they stay with it. Label it Sourced, Assumed, or Gap.
+
 ### 2. Build the capability table
-One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Start from the positioning: its differentiating phrase and every row of its capability table each become a row here. If the statement you were given lists several capabilities, give each its own row. None may be dropped. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
+One row per differentiating capability: the capability, what it does for the buyer, the proof, and the buyer's own words. Build rows only from the context doc's Positioning section: its differentiating phrase and every row of its capability table each become a row here, with their labels. None may be dropped. If the differentiating phrase and a table row name the same capability, merge them into one row. Log the merge in Inputs and assumptions as an upstream positioning issue. Mark missing proof or quotes as gaps inside the table. Directly under the table, list the assumptions it rests on.
+
+**Never add a differentiator.** If one seems missing, list it under "Proposed for positioning" with a one-line reason, and do not use it anywhere in the messaging. The fix belongs in positioning-strategy.
+
+If the Positioning section is missing, build rows from the position the user gave (or your provisional one), label them Assumed, and recommend positioning-strategy.
 
 ### 3. Write the hero line
 1. **Write for the loosely familiar visitor.**
@@ -67,7 +75,9 @@ One row per differentiating capability: the capability, what it does for the buy
 List the claims that are true but shared. Note where each can still appear, such as on a feature page, without leading the message.
 
 ### 5. Translate by persona
-For each key persona, adapt the emphasis, not the facts. Show which capability leads for that persona and the one line they should hear first.
+Start from the context doc's Persona message map. For each persona in it, adapt the emphasis only: which capability leads and the one line they should hear first. Keep the map's facts and proof; reword to pass the language rules.
+
+If the map is missing, write the persona lines anyway, label each one Assumed, and recommend buyer-personas to build the map.
 
 ### 6. Write the boilerplate
 Provide three lengths: a one-liner (about 10 words), an elevator pitch (about 30 words), and a company boilerplate (about 60 words).
@@ -81,13 +91,22 @@ Run section 6 of `../_shared/segment-selection.md`. The segments in the hero lin
 ## Output Format
 
 ```
+## Inputs and assumptions
+[Table from ../_shared/evidence-gaps.md. Name the Positioning section and Persona message map as Sourced, or as missing.]
+
 ## Capabilities
-| Capability | What it does for the buyer | Proof | Buyer voice |
-|---|---|---|---|
-| [verb-led, concrete capability] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] |
+| Capability | What it does for the buyer | Proof | Buyer voice | Label |
+|---|---|---|---|---|
+| [row from the positioning's capability table] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] | Sourced / Assumed / Gap |
 
 ### Assumptions
 [The assumptions this table rests on, one line each.]
+
+### Proposed for positioning
+[Differentiators that seem missing from the positioning, one line each with the reason. Not used in this messaging. Omit if none.]
+
+## Cost of doing nothing
+[One line from the positioning's contextual alternative, with label.]
 
 ## Hero line
 Reader: the loosely familiar visitor.
@@ -111,8 +130,8 @@ Frame: [against X / for Y], because [one line]
 ## What this emphasizes and gives up
 ## Table stakes (not differentiators)
 ## Messaging by persona
-| Persona | Lead capability | First line they hear |
-|---|---|---|
+| Persona | Lead capability | First line they hear | Label |
+|---|---|---|---|
 
 ## Boilerplate
 One-liner / Elevator / Boilerplate
@@ -125,6 +144,9 @@ Use: ... | Avoid: ...
 
 ## Questions that would change this
 [2 or 3 questions. Together with the Assumptions block, 5 bullets at most.]
+
+## Evidence gaps (top five)
+[Ranked table from ../_shared/evidence-gaps.md, then the appendix with every remaining Assumed and Gap item.]
 ```
 
 For launch messaging, add a short block covering target, market, segment, category, unique value, and proof, so the launch team has one reference.
@@ -139,6 +161,8 @@ For launch messaging, add a short block covering target, market, segment, catego
 - Capabilities any competitor could claim.
 - Dropping a capability that the positioning statement or its capability table named.
 - One message for every persona with no change in emphasis.
+- Adding differentiators not in positioning. List them under "Proposed for positioning" instead.
+- Writing persona lines without the message map. If it is missing, label the lines Assumed and recommend buyer-personas.
 - Proof or buyer voice cells full of vague claims like "customers love it" instead of a marked gap.
 - Headlines or lines in the form "Do this, not that" or "X, not Y." They read as AI-written. The one exception is in the shared reference's style notes: a deliberate parallel against-frame, at most once per page.
 - Em dashes anywhere in the messaging.

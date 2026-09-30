@@ -2,7 +2,7 @@
 name: buyer-personas
 description: "When the user wants to create, research, validate, or refresh buyer personas, ICP profiles, or buying committee maps. Use when the user mentions 'persona,' 'buyer persona,' 'ICP,' 'ideal customer profile,' 'who is our buyer,' 'buying committee,' 'decision maker,' 'champion,' 'persona interviews,' 'segment,' 'which segment should we target,' 'segmentation,' or 'anti-persona.' Use this whenever audience assumptions drive a positioning, messaging, or campaign decision. For interview synthesis across many sources, see customer-research. For using personas in positioning, see positioning-strategy. For recording personas in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # Buyer Personas
@@ -58,6 +58,7 @@ Summarize the persona profiles and the committee map in one table. It opens the 
 - **Persona:** the role-based name, with the buying role in brackets, such as (champion), (evaluator), or (financial buyer).
 - **What matters to them:** 1 to 2 short phrases naming the priorities that decide the deal for this persona. Examples: conversion rate, compliance, compute cost, integration effort.
 - **Message:** the core message for this persona in 1 to 2 sentences, tied to a proof point with its label (Sourced, Assumed, or Gap). It is the argument that wins them over, not an opening line or hook.
+- **Language:** no "X, not Y" or "Do this, not that" constructions, no clichés (unlock, seamless, game-changer, leverage, revolutionize, next-generation), and no em dashes.
 
 ## Output Format
 
@@ -103,7 +104,7 @@ Use role-based names like "RevOps Lead at a Series B SaaS company," not invented
 
 ## After Delivering
 
-Offer to save personas to the Personas section of `.agents/product-marketing-context.md`. Suggest positioning-strategy or messaging-framework as next steps.
+Save personas to the Personas section of `.agents/product-marketing-context.md`, and the persona message map to its Persona message map section. Do this by default, then tell the user what was saved. Write one map row per persona: Persona (buying role), What matters to them, Message, and the proof's label (Sourced, Assumed, or Gap). messaging-framework starts its persona lines from that map. Suggest positioning-strategy or messaging-framework as next steps.
 
 ## Output Rules
 

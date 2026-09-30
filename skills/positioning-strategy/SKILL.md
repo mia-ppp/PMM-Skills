@@ -2,7 +2,7 @@
 name: positioning-strategy
 description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.3.0
+  version: 1.4.0
 ---
 
 # Positioning Strategy
@@ -20,7 +20,11 @@ Your output is one internal positioning statement, then the reasoning behind it.
 **Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 4 in step 4, and run section 6 in step 8.
 
 **Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover. Read its Switching Dynamics and Personas sections closely: they feed the alternatives, switching costs, trigger, and segment.
+
+**Read competitor profiles if they exist:** if a `competitor-profiles/` directory exists (from competitor-profiling), read `_summary.md` and each profile before mapping alternatives. Cite them as Sourced.
+
+**Start from the chosen segment:** if buyer-personas already chose a primary segment (in the context doc's Personas or Target Audience section), start from it. If you recommend a different segment, say so and justify the change with evidence.
 
 Gather this (ask only if missing and it would change the answer):
 
@@ -63,6 +67,8 @@ Never invent win rates, customer names, market sizes, or quotes. Use placeholder
 ### 1. Map the alternatives
 List competitive and contextual alternatives separately. For each, note what buyers like about it. You cannot beat an alternative you do not respect.
 
+For each alternative, state the switching cost: what the buyer loses or must redo to leave it (data migration, retraining, contract terms, workflow change). Label each Sourced, Assumed, or Gap.
+
 ### 2. Isolate unique capabilities
 List only capabilities the main alternatives lack or do meaningfully worse. Shared features go to a separate "table stakes" list.
 
@@ -73,10 +79,14 @@ For each unique capability: capability, then outcome for the buyer, then proof. 
 Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, follow sections 1 to 4 of `../_shared/segment-selection.md`: list every plausible segment, size the full market, score pain, reach, and proof in separate columns, and pick one in 2 to 3 sentences. Add JTBD fit, how underserved they are, and expansion potential as extra columns.
 
 ### 5. Choose the market frame
-Recommend claim, subcategory, or create. Explain which frame makes the unique value obvious to the best-fit customer in the fewest words.
+First state the category buyers currently place the product in, with evidence (how they search, what they compare you to, what they call you on calls or in reviews). Label it Sourced, Assumed, or Gap.
+
+Then recommend claim, subcategory, or create. Explain which frame makes the unique value obvious to the best-fit customer in the fewest words. If the recommended frame differs from where buyers place you today, name the gap and the cost of moving buyers across it (education, content, sales cycle length, budget).
 
 ### 6. State the trade-offs
 Say what this positioning gives up: segments de-prioritized, messages dropped, deals you will now lose. Positioning without trade-offs is a wish list.
+
+Add one line on the main competitor's likely response to this positioning, and what it would do to the position.
 
 ### 7. Tighten the statement
 Count the words and the capabilities in your draft. If it runs past 25 words, or names more than one capability, move each extra capability to the capability table, pick the single phrase that best sets the product apart, and rewrite. Repeat until it passes.
@@ -84,7 +94,8 @@ Count the words and the capabilities in your draft. If it runs past 25 words, or
 ### 8. Stress-test it
 Run each test and report the result honestly:
 - **Swap test:** could a named competitor say this truthfully? If yes, it is not differentiated.
-- **Proof test:** is every claim backed by something you have or can get this quarter?
+- **Copy test:** could a competitor make this claim true within 12 months, by shipping a feature or changing pricing? If yes, say which one and how, and treat the position as temporary.
+- **Proof test:** is every claim backed by something you have or can get this quarter? Fail a claim if churn reasons or support data contradict it, and cite the contradicting data.
 - **Rep test:** can a sales rep say it in one sentence without notes?
 - **Buyer test:** does it use the words customers use, not internal vocabulary?
 - **Consistency test:** run section 6 of `../_shared/segment-selection.md` on everything this work names. That covers the statement's segment, any sizing or KPIs in the context, and any hero line, subhead, or segment first line already written. Flag segment-specific words, such as "free credits," in a line meant for several segments. Fix each mismatch or state why it is intentional.
@@ -104,24 +115,29 @@ Lead with the statement. Use this structure:
 | Category | [claim / subcategory / create, and why] | [research finding or quote] | Sourced / Assumed / Gap |
 | Differentiating phrase | [one concrete phrase] | | |
 | Segment | [a specific segment, never "everyone" or "businesses"] | | |
+| Trigger | [the event that starts the search, such as a failed audit or a new hire] | | |
 
-Competitive alternatives: [what is on the shortlist]
-Contextual alternative: [what the product truly replaces]
+Competitive alternatives: [what is on the shortlist, with switching cost for each]
+Contextual alternative: [what the product truly replaces, with switching cost]
+Current category: [where buyers place the product today, with evidence and label]
 
 ## Capabilities
-| Capability | What it does for the buyer | Proof | Buyer voice |
-|---|---|---|---|
-| [every capability, checkpoint, or mechanism not in the statement] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] |
+| Capability | What it does for the buyer | Proof | Buyer voice | Label |
+|---|---|---|---|---|
+| [every capability, checkpoint, or mechanism not in the statement] | | [proof, or "Gap: need ..."] | ["quote", or "Gap: need a buyer quote"] | Sourced / Assumed / Gap |
 
 ## Trade-offs we are making
+[Include one line on the main competitor's likely response.]
 ## Stress-test results
 ## Consistency check
 [Tables from section 6 of ../_shared/segment-selection.md, for the segments this work names]
 ## Assumptions and open questions
 [At most 5 bullets combined, one line each. The assumptions that most affect the answer first, then the 2 or 3 questions that would change it.]
+## Evidence gaps (top five)
+[Ranked table from ../_shared/evidence-gaps.md, then the appendix with every remaining Assumed and Gap item.]
 ```
 
-Fill every slot in the trace. Cite the finding or quote that supports it and label it Sourced, or label it Assumed or Gap. Write one statement only, not options. Every capability you considered appears either as the differentiating phrase or as a row in the capability table. If the user asked for a rework, show the old statement and the new one side by side and say what changed and why.
+Fill every slot in the trace. Cite the finding or quote that supports it and label it Sourced, or label it Assumed or Gap. Write one statement only, not options. Every capability you considered appears either as the differentiating phrase or as a row in the capability table. **Rework mode:** if the user asked for a rework, test the old statement before rewriting. Report its results directly after the new statement: which stress tests it fails and why. Then show the old statement and the new one side by side and say what changed and why.
 
 ## Common Failure Modes
 
@@ -139,7 +155,7 @@ Fill every slot in the trace. Cite the finding or quote that supports it and lab
 
 ## After Delivering
 
-Offer to record the result in `.agents/product-marketing-context.md` so other skills use it. Suggest messaging-framework as the next step.
+Save the statement, derivation trace (including Trigger), and capability table with labels to the Positioning section of `.agents/product-marketing-context.md`. Do this by default, then tell the user what was saved. messaging-framework builds only from that section. Suggest messaging-framework as the next step.
 
 ## Output Rules
 
