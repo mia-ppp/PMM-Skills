@@ -78,11 +78,16 @@ Customer Marketing • Partner Marketing • Product Communications
                          ↓
 EXECUTION (from approved strategy)
 Sales Enablement • Website & Copy • Email • Social • Paid Ads
-Acquisition Conversion • Search • Content • Buyer Resources • Creative
+Competitive Content • Buyer Resources • Creative
+                         ↓
+BUYER JOURNEY & GROWTH
+Content & Search Discoverability • Website Buyer Journey
+Conversion • Activation • Upgrades • Community • Referrals
                          ↓
 REVIEW & LEARNING
 Output Quality • Messaging Consistency • Launch Readiness
-Analytics • RevOps • Evidence & Field Learning
+Localization & Claims • Measurement • Experimentation
+RevOps • Evidence & Field Learning
                          │
                          └──→ Propose updates to company context
                               and strategy; human approval is
@@ -93,6 +98,8 @@ Start at the point your task needs. A page edit can use approved context directl
 
 Channel skills express approved strategy. Observed evidence can challenge it and trigger review, but does not silently rewrite canon.
 
+Quality and governance checks apply across workflows; they are shown together for readability.
+
 | PMM job | What the skills help you do | Example capabilities |
 |---|---|---|
 | Customer & market intelligence | Find recurring customer needs, competitive patterns, and reasons deals are won or lost. Keep customer language and sourced findings separate from interpretation. | Customer research, Voice of Customer, competitive intelligence, win/loss, objection intelligence |
@@ -100,10 +107,10 @@ Channel skills express approved strategy. Observed evidence can challenge it and
 | Positioning & messaging | Propose a positioning direction and build messaging from approved positioning and buyer context. Route strategic changes for human approval. | Positioning, messaging frameworks, value propositions |
 | Pricing & packaging | Evaluate what to charge and how to structure plans using buyer needs and willingness-to-pay evidence. | Pricing research, packaging, value metrics, pricing tiers |
 | Go-to-market & launches | Plan the market entry or launch, assign owners and dependencies, and hand asset briefs to channel skills. | GTM model, market entry, launch strategy, ABM, events, partner marketing, product communications |
-| Customer & revenue growth | Plan customer adoption, expansion, advocacy, and retention programs from approved context. | Customer marketing, onboarding, churn prevention, referral programs, community marketing |
+| Customer & revenue growth | Plan customer adoption, expansion, advocacy, and retention programs from approved context. | Customer marketing, activation, retention, upgrades, referral programs, community marketing |
 | Channels & execution | Turn approved strategy into sales materials and channel assets, then improve discovery and conversion. | Sales enablement, website/copy, email, social, paid acquisition, CRO, SEO, content, lead magnets, creative |
-| Quality & governance | Check outputs against their originating skill, audit market-facing messaging against approved context, and assess overall launch readiness. Maintain approval gates for strategic changes. | Output quality, messaging consistency, launch readiness, SSOT governance |
-| Learning loop | Measure results, manage revenue handoffs, and return field evidence for review and proposed updates to company context and strategy. | Analytics, RevOps, win/loss and objection findings, human-approved SSOT updates |
+| Quality & governance | Check outputs against their originating skill, audit market-facing messaging against approved context, and assess overall launch readiness. Maintain approval gates for strategic changes. | Output quality, messaging consistency, launch readiness, localization/claims, SSOT governance |
+| Learning loop | Measure results, manage revenue handoffs, and return field evidence for review and proposed updates to company context and strategy. | Measurement, experimentation, RevOps, win/loss and objection findings, human-approved SSOT updates |
 
 ### Shared context and approval
 
