@@ -78,6 +78,19 @@
         "Each Message cell is 1 to 2 sentences and carries a proof point labeled Sourced, Assumed, or Gap"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Use skills/buyer-personas/evals/fixtures/canonical-icp-conflict.md. Create personas for the established target segment and handle the disagreement between the canonical ICP and the newer market-entry scorecard.",
+      "expected_output": "Personas are scoped to Regional clinics, the approved canonical ICP. The newer scorecard's Multi-site care groups result is called out as a conflict/review item, with route through the existing SSOT review and human approval process. The persona skill does not re-score segments, independently pick a different ICP, or update canonical SSOT.",
+      "assertions": [
+        "Uses Regional clinics from canonical SSOT as the selected segment",
+        "Identifies the scorecard recommendation as a potential conflict requiring SSOT review",
+        "Routes proposed canonical ICP change through existing SSOT review and human approval",
+        "Does not independently rescore or select Multi-site care groups as the persona target",
+        "Does not modify canonical SSOT content"
+      ],
+      "files": ["skills/buyer-personas/evals/fixtures/canonical-icp-conflict.md"]
     }
   ]
 }

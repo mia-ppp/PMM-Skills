@@ -9,9 +9,9 @@ Evidence labels follow `evidence-gaps.md`. Segment choices follow `segment-selec
 | Rung | Name | Skills | Handoff artifact |
 |---|---|---|---|
 | 1 | Market decision | `market-entry-brief`, fed by `product-marketing-context`, `customer-research`, `competitor-profiling` | Market-entry brief |
-| 2 | Position and canon | `positioning-strategy`, then `messaging-framework`, then a company messaging rule book | Locked canon |
+| 2 | Position and canon | `positioning-strategy`, then `messaging-framework`, then `ssot-context-loop` or an existing company messaging rule book | Locked canon |
 | 3 | Assets | `copywriting`, SEO skills, ads skills, `sales-enablement`, each grounded in the canon | On-canon launch assets |
-| 4 | Guardrail and learn | `launch-readiness-check`, then the eval harness (`evals/`) | Go/no-go scorecard |
+| 4 | Guardrail and learn | `launch-readiness-check`; optional skill evaluation after launch (`evals/`) | Go/no-go scorecard |
 
 - **Run the rungs in order.** A rung starts only when the gate before it passes.
 - **Go back one rung when a gate fails.** Fix the artifact that failed, then re-run the gate. Never patch a later artifact to hide an earlier gap.
@@ -32,6 +32,8 @@ Decide where to enter before anyone writes a line of positioning.
 **Artifact: market-entry brief** (produced by `market-entry-brief`)
 - A one-line Go, Explore, or Pass recommendation.
 - Market definition and boundaries.
+- A side-by-side 13-criterion segment scorecard with weights, weighted Segment Attractiveness Scores, evidence labels, scoreable weight coverage, and separate Evidence confidence.
+- A lead segment rationale, its biggest weakness, the key evidence gap, and sequencing for remaining segments.
 - TAM, SAM, and SOM, each figure labeled.
 - Buyer delta: current-market buyer vs new-market buyer.
 - Channel and regulatory constraints.
@@ -40,6 +42,7 @@ Decide where to enter before anyone writes a line of positioning.
 
 **Gate to Rung 2**
 - The recommendation is Go, or Explore with the settling test complete.
+- The scorecard preserves every criterion and label. Any Gap has no invented score, and the composite shows its scoreable weight coverage.
 - The market definition names a specific segment or region. "Everyone" or "all businesses" fails.
 - Every number traces to Sourced, Derived, or Assumed, per `segment-selection.md` section 7.
 - Every top-five gap has an owner and a resolve-by milestone.
@@ -47,7 +50,10 @@ Decide where to enter before anyone writes a line of positioning.
 
 ## Rung 2. Position and canon
 
-Turn the market decision into one source of truth that every asset copies.
+Turn the market decision into approved context that every asset preserves.
+An applicable project SSOT can supply locked canon without a separate company
+rule-book skill. Apply any existing stricter claims or legal register too.
+Conflicts between the two require human review under `ssot-consumption.md`.
 
 **Entry criteria**
 - The Rung 1 gate has passed.
@@ -56,13 +62,13 @@ Turn the market decision into one source of truth that every asset copies.
 **Sequence**
 1. `positioning-strategy`: one statement of 25 words or fewer, derivation trace, capability table, trade-offs, stress tests.
 2. `messaging-framework`: capability table with proof and buyer voice, recommended hero line, persona translations, boilerplate, language rules.
-3. Company messaging rule book: canon, approved numbers, claims register, terminology, audience overlays, changelog.
+3. `ssot-context-loop`: propose and approve canonical changes through its human gates. An existing company messaging rule book may supply additional approved numbers, claims, terminology, audience overlays, and changelog.
 
 **Artifact: locked canon**
 - Positioning statement and its derivation trace.
 - Pillars, each with a swap-test result.
-- Approved numbers table: wording, scope, source, notes.
-- Claims register: Approved, Conditional (with required qualifier), Banned.
+- Approved quantitative evidence: wording, scope, source, notes, from SSOT or an existing approved numbers table.
+- Approved claim sources and restrictions. Use Approved, Conditional (with required qualifier), and Banned rows when a claims register exists; otherwise use SSOT evidence and anti-patterns. Never invent approval.
 - Terminology and voice rules.
 - A canon version in `vYYYY-MM-DD` form and a changelog entry.
 
@@ -71,7 +77,7 @@ Turn the market decision into one source of truth that every asset copies.
 - Every capability row has proof or a named Gap. None was dropped for lacking proof.
 - The consistency check in `segment-selection.md` section 6 shows no unresolved mismatch.
 - Every approved number carries its scope and source.
-- The canon owner has locked the version. Later changes bump the version.
+- The canon owner has locked the version; SSOT core changes have explicit Gate 2 approval. Later changes bump the version.
 
 ## Rung 3. Assets
 
@@ -96,9 +102,9 @@ Produce launch assets that say only what the canon allows.
 - "Draft, not publish-ready" at the top of any asset with an open Gap.
 
 **Gate to Rung 4**
-- Every claim maps to an Approved or Conditional canon row. Conditional claims keep their qualifier.
+- Every claim maps to an approved canon source or an Approved/Conditional register row when present. Conditional claims keep their qualifier.
 - No Banned claim appears, and no competitor is named in customer-facing copy unless the canon allows it.
-- The rule book's review mode returns "Ready" or "Ready after Fix items," with the Fix items closed.
+- The applicable canon review has no unresolved claim or messaging issues. Use the rule book's review mode when present; otherwise use mapped SSOT sources and `messaging-consistency-audit`. Close required fixes before launch readiness.
 - Every asset's canon stamp matches the current locked version.
 - `localization-claims` shows no open regulatory Gap stated as fact in any asset for the target market.
 
@@ -111,8 +117,8 @@ Decide go or no-go, then feed what the launch taught back into the canon and the
 - KPIs and targets are set, with baselines labeled Sourced, Assumed, or Gap.
 
 **Sequence**
-1. `launch-readiness-check`: grades every asset against the company canon with the rule book's Block, Fix, and Suggest review.
-2. Eval harness (`evals/`): measures whether the skills that produced the assets beat the no-skill baseline and route correctly.
+1. `launch-readiness-check`: grades every asset against applicable canon using Block, Fix, and Suggest, applying stricter rule-book constraints when present.
+2. After launch, optional eval harness (`evals/`) runs only on user request. It evaluates skills, not launch performance, and is never a launch gate.
 
 **Artifact: go/no-go scorecard**
 - Verdict: Ready, Ready after fixes, or Not ready. Any Block in any asset means Not ready.

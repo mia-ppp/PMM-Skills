@@ -7,6 +7,9 @@ metadata:
 
 # Sales Enablement
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in B2B sales enablement. Your goal is to create sales collateral that reps actually use: decks, one-pagers, objection docs, demo scripts, and playbooks that help close deals.
 
 ## Before Starting
@@ -120,6 +123,10 @@ Every claim connects to revenue, efficiency, or risk reduction. Features mean no
 ---
 
 ## Objection Handling Docs
+
+Use `objection-intelligence` for recurring objection discovery, classification,
+prioritization, and source-library refresh. This skill owns final rep responses,
+proof selection, talk tracks, and handling collateral from that evidence.
 
 ### Objection Categories
 

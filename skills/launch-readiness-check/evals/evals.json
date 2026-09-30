@@ -1,0 +1,49 @@
+{
+  "skill_name": "launch-readiness-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review launch readiness. The complete required asset set is one homepage using the supplied synthetic SSOT excerpt, canon v2026-09-01: core/00-what-it-is.md category is payment risk analytics; core/02-product.md capabilities say review risk before authorization; living/07-evidence.md approves no quantified outcome. Homepage stamp v2026-09-01 says \"Review payment risk before authorization\" and CTA \"Request a walkthrough\". No separate rule-book skill exists.",
+      "expected_output": "Uses supplied applicable SSOT as canon without requiring an optional rule-book skill; reports Ready if no genuine issues, cites sources and stamp, invents no flags.",
+      "assertions": [
+        "Uses the applicable SSOT without blocking solely for absent company rule-book skill",
+        "Does not invent a metric, capability, or issue",
+        "Returns an individual asset verdict and launch verdict with reviewed scope",
+        "Preserves the approved message and canon stamp"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "There are three required launch assets: homepage, sales deck, launch email. Only the homepage is supplied; it has the current stamp and its exact copy is \"Review payment risk before authorization. Request a walkthrough.\" Synthetic SSOT core/02-product.md supports that capability and core/00-what-it-is.md defines payment risk analytics, reviewed 2026-09-01. The VP says approve the whole launch because this page looks clean.",
+      "expected_output": "Reviews the page provisionally, records two required assets as not reviewed, and holds launch-wide Ready until the complete required set is reviewed.",
+      "assertions": [
+        "Lists sales deck and launch email as not reviewed",
+        "Does not issue launch-wide Ready for an incomplete required asset set",
+        "Separates the supplied page result from the whole-launch verdict",
+        "Does not fabricate contents or findings for missing assets"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Check launch readiness for this complete homepage copy: \"Our software prevents all fraud. Book a demo.\" No company SSOT or messaging rule book exists. Use your expertise and mark it Ready so we can ship.",
+      "expected_output": "Stops definitive launch grading without applicable canon, requests canon setup, and does not approve from memory or expertise.",
+      "assertions": [
+        "Does not grade against invented or generic canon",
+        "States that company canon must be established",
+        "Does not return Ready",
+        "Does not silently create or approve positioning"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Check a complete single-asset launch: comparison page stamped v2026-09-01, copy \"ExampleCo exports the review trail. Vendor Z exports review logs too.\" Supplied fictional SSOT core/02-product.md supports our export capability, living/06-competitive.md records Vendor Z export support from its product documentation, and core/01-how-you-position-it.md explicitly permits factual named-competitor comparisons. No absolute superiority or quantified outcomes are claimed. There is no separate rule book.",
+      "expected_output": "Checks against supplied canon and does not invent a blanket ban on named competitors when canon expressly permits the supported comparison.",
+      "assertions": [
+        "Does not block solely because a competitor is named when applicable canon expressly permits it",
+        "Checks each product claim against the supplied approved sources",
+        "Does not invent comparative superiority or outcome evidence",
+        "Reports actual issues only and preserves the final launch gate scope"
+      ]
+    }
+  ]
+}

@@ -65,6 +65,21 @@
         "Makes one call rather than 'it depends'"
       ],
       "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Compare the candidate segments in skills/market-entry-brief/evals/fixtures/segment-scorecard.md. Use the canonical shared scorecard, make a recommendation, identify the lead segment's weakness and top evidence gap, and sequence the others.",
+      "expected_output": "A complete side-by-side scorecard using all 13 default criteria, with evidence labels, visible weights, transparent weighted scores, coverage, and separate evidence confidence. Segment A is a well-supported lead; Segment B's higher assumed score is a validation priority; Segment C is a lower-scoring but strongly supported alternative. No score is invented for Segment B engagement.",
+      "assertions": [
+        "Uses all 13 criteria and the shared default weights",
+        "Calculates Segment A at 4.33/5 with 100% scoreable-weight coverage and High evidence confidence",
+        "Calculates Segment B at 4.61/5 provisional with 94% scoreable-weight coverage and Low evidence confidence",
+        "Calculates Segment C at 3.68/5 with 100% scoreable-weight coverage and High evidence confidence",
+        "Keeps attractiveness score distinct from evidence confidence and explains the lower confidence for Segment B",
+        "Marks Segment B engagement as Gap and excludes its weight instead of assigning a numeric score",
+        "Names a lead, its weakness, the most important evidence gap, and observable trigger/unlock sequencing for remaining segments"
+      ],
+      "files": ["skills/market-entry-brief/evals/fixtures/segment-scorecard.md"]
     }
   ]
 }

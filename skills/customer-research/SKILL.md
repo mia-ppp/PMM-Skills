@@ -18,6 +18,15 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 
 ---
 
+## Responsibility boundaries
+
+Read `../_shared/ssot-consumption.md` when comparing evidence with company
+context. Research and VoC synthesis own sources, methodology, and the language
+bank. `win-loss-intelligence` owns closed-opportunity outcome patterns and
+buyer-versus-seller reason analysis; hand it the collected interviews and CRM
+evidence. Neither skill rewrites strategy. Route implications to strategy
+owners and possible canon changes through `ssot-context-loop`.
+
 ## Two Modes of Research
 
 ### Mode 1: Analyze Existing Assets
@@ -27,6 +36,44 @@ You have raw research material (transcripts, surveys, reviews, tickets). Your jo
 You need to gather intel from online sources (Reddit, G2, forums, communities, review sites). Your job is to know where to look and what to extract.
 
 Most engagements combine both. Establish which mode applies before proceeding.
+
+## Voice of Customer Synthesis
+
+Use this skill for reusable Voice of Customer (VoC) synthesis when the user
+needs customer evidence consolidated across interviews, calls, support, reviews,
+surveys, email, community, onboarding, or win/loss sources. Customer Research
+continues to own research design, sampling, interview methodology, and source
+collection. This skill owns extraction and synthesis of supplied or gathered
+evidence, including the reusable customer-language bank.
+
+Keep three layers separate:
+
+| Layer | Meaning | Rule |
+|---|---|---|
+| Customer language | Exact source wording | Quote only source text; attach source and context. |
+| PMM interpretation | A coded pattern or implication | Label Sourced, Assumed, or Gap and state confidence. |
+| Proposed marketing language | A possible future expression | Label as a proposal, never present it as customer language or canon. |
+
+For each evidence row, capture source/date, persona and segment when known,
+buying or lifecycle stage, theme, frequency denominator, intensity/materiality,
+and confidence. Keep frequency separate from intensity and confidence. Preserve
+conflicting language by segment or context instead of averaging it away. Sparse
+evidence stays visible as a Gap. Never fabricate or clean up a quotation in a
+way that changes its meaning.
+
+The VoC output includes a customer-language bank, a separate interpretation
+table, contradictions, limitations, and ranked evidence gaps. Identify
+implications for messaging or strategy, but do not write final market-facing
+copy or change canonical SSOT. Route copy to `messaging-framework` or
+`copywriting`; route possible canon changes through `ssot-context-loop` for
+human review. Objection evidence may be handed to `objection-intelligence`.
+
+**VoC quality check:** A reviewer using `output-quality-check` can verify that
+source language, interpretation, and proposed language are separated; every
+quote has a source; segment/context/frequency/intensity/confidence are recorded
+when available; sparse or conflicting evidence remains visible; and SSOT is not
+silently changed. Raw VoC evidence is not a market-facing artifact for
+`messaging-consistency-audit`.
 
 ---
 

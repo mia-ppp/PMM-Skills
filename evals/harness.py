@@ -26,7 +26,8 @@ Usage:
 Add --mock to any command to exercise the pipeline with fake model calls (no key needed).
 Mock results go to evals/results/mock/ so they never mix with real runs.
 """
-import argparse, csv, json, os, random, re, statistics, sys, threading, time, urllib.error, urllib.request
+import argparse, csv, hashlib, json, os, random, re, statistics, sys, threading, time, urllib.error, urllib.request
+from html import escape
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -185,13 +186,70 @@ def lint(skills, _):
                 if not e.get("handoff_to") and re.search(r"defer to or cross-reference the [a-z0-9-]+ skill", e.get("expected_output", ""))]
     print(f"{len(ho)} hand-off evals (scored against their target skill, left out of rubric lift).")
     missing = [f"{k} -> {f.name}" for k, v in skills.items() for f in shared_files(v["body"]) if not f.exists()]
+    fixture_errors = []
+    for k, v in skills.items():
+        for e in v["evals"]:
+            try:
+                eval_prompt(k, e)
+            except (ValueError, OSError, UnicodeError) as ex:
+                fixture_errors.append(f"{k} #{e['id']}: {ex}")
     loaders = sorted(k for k, v in skills.items() if shared_files(v["body"]))
     print(f"{len(loaders)} skills load shared files: {', '.join(loaders) or 'none'}.")
     if missing:
         print(f"Problem: {len(missing)} shared files are referenced but missing: {', '.join(missing)}")
+    if fixture_errors:
+        print(f"Problem: {len(fixture_errors)} invalid eval fixtures: {'; '.join(fixture_errors)}")
     for msg, items in [("hand off to an unknown skill", bad), ("say they defer but have no handoff_to", untagged)]:
         if items:
             print(f"Problem: {len(items)} evals {msg}: {', '.join(items)}")
+
+    if missing or fixture_errors or bad or untagged:
+        raise SystemExit(1)
+
+def eval_fixture(skill, rel):
+    """Resolve exactly one declared UTF-8 input inside the repository.
+
+    Existing evals use paths relative to the skill's evals/ directory or ROOT.
+    Reject ambiguous matches rather than silently preferring a different file.
+    """
+    if not isinstance(rel, str) or not rel.strip() or rel != rel.strip():
+        raise ValueError(f"Fixture path must be a non-empty relative string: {rel!r}")
+    if any(ord(c) < 32 for c in rel) or "\\" in rel:
+        raise ValueError(f"Malformed fixture path: {rel!r}")
+    ref = Path(rel)
+    if ref.is_absolute() or ".." in ref.parts or re.match(r"^[A-Za-z]:", rel):
+        raise ValueError(f"Unsafe fixture path: {rel!r}")
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", skill):
+        raise ValueError(f"Invalid fixture skill: {skill!r}")
+    root = ROOT.resolve()
+    base = (SKILLS / skill / "evals").resolve()
+    matches = []
+    for candidate in (base / ref, root / ref):
+        path = candidate.resolve()
+        # relative_to works on the advertised Python 3.9 minimum as well.
+        try:
+            path.relative_to(root)
+        except ValueError:
+            raise ValueError(f"Fixture escapes repository: {rel!r}") from None
+        if path.is_file() and path not in matches:
+            matches.append(path)
+    if not matches:
+        raise ValueError(f"Missing eval fixture: {skill} -> {rel}")
+    if len(matches) != 1:
+        raise ValueError(f"Ambiguous eval fixture: {skill} -> {rel}")
+    return matches[0]
+
+def eval_prompt(skill, e):
+    """Assemble only this case's explicitly named inputs, preserving their order."""
+    files = e.get("files", [])
+    if not isinstance(files, list):
+        raise ValueError(f"Eval files must be a list: {skill} #{e['id']}")
+    attachments = []
+    for rel in files:
+        path = eval_fixture(skill, rel)
+        attachments.append(f'\n\n<fixture path="{escape(rel, quote=True)}">\n'
+                           f'{path.read_text(encoding="utf-8")}\n</fixture>')
+    return e["prompt"] + "".join(attachments)
 
 # ---------- routing ----------
 
@@ -231,9 +289,15 @@ JUDGE_SYS = ("JUDGE. You grade one assertion against an AI agent's output. Be st
 def shared_files(body):
     """Shared reference files a skill loads, e.g. `../_shared/messaging-examples.md`, in order of first mention."""
     seen = []
-    for name in re.findall(r"_shared/([A-Za-z0-9_.-]+\.md)", body):
-        if name not in seen:
-            seen.append(name)
+    pending = [body]
+    while pending:
+        text = pending.pop(0)
+        for name in re.findall(r"_shared/([A-Za-z0-9_.-]+\.md)", text):
+            if name not in seen:
+                seen.append(name)
+                path = SKILLS / "_shared" / name
+                if path.is_file():
+                    pending.append(path.read_text())
     return [SKILLS / "_shared" / n for n in seen]
 
 def with_skill_system(s):
@@ -250,8 +314,9 @@ BASELINE_SYS = "You are a marketing agent. Help the user with their request."
 def system_for(s, cfg):
     return with_skill_system(s) if cfg == "with_skill" else BASELINE_SYS
 
-def grade(output, assertion, model):
-    raw = call(JUDGE_SYS, f"<output>\n{output}\n</output>\n\nAssertion: {assertion}", model, 4000)
+def grade(output, assertion, model, prompt=None):
+    context = f"<prompt>\n{prompt}\n</prompt>\n\n" if prompt is not None else ""
+    raw = call(JUDGE_SYS, context + f"<output>\n{output}\n</output>\n\nAssertion: {assertion}", model, 4000)
     try:
         return json.loads(re.search(r"\{.*\}", raw, re.S).group(0))
     except Exception:
@@ -303,6 +368,8 @@ def run(skills, args):
         jobs = [j for j in jobs if not j[2].get("handoff_to")]
         if skipped:
             print(f"Skipping {skipped} hand-off runs (rubric-only)")
+    prompts = {(name, e["id"]): eval_prompt(name, e) for name, _, e, _, _ in jobs}
+    fingerprints = {key: hashlib.sha256(prompt.encode()).hexdigest() for key, prompt in prompts.items()}
     random.Random(0).shuffle(jobs)  # mix skills and configs so an early budget stop leaves a fair sample
     # Resume: reuse every output already graded in this run folder, and count what it already spent.
     prior = {}
@@ -310,7 +377,10 @@ def run(skills, args):
         r = json.loads(f.read_text())
         prior[(r["skill"], r["eval_id"], r["config"], r["trial"])] = r
     keys = {(j[0], j[2]["id"], j[3], j[4]) for j in jobs}
-    prior = {k: r for k, r in prior.items() if k in keys}  # only outputs this run would produce
+    fixture_cases = {(j[0], j[2]["id"]) for j in jobs if j[2].get("files")}
+    prior = {k: r for k, r in prior.items() if k in keys and
+             ((k[0], k[1]) not in fixture_cases or
+              r.get("input_sha256") == fingerprints[(k[0], k[1])])}  # only outputs this run would produce
     ledger = base / "spend.json"
     if ledger.exists():
         SPENT = json.loads(ledger.read_text())["spent"]
@@ -347,14 +417,16 @@ def run(skills, args):
     def attempt(j):
         name, s, e, cfg, t = j
         t0 = time.time()
-        out, stop_reason = request(system_for(s, cfg), e["prompt"], args.model, args.max_tokens)
+        out, stop_reason = request(system_for(s, cfg), prompts[(name, e["id"])], args.model, args.max_tokens)
         secs = round(time.time() - t0, 1)
-        grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge)} for a in e.get("assertions", [])]
+        grades = [] if args.no_assertions else [{"text": a, **grade(out, a, args.judge, prompt=prompts[(name, e["id"])] if e.get("files") else None)} for a in e.get("assertions", [])]
         rec = {"skill": name, "eval_id": e["id"], "config": cfg, "trial": t, "seconds": secs,
                "stop_reason": stop_reason, "output_chars": len(out), "em_dashes": em_dashes(out), "expectations": grades,
                "pass_rate": sum(g["passed"] for g in grades) / len(grades) if grades else None,
                "judge": args.judge, "judge_examples": len(human), "handoff": bool(e.get("handoff_to")),
-               "rubric": score_rubric(e["prompt"], out, args.judge, examples=examples)}
+               "rubric": score_rubric(prompts[(name, e["id"])], out, args.judge, examples=examples)}
+        if e.get("files"):
+            rec["input_sha256"] = fingerprints[(name, e["id"])]
         d = base / name / f"eval-{e['id']}" / cfg
         d.mkdir(parents=True, exist_ok=True)
         (d / f"trial-{t}.md").write_text(out)
@@ -582,7 +654,7 @@ def calibrate(skills, args):
         evals = sorted(s["evals"], key=lambda e: e["id"])
         if len(evals) < args.per_skill:
             sys.exit(f"{name} has only {len(evals)} evals, need {args.per_skill}")
-        jobs += [{"skill": name, "eval_id": e["id"], "prompt": e["prompt"], "config": cfg}
+        jobs += [{"skill": name, "eval_id": e["id"], "prompt": eval_prompt(name, e), "has_fixtures": bool(e.get("files")), "config": cfg}
                  for e in evals[:args.per_skill] for cfg in ("with_skill", "baseline")]
 
     # Real runs cache each output so an interrupted run resumes instead of paying twice.
@@ -591,7 +663,9 @@ def calibrate(skills, args):
         cache.mkdir(parents=True, exist_ok=True)
 
     def one(j):
-        cp = cache / f"{j['skill']}-{j['eval_id']}-{j['config']}.json" if cache else None
+        suffix = ("-" + hashlib.sha256((system_for(skills[j["skill"]], j["config"]) +
+                                       j["prompt"]).encode()).hexdigest()[:16]) if j["has_fixtures"] else ""
+        cp = cache / f"{j['skill']}-{j['eval_id']}-{j['config']}{suffix}.json" if cache else None
         if cp and cp.exists():
             return json.loads(cp.read_text())
         text, stop = request(system_for(skills[j["skill"]], j["config"]), j["prompt"], args.model)

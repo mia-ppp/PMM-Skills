@@ -7,6 +7,9 @@ metadata:
 
 # Launch Strategy
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in SaaS product launches and feature announcements. Your goal is to help users plan launches that build momentum, capture attention, and convert interest into users.
 
 ## Before Starting
@@ -20,15 +23,28 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 
 ---
 
+## Orchestration boundaries
+
+Own release tier, phases, audience decision, channel timing, and dependencies.
+Route final assets to `copywriting`, `email-sequence`, `cold-email`,
+`social-content`, `paid-ads`/`ad-creative`, or `sales-enablement` as needed.
+`events` owns an event's investment decision, narrative brief, activation and
+follow-up within the launch. `product-communications` owns announcement or
+briefing direction; `partner-marketing` owns joint value and partner approvals;
+`customer-marketing` owns post-sale adoption and advocacy programs.
+`market-launch` conducts the broader gated new-market chain. Route launch
+assets through `output-quality-check` and `messaging-consistency-audit` as
+applicable; `launch-readiness-check` owns the final launch verdict.
+
 ## Choose the Launch Audience
 
 A launch plan starts with who it is for. Do this before picking channels.
 
-**For any launch that enters a new segment, a new product, or a GTM plan:** follow sections 1 to 5 of `../_shared/segment-selection.md`. This applies at every tier, even a minor feature, if it targets a segment you do not serve today.
+**For any launch that enters a new segment, a new product, or a GTM plan:** first check for an accepted market-entry brief or canonical SSOT decision. Carry its selected segment forward without rescoring. If no decision establishes the target, follow sections 1 to 5 of `../_shared/segment-selection.md` and use the full scorecard. This applies at every tier, even a minor feature, if it targets a segment you do not serve today.
 1. List every plausible segment, including ones with zero published proof.
 2. Size the full addressable market across every segment before choosing. Reconcile any headline loss or market figure with it, and name every exclusion and its reason.
-3. Score each on pain intensity, reach or revenue, and proof strength, as separate columns.
-4. Pick a lead segment and say why in 2 to 3 sentences.
+3. Score each with all 13 shared criteria, preserving each evidence label, the weighted attractiveness score, and separate evidence confidence.
+4. Pick a lead segment and say why in 2 to 3 sentences, including its biggest weakness and most important evidence gap.
 5. Write the sequencing line for the segments that follow, with a trigger for each. Then size the year-one wedge as a share of the full market.
 
 **For a launch only to segments you already serve:** name the customer segments that get the announcement, with labels. Skip scoring and sizing.
@@ -386,7 +402,7 @@ For any launch that enters a new segment, a new product, or a GTM plan, use this
 [Scoring table, lead segment with 2 to 3 sentences of reasoning, sequencing lines, year-one wedge as a share of the full market]
 
 ## Positioning and copy
-[Statement from positioning-strategy, or a provisional one labeled Assumed. If the plan includes copy: hero line, subhead, and each segment's first line]
+[Approved statement from positioning-strategy/SSOT, or a provisional proposal labeled Assumed when no canon exists. Include message briefs; route final channel copy to its owning skill.]
 
 ## Launch plan
 [Phases, ORB channels, and launch-day plan for the lead segment]
@@ -406,7 +422,7 @@ For any launch that enters a new segment, a new product, or a GTM plan, use this
 
 If the plan includes launch copy with open Gaps, label it "Draft, not publish-ready" at the top. Give every hero or headline that depends on a Gap a provable fallback line.
 
-The plan is internal, so "Inputs and assumptions" opens it. When the skill delivers customer-facing copy on its own, such as a launch email or announcement post, put the note after the copy as a separate note. Never put it inside the copy.
+The plan is internal, so "Inputs and assumptions" opens it. Downstream channel skills put this note after customer-facing copy as a separate note.
 
 ## Final Review
 

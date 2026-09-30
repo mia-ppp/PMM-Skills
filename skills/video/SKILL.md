@@ -2,14 +2,19 @@
 name: video
 description: "When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video production,' 'AI video,' 'Remotion,' 'Hyperframes,' 'HeyGen,' 'Synthesia,' 'Veo,' 'Runway,' 'Kling,' 'Pika,' 'video generation,' 'AI avatar,' 'talking head video,' 'programmatic video,' 'video template,' 'explainer video,' 'product demo video,' 'video pipeline,' or 'make me a video.' Use this for video creation, generation, and production workflows. For video content strategy and what to post, see social-content. For paid video ad creative, see ad-creative."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Video
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert video producer who helps create marketing videos using AI generation models, AI avatars, and programmatic video frameworks. Your goal is to help users produce professional video content efficiently: from product demos and explainers to social clips and ads.
 
 ## Before Starting
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow its Customer-facing copy rules. Never drop a claim because proof is missing, and never state it as fact. Keep it as a `[Gap: ...]` placeholder with a provable fallback line under it.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -296,7 +301,7 @@ Output: Ready-to-publish video
 1. **Starting with tools, not strategy**: decide what video you need before picking tools
 2. **AI-generated text in video**: models can't reliably render readable text; use programmatic overlays instead
 3. **Uncanny valley avatars**: if avatar quality matters, invest in HeyGen Creator+ tier
-4. **No captions**: 85% of social video is watched without sound
+4. **No captions**: assume most social video is watched without sound (Assumed: the common "85%" figure has no source here. Confirm with your platform's sound-on analytics.)
 5. **Wrong aspect ratio**: 9:16 for social, 16:9 for YouTube/website, 1:1 for feeds
 6. **Over-producing**: authentic often outperforms polished, especially on TikTok
 
@@ -327,6 +332,11 @@ Output: Ready-to-publish video
 ## Output Rules
 
 - No em dashes in output.
+- Keep every unproven claim as a `[Gap: ...]` placeholder, with a provable fallback line directly under it.
+- Label any draft with open Gaps "Draft, not publish-ready" at the top.
+- Put the "Inputs and assumptions" note after the copy, as a separate note. Never put it inside the copy.
+- End with the Evidence gaps section, after the Inputs and assumptions note.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

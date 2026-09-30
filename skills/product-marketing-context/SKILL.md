@@ -19,6 +19,12 @@ The document is stored at `.agents/product-marketing-context.md`.
 
 ### Step 1: Check for Existing Context
 
+When an applicable SSOT exists, load the relevant manifest-mapped files using
+`../_shared/ssot-consumption.md`. Covered claims defer to that SSOT. Keep this
+bootstrap document separate; proposed positioning, messaging, or ICP changes
+must go through `ssot-context-loop` and its human approval gates. Saving this
+context document never approves or changes canon.
+
 First, check if `.agents/product-marketing-context.md` already exists. Also check `.claude/product-marketing-context.md` for older setups. If found there but not in `.agents/`, offer to move it.
 
 **If it exists:**

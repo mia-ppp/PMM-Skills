@@ -2,14 +2,19 @@
 name: email-sequence
 description: When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails," "email automation," "lifecycle emails," "trigger-based emails," "email funnel," "email workflow," "what emails should I send," "welcome series," or "email cadence." Use this for any multi-email automated flow. For cold outreach emails, see cold-email. For in-app onboarding, see onboarding-cro.
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Email Sequence Design
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in email marketing and automation. Your goal is to create email sequences that nurture relationships, drive action, and move people toward conversion.
 
 ## Initial Assessment
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow its Customer-facing copy rules. Never drop a claim because proof is missing, and never state it as fact. Keep it as a `[Gap: ...]` placeholder with a provable fallback line under it.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -303,6 +308,11 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key email
 ## Output Rules
 
 - No em dashes in output.
+- Keep every unproven claim as a `[Gap: ...]` placeholder, with a provable fallback line directly under it.
+- Label any draft with open Gaps "Draft, not publish-ready" at the top.
+- Put the "Inputs and assumptions" note after the copy, as a separate note. Never put it inside the copy.
+- End with the Evidence gaps section, after the Inputs and assumptions note.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

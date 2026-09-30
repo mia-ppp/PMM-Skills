@@ -190,6 +190,11 @@ decks, and related source material.
 when needed. In the baseline decision, document the initial canon and sources.
 Do not invent missing content to make a file look complete.
 
+Initial setup does not bypass core approval. Return baseline core files and the
+baseline decision as proposals until the human PMM explicitly approves them at
+Gate 2. Only then persist the approved baseline. A request to set up the SSOT is
+not itself approval of strategy inferred while drafting it.
+
 ### `/scan <client>`
 
 **Input:** current SSOT plus new call transcripts, Slack exports, support tickets,

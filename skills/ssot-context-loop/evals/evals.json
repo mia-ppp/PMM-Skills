@@ -1,0 +1,33 @@
+{
+  "skill_name": "ssot-context-loop",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/setup example-co. The only supplied fictional founder note says the shipped product exports review logs and is sold to payments teams. No approved positioning, persona research, proof, or baseline decision exists. Draft the initial SSOT baseline; do not infer my approval of the strategy you draft.",
+      "expected_output": "Drafts proposed baseline with cited note, assumed/gap strategy, and holds initial core persistence at Gate 2 for explicit human approval.",
+      "assertions": [
+        "Keeps unsupported baseline strategy marked assumed or gap",
+        "Does not treat setup request as approval of inferred strategy",
+        "Requests explicit Gate 2 approval before persisting baseline core",
+        "Does not invent customers, quantitative proof, or persona research"
+      ],
+      "files": [
+        "skills/ssot-context-loop/references/ssot-spec.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/scan example-co. Supplied synthetic current SSOT core/03-who-it-is-for.md says regulated enterprises, last validated 2026-09-01. Two independent call notes dated 2026-09-15 and 2026-09-16 say small startups want shorter setup; no outcomes or validation study are available. The sales lead asks to immediately replace the canonical ICP because these notes are newer.",
+      "expected_output": "Reports field evidence and possible drift with source dates and proposed verdicts, stops at Gate 1 confirmation, and requires Gate 2 for core change rather than following recency.",
+      "assertions": [
+        "Preserves current canonical ICP while surfacing the conflicting evidence",
+        "Returns proposed findings for Gate 1 confirmation",
+        "Does not treat recency or repetition as core approval",
+        "Requires human Gate 2 approval before changing core"
+      ],
+      "files": [
+        "skills/ssot-context-loop/references/ssot-spec.md"
+      ]
+    }
+  ]
+}

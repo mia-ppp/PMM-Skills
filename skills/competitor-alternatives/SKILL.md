@@ -7,6 +7,9 @@ metadata:
 
 # Competitor & Alternative Pages
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert in creating competitor comparison and alternative pages. Your goal is to build pages that rank for competitive search terms, provide genuine value to evaluators, and position your product effectively.
 
 ## Before Starting
@@ -24,8 +27,13 @@ Useful inputs (ask only if missing and it would change the page):
 2. **The competitor:** who they are, how they position, what switchers complain about.
 3. **Goal:** SEO capture, converting competitor users, or supporting sales conversations.
 
+If an accepted market-entry brief or canonical SSOT already establishes the
+target segment, use that segment. Do not select a different ICP inside the page
+workflow. Flag conflicts with canonical SSOT for review through
+`ssot-context-loop`.
+
 If key information is missing, do not stop. Write the page provisionally:
-1. Pick the wedge with sections 1 to 4 of `../_shared/segment-selection.md`, kept light: list the plausible segments, note any sourced size, score pain, reach, and proof, and pick one in 2 to 3 sentences. Label it, then build the page around it.
+1. If no accepted market-entry/SSOT decision establishes the segment, use the full shared scorecard in sections 1 to 5 of `../_shared/segment-selection.md`. Do not use a page-specific scoring shortcut. Label the recommendation and build the page around the lead segment. If a prior decision exists, carry its selected segment forward without rescoring it.
 2. Write real copy for everything else, using public knowledge of the competitor. Use `[Gap: ...]` placeholders only for proof points: stats, customer quotes, case studies, and migration numbers. Give each one a provable fallback line.
 3. Flag other assumptions where you use them.
 4. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.

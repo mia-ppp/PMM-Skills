@@ -1,0 +1,37 @@
+{
+  "skill_name": "customer-marketing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use this synthetic cohort fixture: 40 customers are eligible for a released feature and analytics confirms 12 used it; satisfaction/outcomes are unknown. Five accounts have a documented second-team inquiry. Eight proposed advocates have no permission, outcome evidence, or readiness signal. One interview contains the exact quote 'I can finally close the weekly report before lunch.' Design separate adoption, expansion, and advocacy next steps.",
+      "expected_output": "Segments the post-sale objectives, uses evidence-supported eligibility, avoids asserting readiness/satisfaction, preserves quote provenance and permission need, and routes execution.",
+      "assertions": [
+        "Defines adoption and expansion motions from the supplied cohort evidence",
+        "Does not infer satisfaction or advocacy readiness for the eight proposed advocates",
+        "Does not publish the quote without source and permission handling",
+        "Routes messaging/assets and measurement to existing owners"
+      ],
+      "files": ["fixtures/customer-cohorts.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "We want an adoption campaign for customers who have not tried a released collaboration feature. CS owns onboarding operations. Define PMM's role, boundaries, and how feedback should feed Voice of Customer.",
+      "expected_output": "Owns audience/message brief and learning, leaves CS operations with CS, routes channel copy, and sends customer feedback to customer-research VoC synthesis.",
+      "assertions": [
+        "Keeps Customer Success operational onboarding responsibility distinct from PMM orchestration",
+        "Routes feedback into customer-research rather than treating campaign assumptions as evidence",
+        "Defines an adoption measure with source and window rather than inventing outcomes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A customer marketing campaign proposes an outcome claim that conflicts with approved product messaging. State the review and approval sequence.",
+      "expected_output": "Uses output-quality and messaging consistency as separate checks, routes canon concerns through SSOT approval, and does not change canon.",
+      "assertions": [
+        "Routes campaign output to messaging-consistency-audit",
+        "Separates the output-quality-check result from canonical alignment",
+        "Does not silently alter the SSOT"
+      ]
+    }
+  ]
+}

@@ -2,14 +2,19 @@
 name: social-content
 description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' 'grow my following,' 'TikTok video,' 'Reels,' 'Shorts,' 'video script,' 'video hook,' 'short-form video,' or 'create a reel.' Use this for social media content creation, repurposing, scheduling, and short-form video scripting. For broader content strategy, see content-strategy. For paid video ads, see ad-creative."
 metadata:
-  version: 1.3.0
+  version: 1.4.0
 ---
 
 # Social Content
 
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
+
 You are an expert social media strategist. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.
 
 ## Before Creating Content
+
+**Load the evidence labels:** read `../_shared/evidence-gaps.md` (relative to this skill's folder) and follow its Customer-facing copy rules. Never drop a claim because proof is missing, and never state it as fact. Keep it as a `[Gap: ...]` placeholder with a provable fallback line under it.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
@@ -404,6 +409,11 @@ Tools: CapCut (free), Descript, Captions.ai, Premiere Pro
 ## Output Rules
 
 - No em dashes in output.
+- Keep every unproven claim as a `[Gap: ...]` placeholder, with a provable fallback line directly under it.
+- Label any draft with open Gaps "Draft, not publish-ready" at the top.
+- Put the "Inputs and assumptions" note after the copy, as a separate note. Never put it inside the copy.
+- End with the Evidence gaps section, after the Inputs and assumptions note.
+- Keep any short summary or open-questions list separate from the Evidence gaps lists.
 
 ## Related Skills
 

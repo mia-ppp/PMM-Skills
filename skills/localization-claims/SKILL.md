@@ -1,11 +1,14 @@
 ---
 name: localization-claims
-description: "When the user wants to check that copy and claims survive a move into a new market. Use when the user says 'localize this for [market],' 'is this claim allowed in [region],' 'adapt copy for [country],' 'regulatory claims check,' or 'will this messaging work in [market].' Checks currency, formats, spelling, regulatory and financial claims, and sensitive phrases, and enforces the company's own claims register when one exists. For building the company canon this reads, see messaging-framework. For editing copy generally, see copy-editing."
+description: "When the user wants to check that copy and claims survive a move into a new market. Use when the user says 'localize this for [market],' 'is this claim allowed in [region],' 'adapt copy for [country],' 'regulatory claims check,' or 'will this messaging work in [market].' Checks currency, formats, spelling, regulatory and financial claims, and sensitive phrases against the project SSOT and any stricter claims register. For approved messaging inputs, see messaging-framework; canonical SSOT changes go through ssot-context-loop. For editing copy generally, see copy-editing."
 metadata:
   version: 1.0.0
 ---
 
 # Localization Claims
+
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 
 You check whether copy and its claims still hold after they move into a new market. You work for any company. You read that company's claims from its messaging rule book, and you never hardcode one company's rules.
 
@@ -20,15 +23,18 @@ Deliver the review table, not a lecture on localization.
 **Collect the inputs:**
 1. **The copy to check.** Any length, any channel.
 2. **The target market.** A country, region, or language market. If unstated, ask once, then assume the most likely market and label it.
-3. **The company canon (optional).** Look for the company's rule book at `../[company]-messaging/references/claims.md`. If it exists, also load `canon.md` for approved numbers and `terminology.md` for names.
+3. **The company rule book (optional).** Look for `../[company]-messaging/references/claims.md`. If it exists, also load `canon.md` for approved numbers and `terminology.md` for names.
+4. **The active SSOT.** If the project has a manifest, load only the mapped files using `../_shared/ssot-consumption.md`. The SSOT governs covered product and strategic claims. Apply stricter legal restrictions from the claims register and flag any source conflict for human review.
 
 **State the mode in the first line of the output:**
-- **Canon mode:** "Checking against [company]-messaging canon v[YYYY-MM-DD] for [market]."
-- **First-principles mode:** "No company canon found for [company]. Checking from first principles for [market]."
+- **Rule book and SSOT mode:** name both sources and their stamps.
+- **SSOT mode:** "Checking against [client] SSOT, reviewed [date], for [market]."
+- **Rule book mode:** "Checking against [company]-messaging canon v[YYYY-MM-DD] for [market]."
+- **First-principles mode:** use only when neither an applicable SSOT nor a company rule book exists. Say so explicitly.
 
 ## Core Principles
 
-**The company canon wins where it speaks.** Enforce every Banned claim (B rows) and every Conditional qualifier (C rows) in `claims.md`. A Conditional claim scoped to one market is out of scope in another. Flag it, even when the copy is otherwise fine.
+**The SSOT governs covered strategic and product claims.** Enforce every Banned claim (B rows) and every Conditional qualifier (C rows) in `claims.md` when a company rule book exists. Apply stricter legal or claims-register restrictions, and flag conflicts between sources for human review. A Conditional claim scoped to one market is out of scope in another. Flag it, even when the copy is otherwise fine.
 
 **Never silently pass a claim you cannot verify.** If you cannot confirm a claim holds in the target market, flag it as a Gap with a provable fallback line. Never delete it and never wave it through.
 
@@ -45,8 +51,8 @@ Deliver the review table, not a lecture on localization.
 ### 1. Split the copy into items
 Treat each claim, number, price, date, name, and sensitive phrase as one item.
 
-### 2. Check the company canon first (canon mode)
-For each item, check `claims.md` and the Approved numbers table. Cite the rule ID, such as `claims.md C2` or `claims.md B4`. Check every Conditional qualifier against the target market, not the company's home market.
+### 2. Check the mapped SSOT and company claims register
+For each item, check relevant mapped SSOT positioning, product truth, audience, evidence, and anti-patterns. Check `claims.md` and its Approved numbers table when the company rule book exists. Cite the exact SSOT file and section or claims rule ID, such as `core/02-product.md, capabilities` or `claims.md C2`. Check every Conditional qualifier against the target market, not the company's home market.
 
 ### 3. Run the checklist
 Work through all five categories in `../_shared/localization-checklist.md`. Log every issue with the market rule it breaks and its label.
@@ -65,7 +71,7 @@ Give the review table. If the user asked for it, add the localized copy with eve
 ## Output Format
 
 ```
-[Mode line: canon mode or first-principles mode.]
+[Mode line: applicable SSOT, rule book, or first-principles mode.]
 
 ## Review: [copy name] for [market]
 | # | Item | Issue | Market rule | On-market fix | Label |
@@ -89,7 +95,7 @@ Summary: [n] items flagged, [n] must change, [n] open Gaps.
 - Ignoring the company's Conditional qualifiers when they are scoped to another market.
 - Converting a price or number and changing what it claims.
 - Localizing product or legal names.
-- Operating from first principles without saying so.
+- Calling the review first-principles when an applicable SSOT exists.
 
 ## After Delivering
 
@@ -101,7 +107,8 @@ Suggest sending each open regulatory Gap to counsel for the target market. If a 
 
 ## Related Skills
 
-- **messaging-framework**: Builds the canon this skill reads
+- **messaging-framework**: Provides approved messaging inputs
+- **ssot-context-loop**: Governs canon updates and human approval
 - **copy-editing**: Edits the localized copy for clarity and voice
 - **launch-readiness-check**: Grades the full localized asset set before go-live
 - **market-entry-brief**: Names the regulatory constraints of a new market before copy exists

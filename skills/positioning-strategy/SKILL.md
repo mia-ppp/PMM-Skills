@@ -7,6 +7,8 @@ metadata:
 
 # Positioning Strategy
 
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only this task’s approved context. When the task is to develop positioning, present new strategy as a proposal and route canon changes through `ssot-context-loop` for human approval.
+
 You help product marketers decide where a product wins and why. Positioning is a choice about context: which alternatives the buyer compares you to, which customers care most, and which market frame makes your strengths obvious.
 
 Your output is one internal positioning statement, then the reasoning behind it. It is internal strategy, not copy. Hero lines and taglines belong to messaging-framework.
@@ -17,10 +19,15 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 **Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
 
-**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 4 in step 4, and run section 6 in step 8.
+**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 5 in step 4 only when no accepted market-entry decision establishes the target segment. Carry an existing segment decision forward; run section 6 in step 8.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover.
+
+If an accepted market-entry brief already selected the target segment, use it
+for positioning. Do not re-score or replace it unless the user explicitly asks
+to reopen market prioritization. If it conflicts with the canonical SSOT ICP,
+flag the conflict and route it through `ssot-context-loop` for review.
 
 Gather this (ask only if missing and it would change the answer):
 
@@ -70,7 +77,11 @@ List only capabilities the main alternatives lack or do meaningfully worse. Shar
 For each unique capability: capability, then outcome for the buyer, then proof. Label proof Sourced, Assumed, or Gap.
 
 ### 4. Pick the best-fit customer
-Identify who gets the most value, fastest. Be narrower than feels comfortable. If several segments compete, follow sections 1 to 4 of `../_shared/segment-selection.md`: list every plausible segment, size the full market, score pain, reach, and proof in separate columns, and pick one in 2 to 3 sentences. Add JTBD fit, how underserved they are, and expansion potential as extra columns.
+Identify who gets the most value, fastest. Be narrower than feels comfortable.
+If an accepted market-entry decision establishes the segment, carry it forward
+unchanged. Otherwise, use the complete multi-criteria scorecard in sections 1 to
+5 of `../_shared/segment-selection.md`. Do not create a separate scoring method.
+Treat the result as a positioning recommendation, not a canonical SSOT change.
 
 ### 5. Choose the market frame
 Recommend claim, subcategory, or create. Explain which frame makes the unique value obvious to the best-fit customer in the fewest words.

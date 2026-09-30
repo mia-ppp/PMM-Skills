@@ -1,0 +1,117 @@
+{
+  "skill_name": "output-quality-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A stakeholder says a market-entry brief meets every requirement, but supplies only that description and no artifact. Run output-quality-check. Can this support a PASS?",
+      "expected_output": "Requests the complete artifact; does not verify a summary or award PASS on an assertion of compliance.",
+      "assertions": [
+        "Requests the complete artifact before verification",
+        "Does not report PASS based on a stakeholder description",
+        "Does not invent artifact citations or a universal PMM rubric"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Verify the attached page-without-alternatives.md against the supplied copywriting/SKILL.md and shared standards. Identify any missing declared output, give a stable finding ID, and route correction to copywriting. Do not assess SSOT semantics.",
+      "expected_output": "Reports missing headline/CTA alternatives as FAIL, cites the actual Alternatives requirement, and routes correction to copywriting.",
+      "assertions": [
+        "Reports the absent headline/CTA alternatives as FAIL under copywriting Output Format / Alternatives",
+        "Cites the originating skill requirement and artifact omission",
+        "Provides a stable finding ID and specific correction",
+        "Routes correction to the originating skill without rewriting the artifact"
+      ],
+      "files": [
+        "skills/output-quality-check/evals/fixtures/page-without-alternatives.md",
+        "skills/copywriting/SKILL.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/ssot-consumption.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Verify an events artifact that includes an asserted $500K influenced-pipeline result, but the source CRM report and attribution method are unavailable. Apply the events and evidence requirements without deciding whether the company messaging is on-canon. Only this description is supplied; the complete artifact is unavailable. State what can be concluded and what input is needed before full verification.",
+      "expected_output": "Marks the metric evidence UNVERIFIABLE, not PASS, distinguishes influence from causal revenue, and identifies the missing source/method required to verify.",
+      "assertions": [
+        "Does not mark unsupported pipeline evidence PASS",
+        "Uses UNVERIFIABLE when the source or method is unavailable",
+        "Separates an unverifiable claim from a confirmed failure",
+        "Does not perform a messaging-consistency audit",
+        "Does not claim to have inspected a complete artifact that was not supplied"
+      ],
+      "files": [
+        "skills/events/SKILL.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/ssot-consumption.md"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Verify the attached speaking-plan.md against events/SKILL.md and supplied shared standards. Evaluate the speaking-only booth N/A, every other applicable requirement, and separately route semantic canon alignment.",
+      "expected_output": "Accepts the conditional N/A with a reason because the event is speaking-only, while checking all other applicable requirements independently.",
+      "assertions": [
+        "Uses NOT_APPLICABLE only where the originating skill permits conditional relevance",
+        "Records the speaking-only rationale",
+        "Still checks other applicable event narrative requirements",
+        "Does not treat all unreviewed requirements as N/A"
+      ],
+      "files": [
+        "skills/output-quality-check/evals/fixtures/speaking-plan.md",
+        "skills/events/SKILL.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/ssot-consumption.md"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "An event landing page satisfies all explicit requirements in copywriting/SKILL.md, but calls the company a category that conflicts with the active SSOT. Run output-quality-check only and explain which review owns that issue. Only this description is supplied; the complete artifact is unavailable. State what can be concluded and what input is needed before full verification.",
+      "expected_output": "Requests the full page before verification, keeps output-quality and canon alignment separate, and routes the reported category issue to messaging-consistency-audit.",
+      "assertions": [
+        "Keeps originating-skill output quality separate from canon alignment",
+        "Routes the category conflict to messaging-consistency-audit",
+        "Does not turn the canon mismatch into an output-quality-check failure unless the originating skill explicitly requires checking it",
+        "Does not combine the two audit statuses",
+        "Does not claim to have inspected a complete artifact that was not supplied"
+      ],
+      "files": [
+        "skills/copywriting/SKILL.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/ssot-consumption.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "An event strategy includes every required section and evidence label in events/SKILL.md, but its proposed event narrative contradicts canonical positioning. Verify the event artifact against events/SKILL.md only, then state the separate next review. Only this description is supplied; the complete artifact is unavailable. State what can be concluded and what input is needed before full verification.",
+      "expected_output": "Requests the full strategy before verification, does not inspect canon semantics, and routes the reported narrative issue to messaging-consistency-audit.",
+      "assertions": [
+        "Does not inspect canonical wording to decide message consistency",
+        "Marks semantic fit UNVERIFIABLE for this verifier and routes to messaging-consistency-audit",
+        "Identifies the complete artifact as missing rather than claiming its recorded inputs and handoffs were verified",
+        "Does not alter canonical messaging or combine audit statuses",
+        "Does not claim to have inspected a complete artifact that was not supplied"
+      ],
+      "files": [
+        "skills/events/SKILL.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/ssot-consumption.md"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Verify the attached speaking-plan-no-measurement.md against events/SKILL.md and supplied shared standards. Identify omissions with evidence, stable IDs, and specific remediation owners. Do not silently fill the plan or compare canon semantics.",
+      "expected_output": "Reports measurement plan omission as FAIL, cites the events required-output declaration, and gives a specific correction routed to events.",
+      "assertions": [
+        "Checks the artifact against events/SKILL.md required output",
+        "Reports the missing measurement plan as FAIL",
+        "Provides a stable ID, artifact location, and concrete correction",
+        "Routes remediation to events and does not silently add the missing plan"
+      ],
+      "files": [
+        "skills/output-quality-check/evals/fixtures/speaking-plan-no-measurement.md",
+        "skills/events/SKILL.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/ssot-consumption.md"
+      ]
+    }
+  ]
+}

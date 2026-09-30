@@ -1,11 +1,14 @@
 ---
 name: launch-readiness-check
-description: "When the user wants to grade a full set of launch assets against one company canon before go-live. Use when the user asks 'are we ready to launch' or mentions 'launch QA,' 'pre-launch audit,' 'check all our launch assets,' or 'launch readiness.' Runs the rule book's Block, Fix, and Suggest review on every asset, then returns a go/no-go scorecard with a Ready, Ready after fixes, or Not ready verdict. It is the Rung 4 gate of the launch chain. For reviewing a single piece of copy, see the company's *-messaging skill. For the launch sequence itself, see market-launch."
+description: "When the user wants to grade a full set of launch assets against the company canon before go-live. Reads the project SSOT and any stricter company claims register, then returns a go/no-go scorecard. Use for launch QA, pre-launch audits, and launch readiness. It is the Rung 4 gate. For cross-channel consistency outside a launch gate, see messaging-consistency-audit. For the launch sequence itself, see market-launch."
 metadata:
   version: 1.0.0
 ---
 
 # Launch Readiness Check
+
+
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 
 You are the last gate before go-live. You grade every launch asset against one company canon and return a go/no-go scorecard. One banned claim in one asset is enough to stop the launch.
 
@@ -17,7 +20,7 @@ Deliver the scorecard, not advice about how to review copy.
 - `../_shared/launch-stages.md`: Rung 4 entry criteria, the gate, and the handoff contract.
 - `../_shared/evidence-gaps.md`: Sourced, Assumed, and Gap labels, and the rule for `[Gap: ...]` placeholders.
 
-**Load the company canon.** Find the company's rule book at `../[company]-messaging/`. Load its `references/` in this order:
+**Load available canonical sources.** If the company's rule book exists at `../[company]-messaging/`, load its `references/` in this order:
 1. `canon.md`: the Approved numbers table and the canon version.
 2. `claims.md`: Approved (A), Conditional (C), and Banned (B) claims, plus competitor rules.
 3. `terminology.md`: product names, spelling, and voice.
@@ -25,9 +28,20 @@ Deliver the scorecard, not advice about how to review copy.
 
 Read the rule book's own `SKILL.md` review mode too. Its severity definitions win where they are stricter than the ones below.
 
-**If no canon exists for the company, stop.** Write: "No canon for [company]. Build the company rule book first (Rung 2 of launch-stages.md)." Never grade against memory or a generic standard.
+Also load the active project's manifest-mapped SSOT files using
+`../_shared/ssot-consumption.md`. The SSOT is authoritative for covered strategic
+claims. Apply any stricter legal or claims-register restrictions too. If the two
+sources conflict, flag the conflict and stop the affected check for human review.
+Do not resolve it by silently preferring an asset or rewriting either canon.
+
+**If neither a company rule book nor an applicable SSOT exists, stop.** Write: "No company canon found. Establish the company messaging canon before launch review." Never grade against memory or a generic standard. If only the SSOT exists, use its mapped core and evidence files as the canon for the checks below. If both sources exist, SSOT owns covered strategy and the rule book adds any stricter claims, legal, terminology, or launch constraints. Flag a conflict and hold the affected check for human review.
 
 **Collect the asset set.** List every asset with its type (email, landing page, deck, battlecard, social, other) and its canon stamp. If the user says more assets exist than they pasted, grade what you have and list the rest as not reviewed.
+
+An incomplete declared launch set cannot receive a launch-wide Ready verdict.
+Report the supplied assets' individual results, but hold the launch as Not ready
+until every required asset is reviewed. If scope is unknown, state that coverage
+cannot be confirmed rather than imply launch-wide clearance.
 
 ## Core Principles
 
@@ -45,17 +59,17 @@ Read the rule book's own `SKILL.md` review mode too. Its severity definitions wi
 
 | Severity | Use for |
 |---|---|
-| **Block** | A Banned claim (B rows). A number that is wrong, unscoped, or not in the Approved numbers table. A Conditional claim (C rows) missing its qualifier. A regulatory or legal misstatement. Anything stated as done that is still pending. A named competitor in customer-facing copy. A `[Gap: ...]` placeholder with no fallback line. |
+| **Block** | A Banned claim (B rows). A number that is wrong, unscoped, or unsupported by approved canon evidence. A Conditional claim (C rows) missing its qualifier. A regulatory or legal misstatement. Anything stated as done that is still pending. A named competitor in customer-facing copy when applicable canon prohibits it. A `[Gap: ...]` placeholder with no fallback line. |
 | **Fix** | Off-canon positioning or category. A wrong product name or spelling. Table stakes leading the message. A `[Gap: ...]` placeholder that still needs its fallback swapped in. A missing or stale canon stamp on the asset. |
 | **Suggest** | Voice, emphasis, or a stronger on-canon line. |
 
 ## Process
 
 ### 1. Confirm the canon
-Name the company, the rule book, and the canon version from `canon.md`. This version stamps the whole scorecard.
+Name the company, applicable canonical sources, and version in the scorecard. Use the rule book version from `canon.md` when present. Otherwise, stamp the SSOT client and relevant `last_reviewed` date or decision record. Do not mix canon versions in one scorecard.
 
 ### 2. Review each asset
-For each asset, check it line by line against `claims.md`, the Approved numbers table in `canon.md`, and `terminology.md`. Log every issue with its severity, the exact asset text, the rule broken (file and rule ID), and the on-canon fix.
+For each asset, check it line by line against manifest-mapped SSOT positioning, product truth, persona, evidence, and anti-patterns, plus `claims.md`, the Approved numbers table in `canon.md`, and `terminology.md` when the rule book exists. Cite the exact SSOT file and section or rule ID, such as `claims.md C2` or `core/02-product.md, capabilities`. Log the issue's severity, exact asset text, rule, and on-canon fix.
 
 Give each asset its own verdict:
 - **Ready:** no Block and no Fix.
@@ -66,9 +80,9 @@ Give each asset its own verdict:
 Count assets and flags by severity. Pick the top blocking issues: every Block, ordered by how many assets repeat it, then by customer exposure (web and email before internal decks).
 
 ### 4. Give the launch verdict
-- **Ready:** every asset is Ready.
-- **Ready after fixes:** no asset is Blocked, and at least one has Fix items. Launch once the Fix items close.
-- **Not ready:** any asset is Blocked.
+- **Ready:** every required launch asset has been reviewed and is Ready.
+- **Ready after fixes:** every required launch asset has been reviewed, no asset is Blocked, and at least one has Fix items. Launch once the Fix items close.
+- **Not ready:** any asset is Blocked, or a required launch asset is not reviewed.
 
 Write the verdict as one line and put it first.
 
@@ -81,8 +95,8 @@ The verdict comes first because the scorecard is a decision document. The "Input
 
 Artifact: go/no-go scorecard
 Rung: 4
-Canon: v[YYYY-MM-DD]
-Built from: [company]-messaging canon v[YYYY-MM-DD]; [n] launch assets
+Canon: [company rule book version and/or SSOT client plus reviewed date]
+Built from: [canonical source references]; [n] launch assets
 
 ## Inputs and assumptions
 | Item | What was used, missing, or assumed | Label |
@@ -112,7 +126,7 @@ Built from: [company]-messaging canon v[YYYY-MM-DD]; [n] launch assets
 ## Evidence gaps (top five)
 [Ranked per ../_shared/evidence-gaps.md: open Gap placeholders and out-of-canon claims first.]
 
-Canon v[YYYY-MM-DD]
+Canon [same stamp]
 ```
 
 ## Common Failure Modes

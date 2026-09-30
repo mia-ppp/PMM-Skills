@@ -33,6 +33,10 @@ specification for the file schemas, commands, signal model, gates, and templates
   files. `competitor-profiling` can inform competitive and market evidence.
 - `sales-enablement`, `copywriting`, `launch-strategy`, `market-launch`, and
   `launch-readiness-check` can read mapped SSOT files to keep assets aligned.
+- `events` can adapt approved messages for event context and routes material
+  narrative conflicts through this SSOT's evidence and human-approval gates.
+- `output-quality-check` checks a skill's artifact against that skill's declared
+  requirements. It does not audit canon consistency or change this SSOT.
 - Use repo-level `manifest.yaml` in the user's project to map skills or agents to
   the SSOT files they read. Start with `/manifest` to create or update it.
 - The SSOT is upstream context. Other skills do not call this skill to decide

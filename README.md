@@ -1,289 +1,201 @@
-# PMM Skills for AI Agents
+# Product Marketing Skills for Claude Code and Codex
 
-Product marketing skills for AI agents. Use them to set positioning, build messaging frameworks, define buyer personas, and carry that foundation into launches, sales collateral, competitive pages, and copy. The collection also covers the growth work a lean marketing team handles: conversion optimization, SEO, paid ads, email, analytics, and retention.
+PMM Skills is an open-source collection of product marketing skills for AI agents, including Claude Code and OpenAI Codex. Product marketers can use them for customer research, competitive intelligence, positioning, messaging, go-to-market (GTM) planning, launches, and sales enablement.
 
-Works with Claude Code, Cursor, Windsurf, and any agent that supports the Agent Skills spec.
+The skills work from shared company context, so research can feed strategy, approved strategy can feed launches and channel execution, and market-facing assets can be checked against the same source of truth. Each skill owns a specific job and hands work to the right downstream skill. Changes to approved strategy still require human approval.
 
-For instance, 
-- **[positioning-strategy](skills/positioning-strategy/)**: finds the wedge, fills a positioning canvas, and states the trade-offs it is making.
-- **[messaging-framework](skills/messaging-framework/)**: turns a position into an umbrella message, pillars, and messaging by persona.
-- **[market-entry-brief](skills/market-entry-brief/)**: sizes and scores a new market before positioning, with labeled TAM, SAM, and SOM, ranked entry risks, and a go, explore, or pass call.
-- **[market-launch](skills/market-launch/)**: conducts a new-market launch through four gated rungs, carrying each artifact forward with a canon stamp and evidence labels.
-- **[buyer-personas](skills/buyer-personas/)**: segments before it profiles, maps the buying committee, and labels every attribute as evidence or hypothesis.
-- **[Eval harness](evals/)**: checks that each request reaches the right skill, scores every skill against a no-skill baseline on four rubric dimensions (grounded, decisive, usable, sharp), and measures how often the judge agrees with hand grades.
+## What you can do
 
-**Measured results ([RESULTS.md](evals/RESULTS.md)):** in the latest run, positioning-strategy (+0.90) and messaging-framework (+0.88) show the largest lift over baseline on a 0 to 2 scale, and the router picks the right skill for 94.6% of 222 test prompts. These are early results from small samples.
+- Synthesize customer and market research, compare segments, and develop an ideal customer profile (ICP) and buyer personas.
+- Define positioning, build a messaging framework, and evaluate pricing and packaging.
+- Research competitors, analyze win/loss outcomes, and track recurring sales objections.
+- Plan launches, events, account-based marketing (ABM), customer marketing, and partner programs.
+- Create sales enablement materials, website copy, email sequences, social content, and paid campaigns.
+- Check whether outputs meet their requirements, audit messaging against approved company context, and assess launch readiness.
 
----
+## Quick start
 
-## How Skills Work Together
-
-Skills reference each other and build on shared context. `product-marketing-context` remains the lightweight bootstrap for product, audience, and positioning. For teams that need persistent, governed PMM knowledge, `ssot-context-loop` maintains canonical strategy separately from living field intelligence, detects drift, and requires PMM approval before core changes. When an SSOT exists for the active client or project, it is authoritative for claims it covers. It does not replace or automatically overwrite the bootstrap document.
-
-The SSOT can map skills to the files they should read through a project-level `manifest.yaml`. This is an opt-in integration point: existing skills are not required to consume it yet. Positioning and messaging skills can use approved core; research and competitive skills can inform living evidence; sales, copy, and launch skills can read the approved canon. The SSOT loop governs changes without creating a circular dependency on those skills.
-
-```
-                    ┌──────────────────────────────────────┐
-                    │ product-marketing-context (bootstrap)│
-                    │ ssot-context-loop (governed SSOT)    │
-                    └──────────────────┬───────────────────┘
-                                       │
-                    ┌──────────────────┴───────────────────┐
-                    │       Positioning & Messaging        │
-                    ├──────────────────────────────────────┤
-                    │  positioning-strategy                │
-                    │  messaging-framework                 │
-                    │  buyer-personas                      │
-                    └──────────────────┬───────────────────┘
-                                       │
-  ┌──────────────┬──────────────┬──────┴───────┬──────────────┬──────────────┬──────────────┐
-  ▼              ▼              ▼              ▼              ▼              ▼              ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────────┐ ┌──────────┐ ┌─────────────┐ ┌───────────┐
-│  SEO &   │ │   CRO    │ │Content & │ │  Paid &    │ │ Growth & │ │  Sales &    │ │ Strategy  │
-│ Content  │ │          │ │   Copy   │ │Measurement │ │Retention │ │    GTM      │ │           │
-├──────────┤ ├──────────┤ ├──────────┤ ├────────────┤ ├──────────┤ ├─────────────┤ ├───────────┤
-│seo-audit │ │page-cro  │ │copywritng│ │paid-ads    │ │referral  │ │revops       │ │mktg-ideas │
-│ai-seo    │ │signup-cro│ │copy-edit │ │ad-creative │ │free-tool │ │sales-enable │ │mktg-psych │
-│site-arch │ │onboard   │ │cold-email│ │ab-test     │ │churn-    │ │launch       │ │customer-  │
-│programm  │ │form-cro  │ │email-seq │ │analytics   │ │ prevent  │ │pricing      │ │ research  │
-│schema    │ │popup-cro │ │social    │ │            │ │community │ │comp-alts    │ │           │
-│content   │ │paywall   │ │video     │ │            │ │lead-magnt│ │comp-profile │ │           │
-│aso-audit │ │          │ │image     │ │            │ │          │ │directory    │ │           │
-└──────────┘ └──────────┘ └──────────┘ └────────────┘ └──────────┘ └─────────────┘ └───────────┘
-```
-
-Skills cross-reference each other:
-- `ssot-context-loop` → manifest-mapped upstream context for PMM skills; core changes require human approval
-- `positioning-strategy` → `messaging-framework` → `copywriting`, `sales-enablement`
-- `buyer-personas` ↔ `customer-research` ↔ `positioning-strategy`
-- `copywriting` ↔ `page-cro` ↔ `ab-test-setup`
-- `revops` ↔ `sales-enablement` ↔ `cold-email`
-- `seo-audit` ↔ `schema-markup` ↔ `ai-seo`
-- `customer-research` → `copywriting`, `page-cro`, `competitor-alternatives`
-- Launch chain: `market-entry-brief` → `market-launch`, which sequences `positioning-strategy` → `messaging-framework` → the company rule book → the asset skills → `localization-claims` → `launch-readiness-check`
-
-See each skill's Related Skills section for the full dependency map.
-
----
-
-## Available Skills
-
-| Skill | Description |
-|---|---|
-| `ab-test-setup` | Plan, design, or implement A/B tests and growth experimentation programs. Covers hypothesis frameworks, sample size, statistical significance, ICE scoring, and experiment velocity. |
-| `ad-creative` | Generate, iterate, and scale ad creative: headlines, descriptions, primary text, and full ad sets across formats. |
-| `ai-seo` | Optimize content for AI search engines, get cited by LLMs, and appear in AI-generated answers. |
-| `analytics-tracking` | Set up, improve, or audit analytics tracking and measurement. |
-| `aso-audit` | Audit or optimize an App Store or Google Play listing. |
-| `buyer-personas` | Create, research, validate, or refresh buyer personas, ICP profiles, and buying committee maps. |
-| `churn-prevention` | Reduce churn, build cancellation flows, set up save offers, recover failed payments, and improve retention. |
-| `cold-email` | Write B2B cold emails and follow-up sequences that get replies. |
-| `community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. |
-| `competitor-alternatives` | Create competitor comparison or alternative pages for SEO and sales enablement. |
-| `competitor-profiling` | Research, profile, and analyze competitors from their URLs. |
-| `content-strategy` | Plan a content strategy, decide what content to create, and map out topics by funnel stage. |
-| `copy-editing` | Edit, review, or improve existing marketing copy, or refresh outdated content. |
-| `copywriting` | Write, rewrite, or improve marketing copy for any page: homepage, landing pages, product pages, and more. |
-| `customer-research` | Conduct, analyze, and synthesize customer research. |
-| `directory-submissions` | Submit a product to startup, SaaS, AI, agent, MCP, no-code, or review directories for backlinks and distribution. |
-| `email-sequence` | Create or optimize email sequences, drip campaigns, automated flows, and lifecycle emails. |
-| `form-cro` | Optimize any lead capture or contact form that is not a signup flow. |
-| `free-tool-strategy` | Plan, evaluate, or build a free tool for lead generation or SEO value. |
-| `image` | Create, generate, edit, or optimize images for marketing: blog heroes, social graphics, product visuals. |
-| `launch-readiness-check` | Grade every launch asset against one company canon before go-live and return a go/no-go scorecard. |
-| `launch-strategy` | Plan a product launch, feature announcement, or release strategy. |
-| `lead-magnets` | Create, plan, or optimize a lead magnet for email capture or lead generation. |
-| `localization-claims` | Check that copy and claims survive a move into a new market, enforcing the company's claims register when one exists. |
-| `market-entry-brief` | Size and score a new market before positioning: labeled TAM, SAM, and SOM, buyer delta, constraints, and ranked entry risks. |
-| `market-launch` | Conduct an end-to-end new-market launch by sequencing existing skills through four gated rungs. |
-| `marketing-ideas` | Generate marketing ideas, inspiration, and strategies for SaaS or software products. |
-| `marketing-psychology` | Apply psychological principles, mental models, and behavioral science to marketing. |
-| `messaging-framework` | Build or fix a messaging framework: umbrella message, pillars, proof, persona messaging, and boilerplate. |
-| `onboarding-cro` | Optimize post-signup onboarding, user activation, first-run experience, and time-to-value. |
-| `page-cro` | Optimize any marketing page for conversions: homepage, landing pages, product pages. |
-| `paid-ads` | Plan and optimize paid advertising campaigns on Google, Meta, LinkedIn, and other platforms. |
-| `paywall-upgrade-cro` | Create or optimize in-app paywalls, upgrade screens, upsell modals, and feature gates. |
-| `popup-cro` | Create or optimize popups, modals, overlays, slide-ins, and banners for conversion. |
-| `positioning-strategy` | Create, rework, or pressure-test product positioning, differentiation, and market category. |
-| `pricing-strategy` | Make pricing decisions, structure packaging, and improve monetization strategy. |
-| `product-marketing-context` | Create or update lightweight bootstrap context for product, audience, and positioning. |
-| `programmatic-seo` | Create SEO-driven pages at scale using templates and data. |
-| `referral-program` | Create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. |
-| `revops` | Manage revenue operations, lead lifecycle, and marketing-to-sales handoff processes. |
-| `sales-enablement` | Create sales collateral, pitch decks, one-pagers, objection handling docs, and demo scripts. |
-| `schema-markup` | Add, fix, or optimize schema markup and structured data on a site. |
-| `seo-audit` | Audit, review, or diagnose SEO issues on a site. |
-| `ssot-context-loop` | Maintain a governed PMM source of truth, detect drift, and route canon changes through human approval gates. |
-| `signup-flow-cro` | Optimize signup, registration, account creation, or trial activation flows. |
-| `site-architecture` | Plan, map, or restructure a website's page hierarchy, navigation, URL structure, or internal linking. |
-| `social-content` | Create, schedule, or optimize social media content for LinkedIn, Twitter/X, Instagram, and other platforms. |
-| `video` | Create, generate, or produce video content using AI tools or programmatic frameworks. |
-
----
-
-## Installation
-
-### Option 1: Clone and Copy
+With Git and your agent installed, run this from the project where you want to use the PMM skills:
 
 ```bash
 git clone https://github.com/mia-ppp/PMM-Skills.git
-mkdir -p .agents/skills
-cp -r PMM-Skills/skills/* .agents/skills/
 ```
 
-### Option 2: Download a Single Folder
+For a fresh installation, choose the directory for your agent. If it already contains PMM skills or `_shared/`, review those files before copying because `cp -R` replaces matching files.
 
-Use [DownGit](https://downgit.github.io): paste the GitHub folder URL and download as a ZIP.
-
-### Option 3: Git Submodule
-
-Add as a submodule for easy updates:
+### Codex skills
 
 ```bash
-git submodule add https://github.com/mia-ppp/PMM-Skills.git .agents/PMM-Skills
+mkdir -p .agents/skills
+cp -R PMM-Skills/skills/* .agents/skills/
 ```
 
-Then reference skills from `.agents/PMM-Skills/skills/`.
+### Claude Code skills
 
-### Option 4: Fork and Customize
-
-1. Fork this repository
-2. Customize skills for your specific needs
-3. Clone your fork into your projects
-
----
-
-## Folder Structure
-
-```
-skills/
-├── product-marketing-context/
-│   └── SKILL.md
-├── copywriting/
-│   └── SKILL.md
-├── page-cro/
-│   └── SKILL.md
-└── [all other skills]/
-    └── SKILL.md
+```bash
+mkdir -p .claude/skills
+cp -R PMM-Skills/skills/* .claude/skills/
 ```
 
-Keep all skill folders at the same level. Each skill references others by relative path, so the flat structure is required.
+These commands copy the skill folders and `_shared/`. Start your agent in this project, then ask:
 
----
-
-## Usage
-
-Once installed, ask your agent to help with marketing tasks:
-
-```
-"Help me position our product against Asana and Monday"
-→ Uses positioning-strategy skill
-
-"Build a messaging framework for our launch"
-→ Uses messaging-framework skill
-
-"Help me optimize this landing page for conversions"
-→ Uses page-cro skill
-
-"Write homepage copy for my SaaS"
-→ Uses copywriting skill
-
-"Set up GA4 tracking for signups"
-→ Uses analytics-tracking skill
-
-"Create a 5-email welcome sequence"
-→ Uses email-sequence skill
-
-"Set up our governed PMM source of truth, then scan this week's call notes"
-→ Uses ssot-context-loop with /setup and /scan
+```text
+Use product-marketing-context to draft our company context from these notes.
+Separate sourced facts, assumptions, and evidence gaps for me to review.
 ```
 
-You can also invoke skills directly:
+For a project with approved company context, try `positioning-strategy`, `messaging-framework`, or another skill in the [capability map](#capability-map). See [installation and use](#installation-and-use) for shared references, existing installations, and governed projects.
 
+## How the system works
+
+SSOT means single source of truth: the approved company context skills use for product claims, positioning, messaging, and strategy. Research informs strategy proposals, channel skills produce assets from approved context, and new findings return for review:
+
+```text
+Evidence & intelligence → company context / SSOT → strategy proposals
+                               ↑                         ↓
+                     human-approved changes          GTM motions
+                               ↑                         ↓
+                     learning & evidence ← review ← channel execution
 ```
-/positioning-strategy
-/page-cro
-/email-sequence
-/seo-audit
+
+Start at the point your task needs. A page edit can use approved context directly; a new-market decision needs evidence and segment analysis first.
+
+| Layer | Responsibility |
+|---|---|
+| Evidence & intelligence | Collect and synthesize customer language, opportunity outcomes, objections, and competitor observations. Separate sources from interpretations. |
+| Company context / SSOT | Bootstrap a project, or maintain governed core strategy and living field intelligence with explicit approval gates. |
+| Strategy | Decide markets, segments, personas, positioning, messaging, and pricing. Recommendations remain proposals until approved. |
+| GTM motions | Set objectives, audiences, narrative briefs, owners, dependencies, and learning plans. Hand final assets to channel skills. |
+| Channel execution | Express approved strategy for the channel, persona, and stage. Wording and emphasis can vary while meaning stays consistent. |
+| Quality & governance | Check originating-skill requirements, audit market-facing messaging, and apply the final launch readiness gate. |
+| Operations & learning | Instrument results, manage revenue handoffs, and return observed evidence to the appropriate owner. |
+
+### Shared context and approval
+
+[product-marketing-context](skills/product-marketing-context/SKILL.md) creates a lightweight bootstrap at `.agents/product-marketing-context.md` (with legacy `.claude/` support). It captures sources, assumptions, and gaps separately from governed canon.
+
+[ssot-context-loop](skills/ssot-context-loop/SKILL.md) manages `ssot/<client-slug>/` in the user's project. Core files hold approved product truth, positioning, and personas; living files hold field signals, use cases, competition, proof, and objections.
+
+A project-root `manifest.yaml` maps each reader to the relevant files. The [operational specification](skills/ssot-context-loop/references/ssot-spec.md) defines the actual schemas and commands.
+
+When an applicable SSOT exists, it is authoritative for covered claims. Skills use the [SSOT consumption contract](skills/_shared/ssot-consumption.md), load mapped context, and flag missing, stale, or contested inputs.
+
+Existing stricter legal or claims-register restrictions also apply; conflicts require review.
+
+Evidence can challenge canon without changing it. `/scan` stops for Gate 1 confirmation; `/propose` prepares changes; Gate 2 requires explicit human approval before core changes are persisted.
+
+Initial baseline strategy also requires approval. Downstream skills do not edit canonical files, decisions, or `state.md`, and the bootstrap document is never automatically overwritten by the SSOT loop.
+
+### Evidence and segment decisions
+
+The [evidence contract](skills/_shared/evidence-gaps.md) distinguishes **Sourced**, **Assumed**, and **Gap**, with formulas for derived numbers and ranked validation work. SSOT files use `[C]`, `[A]`, and `[G]` for cited evidence, assumptions, and gaps.
+
+Citing evidence does not approve a strategic change.
+
+Customer quotes retain their source wording and provenance. VoC synthesis lives inside `customer-research`; it separates customer language, PMM interpretation, and proposed marketing language.
+
+Win/loss and objection intelligence produce sourced findings and implications for strategy review.
+
+The [segment-selection framework](skills/_shared/segment-selection.md) keeps all plausible candidates visible, uses thirteen weighted criteria, and reports attractiveness separately from evidence confidence.
+
+A segment recommendation cannot automatically replace canonical ICP. Downstream persona and launch work inherit accepted decisions instead of independently selecting a different target.
+
+### Three separate reviews
+
+| Review | Question it answers | What happens next |
+|---|---|---|
+| [output-quality-check](skills/output-quality-check/SKILL.md) | Does the artifact meet the requirements of the skill that produced it? This read-only check includes required shared standards; missing verification evidence remains UNVERIFIABLE. | Route corrections to the originating skill. |
+| [messaging-consistency-audit](skills/messaging-consistency-audit/SKILL.md) | Does market-facing messaging match applicable SSOT and stay consistent across the supplied assets? Legitimate channel variation is allowed. | Route asset corrections to owners; suspected canon issues to SSOT review; inspect corrected assets in re-audit. |
+| [launch-readiness-check](skills/launch-readiness-check/SKILL.md) | Is the launch ready to proceed under applicable canon and stricter restrictions? This final go/no-go check includes review coverage. | Hold launch-wide clearance for blockers or unreviewed required assets. |
+
+An artifact can meet its skill's output requirements and still need messaging correction. Internal evidence reports usually need output verification.
+
+Use messaging audits for market-facing assets; definitive canon judgments require applicable SSOT. Skill evals are separate from launch readiness.
+
+## Example workflows
+
+### Market / ICP
+
+customer and competitor evidence → `market-entry-brief` and shared segment scoring → accepted market decision → `buyer-personas` → `positioning-strategy` → `messaging-framework` → `ssot-context-loop` approval and canonical record. With existing canon, proposed changes enter its review gates.
+
+### Launch
+
+approved SSOT → `launch-strategy` → channel owners and assets → `output-quality-check` → `messaging-consistency-audit` → `launch-readiness-check`. For new-market entry, `market-launch` conducts the four gated rungs in the [launch contract](skills/_shared/launch-stages.md).
+
+### Evidence feedback
+
+`customer-research` / `win-loss-intelligence` / `objection-intelligence` → sourced findings and limitations → SSOT scan and proposals → human approval → affected readers and assets → re-audit. Repetition alone never makes a message canonical.
+
+### Event
+
+approved SSOT → `events` investment decision, narrative and activation plan → `copywriting`, `email-sequence`, `cold-email`, `social-content`, or `sales-enablement` → output verification → messaging audit → measured follow-up and learning. Events owns the GTM motion; channel owners produce the assets.
+
+### ABM
+
+accepted ICP and SSOT → `account-based-marketing` account selection and tiers → account buying committee and message hypotheses → coordinated outreach, paid, event, and sales execution → `revops` / `analytics-tracking` measurement → account learning and evidence review. Account hypotheses cannot redefine ICP.
+
+## Capability map
+
+Skills are installed as sibling folders so their shared references resolve. Open a skill to see its inputs, output requirements, and handoffs.
+
+| Capability area | Skills |
+|---|---|
+| Evidence & intelligence | [customer-research](skills/customer-research/SKILL.md), [win-loss-intelligence](skills/win-loss-intelligence/SKILL.md), [objection-intelligence](skills/objection-intelligence/SKILL.md), [competitor-profiling](skills/competitor-profiling/SKILL.md) |
+| Market & buyer strategy | [market-entry-brief](skills/market-entry-brief/SKILL.md), [buyer-personas](skills/buyer-personas/SKILL.md), [pricing-strategy](skills/pricing-strategy/SKILL.md), [marketing-ideas](skills/marketing-ideas/SKILL.md), [marketing-psychology](skills/marketing-psychology/SKILL.md) |
+| Positioning & messaging | [positioning-strategy](skills/positioning-strategy/SKILL.md), [messaging-framework](skills/messaging-framework/SKILL.md) |
+| GTM motions | [market-launch](skills/market-launch/SKILL.md), [launch-strategy](skills/launch-strategy/SKILL.md), [events](skills/events/SKILL.md), [account-based-marketing](skills/account-based-marketing/SKILL.md), [customer-marketing](skills/customer-marketing/SKILL.md), [partner-marketing](skills/partner-marketing/SKILL.md), [product-communications](skills/product-communications/SKILL.md) |
+| Channel execution: copy & sales | [copywriting](skills/copywriting/SKILL.md), [copy-editing](skills/copy-editing/SKILL.md), [cold-email](skills/cold-email/SKILL.md), [email-sequence](skills/email-sequence/SKILL.md), [social-content](skills/social-content/SKILL.md), [sales-enablement](skills/sales-enablement/SKILL.md) |
+| Channel execution: paid & media | [paid-ads](skills/paid-ads/SKILL.md), [ad-creative](skills/ad-creative/SKILL.md), [image](skills/image/SKILL.md), [video](skills/video/SKILL.md) |
+| Channel execution: content & discovery | [content-strategy](skills/content-strategy/SKILL.md), [seo-audit](skills/seo-audit/SKILL.md), [ai-seo](skills/ai-seo/SKILL.md), [programmatic-seo](skills/programmatic-seo/SKILL.md), [site-architecture](skills/site-architecture/SKILL.md), [schema-markup](skills/schema-markup/SKILL.md), [aso-audit](skills/aso-audit/SKILL.md), [competitor-alternatives](skills/competitor-alternatives/SKILL.md), [directory-submissions](skills/directory-submissions/SKILL.md) |
+| Growth & conversion | [page-cro](skills/page-cro/SKILL.md), [signup-flow-cro](skills/signup-flow-cro/SKILL.md), [onboarding-cro](skills/onboarding-cro/SKILL.md), [form-cro](skills/form-cro/SKILL.md), [popup-cro](skills/popup-cro/SKILL.md), [paywall-upgrade-cro](skills/paywall-upgrade-cro/SKILL.md) |
+| Growth & retention programs | [community-marketing](skills/community-marketing/SKILL.md), [churn-prevention](skills/churn-prevention/SKILL.md), [referral-program](skills/referral-program/SKILL.md), [lead-magnets](skills/lead-magnets/SKILL.md), [free-tool-strategy](skills/free-tool-strategy/SKILL.md) |
+| Operations & measurement | [revops](skills/revops/SKILL.md), [analytics-tracking](skills/analytics-tracking/SKILL.md), [ab-test-setup](skills/ab-test-setup/SKILL.md) |
+| Company context & SSOT | [product-marketing-context](skills/product-marketing-context/SKILL.md), [ssot-context-loop](skills/ssot-context-loop/SKILL.md) |
+| Quality & governance | [output-quality-check](skills/output-quality-check/SKILL.md), [messaging-consistency-audit](skills/messaging-consistency-audit/SKILL.md), [launch-readiness-check](skills/launch-readiness-check/SKILL.md), [localization-claims](skills/localization-claims/SKILL.md) |
+
+## Installation and use
+
+The quick start installs project-local skills using the documented [Codex skill locations](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skill locations](https://code.claude.com/docs/en/skills). Codex uses `.agents/skills/`; Claude Code uses `.claude/skills/`.
+
+For a personal installation across projects, use `~/.agents/skills/` for Codex or `~/.claude/skills/` for local Claude Code sessions. Other agents need their own documented skill discovery configuration; the Agent Skills format does not prescribe a universal installation directory.
+
+Keep `_shared/` alongside the skill folders. When installing only selected skills, include their shared references and any skills required by the intended handoff.
+
+Copy complete folders, including `references/`, `scripts/`, and `assets/` where present. When updating an existing installation, review differences before copying because `cp -R` replaces matching files.
+
+Ask naturally, or explicitly select a skill using your agent's supported invocation syntax:
+
+```text
+Compare these markets and recommend which evidence to validate first.
+Build an event GTM strategy from our approved SSOT and route the assets.
+Check this brief against the requirements of the skill that produced it.
+Audit this website, sales deck and outbound against our SSOT and each other.
 ```
 
----
+For governed projects, use `ssot-context-loop /setup <client>` to draft the baseline and obtain required approval. Use `/manifest` to map readers.
 
-## Skill Categories
+Supply the active client, sources, assets, and task scope. The repository does not bundle a company SSOT or project manifest.
 
-### Positioning & Messaging
-- `ssot-context-loop`: Governed, persistent PMM context, signal scans, and approval gates
-- `positioning-strategy`: Positioning, differentiation, and market category
-- `messaging-framework`: Messaging pillars, proof, and boilerplate
-- `buyer-personas`: Personas, ICP, and buying committees
-- `product-marketing-context`: Shared product, audience, and positioning context
+Tool guides and optional CLI integrations are indexed in [tools/REGISTRY.md](tools/REGISTRY.md). They support execution; external actions remain subject to the user's instructions and the relevant workflow approvals.
 
-### Conversion Optimization
-- `page-cro`: Any marketing page
-- `signup-flow-cro`: Registration flows
-- `onboarding-cro`: Post-signup activation
-- `form-cro`: Lead capture forms
-- `popup-cro`: Modals and overlays
-- `paywall-upgrade-cro`: In-app upgrade moments
+## Validation and extending the system
 
-### Content & Copy
-- `copywriting`: Marketing page copy
-- `copy-editing`: Edit and polish existing copy
-- `cold-email`: B2B cold outreach emails and sequences
-- `email-sequence`: Automated email flows
-- `social-content`: Social media content
-- `image`: AI image generation, design tools, and optimization
+Skills are content, with no build step. Run the local checks from the repository root:
 
-### SEO & Discovery
-- `seo-audit`: Technical and on-page SEO
-- `ai-seo`: AI search optimization
-- `programmatic-seo`: Scaled page generation
-- `site-architecture`: Page hierarchy, navigation, URL structure
-- `competitor-alternatives`: Comparison and alternative pages
-- `schema-markup`: Structured data
+```bash
+bash validate-skills.sh
+python3 evals/harness.py lint
+python3 evals/check_references.py
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s evals/tests -v
+git diff --check
+```
 
-### Paid & Distribution
-- `paid-ads`: Google, Meta, LinkedIn ad campaigns
-- `ad-creative`: Bulk ad creative generation and iteration
-- `social-content`: Social media scheduling and strategy
+[Eval documentation](evals/README.md) separates structural checks, deterministic harness regressions, mock pipeline runs, and real model evaluations. `--mock` exercises orchestration with fake outputs and random grades; it does not prove PMM behavior.
 
-### Measurement & Testing
-- `analytics-tracking`: Event tracking setup
-- `ab-test-setup`: Experiment design
+Real runs require a configured API and authorized budget. Historical [measured results](evals/RESULTS.md) do not establish that later skill changes passed behavioral evaluation.
 
-### Retention
-- `churn-prevention`: Cancel flows, save offers, dunning, payment recovery
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md). Preserve responsibility boundaries, reuse shared standards, keep evidence and approval explicit, and add focused evals for meaningful behavior.
 
-### Growth Engineering
-- `free-tool-strategy`: Marketing tools and calculators
-- `referral-program`: Referral and affiliate programs
+Report skill problems separately from production deliverables; do not edit skills during a production run.
 
-### Strategy & Monetization
-- `marketing-ideas`: SaaS marketing ideas
-- `marketing-psychology`: Mental models and psychology
-- `launch-strategy`: Product launches and announcements
-- `pricing-strategy`: Pricing, packaging, and monetization
-
-### Market Launch
-- `market-entry-brief`: Size and score a new market (Rung 1)
-- `market-launch`: Sequence the full launch chain
-- `localization-claims`: Check copy and claims for a new market
-- `launch-readiness-check`: Go/no-go scorecard against the company canon (Rung 4)
-
-### Sales & RevOps
-- `revops`: Lead lifecycle, scoring, routing, pipeline management
-- `sales-enablement`: Sales decks, one-pagers, objection docs, demo scripts
-
----
-
-## Contributing
-
-Found a way to improve a skill or have a new one to add? PRs and issues welcome.
-
-See CONTRIBUTING.md for guidelines on adding or improving skills.
-
----
-
-## License
-
-MIT. Free to use, modify, and share, as long as you keep the copyright notice. See [LICENSE](LICENSE).
+[MIT license](LICENSE).

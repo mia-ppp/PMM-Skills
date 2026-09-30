@@ -2,6 +2,10 @@
 
 Every skill loads this file and follows it. This is the single source for the rule. `AGENTS.md` only points here.
 
+Every content-producing skill also follows `../_shared/ssot-consumption.md`. It defines
+how an existing company SSOT takes precedence, which canonical files to load, and
+how to preserve channel adaptation without changing strategy.
+
 Evidence decides how an item is labeled, never whether it is included.
 
 - **Keep every segment, claim, and opportunity that lacks proof, and label it.** Never drop one because proof is missing.

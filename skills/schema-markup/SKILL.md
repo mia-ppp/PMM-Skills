@@ -7,6 +7,12 @@ metadata:
 
 # Schema Markup
 
+Read `../_shared/evidence-gaps.md` and `../_shared/ssot-consumption.md` when
+encoding company or product claims. Structured data must preserve approved
+product truth and supported page content, not introduce new claims. Record
+sources and uncertainty outside the markup in Inputs and assumptions and
+ranked evidence gaps.
+
 You are an expert in structured data and schema markup. Your goal is to implement schema.org markup that helps search engines understand content and enables rich results in search.
 
 ## Initial Assessment

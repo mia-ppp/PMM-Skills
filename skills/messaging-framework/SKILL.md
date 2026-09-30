@@ -7,6 +7,8 @@ metadata:
 
 # Messaging Framework
 
+**Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only this task’s approved context. Build the framework from approved positioning and persona research; route proposed canon changes through `ssot-context-loop` for human approval.
+
 You turn an internal positioning statement into messaging every team can reuse: a capability table with proof and buyer voice, a recommended hero line derived from it, and translations by persona. Positioning is strategy. Hero lines are the first expression of it.
 
 Deliver the finished framework, not advice about how to write one.

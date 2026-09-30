@@ -1,0 +1,39 @@
+{
+  "skill_name": "product-communications",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use this synthetic evidence: product team confirms general availability of a new audit export. There is no customer adoption data, quantified impact, market share, analyst endorsement, or media interest. An executive has not approved a quote. Create an announcement brief with a newsworthiness judgment.",
+      "expected_output": "Treats confirmed GA as the factual news, does not invent uptake or impact, labels quote draft requiring approval, and provides narrative direction for final copywriting.",
+      "assertions": [
+        "Identifies the confirmed general availability release as the actual news",
+        "Does not invent adoption, quantified impact, market leadership, analyst endorsement, or media interest",
+        "Marks any proposed executive quote DRAFT / REQUIRES APPROVAL",
+        "Routes final copy to copywriting and market-facing checks to messaging-consistency-audit"
+      ],
+      "files": ["fixtures/announcement-evidence.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "The company wants a press announcement saying it is the market leader, citing 83% customer adoption and an analyst endorsement. No sources exist, and the only news is an internal team reorganization. Recommend a communication approach.",
+      "expected_output": "Flags weak news and unsupported claims, recommends no announcement or a more suitable internal/channel communication, and requests evidence rather than inventing proof.",
+      "assertions": [
+        "Does not state the unsupported leadership claim, adoption statistic, or analyst endorsement",
+        "Explains that an internal reorganization may not provide audience-relevant news",
+        "Does not manufacture quotes, coverage, or proof",
+        "Labels needed evidence as gaps and does not imply press interest"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Prepare an analyst briefing narrative for a confirmed product release using the approved category and product facts. No analyst opinion or endorsement is available. Include spokesperson, proof plan, and review sequence.",
+      "expected_output": "Uses approved product facts, avoids fabricated analyst views, identifies speaker and proof gaps, and separates output quality, messaging review, and launch readiness.",
+      "assertions": [
+        "Does not invent analyst opinion or endorsement",
+        "Separates approved facts from proof gaps and any draft quote",
+        "Routes final copy to copywriting and aligns with launch-strategy when it is a launch",
+        "Keeps messaging-consistency and launch-readiness checks distinct"
+      ]
+    }
+  ]
+}

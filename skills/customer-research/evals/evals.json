@@ -143,6 +143,30 @@
         "Warns against building personas without any data"
       ],
       "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Synthesize the attached synthetic VoC notes. Interview A, operations manager, mid-market customer, onboarding week 2: \"I can finally close the weekly report before lunch.\" Source: fictional interview note, 2026-09-10. Interview B, enterprise finance buyer, evaluation stage: \"I need to know who changed the rule before I trust the report.\" Source: fictional interview note, 2026-09-12. No other source material exists. Separate customer language, PMM interpretation, and proposed marketing language.",
+      "expected_output": "Preserves both exact source quotes with provenance, keeps distinct segment/stage contexts and sparse sample limitations, and clearly separates interpretation and proposal from customer language.",
+      "assertions": [
+        "Uses only the two verbatim quotes supplied and attaches their source/date",
+        "Separates customer language from PMM interpretation and proposed marketing language",
+        "Preserves the different segment and lifecycle contexts rather than averaging them",
+        "Marks patterns as low confidence or sparse evidence and does not claim broad prevalence"
+      ],
+      "files": ["fixtures/voc-sample.md"]
+    },
+    {
+      "id": 14,
+      "prompt": "We have two customer comments that conflict: one wants a short setup and another wants detailed controls. Can you write three customer quotes supporting our positioning? No source text is available beyond that summary.",
+      "expected_output": "Refuses to fabricate quotations, preserves the conflicting need contexts as gaps, and separates PMM interpretation from source language.",
+      "assertions": [
+        "Does not fabricate customer quotations",
+        "Keeps conflicting preferences visible rather than averaging them away",
+        "Labels missing source text and context as gaps",
+        "Does not silently change canonical positioning"
+      ],
+      "files": []
     }
   ]
 }

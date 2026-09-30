@@ -1,0 +1,82 @@
+{
+  "skill_name": "events",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build an event strategy for an owned executive roundtable for 12 CFOs at named target accounts. The goal is to accelerate open enterprise opportunities. We have confirmed 8 target accounts can attend; no prior roundtable conversion data. Include follow-up and measurement without inventing ROI.",
+      "expected_output": "An executive-roundtable event strategy with target audience, pipeline-acceleration objective, theme/offer/CTA, sales motion, attendance and opportunity outcomes separated, unknown conversion labeled Gap or Assumed, and segmented follow-up. No venue or catering plan.",
+      "assertions": [
+        "Treats the roundtable as a GTM motion rather than logistics planning",
+        "Separates verified target-account attendance from unknown pipeline outcomes",
+        "Includes follow-up and a measurement plan tied to opportunity acceleration",
+        "Does not manufacture ROI or conversion estimates"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Decide whether to sponsor and exhibit at a large industry conference. Audience fit is described as 'probably good'; we have no attendee list, past performance, cost, or pipeline data. Produce the decision and a useful event strategy with evidence gaps, not fabricated ROI.",
+      "expected_output": "Decision conditional on missing audience and investment evidence, target validation plan, explicit assumptions/gaps, pre/during/post motion, and objective-fit measurement. No invented return forecast.",
+      "assertions": [
+        "Keeps the event option visible while marking weak audience evidence",
+        "Names the information needed to decide whether investment is justified",
+        "Does not fabricate costs, audience counts, pipeline, or ROI",
+        "Distinguishes leading indicators from business outcomes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Plan a 45-minute webinar for existing users who need education on a released feature. We know 600 customers are eligible, but have no attendance benchmark. Define the offer, CTA, promotion/follow-up motions, and measures.",
+      "expected_output": "A webinar strategy oriented to product education and customer adoption, with an attendee promise, actionable CTA, channel handoffs, attendance and post-event product/adoption measures, and missing benchmark labeled.",
+      "assertions": [
+        "Chooses product education/customer adoption as the primary objective",
+        "Includes audience offer, CTA, and desired buyer/customer action",
+        "Does not imply an unsupported attendance target or benchmark",
+        "Routes webinar copy and nurture to downstream skills"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "We have a confirmed speaking slot at a security conference, but no booth or sponsorship. Build the GTM event strategy around the speaking motion, audience value, talk narrative, meetings, and post-event activation.",
+      "expected_output": "A speaking-only strategy with no invented exhibit presence, relevant session narrative, audience CTA, meeting motion, downstream content and follow-up, and success measures.",
+      "assertions": [
+        "Correctly treats this as speaking-only",
+        "Includes session narrative and audience action",
+        "Does not add booth or sponsorship motions",
+        "Plans pre-event, during-event, and post-event activity"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Use this approved SSOT excerpt (canon v2026-09-01): category = payment risk analytics; core value = help payment teams identify risky transactions before authorization; differentiator = combines network signals with transaction context; approved claim = helps teams review risk earlier, no quantified savings claim. Create an event narrative for a technical workshop titled 'See risk sooner in the payment flow.' Explain whether this title is a permissible audience-specific adaptation.",
+      "expected_output": "Recognizes wording/theme adaptation as acceptable when strategic meaning and claims remain within canon, records SSOT version/elements, and does not require identical wording.",
+      "assertions": [
+        "Uses the SSOT as the authority for strategic meaning",
+        "Allows contextual wording when meaning is preserved",
+        "Records canonical inputs and version",
+        "Does not redefine positioning or approved claims"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "The event brief proposes describing our product as an autonomous fraud-prevention platform. Current SSOT canon v2026-09-01 defines us as payment risk analytics, says we help teams identify risky transactions before authorization, and explicitly bans autonomous prevention claims. Produce the event strategy narrative handling.",
+      "expected_output": "Flags a material conflict, preserves current canon in any usable narrative, routes the possible canon question through ssot-context-loop approval, and does not silently revise SSOT.",
+      "assertions": [
+        "Identifies the event narrative as conflicting with canonical positioning/product truth",
+        "Does not repeat the banned claim as approved event messaging",
+        "Routes the potential strategic change through the SSOT process",
+        "Does not change canonical files"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "A VP asks for a forecast that a trade show will create $1.2M pipeline. The only evidence is that the company spent money on a similar event two years ago; no records of attendance, leads, opportunities, or attribution are available. Create the decision and measurement plan.",
+      "expected_output": "Rejects the unsupported $1.2M figure as a forecast, labels pipeline estimate Gap or Assumed with rationale, defines evidence collection and objective-appropriate leading/business measures, and avoids causal claims.",
+      "assertions": [
+        "Does not present the $1.2M pipeline figure as sourced or forecast fact",
+        "States what evidence is missing and how to collect it",
+        "Separates leading indicators from business outcomes",
+        "Does not claim causal revenue impact from influence data"
+      ]
+    }
+  ]
+}

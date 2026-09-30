@@ -15,8 +15,14 @@ Deliver the brief itself, not a framework for writing one.
 
 **Load the shared references:**
 - `../_shared/evidence-gaps.md`: label every number and claim Sourced, Assumed, or Gap.
-- `../_shared/segment-selection.md`: follow sections 2, 3, and 7 for sizing, scoring, and tracing figures.
+- `../_shared/segment-selection.md`: follow sections 1 to 5 for the candidate list, sizing, full scorecard, lead choice, and sequencing, plus section 7 for figure tracing.
 - `../_shared/launch-stages.md`: this skill is Rung 1. The brief is the handoff artifact for Rung 2.
+
+If the project has an SSOT, follow `../_shared/ssot-consumption.md` and read the
+manifest-mapped product and ICP context. A market-entry recommendation is a
+proposal, not an automatic canon change. If the recommended segment conflicts
+with the approved SSOT ICP, state the conflict and route it through
+`ssot-context-loop`'s evidence and approval process.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. It describes the current market and buyer.
@@ -45,10 +51,15 @@ If key information is missing, do not stop. Proceed with stated assumptions and 
 
 **Recommend one call.** Go, Explore, or Pass. Hedged recommendations push the decision back to the reader.
 
+**Use the shared scorecard to prioritize candidates.** A high attractiveness
+score does not override a blocking constraint or weak evidence. A high score
+with low evidence confidence is a validation priority, not proof that the market
+is ready to enter.
+
 ## Process
 
-### 1. Define the market
-Write the market definition in one sentence. Then list its boundaries as in-scope and out-of-scope. Name the current market it is being compared against.
+### 1. Define the market and candidate set
+Write the market definition in one sentence. Then list its boundaries as in-scope and out-of-scope. Name the current market it is being compared against. Follow section 1 of `../_shared/segment-selection.md` to list every plausible candidate segment before choosing a lead.
 
 ### 2. Size TAM, SAM, and SOM
 Follow section 2 of `../_shared/segment-selection.md`.
@@ -59,18 +70,33 @@ Follow section 2 of `../_shared/segment-selection.md`.
 - Build a range, not a point, whenever an input is Assumed.
 - If a sourced total exists, build from it. Never leave the full market as a Gap when a sourced total exists.
 
-### 3. Map the buyer delta
+### 3. Score and prioritize the candidate segments
+Use section 3 of `../_shared/segment-selection.md`. Include every plausible
+candidate from step 1. Keep all 13 criteria visible, including market
+opportunity, pain, JTBD fit, underserved status, differentiation, reachability,
+acquisition ease, customer effort, engagement where available, stickiness,
+expansion, LTV, and proof strength. Use its default weights unless the decision
+owner supplies a reasoned alternative. Label each score and cite its source or
+state its assumption. Mark unscorable criteria Gap.
+
+Show the weighted Segment Attractiveness Score, scoreable weight coverage, and
+separate Evidence confidence for every candidate. Do not use an incomplete,
+low-confidence score as a precise ranking. Name the lead segment, the two or
+three factors driving that choice, its biggest weakness, and the most important
+evidence gap. Preserve every candidate for the sequencing step.
+
+### 4. Map the buyer delta
 Compare the current-market buyer with the new-market buyer, dimension by dimension. Cover at least: role and budget owner, trigger event, evaluation process, alternatives they use today, and compliance or procurement needs. For each difference, say what it changes: messaging, product, channel, pricing, or sales motion.
 
-### 4. List channel and regulatory constraints
+### 5. List channel and regulatory constraints
 Name how the company would reach this buyer and whether it can today. Name licenses, data rules, procurement rules, or certifications the market requires. Mark any constraint that blocks entry outright.
 
-### 5. Rank the top three entry risks
+### 6. Rank the top three entry risks
 Pick the three risks that would most change the outcome. Rank them 1 to 3 by impact on the recommendation, not by likelihood. For each, say what happens if it proves true and how to test it.
 
-### 6. Make the call
+### 7. Make the call
 - **Go:** the market is sized from a sourced anchor, the buyer delta is manageable, and no constraint blocks entry.
-- **Explore:** the market looks attractive, but a top-three risk or a sizing input is still a Gap. Name the test that would settle it and the time it takes.
+- **Explore:** the market scores well but evidence confidence is low or medium, a top-three risk or sizing input is still a Gap, or the scorecard shows a validation need. Name the test that would settle it and the time it takes.
 - **Pass:** the market fails on size, fit, or a blocking constraint even under favorable assumptions.
 
 Write the call as one line. Put it first in the output.
@@ -101,6 +127,46 @@ In scope: [...] | Out of scope: [...] | Compared against: [current market]
 | SAM | | | |
 | SOM | | | |
 [One line on what would move each Assumed input.]
+
+Candidate segment opportunity (size every plausible segment before scoring):
+| Segment | Accounts (share of anchor) | Revenue per account (formula) | Size | Label |
+|---|---|---|---|---|
+| [segment] | | | | Sourced / Assumed / Gap |
+
+## Segment priority scorecard
+Weights: [default 13-criterion model, or each revised weight and rationale; total 100%].
+| Criterion | Weight | [Segment A] | [Segment B] | [Segment C] |
+|---|---:|---|---|---|
+| Market opportunity | 12% | [score, label, source/basis] | | |
+| Pain intensity | 12% | | | |
+| JTBD fit | 10% | | | |
+| Underserved | 7% | | | |
+| Differentiation / ability to win | 10% | | | |
+| Reachability | 8% | | | |
+| Acquisition ease | 7% | | | |
+| Customer effort required | 5% | | | |
+| Existing product engagement | 6% | [score or Gap; evidence if available] | | |
+| Stickiness / retention | 6% | | | |
+| Expansion / upgrade potential | 6% | | | |
+| LTV potential | 6% | | | |
+| Proof strength | 5% | | | |
+| **Segment Attractiveness Score** | **100%** | [weighted formula] / 5; weight coverage [%] | | |
+| **Evidence confidence** | | [High / Medium / Low; support coverage and basis] | | |
+
+Lead: [segment and score]. [Two or three decision factors.]
+Biggest weakness: [one line].
+Most important evidence gap: [one line and how to close it].
+
+Sequence the remaining segments using the shared trigger/unlock framework:
+| Order | Segment | Trigger to start | Validation task that unlocks it | Park/revisit condition |
+|---:|---|---|---|---|
+| 2 | [segment] | [observable metric, proof milestone, or product capability] | [validation task] | [condition, or N/A] |
+
+State the year-one wedge after sequencing, using the sizing rules in the shared
+framework. A strong score alone does not override a blocking constraint, low
+evidence confidence, or an existing canonical SSOT ICP.
+
+If an approved SSOT ICP conflicts with the lead, state the conflict and route it for SSOT review. Do not change the canonical ICP here.
 
 ## Buyer delta: current market vs new market
 | Dimension | Current-market buyer | New-market buyer | What it changes | Label |
