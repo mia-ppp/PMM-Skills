@@ -80,6 +80,21 @@
         "Does not attempt to write homepage copy using context creation patterns"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Update our product marketing context doc. We just finished positioning: 'Ledgerly is a close tool that auto-matches bank lines to invoices for finance teams at 50 to 300 person SaaS companies.' Trigger is a missed month-end close. Capabilities: auto-matching (proof: beta cut matching time 60%, 8 accounts), exception queue (no proof yet). Personas: Controller (champion) cares about close speed; CFO (financial buyer) cares about audit risk.",
+      "expected_output": "Should write a Positioning section with the statement, a derivation trace with Category, Differentiating phrase, Segment, and Trigger rows, and a capability table with Capability, What it does for the buyer, Proof, Buyer voice, and Label columns. Should write a Persona message map with Persona (buying role), What matters to them, Message, and Proof label. Existing sections stay.",
+      "assertions": [
+        "Includes a Positioning section with the statement as given",
+        "The derivation trace has Category, Differentiating phrase, Segment, and Trigger rows, with Trigger filled as a missed month-end close",
+        "The capability table has the columns Capability, What it does for the buyer, Proof, Buyer voice, and Label",
+        "Labels the exception queue Gap or Assumed rather than dropping it",
+        "Includes a Persona message map with columns Persona (buying role), What matters to them, Message, and Proof label",
+        "Keeps the existing sections such as Product Overview, Switching Dynamics, and Proof Points",
+        "Does not invent a buyer quote for the Buyer voice column"
+      ],
+      "files": []
     }
   ]
 }

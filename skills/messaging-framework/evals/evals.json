@@ -85,6 +85,21 @@
         "Marks decision-tree answers with thin evidence and shows the hero for both branches"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Build our messaging framework. From our context doc. Positioning: 'Ledgerly is a close tool that auto-matches bank lines to invoices for finance teams at 50 to 300 person SaaS companies.' Contextual alternative: Excel macros and manual tick-and-tie. Capability table: auto-matching (proof: beta cut matching time 60%, Sourced); exception queue (Gap). Persona message map: Controller (champion), close speed, 'Close in days, not weeks, because matching runs itself.' (Assumed). No CFO row. Also, I think our SOC 2 report is a differentiator, add that.",
+      "expected_output": "Should open with Inputs and assumptions, build capability rows only from the positioning table (auto-matching, exception queue), and put SOC 2 under 'Proposed for positioning' without using it in the messaging. Persona lines start from the Controller map row, adapting emphasis only; any CFO line is labeled Assumed with a recommendation to run buyer-personas. Includes one cost-of-doing-nothing line from the Excel alternative and ends with Evidence gaps.",
+      "assertions": [
+        "Opens with an Inputs and assumptions section",
+        "Capability rows come only from the positioning's capability table: auto-matching and exception queue",
+        "Lists SOC 2 under 'Proposed for positioning' and does not use it in the hero line, capability table, persona lines, or boilerplate",
+        "The Controller persona line starts from the message map and keeps its facts, changing emphasis only",
+        "Any persona line not in the message map, such as a CFO line, is labeled Assumed and recommends buyer-personas",
+        "Includes one line on the cost of doing nothing tied to Excel macros or manual tick-and-tie",
+        "Ends with an Evidence gaps section in the ranked format"
+      ],
+      "files": []
     }
   ]
 }

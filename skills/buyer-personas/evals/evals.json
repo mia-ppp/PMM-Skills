@@ -78,6 +78,19 @@
         "Each Message cell is 1 to 2 sentences and carries a proof point labeled Sourced, Assumed, or Gap"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Build buyer personas for Ledgerly, a bank reconciliation tool for finance teams at 50 to 300 person SaaS companies. We have notes from 6 Controller interviews saying close takes 9 days. Save the results to our context doc when you're done.",
+      "expected_output": "Should open with the persona message map, build the personas, and save the map to the context doc's Persona message map section with columns Persona (buying role), What matters to them, Message, and Proof label, with each row labeled Sourced, Assumed, or Gap.",
+      "assertions": [
+        "Opens with a Persona message map",
+        "Saves the map to the Persona message map section of .agents/product-marketing-context.md by default, without asking first",
+        "The saved map has the columns Persona (buying role), What matters to them, Message, and Proof label",
+        "Every saved row carries a proof label of Sourced, Assumed, or Gap",
+        "Labels the 9-day close finding Sourced to the Controller interviews and does not present non-interview personas as Sourced"
+      ],
+      "files": []
     }
   ]
 }

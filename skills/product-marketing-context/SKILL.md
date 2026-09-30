@@ -2,7 +2,7 @@
 name: product-marketing-context
 description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'who is my target audience,' 'describe my product,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills. It creates `.agents/product-marketing-context.md` that all other skills reference for product, audience, and positioning context. For creating positioning, see positioning-strategy. For personas and ICP, see buyer-personas."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Product Marketing Context
@@ -129,6 +129,21 @@ The JTBD Four Forces:
 - Key conversion action (what you want people to do)
 - Current metrics (if known)
 
+### 13. Positioning
+Written by positioning-strategy. Other skills read it as the source of truth for the position.
+- **Statement:** one sentence in the form "[Product] is a [category + one short differentiating phrase] for [segment]."
+- **Derivation trace:** Category, Differentiating phrase, Segment, and Trigger (the event that starts the search), each with its source and label
+- **Capability table:** every differentiating capability, with what it does for the buyer, proof, buyer voice, and label
+
+messaging-framework builds its capability rows only from this table. If the section is empty, recommend positioning-strategy.
+
+### 14. Persona message map
+Written by buyer-personas. messaging-framework starts its persona lines from it.
+- **Persona:** role-based name with the buying role in brackets, such as (champion) or (financial buyer)
+- **What matters to them:** 1 to 2 short phrases
+- **Message:** the core message in 1 to 2 sentences
+- **Proof label:** Sourced, Assumed, or Gap for the proof behind the message
+
 ---
 
 ## Step 3: Create the Document
@@ -227,6 +242,27 @@ After gathering information, create `.agents/product-marketing-context.md` with 
 **Business goal:**
 **Conversion action:**
 **Current metrics:**
+
+## Positioning
+**Statement:** [Product] is a [category + one short differentiating phrase] for [segment].
+
+**Derivation trace:**
+| Slot | Filled with | Source | Label |
+|---|---|---|---|
+| Category | | | Sourced / Assumed / Gap |
+| Differentiating phrase | | | |
+| Segment | | | |
+| Trigger | [the event that starts the search] | | |
+
+**Capabilities:**
+| Capability | What it does for the buyer | Proof | Buyer voice | Label |
+|---|---|---|---|---|
+| | | | | Sourced / Assumed / Gap |
+
+## Persona message map
+| Persona (buying role) | What matters to them | Message | Proof label |
+|---|---|---|---|
+| [Role-based name] (champion) | | | Sourced / Assumed / Gap |
 
 ## Evidence gaps
 | Rank | Item | Label | Why it matters | How to resolve | Owner | Resolve by |
