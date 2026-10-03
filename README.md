@@ -60,20 +60,65 @@ For a project with approved company context, try `positioning-strategy`, `messag
 
 Product marketing connects customer evidence to decisions, launches, and the assets buyers see. The skills share approved company context, or SSOT (single source of truth), so each workflow builds on the same product claims, positioning, and messaging.
 
-| Research & Intelligence | PMM Strategy | Go-to-Market | Execution | Growth | Systems & Review |
-|---|---|---|---|---|---|
-| `customer-research` | `icp-and-buyer-personas` | `go-to-market-strategy` | `sales-enablement` | `content-strategy` | `product-marketing-context` |
-| `competitor-profiling` | `positioning-strategy` | `market-entry-orchestration` | `marketing-copy` | `search-discoverability` | `ssot-context-loop` |
-| `win-loss-intelligence` | `messaging-framework` | `launch-strategy` | `cold-email` | `website-buyer-journey` | `output-quality-check` |
-| `objection-intelligence` | `pricing-strategy` | `account-based-marketing` | `email-sequence` | `aso-audit` | `messaging-consistency-audit` |
-| `market-entry-brief` |  | `events` | `social-content` | `acquisition-conversion` | `launch-readiness-check` |
-|  |  | `customer-marketing` | `paid-ads` | `product-activation` | `localization-claims` |
-|  |  | `partner-marketing` | `ad-creative` | `upgrade-conversion` | `analytics-tracking` |
-|  |  | `product-communications` | `competitor-alternatives` | `community-marketing` | `marketing-experimentation` |
-|  |  |  |  | `referral-program` | `revops` |
-|  |  |  |  | `buyer-resources` |  |
+```text
+┌───────────────────────────────┐   ┌───────────────────────────────┐
+│ COMPANY INPUTS                │   │ EXISTING PMM CONTEXT          │
+│                               │   │                               │
+│ Market data                   │   │ Positioning                   │
+│ Product & funnel data         │   │ Messaging                     │
+│ Product docs                  │   │ Personas / ICP                │
+│ Product roadmap               │   │ Prior research                │
+│ CRM data                      │   │ Existing decisions            │
+│ Sales calls                   │   │                               │
+└───────────────────────────────┘   └───────────────────────────────┘
 
-Research → Context → Strategy → GTM → Execution → Growth → Learning ↺
+RESEARCH & INTELLIGENCE
+┌───────────────────────────────┐   ┌───────────────────────────────┐   ┌───────────────────────────────┐
+│ CUSTOMER INTELLIGENCE         │   │ MARKET INTELLIGENCE           │   │ COMPETITIVE INTELLIGENCE      │
+│                               │   │                               │   │                               │
+│ Customer research             │   │ Market intelligence           │   │ Competitive landscape         │
+│ Win/loss                      │   │ Category intelligence         │   │ Competitor profiling          │
+│ Objection intelligence        │   │ Emerging opportunities        │   │ Competitive signals           │
+└───────────────────────────────┘   └───────────────────────────────┘   └───────────────────────────────┘
+                                                     ↓
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ PMM CONTEXT / SSOT                                                                                      │
+│ Product marketing context                                                                               │
+│ SSOT context loop                                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                                     ↓
+┌───────────────────────────────┐   ┌───────────────────────────────┐   ┌───────────────────────────────┐
+│ PMM STRATEGY                  │   │ GO-TO-MARKET                  │   │ EXECUTION                     │
+│                               │   │                               │   │                               │
+│ Market entry                  │   │ GTM strategy                  │   │ Sales enablement              │
+│ ICP & buyer personas          │   │ Market entry orchestration    │   │ Marketing copy                │
+│ Positioning                   │   │ Launch strategy               │   │ Cold email                    │
+│ Messaging                     │   │ Account-based marketing       │   │ Email sequences               │
+│ Pricing                       │   │ Events                        │   │ Social content                │
+│                               │   │ Customer marketing            │   │ Paid ads                      │
+│                               │   │ Partner marketing             │   │ Content strategy              │
+│                               │   │ Product communications        │   │ Search discovery              │
+│                               │   │                               │   │ Website journey               │
+│                               │   │                               │   │ Competitor alternatives       │
+└───────────────────────────────┘   └───────────────────────────────┘   └───────────────────────────────┘
+                                                     ↓
+┌───────────────────────────────┐   ┌───────────────────────────────┐   ┌───────────────────────────────┐
+│ GROWTH                        │   │ MEASUREMENT                   │   │ REVIEW & GOVERNANCE           │
+│                               │   │                               │   │                               │
+│ Acquisition conversion        │   │ Analytics                     │   │ Output quality                │
+│ Product activation            │   │ Experimentation               │   │ Messaging consistency         │
+│ Upgrade conversion            │   │ RevOps                        │   │ Launch readiness              │
+│ Community marketing           │   │                               │   │ Localization & claims         │
+│ Referral programs             │   │                               │   │ SSOT governance               │
+│ Buyer resources               │   │                               │   │                               │
+└───────────────────────────────┘   └───────────────────────────────┘   └───────────────────────────────┘
+                                                     ↓
+                                               Field Learning
+                                                     ↓
+                                          human review / approval
+                                           ↺ PMM Context / SSOT
+```
+
 
 Research informs strategy. Approved strategy drives execution. Field learning can propose updates to company context and strategy, but human approval is required before changing canon.
 
