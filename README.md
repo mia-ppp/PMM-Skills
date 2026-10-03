@@ -60,39 +60,22 @@ For a project with approved company context, try `positioning-strategy`, `messag
 
 Product marketing connects customer evidence to decisions, launches, and the assets buyers see. The skills share approved company context, or SSOT (single source of truth), so each workflow builds on the same product claims, positioning, and messaging.
 
-```text
-CUSTOMER & MARKET INTELLIGENCE
-Customer Research • Voice of Customer
-Competitive Intelligence • Win/Loss • Objection Intelligence
-                         ↓
-COMPANY CONTEXT / SSOT
-Approved Product Truth • Evidence • Decisions • Approval Gates
-                         ↓
-PMM STRATEGY (proposals require human approval)
-Market Segmentation • ICP • Buyer Personas
-Positioning • Messaging • Pricing & Packaging
-                         ↓
-GO-TO-MARKET (GTM)
-GTM Strategy • Market Entry • Launch Strategy • ABM • Events
-Customer Marketing • Partner Marketing • Product Communications
-                         ↓
-EXECUTION (from approved strategy)
-Sales Enablement • Website & Copy • Email • Social • Paid Ads
-Competitive Content • Buyer Resources • Creative
-                         ↓
-BUYER JOURNEY & GROWTH
-Content & Search Discoverability • Website Buyer Journey
-Conversion • Activation • Upgrades • Community • Referrals
-                         ↓
-REVIEW & LEARNING
-Output Quality • Messaging Consistency • Launch Readiness
-Localization & Claims • Measurement • Experimentation
-RevOps • Evidence & Field Learning
-                         │
-                         └──→ Propose updates to company context
-                              and strategy; human approval is
-                              required before changing canon.
-```
+| Research & Intelligence | PMM Strategy | Go-to-Market | Execution | Growth | Systems & Review |
+|---|---|---|---|---|---|
+| `customer-research` | `icp-and-buyer-personas` | `go-to-market-strategy` | `sales-enablement` | `content-strategy` | `product-marketing-context` |
+| `competitor-profiling` | `positioning-strategy` | `market-entry-orchestration` | `marketing-copy` | `search-discoverability` | `ssot-context-loop` |
+| `win-loss-intelligence` | `messaging-framework` | `launch-strategy` | `cold-email` | `website-buyer-journey` | `output-quality-check` |
+| `objection-intelligence` | `pricing-strategy` | `account-based-marketing` | `email-sequence` | `aso-audit` | `messaging-consistency-audit` |
+| `market-entry-brief` |  | `events` | `social-content` | `acquisition-conversion` | `launch-readiness-check` |
+|  |  | `customer-marketing` | `paid-ads` | `product-activation` | `localization-claims` |
+|  |  | `partner-marketing` | `ad-creative` | `upgrade-conversion` | `analytics-tracking` |
+|  |  | `product-communications` | `competitor-alternatives` | `community-marketing` | `marketing-experimentation` |
+|  |  |  |  | `referral-program` | `revops` |
+|  |  |  |  | `buyer-resources` |  |
+
+Research → Context → Strategy → GTM → Execution → Growth → Learning ↺
+
+Research informs strategy. Approved strategy drives execution. Field learning can propose updates to company context and strategy, but human approval is required before changing canon.
 
 Start at the point your task needs. A page edit can use approved context directly; a new-market decision needs evidence and segment analysis first.
 
