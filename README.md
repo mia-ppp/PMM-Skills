@@ -1,6 +1,6 @@
 # Product Marketing Skills for Claude Code and Codex
 
-PMM Skills is an open-source collection of product marketing skills for AI agents, including Claude Code and OpenAI Codex. Product marketers can use them for customer research, competitive intelligence, positioning, messaging, go-to-market (GTM) planning, launches, and sales enablement.
+PMM Skills is an open-source collection of product marketing skills for AI agents, including Claude Code and OpenAI Codex. Product marketers can use them for customer research, market intelligence, competitive intelligence, positioning, messaging, go-to-market (GTM) planning, launches, and sales enablement.
 
 The collection is for product marketers and teams using AI for structured product marketing work, from research and strategy through GTM, execution, and review.
 
@@ -16,11 +16,14 @@ Jump to: [What you can do](#what-you-can-do) · [Quick start](#quick-start) · [
 
 ## What you can do
 
-- Synthesize customer and market research, compare segments, and develop an ideal customer profile (ICP) and buyer personas.
+- Synthesize customer research, analyze win/loss outcomes, and track recurring sales objections.
+- Research market conditions, category conventions, and emerging opportunities.
+- Map the competitive landscape, profile competitors, and investigate competitive signals.
+- Evaluate market entry, compare segments, and develop an ideal customer profile (ICP) and buyer personas.
 - Define positioning, build a messaging framework, and evaluate pricing and packaging.
-- Research competitors, analyze win/loss outcomes, and track recurring sales objections.
 - Plan launches, events, account-based marketing (ABM), customer marketing, and partner programs.
 - Create sales enablement materials, website copy, email sequences, social content, and paid campaigns.
+- Measure performance, run experiments, and manage revenue handoffs.
 - Check whether outputs meet their requirements, audit messaging against approved company context, and assess launch readiness.
 
 ## Quick start
@@ -50,15 +53,16 @@ cp -R PMM-Skills/skills/* .claude/skills/
 These commands copy the skill folders and `_shared/`. Start your agent in this project, then ask:
 
 ```text
-Use product-marketing-context to draft our company context from these notes.
-Separate sourced facts, assumptions, and evidence gaps for me to review.
+Use product-marketing-context to establish context for this decision from these materials.
+Inventory the sources, assess readiness, and route consequential research gaps.
+Separate evidence, interpretations, assumptions, and approval dependencies for review.
 ```
 
 For a project with approved company context, try `positioning-strategy`, `messaging-framework`, or another skill in the [capability map](#capability-map). See [installation and use](#installation-and-use) for shared references, existing installations, and governed projects.
 
 ## How the system works
 
-Product marketing connects customer evidence to decisions, launches, and the assets buyers see. The skills share approved company context, or SSOT (single source of truth), so each workflow builds on the same product claims, positioning, and messaging.
+Product marketing connects customer, market, and competitive intelligence to decisions, launches, and the assets buyers see. The skills share approved company context, or SSOT (single source of truth), so each workflow builds on the same product claims, positioning, and messaging.
 
 ```text
 ┌───────────────────────────────┐   ┌───────────────────────────────┐
@@ -119,30 +123,23 @@ RESEARCH & INTELLIGENCE
                                            ↺ PMM Context / SSOT
 ```
 
+Company inputs and existing PMM context are resources available to the system. Skills use them as the task requires. Product & funnel data covers quantitative usage, activation, retention, conversion, and pipeline performance.
 
-Research informs strategy. Approved strategy drives execution. Field learning can propose updates to company context and strategy, but human approval is required before changing canon.
+Customer, Market, and Competitive Intelligence produce reusable understanding that informs the central PMM Context / SSOT layer and strategy decisions. Market intelligence examines external market and category conditions; market entry uses that evidence to decide where or whether to enter. Approved context supports PMM Strategy, Go-to-Market, and Execution. Field learning can propose context and strategy updates, but human approval is required before changing canon.
 
 Start at the point your task needs. A page edit can use approved context directly; a new-market decision needs evidence and segment analysis first.
 
 Channel skills express approved strategy. Observed evidence can challenge it and trigger review, but does not silently rewrite canon.
 
-Quality and governance checks apply across workflows; they are shown together for readability.
-
-| PMM job | What the skills help you do | Example capabilities |
-|---|---|---|
-| Customer & market intelligence | Find recurring customer needs, competitive patterns, and reasons deals are won or lost. Keep customer language and sourced findings separate from interpretation. | Customer research, Voice of Customer, competitive intelligence, win/loss, objection intelligence |
-| Segmentation & audience | Compare candidate segments and evidence gaps, then develop personas from the accepted audience decision. | Market segmentation, ICP, buyer personas, buying committee maps |
-| Positioning & messaging | Propose a positioning direction and build messaging from approved positioning and buyer context. Route strategic changes for human approval. | Positioning, messaging frameworks, value propositions |
-| Pricing & packaging | Evaluate what to charge and how to structure plans using buyer needs and willingness-to-pay evidence. | Pricing research, packaging, value metrics, pricing tiers |
-| Go-to-market & launches | Plan the market entry or launch, assign owners and dependencies, and hand asset briefs to channel skills. | GTM model, market entry, launch strategy, ABM, events, partner marketing, product communications |
-| Customer & revenue growth | Plan customer adoption, expansion, advocacy, and retention programs from approved context. | Customer marketing, activation, retention, upgrades, referral programs, community marketing |
-| Channels & execution | Turn approved strategy into sales materials and channel assets, then improve discovery and conversion. | Sales enablement, website/copy, email, social, paid acquisition, CRO, SEO, content, lead magnets, creative |
-| Quality & governance | Check outputs against their originating skill, audit market-facing messaging against approved context, and assess overall launch readiness. Maintain approval gates for strategic changes. | Output quality, messaging consistency, launch readiness, localization/claims, SSOT governance |
-| Learning loop | Measure results, manage revenue handoffs, and return field evidence for review and proposed updates to company context and strategy. | Measurement, experimentation, RevOps, win/loss and objection findings, human-approved SSOT updates |
+Measurement tracks results, experiments, and revenue handoffs. Review & Governance applies across workflows, including research outputs and market-facing assets.
 
 ### Shared context and approval
 
-[product-marketing-context](skills/product-marketing-context/SKILL.md) creates a lightweight bootstrap at `.agents/product-marketing-context.md` (with legacy `.claude/` support). It captures sources, assumptions, and gaps separately from governed canon.
+`product-marketing-context` and `ssot-context-loop` support the central PMM Context / SSOT layer. The former establishes and integrates provisional understanding; the latter maintains governed context and its approval loop.
+
+[product-marketing-context](skills/product-marketing-context/SKILL.md) inventories supplied materials and existing research, separates evidence from interpretations and assumptions, and records contradictions and gaps. It assesses readiness for the intended decision, routes consequential gaps to specialist owners, and integrates their returned findings using the [context establishment contract](skills/_shared/context-establishment.md).
+
+Its provisional workspace uses `.agents/product-marketing-context.md` (with legacy `.claude/` support), preserving existing profiles and applicable approved context. Evidence readiness does not grant approval. Context proposals go to `ssot-context-loop`; saving the workspace does not change canon.
 
 [ssot-context-loop](skills/ssot-context-loop/SKILL.md) manages `ssot/<client-slug>/` in the user's project. Core files hold approved product truth, positioning, and personas; living files hold field signals, use cases, competition, proof, and objections.
 
@@ -186,13 +183,15 @@ Use messaging audits for market-facing assets; definitive canon judgments requir
 
 Ask Claude Code or Codex in plain language, supplying your sources and approved context. These requests connect product marketing workflows; recommendations remain proposals until the required human approval.
 
-### Market / ICP
+### Market intelligence → Market entry / ICP
+
+> Use market-intelligence to research market conditions, category conventions, and emerging opportunities. Use competitor-profiling to map the competitive landscape and investigate competitive signals. Keep reusable findings separate from our market-entry recommendation.
 
 > Compare these market segments using the segmentation framework. Show the evidence gaps before recommending a target, then develop buyer personas from the accepted decision.
 
 > Analyze these customer interviews, identify recurring pain points, and use the evidence and accepted segment to propose a positioning direction. Once positioning is approved, build a messaging framework from it and our buyer personas.
 
-customer and competitor evidence → `market-entry-brief` and shared segment scoring → accepted market decision → `icp-and-buyer-personas` → `positioning-strategy` → `messaging-framework` → `ssot-context-loop` approval and canonical record. With existing canon, proposed changes enter its review gates.
+`product-marketing-context` intake and readiness assessment → targeted `customer-research`, `market-intelligence`, or `competitor-profiling` work as needed → findings integrated into context and readiness reassessed → `market-entry-brief` entry decision and shared segment scoring → accepted market decision → `icp-and-buyer-personas` → `positioning-strategy` → `messaging-framework` → `ssot-context-loop` approval and canonical record. With existing canon, proposed changes enter its review gates.
 
 ### Launch
 
@@ -220,22 +219,24 @@ accepted ICP and SSOT → `account-based-marketing` account selection and tiers 
 
 ## Capability map
 
-The portfolio contains **44 standalone skills**. Skills are installed as sibling folders so their shared references resolve. Open a skill to see its inputs, output requirements, and handoffs.
+The portfolio contains **45 standalone skills**. Skills are installed as sibling folders so their shared references resolve. Open a skill to see its inputs, output requirements, and handoffs.
 
-| Capability area | Skills |
+The diagram shows capabilities, not one directory per label. `market-intelligence` owns Market intelligence, Category intelligence, and Emerging opportunities through its modes. `competitor-profiling` owns Competitive landscape, Competitor profiling, and Competitive signals through its modes. The links below map the architecture to invocable skills.
+
+| Architecture area | Skills |
 |---|---|
-| Evidence & intelligence | [customer-research](skills/customer-research/SKILL.md), [win-loss-intelligence](skills/win-loss-intelligence/SKILL.md), [objection-intelligence](skills/objection-intelligence/SKILL.md), [competitor-profiling](skills/competitor-profiling/SKILL.md) |
-| Market & buyer strategy | [market-entry-brief](skills/market-entry-brief/SKILL.md), [icp-and-buyer-personas](skills/icp-and-buyer-personas/SKILL.md), [pricing-strategy](skills/pricing-strategy/SKILL.md) |
-| Positioning & messaging | [positioning-strategy](skills/positioning-strategy/SKILL.md), [messaging-framework](skills/messaging-framework/SKILL.md) |
-| GTM strategy & motions | [go-to-market-strategy](skills/go-to-market-strategy/SKILL.md), [market-entry-orchestration](skills/market-entry-orchestration/SKILL.md), [launch-strategy](skills/launch-strategy/SKILL.md), [events](skills/events/SKILL.md), [account-based-marketing](skills/account-based-marketing/SKILL.md), [customer-marketing](skills/customer-marketing/SKILL.md), [partner-marketing](skills/partner-marketing/SKILL.md), [product-communications](skills/product-communications/SKILL.md) |
-| Channel execution: copy & sales | [marketing-copy](skills/marketing-copy/SKILL.md), [cold-email](skills/cold-email/SKILL.md), [email-sequence](skills/email-sequence/SKILL.md), [social-content](skills/social-content/SKILL.md), [sales-enablement](skills/sales-enablement/SKILL.md) |
-| Channel execution: paid & media | [paid-ads](skills/paid-ads/SKILL.md), [ad-creative](skills/ad-creative/SKILL.md) |
-| Channel execution: content & discovery | [content-strategy](skills/content-strategy/SKILL.md), [search-discoverability](skills/search-discoverability/SKILL.md), [website-buyer-journey](skills/website-buyer-journey/SKILL.md), [aso-audit](skills/aso-audit/SKILL.md), [competitor-alternatives](skills/competitor-alternatives/SKILL.md) |
-| Growth & conversion | [acquisition-conversion](skills/acquisition-conversion/SKILL.md), [product-activation](skills/product-activation/SKILL.md), [upgrade-conversion](skills/upgrade-conversion/SKILL.md) |
-| Growth & retention programs | [community-marketing](skills/community-marketing/SKILL.md), [referral-program](skills/referral-program/SKILL.md), [buyer-resources](skills/buyer-resources/SKILL.md) |
-| Operations & measurement | [revops](skills/revops/SKILL.md), [analytics-tracking](skills/analytics-tracking/SKILL.md), [marketing-experimentation](skills/marketing-experimentation/SKILL.md) |
-| Company context & SSOT | [product-marketing-context](skills/product-marketing-context/SKILL.md), [ssot-context-loop](skills/ssot-context-loop/SKILL.md) |
-| Quality & governance | [output-quality-check](skills/output-quality-check/SKILL.md), [messaging-consistency-audit](skills/messaging-consistency-audit/SKILL.md), [launch-readiness-check](skills/launch-readiness-check/SKILL.md), [localization-claims](skills/localization-claims/SKILL.md) |
+| Customer Intelligence | [customer-research](skills/customer-research/SKILL.md), [win-loss-intelligence](skills/win-loss-intelligence/SKILL.md), [objection-intelligence](skills/objection-intelligence/SKILL.md) |
+| Market Intelligence | [market-intelligence](skills/market-intelligence/SKILL.md) |
+| Competitive Intelligence | [competitor-profiling](skills/competitor-profiling/SKILL.md) |
+| PMM Context / SSOT | [product-marketing-context](skills/product-marketing-context/SKILL.md), [ssot-context-loop](skills/ssot-context-loop/SKILL.md) |
+| PMM Strategy | [market-entry-brief](skills/market-entry-brief/SKILL.md), [icp-and-buyer-personas](skills/icp-and-buyer-personas/SKILL.md), [positioning-strategy](skills/positioning-strategy/SKILL.md), [messaging-framework](skills/messaging-framework/SKILL.md), [pricing-strategy](skills/pricing-strategy/SKILL.md) |
+| Go-to-Market | [go-to-market-strategy](skills/go-to-market-strategy/SKILL.md), [market-entry-orchestration](skills/market-entry-orchestration/SKILL.md), [launch-strategy](skills/launch-strategy/SKILL.md), [account-based-marketing](skills/account-based-marketing/SKILL.md), [events](skills/events/SKILL.md), [customer-marketing](skills/customer-marketing/SKILL.md), [partner-marketing](skills/partner-marketing/SKILL.md), [product-communications](skills/product-communications/SKILL.md) |
+| Execution | [sales-enablement](skills/sales-enablement/SKILL.md), [marketing-copy](skills/marketing-copy/SKILL.md), [cold-email](skills/cold-email/SKILL.md), [email-sequence](skills/email-sequence/SKILL.md), [social-content](skills/social-content/SKILL.md), [paid-ads](skills/paid-ads/SKILL.md), [content-strategy](skills/content-strategy/SKILL.md), [search-discoverability](skills/search-discoverability/SKILL.md), [website-buyer-journey](skills/website-buyer-journey/SKILL.md), [competitor-alternatives](skills/competitor-alternatives/SKILL.md) |
+| Growth | [acquisition-conversion](skills/acquisition-conversion/SKILL.md), [product-activation](skills/product-activation/SKILL.md), [upgrade-conversion](skills/upgrade-conversion/SKILL.md), [community-marketing](skills/community-marketing/SKILL.md), [referral-program](skills/referral-program/SKILL.md), [buyer-resources](skills/buyer-resources/SKILL.md) |
+| Measurement | [analytics-tracking](skills/analytics-tracking/SKILL.md), [marketing-experimentation](skills/marketing-experimentation/SKILL.md), [revops](skills/revops/SKILL.md) |
+| Review & Governance | [output-quality-check](skills/output-quality-check/SKILL.md), [messaging-consistency-audit](skills/messaging-consistency-audit/SKILL.md), [launch-readiness-check](skills/launch-readiness-check/SKILL.md), [localization-claims](skills/localization-claims/SKILL.md), [ssot-context-loop](skills/ssot-context-loop/SKILL.md) (approval and governance) |
+
+**Additional skills:** [ad-creative](skills/ad-creative/SKILL.md) · [aso-audit](skills/aso-audit/SKILL.md)
 
 ## Installation and use
 
