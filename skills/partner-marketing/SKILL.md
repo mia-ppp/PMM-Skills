@@ -26,6 +26,9 @@ accepted segment decisions without redefining canonical ICP.
 
 ## Workflow
 
+Distinguish partner participants from end buyers when defining joint value
+and handing audience intelligence to asset owners.
+
 1. Define the business objective and partnership type: technology/integration,
    ecosystem, channel, strategic alliance, referral/co-sell, or joint launch.
 2. Establish evidence for audience overlap, mutual customer value, partner

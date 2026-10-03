@@ -87,6 +87,26 @@
         "Explains RevOps covers systems and processes, not email content"
       ],
       "files": []
+    },
+    {
+      "id": 101,
+      "prompt": "Give a preview-only matching/import plan for the technical CRM task. Scope is configuration/data hygiene only. Do not access or write a CRM, perform audience research, redefine qualification or require a persona brief.",
+      "expected_output": "Uses documented external IDs, quarantines missing keys and previews changes idempotently; no persona dependency or audience paperwork. Separates unknown platform capabilities from requirements.",
+      "assertions": [
+        "Uses external ID rather than email as the unique key for R1/R2",
+        "Preserves distinct records despite shared normalized email",
+        "Provides idempotent matching, quarantine and preview/acceptance checks without live writes",
+        "Does not request persona sources, approval or audience briefs for the exempt task",
+        "Does not redefine qualification, lead scoring, messaging or sales-stage semantics",
+        "Flags unknown connector behavior instead of inventing configuration details"
+      ],
+      "files": [
+        "evals/fixtures/persona-intelligence/technical-task.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
     }
   ]
 }

@@ -14,6 +14,9 @@ selecting audiences. Carry accepted canonical ICP and positioning forward.
 
 ## Workflow
 
+Separate reusable persona intelligence from verified account facts and
+account hypotheses when selecting plays and briefing asset owners.
+
 1. Define objective, scope, timeframe, and decision owner.
 2. Consume accepted ICP/segment decisions. If absent, route ICP selection to
    `icp-and-buyer-personas` or `market-entry-brief`; do not create a competing ICP.

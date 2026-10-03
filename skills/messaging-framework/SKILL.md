@@ -93,7 +93,14 @@ If bootstrap Positioning is missing, use applicable approved SSOT inputs. Where 
 List the claims that are true but shared. Note where each can still appear, such as on a feature page, without leading the message.
 
 ### 5. Translate by persona
-Start from approved mapped SSOT persona messaging where applicable; otherwise use the context doc's Persona message map for uncovered provisional context. For each persona, adapt the emphasis only: which capability leads and the one line they should hear first. Keep the source's facts, proof, and approval status; reword to pass the language rules. A bootstrap map cannot override covered SSOT.
+Start from approved mapped SSOT persona messaging where applicable; otherwise use the context doc's Persona message map for uncovered provisional context.
+Use relevant persona intelligence and any originating brief to choose the
+leading capability/argument,
+proof emphasis, objections to address and appropriate detail for each persona.
+Preserve canonical strategic meaning, facts and approval status while adapting
+expression. A bootstrap map cannot override covered SSOT. Explain these choices
+in concise traceable rationale; final asset CTAs and channel mechanics
+remain with execution owners.
 
 If the bootstrap map is missing, use applicable approved SSOT persona inputs. Where neither source supplies a persona, route profile generation to icp-and-buyer-personas. Do not generate reusable personas or persona priorities; hold dependent translations and continue independent sections.
 
@@ -178,7 +185,8 @@ For launch messaging, add a short block covering target, market, segment, catego
 - Capabilities phrased as abstract nouns (visibility, insights, intelligence, protection, platform) or as assets the company holds.
 - Capabilities any competitor could claim.
 - Dropping a capability that the positioning statement or its capability table named.
-- One message for every persona with no change in emphasis.
+- Generic shared treatment that ignores material buyer differences. Shared
+  treatment is valid when relevant evidence supports shared needs.
 - Adding differentiators not in positioning. List them under "Proposed for positioning" instead.
 - Treating missing bootstrap sections as missing canon when approved mapped SSOT supplies the inputs. If neither supplies persona context, route to icp-and-buyer-personas and hold dependent translations.
 - Proof or buyer voice cells full of vague claims like "customers love it" instead of a marked gap.

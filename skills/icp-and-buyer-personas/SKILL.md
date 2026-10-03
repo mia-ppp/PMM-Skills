@@ -2,7 +2,7 @@
 name: icp-and-buyer-personas
 description: "Define ICP, buyer personas, buying committees and anti-personas within an accepted market. Use for ideal customer profiles, persona research, buying roles and exclusion criteria. Propose audience changes through SSOT governance."
 metadata:
-  version: 1.3.0
+  version: 1.4.0
 ---
 
 # ICP and Buyer Personas
@@ -51,10 +51,28 @@ silently prefer a newer brief or overwrite the canonical ICP. Reopen prioritizat
 through `market-entry-brief` only when the user explicitly asks to reconsider it.
 
 Find out which mode applies:
+- **Reuse mode:** an applicable approved or suitable provisional persona exists
+  and the request is to use it. Load it read-only, preserving the full-source
+  reference, evidence/approval status, available version, confidence and gaps.
+  Downstream owners may load this source directly; no persona rerun is required.
+  Return the reference and relevant intelligence without rebuilding or rescoring.
+  Readiness governs provisional use; reuse never approves or writes anything.
+  Skip generation and validation-plan creation. Revision requests produce
+  distinct proposals, never silent replacements of approved meaning.
 - **Evidence mode:** the user has interviews, call notes, CRM data, win-loss, or surveys. Build from those.
 - **Hypothesis mode:** little or no research. Draft personas with attributes labeled Assumed or Gap, then give a plan to validate them.
 
-If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the persona message map, then the inherited or exploratory profile scope. Do not restate the brief.
+The generation process and output/save requirements below apply only to evidence
+and hypothesis modes. Reuse mode returns the existing reference/profile, its
+status and relevant gaps without generating a new message map or persona.
+
+If key intelligence is missing, assess decision-specific readiness before
+proceeding provisionally. State assumptions, risk, permitted scope and validation
+triggers; hold only choices without a defensible provisional route.
+For generation, open with the message map, then inherited or exploratory scope.
+Keep a summary of at most five bullets: material assumptions and questions.
+This summary cap never erases attribute uncertainty or underlying evidence gaps.
+The validation plan's interview questions do not count toward the summary cap.
 
 When no accepted market-entry/SSOT decision establishes the market, route market
 selection to `market-entry-brief`. Persona hypotheses may remain provisional,
@@ -87,6 +105,24 @@ needed; persona work does not run its selection scorecard.
 ### 2. Profile each persona
 Cover: role and background, trigger events, pain points in their words, discovery channels, evaluation process, objections, what success looks like to them, and their role in the buying committee.
 
+Extend these existing attributes rather than duplicating them:
+- Background includes responsibilities and organizational context.
+- Success includes the functional, emotional or social job and desired outcomes
+  when evidence supports them.
+- Evaluation process includes buying context/stage, decision criteria,
+  requirements, trade-offs and disqualifiers.
+- Objections includes skepticism, perceived risk and switching anxiety.
+- Committee role includes influence, authority and internal approval needs.
+
+Also capture stakes (failure consequences, internal pressures and incentives),
+current behavior (workarounds, alternatives/status quo and why they persist),
+proof requirements (what would make claims credible), and supported practitioner
+language. These are distinct from pains, available company proof and brand voice.
+Do not invent facts or quotes. Keep observed/source-linked evidence separate
+from interpretation and assumptions; include confidence and unknowns by attribute.
+A task's specific stage or situation is selected downstream, not assumed to
+apply to every member of the persona.
+
 ### 3. Map the buying committee
 Show who starts the purchase, who blocks it, who signs, and what each needs to hear.
 
@@ -115,16 +151,27 @@ Summarize the persona profiles and the committee map in one table. It opens the 
 [Inherited segment, source decision/status and conflict check; or explicit exploratory candidates with market-selection dependency. No independent lead selection.]
 
 ## Persona: [Role-based name, not a cute alias]
-| Attribute | Detail | Source |
-|---|---|---|
-| Background | | Sourced / Assumed / Gap |
-| Trigger events | | |
-| Pain points | | |
-| Discovery channels | | |
-| Evaluation process | | |
-| Objections | | |
-| Success looks like | | |
-| Committee role | | |
+Source/reference: [project, source path/section]. Version/review date: [... or Gap].
+Approval: [approved / proposed / hypothesis / unknown, with approval reference].
+
+| Attribute | Detail | Source / label | Confidence / gaps (where relevant) |
+|---|---|---|---|
+| Background / responsibilities | | Sourced / Assumed / Gap | |
+| Trigger events | | | |
+| Pain points | | | |
+| Stakes / internal pressures and incentives | | | |
+| Current behavior / alternatives / status quo | | | |
+| Discovery channels | | | |
+| Evaluation process / buying context and criteria | | | |
+| Objections / skepticism and perceived risks | | | |
+| Proof requirements | | | |
+| Supported practitioner language | | | |
+| Success looks like / jobs and desired outcomes | | | |
+| Committee role / influence and authority | | | |
+
+Use relevant attributes; mark applicable unknowns as Gap and omit irrelevant
+rows. Preserve existing rich profiles. No numerical confidence score or completed
+irrelevant field is required.
 
 **What this changes:** [the messaging, channel, or sales decision this persona drives]
 
@@ -150,12 +197,28 @@ Use role-based names like "RevOps Lead at a Series B SaaS company," not invented
 `account-based-marketing` consumes the accepted ICP and persona/committee model
 for account selection, tiers, contextual hypotheses, and coordinated plays.
 Personas owns the reusable buyer model; ABM owns account-specific application.
+All audience-dependent execution owners consume this model through
+`../_shared/ssot-consumption.md`. Persona work supplies intelligence and the
+reusable message map, not outbound copy, event formats, campaigns, channel
+mechanics or collateral. Existing maps are inputs, not universal final asset copy.
 
 ## After Delivering
 
-For PMC-originated work, return the full profiles/map and proposal references
-for integration; skip automatic bootstrap saving.
-For standalone generation only, save personas to the Personas section of `.agents/product-marketing-context.md`, and the persona message map to its Persona message map section. Do this by default, then tell the user what was saved. Write one map row per persona: Persona (buying role), What matters to them, Message, and the proof's label (Sourced, Assumed, or Gap). messaging-framework starts its persona lines from that map when no applicable SSOT supplies approved persona messaging. Saving personas or the map does not approve strategy or modify canonical SSOT. Preserve approval status and mark proposed strategic changes as proposals; route canon conflicts through `ssot-context-loop`. Suggest positioning-strategy or messaging-framework as next steps.
+For PMC-originated work, return full profiles/map and proposal references for
+integration; do not automatically save into bootstrap context. Reuse never writes.
+
+For standalone generation, retain existing default saving to the Personas and
+Persona message map sections of `.agents/product-marketing-context.md` and tell
+the user what was saved. Preserve full attributes, committee/anti-persona detail,
+provenance, confidence/gaps and actual approval status; summaries do not replace
+profiles. Do not overwrite approved meaning or duplicate covered canonical facts:
+reference applicable SSOT profiles instead. Keep uncovered hypotheses provisional.
+
+Revisions remain distinct proposals in the existing context section when saving
+is authorized. Preserve the original profile, proposed differences and evidence;
+route canonical changes through `ssot-context-loop` and human approval.
+Saving does not approve strategy. Do not create another persona store.
+Suggest positioning-strategy or messaging-framework as next steps where relevant.
 
 ## Output Rules
 

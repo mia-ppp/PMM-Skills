@@ -120,6 +120,13 @@ no-push instruction takes precedence over this workflow's persistence default.
 
 ## 3. File and section schema
 
+For `core/03-who-it-is-for.md`, preserve the reusable profiles and committee
+model owned by `icp-and-buyer-personas`, including attribute provenance,
+confidence/gaps and the persona's version/review and approval references.
+Use the existing schema and evidence tags below; do not create another store.
+Task-specific persona selections are downstream interpretations under
+`../../_shared/ssot-consumption.md`, not canonical persona updates.
+
 Every core and living file follows this structure. Use the exact file identifier
 in frontmatter and the file's question as its one-line scope.
 
@@ -361,6 +368,10 @@ agents:
 ```
 
 Use paths relative to `ssot/<client-slug>/`. Map each reader only to needed files.
+For readers whose task materially depends on audience context, include
+`core/03-who-it-is-for.md` or their
+explicit approved persona reference, plus relevant evidence/objections/use cases.
+Follow the audience dependency in `../../_shared/ssot-consumption.md`.
 No downstream agent writes core, living, decisions or state. This skill alone
 persists authorized changes after its gates. Flag missing files rather than inventing them.
 

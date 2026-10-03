@@ -55,6 +55,17 @@ Read the entire artifact. Evaluate each requirement independently and cite the
 artifact location or quote that supports the finding. A claim that a step was
 completed is not evidence when the required source or artifact is unavailable.
 
+For audience-dependent work, apply the persona-consumption requirements in
+`../_shared/ssot-consumption.md` when required by the originating skill.
+Inspect whether relevant intelligence supports the material choices in the output
+and preserves source access, evidence status and uncertainty. Existing rationale
+or annotations suffice; no separate audience table or exhaustive attributes are
+required. Shared treatment may be valid when evidence supports shared needs.
+Non-audience tasks are exempt. Missing nonessential metadata is not a failure;
+unavailable essential evidence is UNVERIFIABLE. Do not invent persona differences
+or certify unsupported application. Route failures to the originating owner;
+message-to-canon alignment remains a separate messaging review.
+
 ## Finding statuses
 
 Assign each applicable requirement exactly one result:

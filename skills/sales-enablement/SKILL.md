@@ -55,6 +55,9 @@ Gather this context (ask if not provided):
 
 ## Core Principles
 
+Distinguish the seller using an asset from the buyer evaluating it; preserve
+committee-specific decision criteria and proof requirements.
+
 ### Sales Uses What Sales Trusts
 Involve reps in creation. Use their language, not marketing's. If reps rewrite your deck before sending it, you wrote the wrong deck. Test drafts with your top performers first.
 

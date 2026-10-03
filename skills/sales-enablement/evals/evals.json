@@ -87,6 +87,28 @@
         "Does not attempt public SEO comparison page using sales enablement patterns"
       ],
       "files": []
+    },
+    {
+      "id": 101,
+      "prompt": "Consume EVENT-2 and its linked full personas to produce an AE quick-reference objection document for evaluator B. Preserve method credibility and uncertainty. The AE uses the asset; B is the buyer. Do not discover new objections, rewrite personas or promise implementation.",
+      "expected_output": "Produces supported objection response/proof/question, linking traceability and exceptions to evaluator credibility. Preserves provisional status, full-profile access and unknown stack/effort; does not mistake AE convenience for buyer needs.",
+      "assertions": [
+        "Distinguishes AE asset user from RevOps evaluator and committee needs",
+        "Uses traceability, exceptions and available method evidence in response and next question",
+        "Retains originating profile/source/version, actual status and material gaps",
+        "Keeps required proof distinct from fictional available SAMPLE-2/METHOD-2 artifacts",
+        "Does not infer actual account stage, stack, causal ROI or implementation effort",
+        "Leaves objection research, persona revisions and approval with existing owners; rationale may be concise"
+      ],
+      "files": [
+        "evals/fixtures/persona-intelligence/profiles.md",
+        "evals/fixtures/persona-intelligence/strategy.md",
+        "evals/fixtures/persona-intelligence/event-brief.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
     }
   ]
 }

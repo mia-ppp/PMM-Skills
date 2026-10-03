@@ -152,8 +152,14 @@ can use. Do not imply that every saved section is cleared for execution.
 - Jobs to be done (2-3 things customers "hire" you for)
 - Specific use cases or scenarios
 
-### 3. Personas (B2B only)
-If multiple stakeholders are involved in buying, capture for each:
+### 3. Personas
+Reuse existing profiles from `icp-and-buyer-personas`; do not rebuild approved
+personas during context setup or refresh. Keep the summary below for scanning.
+Preserve full bootstrap profiles using that skill's attribute format, including
+source/version, approval, provenance/confidence and gaps. With applicable SSOT,
+reference its approved profiles instead of duplicating covered canonical facts.
+Do not collapse profiles into a summary or message map when updating the context.
+For B2B buying committees, capture:
 - User, Champion, Decision Maker, Financial Buyer, Technical Influencer
 - What each cares about, their challenge, and the value you promise them
 

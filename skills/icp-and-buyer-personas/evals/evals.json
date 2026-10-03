@@ -109,6 +109,25 @@
       "files": []
     },
     {
+      "id": 9,
+      "prompt": "Reuse Persona A from the supplied hypothetical fixture, then explain whether a suitable proposed (not approved) copy of the same profile could support a bounded internal evaluation draft. Return full-source access and relevant intelligence without regeneration. Simulated approval remains test-only. Do not save anything.",
+      "expected_output": "Uses read-only reuse and preserves the full-source reference, TEST-v1, simulated approval or provisional status, Assumed/Low confidence and gaps. Permits bounded provisional use where readiness supports it, without promotion or canon writes. No regeneration, rescoring, new validation plan or persona-skill dependency for direct downstream loading.",
+      "assertions": [
+        "Preserves access to the full profile and its source/version/status rather than only a role summary",
+        "Keeps Assumed/Low confidence and unresolved gaps across approved and provisional reuse",
+        "Allows justified bounded provisional use without granting approval",
+        "Does not regenerate, rescore, create a replacement store or write on reuse",
+        "Leaves downstream task interpretation and outputs with their owners; no mandatory table"
+      ],
+      "files": [
+        "skills/cold-email/evals/fixtures/persona-consumption.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
+    },
+    {
       "id": 100,
       "prompt": "HND-100 from product-marketing-context, GAP-100: use approved PERSONA-1 and the supplied interview to propose any missing trigger/behavior attributes within accepted DEC-MKT-1. Completion: preserve approved attributes and sources, separate additions as proposals; do not select another market or save bootstrap context.",
       "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",

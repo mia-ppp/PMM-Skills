@@ -84,6 +84,27 @@
         "Does not claim causal revenue impact from influence data"
       ],
       "files": []
+    },
+    {
+      "id": 101,
+      "prompt": "Turn STRAT-2 and the rich profiles into a proposed event strategy and sales-enablement handoff. Decide format/value/CTA from relevant buyer needs. Keep PERSONA-B provisional for internal planning. Do not author final channel copy or approve launch.",
+      "expected_output": "Plans an allocation example and trace/exception evaluation option, separates sponsor and evaluator value, hands full-source access and uncertainty to asset owners, and preserves strategy and existing approval dependencies.",
+      "assertions": [
+        "Uses attendee jobs, skepticism, proof needs and actual source status to shape event choices",
+        "Carries full-profile references and material criteria/limitations into handoff",
+        "Distinguishes qualified evaluation objective from unsupported pipeline/ROI forecasts",
+        "Does not approve proposed personas, change strategy or author final channel assets",
+        "Permits scoped internal planning while keeping actual launch approvals separate",
+        "Does not require a fixed audience table or invent differences in shared method disclosure"
+      ],
+      "files": [
+        "evals/fixtures/persona-intelligence/profiles.md",
+        "evals/fixtures/persona-intelligence/strategy.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
     }
   ]
 }

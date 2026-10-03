@@ -153,6 +153,27 @@
         "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
       ],
       "references": []
+    },
+    {
+      "id": 101,
+      "prompt": "Use the accepted market and rich persona sources to propose positioning for ContentSignal. Persona B remains provisional. Explain which criteria/alternatives affect the proposal and preserve full-source access. Do not select another market, approve strategy or save canon.",
+      "expected_output": "Produces bounded positioning proposal from allocation and traceability intelligence; compares alternatives and limits, preserves proposed B status and missing implementation proof, and does not require approved personas for exploratory proposals.",
+      "assertions": [
+        "Inherits DEC-MKT-2 without independent selection or rescoring",
+        "Connects material decision criteria, behavior and objections to positioning choices",
+        "Preserves full-profile references and provisional B status without flattening or upgrading",
+        "Does not infer willingness to pay, causal lift or implementation guarantees",
+        "Keeps positioning decision/proposal with positioning owner, evidence with researchers and approval with SSOT",
+        "Allows bounded proposal with risks and validation rather than universal persona-approval hold"
+      ],
+      "files": [
+        "evals/fixtures/persona-intelligence/profiles.md",
+        "evals/fixtures/persona-intelligence/strategy.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
     }
   ]
 }

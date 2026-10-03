@@ -24,6 +24,9 @@ Read `../_shared/creative-brief.md` when briefing announcement visuals or explai
 
 ## Workflow
 
+Distinguish buyer/user intelligence from journalist, analyst or other
+recipient needs when choosing narrative and outreach.
+
 1. Define communication objective and audience: product/company/partnership/
    funding/research announcement, executive thought leadership, media or
    analyst briefing, or reactive FAQ.

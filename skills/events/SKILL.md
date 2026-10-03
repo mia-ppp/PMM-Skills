@@ -43,6 +43,9 @@ Assumed or Gap and identify the evidence needed.
 
 ### 2. Set the event strategy
 
+Use relevant attendee jobs, skepticism and proof needs to establish credible
+event value; carry those insights and persona references to asset owners.
+
 Define the target segment, personas and accounts, event objective, theme or
 thesis, audience offer, CTA, desired buyer action, sales involvement, success
 criteria, and pre-event, during-event, and post-event motions. Explain the

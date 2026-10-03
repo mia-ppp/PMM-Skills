@@ -33,6 +33,9 @@ Work with whatever context is available. If key details are missing, make reason
 
 ## Community Strategy Principles
 
+Distinguish members’ motivations from purchasing roles when designing
+participation, rituals and advocacy.
+
 ### Build around a shared identity, not just a product
 
 The strongest communities are built around who members *are* or aspire to be, not around your product. Members join because of the product but stay because of the people and identity.

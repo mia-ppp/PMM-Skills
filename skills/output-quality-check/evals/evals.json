@@ -113,6 +113,30 @@
         "skills/_shared/evidence-gaps.md",
         "skills/_shared/ssot-consumption.md"
       ]
+    },
+    {
+      "id": 101,
+      "prompt": "Review GENERIC and ADAPTED against their originating sales-enablement requirements and supplied sources. Judge meaningful application, not table presence or all-attribute coverage. Also assess the shared attribution-limit disclosure control for both personas. Keep canon alignment separate.",
+      "expected_output": "Fails generic argument/proof/question as ineffective application despite formatting; accepts adapted application without standalone audience table or exhaustive attributes. Accepts shared method disclosure. Distinguishes application findings from canon alignment and unavailable essential proof.",
+      "assertions": [
+        "Checks actual response, evidence selection and commitment against relevant intelligence",
+        "Fails GENERIC substantive application rather than rewarding complete formatting",
+        "Passes ADAPTED audience application without requiring extra tables or irrelevant attributes",
+        "Accepts supported shared disclosure across roles without forcing variation",
+        "Records missing nonessential review date without automatic failure; essential unverifiable evidence stays UNVERIFIABLE",
+        "Routes corrections to originating owner and leaves canon alignment to messaging-consistency-audit"
+      ],
+      "files": [
+        "evals/fixtures/persona-intelligence/profiles.md",
+        "evals/fixtures/persona-intelligence/strategy.md",
+        "evals/fixtures/persona-intelligence/event-brief.md",
+        "evals/fixtures/persona-intelligence/review-pair.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/sales-enablement/SKILL.md"
+      ]
     }
   ]
 }

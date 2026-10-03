@@ -34,6 +34,9 @@ accepted segment decisions without redefining canonical ICP.
 
 ## Workflow
 
+Select the relevant customer role and lifecycle situation. The buyer and
+the user may differ; preserve that distinction in program and asset briefs.
+
 1. Choose one primary objective: adoption, retention support, expansion,
    advocacy, reference creation, or customer evidence collection.
 2. Define eligible customer cohort using evidence such as lifecycle, product

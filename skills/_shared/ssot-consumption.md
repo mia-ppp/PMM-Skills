@@ -78,6 +78,93 @@ report the mapping gap. State summaries are indexes, not an alternative canon.
 Handoffs preserve source/finding IDs, labels, authority, health and unresolved
 gaps; the receiver narrows context without upgrading or reinterpreting it silently.
 
+## Persona intelligence consumption and reuse
+
+Apply this contract when audience intelligence materially affects strategy,
+GTM, execution or review. Pure technical, statistical, instrumentation,
+configuration, hygiene, formatting and other non-audience work is exempt.
+No persona lookup or audience brief is needed merely to satisfy this contract.
+
+### Reuse the full source, select relevant intelligence
+
+Prefer the relevant approved full persona in `core/03-who-it-is-for.md` or
+an explicitly approved project reference. Load omitted task-critical context
+and report a manifest mapping gap. Suitable provisional profiles may support
+bounded work under the existing readiness rules, without overriding covered canon.
+Downstream owners may load the source directly; no persona-skill rerun is needed.
+
+Keep access to the full attribute profile, committee model and relevant evidence.
+A role summary or message map alone is insufficient when material detail is lost.
+A concise task selection may reference the full source; it never replaces it.
+Preserve source/section, available version or review date, actual approval status,
+attribute evidence labels, confidence, limitations and material uncertainty.
+Record missing metadata without inventing it. Missing nonessential metadata alone
+is not a reason to hold work; unavailable essential provenance remains explicit.
+
+Select the relevant role, job, pains, stakes, current behavior, criteria,
+objections, proof requirements, language and other supported intelligence.
+Include stage, trigger, situation or account facts only when the task needs them.
+Do not infer a specific prospect's situation from a general persona pattern.
+Separate required buyer proof from evidence the company actually has.
+
+Reuse an originating brief when suitable, checking scope and source status.
+Use existing artifacts, annotations or short notes; no fixed table, separate
+brief or exhaustive attribute coverage is required. Do not ask questions already
+answered by the persona or regenerate/rescore it for a downstream task.
+
+### Apply intelligence within existing ownership
+
+`icp-and-buyer-personas` owns reusable profiles and proposed revisions.
+Research/intelligence owners supply evidence; `product-marketing-context` integrates
+cross-domain findings, gaps and readiness. `ssot-context-loop` owns approval
+and canonical persistence. Downstream strategy, GTM and execution owners make
+or propose their own decisions and produce their own outputs.
+
+Use relevant intelligence to determine material choices, such as argument,
+value emphasis, proof, objections, detail, CTA, motion or channel. Channel defaults
+are candidates, not substitutes for buyer understanding. Link interpretations
+and proposals to their supporting intelligence; they are not new persona facts.
+Reuse does not freeze future strategy, move decisions to the persona skill,
+or authorize changes to approved canon.
+
+### Preserve uncertainty and handle conflicts
+
+- **Reuse without promotion:** provisional profiles keep their actual evidence
+  and approval status. Repeated reuse never upgrades an assumption or grants approval.
+- **Preserve covered canon:** supplement only uncovered context where permitted.
+  Contradictory evidence is a review item for the domain owner and SSOT;
+  never silently replace an approved persona or choose a competing profile.
+- **Assess missing intelligence:** ask only unresolved questions that materially
+  change the task. Proceed provisionally with assumption, risk, scope and validation
+  trigger when defensible; otherwise hold only the affected choice.
+- **Separate approval:** absent persona approval is a dependency only where the
+  intended action or an existing gate requires it. Exploration does not require
+  approved personas. Provisional drafting never grants launch clearance.
+- **Route generation and revisions:** necessary reusable profile work belongs to
+  `icp-and-buyer-personas`, with evidence from research owners. Execution owners
+  do not invent missing persona facts, quotes or approvals, or write canon.
+
+### Handoffs and meaningful application review
+
+Carry the full-source reference, actual evidence/approval status, task-relevant
+intelligence and material gaps through audience-dependent handoffs. Preserve
+available versions and source/finding IDs. The receiver may narrow the selection
+but must retain access to the rich source and must not silently alter its meaning.
+Orchestration owners pass context; asset owners produce assets.
+
+Make material choices traceable to supported or explicitly assumed intelligence
+in the existing artifact or concise internal review notes. No prescribed table
+or attribute count is required. Keep notes separate from customer-facing copy.
+
+`output-quality-check` inspects meaningful application against the originating
+skill and this applicable contract. Title/tone changes alone do not establish
+application when material buyer needs differ. Shared treatment is valid when
+relevant evidence supports shared needs; do not manufacture persona differences.
+Do not fail an output merely for omitting irrelevant attributes, an optional
+brief/table, or nonessential metadata. Unavailable essential evidence is
+UNVERIFIABLE, not a claimed pass. Route actual failures to the originating owner.
+`messaging-consistency-audit` separately evaluates alignment with approved canon.
+
 ## Keep strategy and expression separate
 
 - **Canonical message** is the approved strategic meaning in the SSOT.

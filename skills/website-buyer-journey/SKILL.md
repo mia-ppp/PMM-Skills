@@ -71,6 +71,9 @@ Gather this context (ask if not provided):
 
 ## Page Hierarchy Design
 
+Map audience-dependent pages and paths to the relevant buyer decision
+and proof needs before choosing hierarchy or navigation.
+
 ### The 3-Click Rule
 
 Users should reach any important page within 3 clicks from the homepage. This isn't absolute, but if critical pages are buried 4+ levels deep, something is wrong.

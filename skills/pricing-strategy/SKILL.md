@@ -62,6 +62,9 @@ Gather this context (ask if not provided):
 
 ## Pricing Fundamentals
 
+Relevant persona intelligence informs packaging hypotheses. Willingness-to-pay
+conclusions require pricing evidence; persona reuse does not establish them.
+
 ### The Three Pricing Axes
 
 **1. Packaging**: What's included at each tier?

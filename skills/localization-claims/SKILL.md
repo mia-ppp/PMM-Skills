@@ -7,6 +7,8 @@ metadata:
 
 # Localization Claims
 
+For audience framing, terminology or messaging adaptation, use relevant persona
+intelligence under `../_shared/ssot-consumption.md`. Jurisdiction-only review is exempt.
 
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 

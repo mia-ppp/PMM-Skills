@@ -214,6 +214,29 @@
       "references": [
         "skills/product-marketing-context/references/context-workspace-template.md"
       ]
+    },
+    {
+      "id": 101,
+      "prompt": "Integrate the specialist return with the full personas into proposed context and an SSOT handoff. Preserve full profile access, source lineage, uncertainty and original canon. Reconcile the seller note without declaring supersession. Respond only; do not save anything.",
+      "expected_output": "Keeps full proposed B profile and approved A reference, integrates FND-B2 and PRP-B2 distinctly, preserves gaps, routes conflict and approvals to existing owners, and assesses only intended readiness.",
+      "assertions": [
+        "Retains full-profile access, committee detail, source IDs and attribute evidence/confidence",
+        "References covered PERSONA-A canon rather than copying or overwriting it",
+        "Keeps PERSONA-B and PRP-B2 proposed with implementation/authority gaps intact",
+        "Does not reduce rich profiles to role/message-map rows",
+        "Flags seller contradiction without choosing by recency or frequency",
+        "Prepares SSOT-owned approval handoff without approving, persisting or selecting a market"
+      ],
+      "files": [
+        "evals/fixtures/persona-intelligence/profiles.md",
+        "evals/fixtures/persona-intelligence/specialist-return.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md",
+        "skills/_shared/context-establishment.md",
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
     }
   ]
 }

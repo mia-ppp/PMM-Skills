@@ -73,6 +73,9 @@ Gather this context (ask if not provided):
 
 ## Referral Program Design
 
+Keep referrer and referred-buyer needs distinct when selecting incentives
+and invitation mechanics.
+
 ### The Referral Loop
 
 ```

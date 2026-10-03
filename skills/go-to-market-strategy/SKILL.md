@@ -32,6 +32,9 @@ When an accepted input is absent, name the upstream owner and gap. A provisional
 
 ## Handoffs
 
+Carry the persona source and intelligence supporting motion choices into
+execution briefs, preserving evidence and approval status.
+
 - Release-specific execution: `launch-strategy`; accepted new-market orchestration: `market-entry-orchestration`.
 - Account, event, partner, post-sale or product narrative programs: `account-based-marketing`, `events`, `partner-marketing`, `customer-marketing`, `product-communications`.
 - Seller, content and paid programs: `sales-enablement`, `content-strategy`, `paid-ads`.

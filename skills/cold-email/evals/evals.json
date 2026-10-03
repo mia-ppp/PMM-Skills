@@ -90,6 +90,47 @@
         "Does not attempt to design a nurture sequence using cold email patterns"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Using the supplied hypothetical fixture, write first-touch outreach for Persona A and Persona B for the same ContentSignal offer. Decide whether one treatment fits both using their material needs. Preserve simulated approval/version and assumptions. Give concise traceable rationale in any suitable form; no audience table is required. Do not save test inputs.",
+      "expected_output": "Reuses rich profiles, preserves TEST-v1 and Assumed/Low confidence, and chooses allocation/attribution-limit argument for A versus trace/exception argument for B. Proof and asks match material needs. Shared attribution-limit wording is allowed where supported. No invented account trigger, causal lift, integration claim or forced formatting.",
+      "assertions": [
+        "Reuses full persona sources without generating or rescoring profiles",
+        "Preserves simulated approval, TEST-v1 and Assumed/Low confidence",
+        "A emphasizes allocation and attribution limits; B emphasizes traceability and exceptions",
+        "Proof and asks follow relevant sponsor versus evaluator intelligence, not only title/tone",
+        "Accepts concise source-to-choice reasoning without a mandatory audience table",
+        "Allows supported shared treatment rather than manufacturing differences",
+        "Does not invent account triggers, causal lift, integrations or effort guarantees"
+      ],
+      "files": [
+        "skills/cold-email/evals/fixtures/persona-consumption.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Use Persona B in the hypothetical fixture for an internal cold-email draft. New seller notes say AI content volume is now the only priority. For this scenario the listed proof requirements are hypotheses with no confirming evidence. Can you proceed provisionally, and what needs clarification? Preserve the simulated approved profile and do not save or publish anything.",
+      "expected_output": "Preserves existing authority and uncertainty, records contradictory seller interpretation for review, and identifies unconfirmed proof requirements. Asks only a material clarification; accepts a defensible bounded draft with assumptions/risk/validation or holds the unsupported choice. Missing nonessential metadata alone does not block. No persona fact or approval upgrade.",
+      "assertions": [
+        "Keeps persona/version and routes contradictory seller interpretation for review rather than replacing canon",
+        "Treats proof requirements as unconfirmed in this scenario without inventing evidence",
+        "Asks only unresolved questions that materially affect proof or commitment",
+        "Either states defensible provisional scope/risk/validation or holds only the unsupported choice",
+        "Preserves assumptions and actual approval status; no canon writes or publication",
+        "Does not require a separate audience table or treat nonessential metadata as automatic failure"
+      ],
+      "files": [
+        "skills/cold-email/evals/fixtures/persona-consumption.md"
+      ],
+      "references": [
+        "skills/_shared/ssot-consumption.md",
+        "skills/_shared/evidence-gaps.md"
+      ]
     }
   ]
 }

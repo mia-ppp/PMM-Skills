@@ -68,6 +68,11 @@ Conflicts between the two require human review under `ssot-consumption.md`.
 **Entry criteria**
 - The Rung 1 gate has passed.
 - The market-entry brief is the input. No skill in this rung re-picks the segment.
+- Reuse applicable full persona intelligence for audience-dependent strategy;
+  suitable provisional profiles may support bounded proposals under readiness rules.
+  Route necessary generation to `icp-and-buyer-personas`; retain actual status.
+  Persona approval is required only where the intended action or existing gates
+  require it. This contract creates no universal persona-approval gate.
 
 **Sequence**
 1. `positioning-strategy`: one statement of 25 words or fewer, derivation trace, capability table, trade-offs, stress tests.
@@ -96,6 +101,10 @@ Produce launch assets that say only what the canon allows.
 **Entry criteria**
 - The Rung 2 gate has passed.
 - Each asset brief names its audience overlay, channel, and the canon version it builds on.
+- Audience-dependent handoffs retain full-source access, available version,
+  actual evidence/approval status, relevant intelligence and material gaps under
+  `ssot-consumption.md`. Existing briefs or notes suffice. Hold only the affected
+  action for unresolved required approvals; drafting never grants launch clearance.
 
 **Skills** (pick what the launch tier needs)
 - Copy: `marketing-copy`, `email-sequence`, `cold-email`, `social-content`, `marketing-copy`.
@@ -107,11 +116,17 @@ Produce launch assets that say only what the canon allows.
 
 **Artifact: on-canon launch assets**
 - The asset itself.
+- References and material-choice rationale in existing review notes where
+  audience intelligence affects the asset; no separate table/check artifact.
 - A claim sources table after each asset: claim, canon row, label.
 - `[Gap: ...]` placeholders with a provable fallback line under each, per `evidence-gaps.md`.
 - "Draft, not publish-ready" at the top of any asset with an open Gap.
 
 **Gate to Rung 4**
+- Audience-dependent assets meaningfully apply relevant intelligence with
+  traceable sources and uncertainty. Correct unsupported material choices and
+  satisfy existing required approvals. Optional formatting, irrelevant attributes
+  or missing nonessential metadata alone do not fail this gate.
 - Every claim maps to an approved canon source or an Approved/Conditional register row when present. Conditional claims keep their qualifier.
 - No Banned claim appears, and no competitor is named in customer-facing copy unless the canon allows it.
 - The applicable canon review has no unresolved claim or messaging issues. Use the rule book's review mode when present; otherwise use mapped SSOT sources and `messaging-consistency-audit`. Close required fixes before launch readiness.
