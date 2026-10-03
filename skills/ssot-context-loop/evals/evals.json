@@ -11,7 +11,8 @@
         "Requests explicit Gate 2 approval before persisting baseline core",
         "Does not invent customers, quantitative proof, or persona research"
       ],
-      "files": [
+      "files": [],
+      "references": [
         "skills/ssot-context-loop/references/ssot-spec.md"
       ]
     },
@@ -25,7 +26,26 @@
         "Does not treat recency or repetition as core approval",
         "Requires human Gate 2 approval before changing core"
       ],
+      "files": [],
+      "references": [
+        "skills/ssot-context-loop/references/ssot-spec.md"
+      ]
+    },
+    {
+      "id": 100,
+      "prompt": "/setup maple. Receive PMC proposal PRP-100: CSV export shipped in v3, from SRC-001; destination core/02-product.md. PRP-101: founder price hypothesis $60/seat, Assumed, directional, needs pricing research; propose a scoped pricing decision record without approval. Prepare concrete baseline proposals and show approval dependencies. No human approval has been given.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Requires explicit Gate 2 before baseline core/living/decision persistence",
+        "Preserves the price hypothesis as Assumed and directional instead of cited pricing truth",
+        "Uses existing SSOT homes and a scoped decision/reference rather than a catchall file",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon"
+      ],
       "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": [
         "skills/ssot-context-loop/references/ssot-spec.md"
       ]
     }

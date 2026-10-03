@@ -45,7 +45,7 @@
     {
       "id": 5,
       "prompt": "I have 6 months of customer support tickets. What insights can I pull from them?",
-      "expected_output": "Should check for product-marketing-context.md first. Should recommend categorizing tickets before analyzing (bugs vs. confusion vs. feature requests vs. expectation mismatches). Should warn against treating all tickets as equal signal. Should suggest extracting recurring language, patterns, and 'I wish it could\u2026' phrases. Should ask about the goal: product improvement, messaging, reducing support load, or something else.",
+      "expected_output": "Should check for product-marketing-context.md first. Should recommend categorizing tickets before analyzing (bugs vs. confusion vs. feature requests vs. expectation mismatches). Should warn against treating all tickets as equal signal. Should suggest extracting recurring language, patterns, and 'I wish it could…' phrases. Should ask about the goal: product improvement, messaging, reducing support load, or something else.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Recommends categorizing tickets before analyzing (bugs vs confusion vs feature requests)",
@@ -134,12 +134,12 @@
     {
       "id": 12,
       "prompt": "I have no existing research and don't know who my best customers are yet.",
-      "expected_output": "Should check for product-marketing-context.md first. Should treat this as a bootstrap research scenario. Should recommend starting with hypothesis formation before gathering data. Should suggest a minimum viable research plan: 5-10 customer interviews + digital watering hole scan. Should provide interview recruiting tips and what questions to ask. Should warn against building personas before collecting any data.",
+      "expected_output": "Forms exploratory hypotheses, selects appropriate interviews/online sources with sampling and recruitment, neutral questions, analysis and completion criteria. No count automatically validates personas.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Recognizes this as a zero-research bootstrap scenario",
         "Recommends forming hypotheses before gathering data",
-        "Suggests a minimum viable research plan (interviews + online sources)",
+        "Selects a goal-relative research plan with method, recruiting and completion criteria",
         "Warns against building personas without any data"
       ],
       "files": []
@@ -169,6 +169,24 @@
         "Does not silently change canonical positioning"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context. GAP-100: how do reporting buyers experience their recent workflow and what more must be learned before generalizing? Analyze the supplied interview excerpts, design the smallest follow-up study, and return findings. Completion: distinguish scoped reports from hypotheses; provide method, sample/recruitment, neutral questions, analysis/stop criteria. Do not collect or invent new interviews.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Separates exact source language from interpretation and hypothesis",
+        "Designs method, sampling/recruitment, neutral instrument and completion/stop criteria without applying a universal five-point gate",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": [
+        "skills/customer-research/references/research-design.md"
+      ]
     }
   ]
 }

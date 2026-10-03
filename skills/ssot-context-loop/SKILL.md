@@ -2,7 +2,7 @@
 name: ssot-context-loop
 description: "When the user wants a governed, persistent product marketing source of truth, to set up an SSOT, scan field signals for drift, audit AI output, or manage approval gates for positioning changes. Use commands such as /setup, /scan, /confirm, /propose, /approve, /stale, /state, /brief, /manifest, and /audit-output. For lightweight bootstrap context, see product-marketing-context. This skill governs ongoing PMM knowledge and requires human approval for core changes."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # SSOT Context Loop
@@ -20,7 +20,7 @@ specification for the file schemas, commands, signal model, gates, and templates
 
 ## Relationship to Other Skills
 
-- `product-marketing-context` is the lightweight bootstrap at
+- `product-marketing-context` establishes understanding and assembles proposals at
   `.agents/product-marketing-context.md`. It remains separate. If no SSOT exists,
   it may serve as context. If an SSOT exists for the active client or project, the
   SSOT is more authoritative for claims it covers.
@@ -50,12 +50,15 @@ specification for the file schemas, commands, signal model, gates, and templates
   system, date, and outcome or cost when known.
 - Every content line in every canonical SSOT file must end with exactly one
   evidence tag: `[C]`, `[A]`, or `[G]`. `[C]` is cited, `[A]` is assumed, and `[G]`
-  is a gap. Missing facts do not stop work. Keep segments with weak evidence and
-  mark gaps with the evidence needed to close them.
-- Strategy belongs only in core. Positioning uses differentiators already in core.
-  Persona messaging uses persona research already in the SSOT.
-- Keep exactly one question in each SSOT file. When an answer changes, change one
-  file only. Record uncertain file placement in `09-iteration.md`.
+  is a gap. Apply decision-specific readiness: hold consequential unsupported
+  decisions, continue independent work, and retain weak-evidence hypotheses
+  with the evidence needed to resolve them. Approval remains separate.
+- Core holds its existing strategy domains; scoped approved decisions/references
+  cover topics without a core home, per the spec. Initial specialist proposals
+  may use supplied evidence before canon exists. Existing canon remains authoritative.
+- Give each claim one canonical home and reference dependencies. Update only
+  explicitly approved affected sections, which may span files. Record uncertain
+  placement in `09-iteration.md`.
 - Field signals inform the canon, but do not automatically change it. Every
   finding gets one proposed verdict and waits at the required human gate.
 - Never write to core without Gate 2 approval. Never edit or delete `comms/` input.
@@ -77,8 +80,12 @@ Route explicit commands to the matching workflow in `references/ssot-spec.md`:
 - `/stale`, `/state`, `/brief`, `/manifest`, and `/audit-output` produce their
   specified reports or project files.
 
-If the user provides no command, ask which client and files are in scope, then list
-the available commands. Do not infer approval from silence or proceed past a gate.
+For reviewed context proposals, read `../_shared/context-establishment.md` and
+follow the spec's intake path. Preserve provenance and incoming IDs. Baselines
+wait at Gate 2; existing-context updates pass Gate 1 then Gate 2. Evidence readiness
+and human approval are separate; partial approval does not settle held decisions.
+For unstructured goal/material intake without a command, route to PMC to establish
+understanding. Resolve only missing scope. Never infer approval from silence.
 
 ## Output Behavior
 

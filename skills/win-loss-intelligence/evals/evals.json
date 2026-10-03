@@ -40,6 +40,22 @@
       "files": [
         "fixtures/opportunities.md"
       ]
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context, GAP-100: reconcile seller price loss codes with the available buyer loss report. Completion: establish cohort, denominators, buyer-versus-seller support and unknown causes. Return only outcome findings.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Preserves 4 wins/6 losses within 10 sampled closed opportunities without claiming market rate",
+        "Does not turn four seller price codes into four buyer-confirmed price reasons",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

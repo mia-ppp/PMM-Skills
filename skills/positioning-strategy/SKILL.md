@@ -7,6 +7,18 @@ metadata:
 
 # Positioning Strategy
 
+## Context research handoffs
+
+When receiving a context-establishment handoff, read
+`../_shared/context-establishment.md`. Reuse its question, scope, source/finding
+IDs, approved context/version, GAP IDs and completion criteria. Analyze only your
+owned domain; return provenance-bearing findings, opposing evidence, limitations,
+completion status and unapproved implications to product-marketing-context.
+Use decision-specific evidence readiness; approval is separate. A hold affects
+only its decision. Do not write canon or automatically save chained results into
+bootstrap context. Standalone artifacts retain their existing format and may
+attach the shared return. Preserve IDs and status without duplicating studies.
+
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only this task’s approved context. When the task is to develop positioning, present new strategy as a proposal and route canon changes through `ssot-context-loop` for human approval.
 
 You help product marketers decide where a product wins and why. Positioning is a choice about context: which alternatives the buyer compares you to, which customers care most, and which market frame makes your strengths obvious.
@@ -19,14 +31,14 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 **Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
 
-**Load segment selection:** read `../_shared/segment-selection.md`. Follow sections 1 to 5 in step 4 when no accepted or canonical market-entry/segment decision exists, or after reopening is explicitly approved through the existing SSOT review process. Carry an existing segment decision forward; run section 6 in step 8.
+**Load segment selection:** read `../_shared/segment-selection.md`. Carry the accepted market decision forward; run section 6 in step 8. Market selection/reopening belongs to market-entry-brief, with SSOT review for canon changes.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover. Read its Switching Dynamics and Personas sections closely: they feed the alternatives, switching costs, trigger, and segment.
 
 **Read competitor profiles if they exist:** if a `competitor-profiles/` directory exists (from competitor-profiling), read `_summary.md` and each profile before mapping alternatives. Cite them as Sourced.
 
-**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, start from icp-and-buyer-personas' primary segment in the context doc. Conflicting evidence may justify proposing a change or requesting reopening, but cannot automatically replace the accepted segment/ICP. Reopening or changing an accepted decision requires `ssot-context-loop` review and explicit human approval.
+**Start from the chosen segment:** inherit the accepted market-entry/SSOT segment. When neither establishes it, route market selection to market-entry-brief. An explicit user-supplied exploratory segment can support a bounded positioning hypothesis, not an accepted selection. Conflicting evidence may justify proposing a change or requesting reopening, but cannot automatically replace the accepted segment/ICP. Reopening or changing an accepted decision requires `ssot-context-loop` review and explicit human approval.
 
 If an accepted market-entry brief already selected the target segment, use it
 for positioning. Do not re-score or replace it unless reopening has passed the existing SSOT
@@ -40,14 +52,14 @@ Gather this (ask only if missing and it would change the answer):
 3. **Evidence:** win-loss notes, sales call patterns, customer quotes, churn reasons.
 4. **Goal:** new launch, repositioning, new segment, or a stalled win rate.
 
-If key information is missing, do not stop. Answer provisionally:
+Assess evidence readiness before consequential choices. For PROCEED PROVISIONALLY:
 1. Give your best answer with what you have.
 2. Flag assumptions where you use them.
 3. End with one short block of at most 5 bullets combined: the assumptions that most affect the recommendation, then the two or three questions whose answers would change it, with which way the answer moves for each.
 
 Never infer product capabilities, pricing, or customer pain points silently. If you need them, flag them as assumptions.
 
-Open with the positioning statement. Do not restate the user's situation or data back to them.
+When the positioning decision is held, name the gap/owner and continue independent evidence mapping. Otherwise open with the positioning statement. Do not restate the user's situation or data back to them.
 
 Never invent win rates, customer names, market sizes, or quotes. Use placeholders like `[win rate vs X]` where evidence is needed.
 
@@ -82,18 +94,14 @@ List only capabilities the main alternatives lack or do meaningfully worse. Shar
 ### 3. Translate capability into value
 For each unique capability: capability, then outcome for the buyer, then proof. Label proof Sourced, Assumed, or Gap.
 
-### 4. Pick the best-fit customer
-Identify who gets the most value, fastest. Be narrower than feels comfortable.
-If no accepted or canonical market-entry/segment decision exists, use the normal
-scoring and selection process in sections 1 to 5 of
-`../_shared/segment-selection.md`. Do not create a separate scoring method.
-If an accepted or canonical decision exists, inherit it. If decisions conflict,
-preserve the canonical ICP and route the disagreement through `ssot-context-loop`.
-Conflicting evidence may justify requesting reopening or proposing a change,
-but must not automatically replace the accepted segment/ICP. Reopening or
-changing an accepted strategic decision requires the existing SSOT review and
-explicit human approval process. Until approved, a different segment remains a
-proposal; saving it does not change canon.
+### 4. Apply the best-fit customer scope
+Use the accepted market/segment and relevant persona evidence. Do not run market
+selection inside positioning. If absent, route selection to market-entry-brief;
+an explicit exploratory candidate may support a labeled positioning hypothesis
+with its risk/scope/validation trigger. Missing consequential fit evidence can
+hold the positioning choice while alternatives/capability analysis continues.
+Preserve canonical ICP where decisions conflict. Reopening or replacing an
+accepted decision requires SSOT review and human approval, never bootstrap saving.
 
 ### 5. Choose the market frame
 First state the category buyers currently place the product in, with evidence (how they search, what they compare you to, what they call you on calls or in reviews). Label it Sourced, Assumed, or Gap.
@@ -172,7 +180,9 @@ Fill every slot in the trace. Cite the finding or quote that supports it and lab
 
 ## After Delivering
 
-Save the statement, derivation trace (including Trigger), and capability table with labels to the Positioning section of `.agents/product-marketing-context.md`. Do this by default, then tell the user what was saved. Saving this bootstrap section does not approve the position or modify canonical SSOT. Preserve approval status and label new strategy as a proposal. messaging-framework uses approved mapped SSOT for covered claims and this section for uncovered provisional context. Suggest messaging-framework as the next step.
+For PMC-originated work, return the proposal and findings for integration; skip
+automatic bootstrap saving. For standalone work, save the proposed statement,
+derivation trace (including Trigger), and capability table with labels to the Positioning section of `.agents/product-marketing-context.md`. Do this by default, then tell the user what was saved. Saving this bootstrap section does not approve the position or modify canonical SSOT. Preserve approval status and label new strategy as a proposal. messaging-framework uses approved mapped SSOT for covered claims and this section for uncovered provisional context. Suggest messaging-framework as the next step.
 
 ## Output Rules
 

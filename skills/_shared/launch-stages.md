@@ -4,6 +4,16 @@ Skills that plan, build, or check a launch load this file and follow it. It defi
 
 Evidence labels follow `evidence-gaps.md`. Segment choices follow `segment-selection.md`.
 
+## Before the chain: establish understanding
+
+For mixed materials or missing foundational understanding, `product-marketing-context`
+inventories and synthesizes inputs, diagnoses decision-specific evidence
+readiness and routes research using `context-establishment.md`. Exploratory market
+and buyer research precedes accepted market/persona requirements. A research
+return is not an accepted market-entry brief or locked canon. Partial baseline
+context can pass SSOT approval while strategy remains pending. Evidence readiness
+does not waive any rung's acceptance, canon or launch gate.
+
 ## The chain
 
 | Rung | Name | Skills | Handoff artifact |

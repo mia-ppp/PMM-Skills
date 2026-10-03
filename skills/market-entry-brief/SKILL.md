@@ -1,6 +1,6 @@
 ---
 name: market-entry-brief
-description: "When the user wants to size and score a new market before any positioning work. Use when the user asks 'should we enter [market],' or mentions 'market entry,' 'new market,' 'expand into,' 'TAM for,' 'is [segment/region] worth it,' or 'market sizing.' Produces a go, explore, or pass recommendation with labeled TAM, SAM, and SOM, the buyer delta, constraints, and ranked entry risks. It is Rung 1 of the launch chain. For a single product or feature launch's tactics, see launch-strategy. For the buyer detail inside a chosen market, see icp-and-buyer-personas."
+description: "When the user wants to evaluate candidate entry or size and score a new market before positioning work. Use when the user asks 'should we enter [market],' or mentions 'market entry,' 'new market,' 'expand into,' 'TAM for,' 'is [segment/region] worth it,' or 'market sizing.' Produces a go, explore, or pass recommendation with labeled TAM, SAM, and SOM, the buyer delta, constraints, and ranked entry risks. It is Rung 1 of the launch chain. For external market/category/opportunity research, see market-intelligence; for competitive landscape/facts/changes, see competitor-profiling. For a single product or feature launch's tactics, see launch-strategy. For the buyer detail inside a chosen market, see icp-and-buyer-personas."
 metadata:
   version: 1.0.0
 ---
@@ -9,20 +9,56 @@ metadata:
 
 You decide whether a company should enter a new market, before anyone writes positioning. A market is a segment, a region, or both. Your output is a one-line recommendation, then the brief that earns it.
 
-Deliver the brief itself, not a framework for writing one.
+## Modes
+
+**Exploratory entry evaluation:** for a PMC handoff on a candidate market,
+return source-linked findings on company-specific entry fit, feasibility and
+constraints relevant to the assigned question. Consume market-intelligence for
+external structure/category conditions/opportunity research and competitor-profiling
+for competitive landscapes/facts/changes. Reuse their findings without repeating
+their methods. Route buyer collection to customer-research and internal product
+truth to its human owner. Do not require sizing, a full scorecard, a Go/Explore/Pass
+call or approved candidate personas for this mode. Return the shared research
+packet to PMC; it is not an accepted Rung 1 artifact.
+
+**Decision brief:** compare/select candidates using the process below. A
+recommendation remains a proposal until accepted and, where canonical, approved.
+Missing evidence uses shared readiness; HOLD THIS DECISION holds only entry
+commitment while exploratory analysis continues. Deliver the brief when supported,
+not an invented recommendation just to fill its output format.
+
+## Context research handoffs
+
+When receiving a context-establishment handoff, read
+`../_shared/context-establishment.md`. Reuse its question, scope, source/finding
+IDs, approved context/version, GAP IDs and completion criteria. Analyze only your
+owned domain; return provenance-bearing findings, opposing evidence, limitations,
+completion status and unapproved implications to product-marketing-context.
+Use decision-specific evidence readiness; approval is separate. A hold affects
+only its decision. Do not write canon or automatically save chained results into
+bootstrap context. Standalone artifacts retain their existing format and may
+attach the shared return. Preserve IDs and status without duplicating studies.
 
 ## Before Starting
 
 **Load the shared references:**
 - `../_shared/evidence-gaps.md`: label every number and claim Sourced, Assumed, or Gap.
-- `../_shared/segment-selection.md`: follow sections 1 to 5 for the candidate list, sizing, full scorecard, lead choice, and sequencing, plus section 7 for figure tracing.
-- `../_shared/launch-stages.md`: this skill is Rung 1. The brief is the handoff artifact for Rung 2.
+- `../_shared/segment-selection.md`: in decision mode, follow sections 1 to 5 for candidate sizing/scoring/selection and section 7 for figure tracing.
+- `../_shared/launch-stages.md`: decision mode produces Rung 1; exploratory returns do not pass its gate.
 
 If the project has an SSOT, follow `../_shared/ssot-consumption.md` and read the
 manifest-mapped product and ICP context. A market-entry recommendation is a
 proposal, not an automatic canon change. If the recommended segment conflicts
 with the approved SSOT ICP, state the conflict and route it through
 `ssot-context-loop`'s evidence and approval process.
+
+Reuse applicable current/candidate personas when present, preserving source,
+status and gaps. Candidate exploration does not require approved personas. Use
+exploratory customer evidence or explicit buyer hypotheses; customer-research
+collects missing evidence, icp-and-buyer-personas develops the eventual profiles.
+Never carry the current persona into a new market as validated there. If there is
+no current market, mark the comparison Not applicable and examine status quo;
+do not invent an incumbent buyer. Preserve dependencies in decision handoffs.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. It describes the current market and buyer.
@@ -33,11 +69,13 @@ Gather this (ask only if missing and it would change the answer):
 3. **Goal:** growth target, timeline, and what "worth it" means to the company.
 4. **Sourced totals:** any market figure, report, or internal data the user has.
 
-If key information is missing, do not stop. Proceed with stated assumptions and label them. End with the questions whose answers would change the recommendation.
+Apply shared evidence readiness. A bounded provisional recommendation records
+risk and validation trigger; a hold names the affected decision and closure
+criteria. Continue independent research, with approval dependency separate.
 
 ## Core Principles
 
-**Never invent a market size.** Every number is Sourced with a citation, Derived from labeled inputs with the formula shown, or Assumed with a stated basis. A number with none of these is manufactured. Remove it.
+**Never invent a market size.** Every number is Sourced with a citation (including interpretations derived from supported inputs with formulas), or Assumed with a stated basis. A number with none of these is manufactured. Remove it.
 
 **A missing figure becomes a Gap.** Write "Gap: not sized" and name how to get it, such as "pull account counts by region from the CRM." Never fill it with a plausible round number.
 
@@ -208,7 +246,10 @@ If an approved SSOT ICP conflicts with the lead, state the conflict and route it
 
 ## After Delivering
 
-Offer to save the market definition and buyer delta to `.agents/product-marketing-context.md`. If the call is Go, suggest positioning-strategy as the next step (Rung 2 of `../_shared/launch-stages.md`). If the call is Explore, suggest customer-research to close the top gap.
+For PMC-originated work, return findings/proposals to PMC instead of saving
+bootstrap sections. For standalone work, offer to save the proposed market
+definition and buyer delta to `.agents/product-marketing-context.md`. Route each
+gap using the shared owner table, not customer-research indiscriminately. If the call is Go, suggest positioning-strategy as the next step (Rung 2 of `../_shared/launch-stages.md`). If the call is Explore, route the top gap to its actual domain owner.
 
 ## Output Rules
 

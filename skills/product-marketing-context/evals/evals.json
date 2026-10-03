@@ -4,42 +4,36 @@
     {
       "id": 1,
       "prompt": "I want to set up my product marketing context. We're a B2B SaaS company that sells a customer feedback platform to product teams.",
-      "expected_output": "Should check if .agents/product-marketing-context.md already exists. If not, should offer two options: (1) Auto-draft from codebase (recommended) or (2) Start from scratch. If user chooses start from scratch, should walk through sections conversationally one at a time. Should cover all applicable sections: Product Overview, Target Audience, Personas, Problems You Solve, Competitive Landscape, Differentiation, Objections, Switching Dynamics, Customer Language, Brand Voice, Proof Points, and Goals. Should create the file at .agents/product-marketing-context.md when complete.",
+      "expected_output": "Resolve the goal and existing context, inventory supplied material or record its absence, adapt relevant context to the product, and route consequential evidence gaps to existing owners. Keep the workspace provisional.",
       "assertions": [
-        "Checks for existing product-marketing-context.md",
-        "Offers two options: auto-draft or start from scratch",
-        "Covers applicable sections",
-        "Walks through sections conversationally one at a time",
-        "Creates file at .agents/product-marketing-context.md"
+        "Checks for existing context and applicable approved SSOT",
+        "Does not force codebase auto-drafting or unrelated context dimensions",
+        "Establishes goal and material availability without inventing evidence",
+        "Keeps proposed context separate from human approval"
       ],
       "files": []
     },
     {
       "id": 2,
       "prompt": "Update our product marketing context. We just added a new enterprise tier and our target audience has expanded to include VP of Engineering, not just Product Managers.",
-      "expected_output": "Should check for existing .agents/product-marketing-context.md and read it. Should identify which sections need updating based on the changes: Target Audience (add VP of Engineering), Personas (add new persona), Product Overview (new enterprise tier, including pricing updates within that section), Objections (enterprise-specific), and Competitive Landscape (enterprise competitors). Should update only the relevant sections, preserving existing content that hasn't changed.",
+      "expected_output": "Preserve existing context, capture the stated tier/audience changes with source and approval status, and route persona development or conflicting canon through their owners.",
       "assertions": [
-        "Reads existing product-marketing-context.md",
-        "Identifies sections that need updating",
-        "Updates Target Audience with VP of Engineering",
-        "Adds new persona for the expanded audience",
-        "Updates Product Overview for enterprise tier",
-        "Preserves unchanged sections"
+        "Reads existing context and approved SSOT when available",
+        "Captures the stated changes without inferring approval",
+        "Routes persona generation to icp-and-buyer-personas rather than rebuilding personas",
+        "Preserves unaffected context"
       ],
       "files": []
     },
     {
       "id": 3,
       "prompt": "create a product context doc for my app. it's a mobile app that helps people find hiking trails. we're just getting started.",
-      "expected_output": "Should trigger on casual phrasing. Should check for existing context doc. Should offer auto-draft or start-from-scratch options. Should adapt questions for an early-stage B2C mobile app (outdoor/fitness niche). Should note that some sections may be sparse for an early-stage product and that's okay: they can be filled in as the business matures. Should skip non-applicable sections (e.g., Personas section is B2B-focused) rather than forcing all 12. Should accept lighter answers for sections like Proof Points or Competitive Landscape if the company is new.",
+      "expected_output": "Resolve the goal and existing context, inventory supplied material or record its absence, adapt relevant context to the product, and route consequential evidence gaps to existing owners. Keep the workspace provisional.",
       "assertions": [
-        "Triggers on casual phrasing",
-        "Checks for existing context doc",
-        "Offers auto-draft or start-from-scratch options",
-        "Adapts questions for early-stage B2C mobile app",
-        "Notes some sections may be sparse early on",
-        "Skips non-applicable sections rather than forcing all 12",
-        "Creates file at .agents/product-marketing-context.md"
+        "Checks for existing context and applicable approved SSOT",
+        "Does not force codebase auto-drafting or unrelated context dimensions",
+        "Establishes goal and material availability without inventing evidence",
+        "Keeps proposed context separate from human approval"
       ],
       "files": []
     },
@@ -48,11 +42,10 @@
       "prompt": "Can you auto-draft our product marketing context from our existing codebase and marketing materials?",
       "expected_output": "Should activate the auto-draft workflow mode. Should scan the codebase for existing marketing context: README, landing page copy, pricing page, about page, meta descriptions, any existing documentation. Should draft the product-marketing-context.md from what it finds, filling in sections where information is available and flagging sections that need manual input. Should present the draft for review before saving.",
       "assertions": [
-        "Activates auto-draft workflow mode",
-        "Scans codebase for existing marketing materials",
-        "Drafts context from found information",
-        "Flags sections needing manual input",
-        "Presents draft for review before saving"
+        "Inventories the codebase and marketing materials requested by the user",
+        "Distinguishes sourced statements from interpretation and assumptions",
+        "Discloses reviewed versus missing material",
+        "Presents proposed context for review without granting canon approval"
       ],
       "files": []
     },
@@ -84,17 +77,143 @@
     {
       "id": 7,
       "prompt": "Update our product marketing context doc. We just finished positioning: 'Ledgerly is a close tool that auto-matches bank lines to invoices for finance teams at 50 to 300 person SaaS companies.' Trigger is a missed month-end close. Capabilities: auto-matching (proof: beta cut matching time 60%, 8 accounts), exception queue (no proof yet). Personas: Controller (champion) cares about close speed; CFO (financial buyer) cares about audit risk.",
-      "expected_output": "Should write a Positioning section with the statement, a derivation trace with Category, Differentiating phrase, Segment, and Trigger rows, and a capability table with Capability, What it does for the buyer, Proof, Buyer voice, and Label columns. Should write a Persona message map with Persona (buying role), What matters to them, Message, and Proof label. Existing sections stay.",
+      "expected_output": "Should preserve the supplied Positioning statement as an unapproved input, with a derivation trace and capability table carrying source labels and gaps. Preserve supplied persona priorities without inventing reusable profiles or strategic messages; route missing persona/message-map development to its existing owner. Existing sections stay, and saving does not approve canon.",
       "assertions": [
         "Includes a Positioning section with the statement as given",
         "The derivation trace has Category, Differentiating phrase, Segment, and Trigger rows, with Trigger filled as a missed month-end close",
         "The capability table has the columns Capability, What it does for the buyer, Proof, Buyer voice, and Label",
         "Labels the exception queue Gap or Assumed rather than dropping it",
-        "Includes a Persona message map with columns Persona (buying role), What matters to them, Message, and Proof label",
         "Keeps the existing sections such as Product Overview, Switching Dynamics, and Proof Points",
-        "Does not invent a buyer quote for the Buyer voice column"
+        "Does not invent a buyer quote for the Buyer voice column",
+        "Preserves supplied persona priorities as inputs and routes any missing reusable persona development to its owner"
       ],
       "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Establish reusable PMM context from the attached substantial existing research and company materials. Inventory what exists, synthesize it, diagnose readiness for reviewing the mid-market sales narrative, and show proposed context. Do not approve or persist canon.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Inventories the supplied material and marks the analyst link inaccessible rather than analyzed",
+        "Traces the repeated deck quotation to I01 without counting it as independent customer evidence",
+        "Keeps enterprise deck strategy separate from approved pricing and scoped customer findings",
+        "Routes any needed closed-opportunity interpretation to win-loss-intelligence instead of inventing buyer drivers",
+        "Uses decision-specific readiness and prepares source-linked context proposals without treating them as approved"
+      ],
+      "files": [
+        "fixtures/substantial.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Diagnose our partial research for the enterprise segment and pricing decisions. Show known, assumed, conflicting and missing context, prioritize consequential gaps, and hand them to existing owners.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Keeps founder willingness-to-pay and enterprise-fit beliefs Assumed, not approved evidence",
+        "Routes customer evidence to customer-research, market choice to market-entry-brief and pricing research to pricing-strategy",
+        "Requests authoritative product verification from the product owner rather than inventing a GA date",
+        "Includes question, affected decision, counterfactual, owner and completion criteria in research gaps/handoffs",
+        "Defers brand colors as non-blocking and separates readiness from approval"
+      ],
+      "files": [
+        "fixtures/partial.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Help us establish PMM understanding from scratch using the attached starting information. Design the context discovery sequence and research handoffs before strategy.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Does not require approved personas or an accepted market before exploratory research",
+        "Routes customer exploration to customer-research, external market/category/opportunity exploration to market-intelligence, competitive landscape/facts/changes to competitor-profiling, and where/whether-to-enter evaluation to market-entry-brief",
+        "Keeps the two candidates exploratory and does not choose a target or invent positioning/pricing",
+        "Uses method/completion questions in handoffs without taking specialist methodologies into PMC",
+        "Does not treat a research plan as collected findings or authorize outreach/spending"
+      ],
+      "files": [
+        "fixtures/scratch.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Inventory and reconcile the attached mixed evidence into proposed context. Classify disagreements, show what can be reconciled, and route unresolved consequential conflicts.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Resolves old audit-export availability through explicit product version/effective date while retaining historical truth",
+        "Preserves segment-specific setup/control priorities rather than averaging them",
+        "Keeps seller price reason and buyer security report distinct and routes outcome interpretation to win-loss-intelligence",
+        "Flags current SSO disagreement for authoritative verification rather than choosing the newest deck",
+        "Records contradiction source/finding references, affected decisions and resolution or owner"
+      ],
+      "files": [
+        "fixtures/contradictions.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Refresh our PMM understanding from the attached canon and new material. Evaluate the sales requests, preserve approval boundaries, and prepare the correct review handoff.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Preserves approved regulated-enterprise ICP and beta-only SSO, without automatically replacing them",
+        "Treats the newer startup notes as scoped evidence, not proof or approval of a new ICP",
+        "Routes potential canon changes through ssot-context-loop Gate 1 then Gate 2",
+        "Preserves source/version/approval and contradictory draft status in context proposals",
+        "Does not infer approval from current files or evidence-readiness labels"
+      ],
+      "files": [
+        "fixtures/canon-conflict.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Diagnose readiness for the launch availability promise and the independent inventory work. Identify exactly what is held, who resolves it, and what can continue.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Uses HOLD THIS DECISION for promising general SSO availability without authoritative release evidence",
+        "Names the affected promise, product-owner verification and closure criteria",
+        "Continues independent inventory and/or neutral interview preparation instead of blocking the entire workflow",
+        "Uses PROCEED for sufficient independent work or PROCEED PROVISIONALLY only with understood risk and bounded scope",
+        "Keeps human launch/canon approval separate from evidence sufficiency"
+      ],
+      "files": [
+        "fixtures/hold-independent.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Integrate the attached specialist return into our provisional context, assess gap closure and readiness, and prepare the supported SSOT proposal.",
+      "expected_output": "Produces a traceable context-establishment response with scoped readiness, owner handoffs and unapproved proposals.",
+      "assertions": [
+        "Preserves SRC/FND/GAP/HND identity and method/sample limits",
+        "Closes only the scoped trigger-episode gap rather than inferring population prevalence",
+        "Keeps FND-002 Assumed through synthesis and proposal",
+        "Prepares concrete proposed wording, canonical destination, validation and explicit approval dependency",
+        "Routes initial baseline to ssot-context-loop setup and Gate 2 without treating the return as approval"
+      ],
+      "files": [
+        "fixtures/return-integration.md"
+      ],
+      "references": [
+        "skills/product-marketing-context/references/context-workspace-template.md"
+      ]
     }
   ]
 }

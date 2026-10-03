@@ -107,6 +107,22 @@
         "Labels the 9-day close finding Sourced to the Controller interviews and does not present non-interview personas as Sourced"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context, GAP-100: use approved PERSONA-1 and the supplied interview to propose any missing trigger/behavior attributes within accepted DEC-MKT-1. Completion: preserve approved attributes and sources, separate additions as proposals; do not select another market or save bootstrap context.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Reuses approved persona and accepted scope without independent scoring",
+        "Separates new proposed attributes from approved persona meaning",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

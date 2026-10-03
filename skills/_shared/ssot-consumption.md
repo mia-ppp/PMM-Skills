@@ -39,6 +39,7 @@ restriction and flag a conflict for review instead of choosing silently.
 | Objections and supported responses | `living/08-objection-handling.md` |
 | Competitive context | `living/06-competitive.md` only when the task needs it |
 | Approved strategic changes or impacted assets | relevant `decisions/*.md`; use `09-iteration.md` for recorded drift lessons when relevant |
+| Goals, accepted market/segment choice, pricing/packaging, sales motion, journey decisions, ongoing GTM | applicable scoped approved `decisions/*.md` records or exact-version references governed by SSOT |
 
 Common selections: outbound needs positioning, the target persona, problem/use
 case, proof, and objections. Website and campaign copy needs category,
@@ -46,6 +47,36 @@ positioning, product truth, proof, and relevant personas. Social content needs
 positioning, relevant persona context, evidence, and approved claims. Sales
 collateral needs positioning, product truth, persona context, proof, and
 objections. The manifest entry wins when it is more specific.
+
+## Context readiness before consequential decisions
+
+Read `../_shared/context-establishment.md` when context is being established or
+task-critical intelligence is incomplete, stale or conflicting. Reuse the PMC
+workspace readiness/handoff when present, checking goal, scope and source version.
+For each relevant requirement preserve support, authority and health separately.
+Do not infer approval from existence, citations, freshness or evidence sufficiency.
+
+Use PROCEED, PROCEED PROVISIONALLY or HOLD THIS DECISION with the shared meanings.
+Record provisional assumptions, understood risks, permitted scope and validation
+triggers. A hold names the affected decision, GAP, owner and closure criteria;
+continue independent work. Missing approval remains a separate dependency.
+Research/exploratory hypotheses do not require approved personas or markets.
+Existing execution and launch approval gates remain mandatory.
+
+Covered canon stays authoritative even when stale or challenged; do not invent a
+replacement or state a suspect claim as freshly validated. Flag the review and
+hold the affected unsupported claim where necessary. Bootstrap findings can fill
+uncovered provisional context, never override covered canon or become approved
+through reuse. Route establishment/integration to product-marketing-context and
+domain gaps to its existing owner table; execution owners do not rebuild context.
+
+For approved decision references, verify topic, product/segment/region scope,
+effective date, approval, explicit supersession and the exact approved source
+version. A mutable external link or the newest decision filename is insufficient.
+If a manifest omits task-critical context, load the relevant approved record and
+report the mapping gap. State summaries are indexes, not an alternative canon.
+Handoffs preserve source/finding IDs, labels, authority, health and unresolved
+gaps; the receiver narrows context without upgrading or reinterpreting it silently.
 
 ## Keep strategy and expression separate
 

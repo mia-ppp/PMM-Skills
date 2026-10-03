@@ -101,6 +101,22 @@
         "Does not invent market sizes, stats, or customers for non-AI segments; unsized segments are labeled as gaps"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "Plan independent preparation for a Maple v3 CSV-export feature announcement to the accepted mid-market audience. SSO remains beta and the messaging/positioning approval dependency is open. Inherit market and product decisions; do not size/select another market or grant launch clearance.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "References accepted market decisions instead of rescoring/resizing",
+        "Keeps missing messaging/launch approval separate and continues independent preparation",
+        "Does not promise generally available SSO",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

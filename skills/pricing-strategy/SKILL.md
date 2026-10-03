@@ -7,6 +7,18 @@ metadata:
 
 # Pricing Strategy
 
+## Context research handoffs
+
+When receiving a context-establishment handoff, read
+`../_shared/context-establishment.md`. Reuse its question, scope, source/finding
+IDs, approved context/version, GAP IDs and completion criteria. Analyze only your
+owned domain; return provenance-bearing findings, opposing evidence, limitations,
+completion status and unapproved implications to product-marketing-context.
+Use decision-specific evidence readiness; approval is separate. A hold affects
+only its decision. Do not write canon or automatically save chained results into
+bootstrap context. Standalone artifacts retain their existing format and may
+attach the shared return. Preserve IDs and status without duplicating studies.
+
 
 **Use the company SSOT when present:** follow `../_shared/ssot-consumption.md` and the project manifest to load only relevant approved context. Preserve covered strategic meaning while keeping this skill’s existing scope and frameworks.
 

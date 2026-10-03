@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Help me build a content strategy for our B2B SaaS product. We sell expense management software to finance teams at companies with 50-500 employees. We currently have no blog and want to start from scratch.",
-      "expected_output": "Should check for product-marketing-context.md first. Should establish content pillars (3-5 core topic areas). Should map content types by buyer stage (awareness \u2192 consideration \u2192 decision \u2192 implementation). Should identify keyword research opportunities by buyer stage. Should recommend a mix of searchable (SEO-driven) and shareable (thought leadership, data) content. Should use the prioritization scoring framework (customer impact 40%, content-market fit 30%, search potential 20%, resources 10%). Should provide an initial content calendar or publishing cadence. Should recommend content types appropriate for starting from scratch.",
+      "expected_output": "Should check for product-marketing-context.md first. Should establish content pillars (3-5 core topic areas). Should map content types by buyer stage (awareness → consideration → decision → implementation). Should identify keyword research opportunities by buyer stage. Should recommend a mix of searchable (SEO-driven) and shareable (thought leadership, data) content. Should use the prioritization scoring framework (customer impact 40%, content-market fit 30%, search potential 20%, resources 10%). Should provide an initial content calendar or publishing cadence. Should recommend content types appropriate for starting from scratch.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Establishes 3-5 content pillars",
@@ -98,6 +98,21 @@
         "Preserves canon and evidence gaps"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "Plan two reporting content questions within accepted Maple mid-market scope using the approved persona and existing interview evidence. Return any consequential new customer-understanding gaps to product-marketing-context. Do not conduct new research.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Reuses approved persona and scoped research rather than reconstructing personas",
+        "Routes reusable customer-understanding gaps while retaining topic-specific planning",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

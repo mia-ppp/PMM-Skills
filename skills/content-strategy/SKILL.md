@@ -215,6 +215,15 @@ Example: If support tickets show implementation struggles:
 
 ## Content Ideation Sources
 
+Reuse existing customer/competitive findings and their provenance first. The
+sources below support incremental topic/question exploration, not rebuilding
+reusable personas, research or strategy. Route consequential understanding gaps
+through product-marketing-context to customer-research, objection-intelligence or
+competitor-profiling as appropriate. Use `../_shared/context-establishment.md` for
+new finding returns. Hold only the affected content choice; continue supported
+planning. New observations stay unapproved and return to the domain owner/PMC.
+
+
 ### 1. Keyword Data
 
 If user provides keyword exports (Ahrefs, SEMrush, GSC), analyze for:

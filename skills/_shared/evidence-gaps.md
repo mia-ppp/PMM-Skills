@@ -11,7 +11,10 @@ Evidence decides how an item is labeled, never whether it is included.
 - **Keep every segment, claim, and opportunity that lacks proof, and label it.** Never drop one because proof is missing.
 - **Never invent proof to close a gap.** No made-up stats, customers, quotes, win rates, or market sizes.
 - **Turn thin proof into a validation task, not a deletion.** Name the test that would settle it.
-- **Never stop for missing facts.** Proceed, state the assumption in the deliverable, and label it.
+- **Assess consequential gaps before choosing.** Use decision-specific evidence
+  readiness in `context-establishment.md` for any context gap, not only audience.
+  Hold only the affected decision; continue independent work. Specific approval
+  gates still apply separately from evidence readiness.
 
 ## Labels
 
@@ -29,6 +32,13 @@ Examples:
 - Gap: "No proof that healthcare buyers switch for this. Get it from a 10-account beta."
 
 Confidence ratings (High, Medium, Low) rate how strong a finding is, not where it came from. Keep them next to the label. A Sourced finding from one interview is Sourced, Low confidence.
+
+Keep finding kind separate from its label: source-reported/observed evidence,
+interpretation, assumption, historical/current approved decision, or unknown.
+A citation proves what a source states, not automatically its truth or approval.
+A supported interpretation is Sourced with its derivation; unsupported extrapolation
+is Assumed. Do not add a top-level Derived label. Preserve opposing evidence, scope,
+lineage and approval references through every handoff.
 
 ## Inputs and assumptions
 
@@ -70,7 +80,10 @@ Fallback: "Screens every payment before authorization."
 
 List every Assumed and Gap item, with no cap. Rank them so the reader sees what matters first.
 
-- **Rank by impact on the plan's main number or lead claim.** The main number is the headline figure, such as year-one ARR or market size. The lead claim is the one the plan rests on, such as why the lead segment goes first.
+- **Rank by consequences for the user's goal.** Include the main number/lead claim,
+  decision feasibility, material commitments and approval dependencies. State what
+  changes if wrong; consider uncertainty, urgency and resolution effort. For context
+  establishment, use shared GAP IDs, priority, owner and completion criteria.
 - **Put the top five in the body, with why each matters.** Name what moves if the item proves wrong, such as "year-one ARR falls by about a third."
 - **Put the rest in an appendix,** in the same ranked order. Together the two lists cover every Assumed and Gap item.
 - **Fill Owner and Resolve by for every row.** If unknown, suggest a role and a milestone, marked `(suggested)`. A suggested owner is a stated assumption.

@@ -82,6 +82,22 @@
       "files": [
         "skills/market-entry-brief/evals/fixtures/segment-scorecard.md"
       ]
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context, GAP-100: exploratory entry evaluation of enterprise reporting as a candidate, using supplied buyer/product/competitor evidence. Completion: identify company-specific fit/feasibility gaps and external intelligence dependencies and next domain owners. Do not make an entry commitment or require an approved candidate persona.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Uses exploratory mode without a mandatory Go call, full scorecard or approved candidate persona",
+        "Consumes or requests external market/category/opportunity research from market-intelligence and competitive landscape/facts/changes from competitor-profiling; retains entry evaluation and routes customer/internal-product gaps to their owners",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

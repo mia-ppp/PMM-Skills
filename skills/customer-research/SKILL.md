@@ -2,7 +2,7 @@
 name: customer-research
 description: When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey analysis," "support ticket analysis," "voice of customer," "VOC," "jobs to be done," "JTBD," "what do customers say," "what are customers struggling with," "Reddit mining," "G2 reviews," "review mining," "digital watering holes," "community research," "forum research," "competitor reviews," "customer sentiment," or "find out why customers churn/convert/buy." Use for both analyzing existing research assets AND gathering new research from online sources. For writing copy informed by research, see marketing-copy. For acting on research to improve pages, see acquisition-conversion. For building personas from research, see icp-and-buyer-personas.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Customer Research
@@ -27,7 +27,21 @@ buyer-versus-seller reason analysis; hand it the collected interviews and CRM
 evidence. Neither skill rewrites strategy. Route implications to strategy
 owners and possible canon changes through `ssot-context-loop`.
 
-## Two Modes of Research
+## Research modes
+
+Read `../_shared/context-establishment.md` for provenance, decision-specific
+readiness and research handoff/return contracts. When PMC supplies a handoff,
+reuse its question, scope, sources and GAP IDs; do not ask which deliverable again.
+Return source-linked findings and completion-criteria assessment to PMC without
+writing reusable strategy or canon. Standalone research can attach the same return.
+
+### Mode 0: Design and Guide Research
+For missing consequential customer evidence, read `references/research-design.md`.
+Define the decision, competing hypotheses, method, sample/recruitment, screener,
+neutral instruments, collection/analysis plan, bias controls and stopping criteria.
+Guide authorized collection, distinguish planned from collected evidence, then
+synthesize using Mode 1. Exploratory buyer hypotheses need no accepted market.
+General methods can support specialists; domain interpretation stays with them.
 
 ### Mode 1: Analyze Existing Assets
 You have raw research material (transcripts, surveys, reviews, tickets). Your job is to extract signal.
@@ -35,7 +49,7 @@ You have raw research material (transcripts, surveys, reviews, tickets). Your jo
 ### Mode 2: Go Find Research
 You need to gather intel from online sources (Reddit, G2, forums, communities, review sites). Your job is to know where to look and what to extract.
 
-Most engagements combine both. Establish which mode applies before proceeding.
+Combine modes as needed. Analyze available evidence before collecting more.
 
 ## Voice of Customer Synthesis
 
@@ -144,9 +158,9 @@ Label every insight Sourced, Assumed, or Gap, then add a confidence level next t
 
 | Confidence | Criteria |
 |------------|----------|
-| **High** | Theme appears in 3+ independent sources; mentioned unprompted; consistent across segments |
-| **Medium** | Theme appears in 2 sources, or only prompted, or limited to one segment |
-| **Low** | Single source; could be an outlier; needs validation |
+| **High** | Strong applicable coverage and independent corroboration; method/bias and counterevidence considered within stated scope |
+| **Medium** | Useful support, but limited coverage, prompted responses or unresolved methodological limitations |
+| **Low** | Sparse, indirect or biased support; important uncertainty remains |
 
 **Recency window**: Weight sources from the last 12 months more heavily. Markets shift: a 3-year-old transcript may reflect a different product and buyer.
 
@@ -156,7 +170,11 @@ Label every insight Sourced, Assumed, or Gap, then add a confidence level next t
 - Reddit skews technical and skeptical vs. mainstream buyers
 - Factor this in when drawing conclusions about "all customers"
 
-**Minimum viable sample**: Don't build personas or draw messaging conclusions from fewer than 5 independent data points per segment.
+**Decision-relative sufficiency:** use the study's completion criteria and explain
+coverage, independence, method and counterevidence. Counts are not automatic gates;
+reviews and interviews are not interchangeable. Sparse findings may support narrow
+hypotheses, not broad prevalence. Use the shared readiness states and keep approval
+separate. Hold only the consequential choice; continue independent analysis.
 
 ---
 
@@ -221,7 +239,9 @@ After gathering from multiple sources, synthesize into:
 
 Persona building lives in the **icp-and-buyer-personas** skill. When research is meant to become personas, do the synthesis here: themes, verbatim quotes, trigger events, alternatives, and vocabulary, grouped by segment. Then hand that evidence to icp-and-buyer-personas to build the personas and buying committee map.
 
-Don't hand off a segment with fewer than 5-10 data points (interviews, reviews, or community posts). Hand it off labeled Gap, with how to close it (more interviews, reviews, or posts).
+Hand off even incomplete evidence with method, scope, confidence and unanswered
+questions. Assess sufficiency for the persona decision rather than a universal
+5-10-point threshold. No collection count grants persona or canon approval.
 
 ---
 
@@ -236,7 +256,8 @@ Depending on what the user needs, offer:
 5. **Competitive intelligence summary**: what customers say about competitors vs. you
 6. **Research gap analysis**: what you still don't know and how to find it, as the ranked Evidence gaps lists
 
-Ask the user which deliverable(s) they need before generating output.
+Infer the return from the goal or originating handoff. Ask only if ambiguity
+materially changes the study; do not repeat questions already answered.
 
 ---
 

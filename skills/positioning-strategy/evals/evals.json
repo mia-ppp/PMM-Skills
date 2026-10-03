@@ -119,13 +119,13 @@
     {
       "id": 8,
       "prompt": "Rework our positioning. Current statement: 'Ledgerly is the smart finance platform for growing companies.' Our context doc says: icp-and-buyer-personas picked Controllers at 50 to 300 person SaaS companies as the primary segment. Switching Dynamics: Habit is Excel reconciliation macros; Anxiety is losing the audit trail. Churn notes: 3 of 5 churned accounts said matching accuracy was worse than their macros. Capabilities: auto-matching bank lines to invoices (beta cut matching time 60% across 8 accounts) and a per-match audit log showing who matched what and when (no proof yet). Competitors: BlackLine, FloQast. Buyers find us searching 'bank reconciliation software.'",
-      "expected_output": "Should test the old statement before rewriting and report which stress tests it fails, directly after the new statement. Should build the capability table from the two given capabilities, labeling the audit log's missing proof as a Gap rather than dropping it or inventing new capabilities. Should start from the Controller segment; evidence for a different segment supports a proposal, not automatic replacement of an accepted or canonical ICP. Should give switching cost per alternative, state the current category (bank reconciliation software) with evidence and the cost of moving buyers if the frame differs, add a Trigger row, run the copy test, fail any accuracy claim on the churn data, note BlackLine or FloQast's likely response, end with Evidence gaps, and save to the Positioning section by default.",
+      "expected_output": "Should test the old statement before rewriting and report which stress tests it fails, directly after the new statement. Should build the capability table from the two given capabilities, labeling the audit log's missing proof as a Gap rather than dropping it or inventing new capabilities. Should treat the supplied Controller scope as exploratory unless an accepted market decision is supplied; route market selection to market-entry-brief without independently selecting/rescoring or silently upgrading the persona owner's selection to approved canon. Should give switching cost per alternative, state the current category (bank reconciliation software) with evidence and the cost of moving buyers if the frame differs, add a Trigger row, run the copy test, fail any accuracy claim on the churn data, note BlackLine or FloQast's likely response, end with Evidence gaps, and save to the Positioning section by default.",
       "assertions": [
         "Reports the old statement's stress-test results directly after the new statement and names which tests it fails",
         "Includes both given capabilities (auto-matching and the per-match audit log) in the statement or capability table",
         "Labels the audit log's proof Gap rather than dropping it or inventing proof",
         "Does not invent product capabilities beyond the two given; any extra capability is labeled Assumed",
-        "Starts from the Controller segment chosen by icp-and-buyer-personas; any different segment is an evidence-backed proposal, not an automatic replacement or reopening of an accepted ICP, and canonical conflicts require SSOT review and human approval",
+        "Treats the supplied Controller scope as exploratory absent an accepted market decision, routes market selection to market-entry-brief, and does not select/rescore a market or automatically replace approved ICP; canonical conflicts require SSOT review and human approval",
         "States a switching cost for each alternative, including Excel macros",
         "States that buyers currently place the product in bank reconciliation software, citing the search evidence",
         "If the recommended frame differs from the current category, names the gap and the cost of moving buyers",
@@ -137,6 +137,22 @@
         "Saves the result to the Positioning section of the context doc by default, without asking first"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context, GAP-100: propose positioning implications for the accepted US mid-market scope only, using shipped CSV and buyer spreadsheet alternatives. Completion: trace support/assumptions and identify proof gaps. Do not select another market or automatically save the proposal.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Inherits DEC-MKT-1 instead of scoring/selecting markets",
+        "Does not make generally available SSO a differentiator",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

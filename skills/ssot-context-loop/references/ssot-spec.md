@@ -26,9 +26,12 @@ Claims use these tags:
 | `[A]` | Assumed | State the reasoning. Do not present it as a fact. |
 | `[G]` | Gap | State what evidence is missing and what would close the gap. |
 
-Never invent facts. Missing facts do not stop work. Keep a segment even when it has
-no evidence and mark the gap. Positioning must come from differentiators already
-in core. Persona messaging must come from persona research already in the SSOT.
+Never invent facts. Apply decision-specific evidence readiness from
+`../../_shared/context-establishment.md`; continue independent work when one
+consequential decision is held. Keep weak-evidence segments as labeled hypotheses.
+For existing canon, positioning/persona messaging use approved domain inputs.
+For initial setup, specialist proposals can use supplied evidence before core
+exists; unknown strategy remains Gap. Setup does not approve inferred strategy.
 The field may be right and the canon stale, so drift always ends with a verdict,
 never an automatic correction.
 
@@ -70,13 +73,50 @@ ssot/<client-slug>/
 | `living/07-evidence.md` | Living, field reports | Customer voice, proof points, metrics, third-party research, and analyst notes. |
 | `living/08-objection-handling.md` | Living, field reports | Objection, answer that works, and the call it came from. |
 | `09-iteration.md` | Loop log | Sources, cadence, drift criteria, and rejected findings with reasons. |
-| `decisions/YYYY-MM-DD-<slug>.md` | Decision record | One approved canon change per file. |
+| `decisions/YYYY-MM-DD-<slug>.md` | Decision record | One scoped approved change, baseline decision or exact-version approved reference per file. |
 | `comms/` | Raw captured inputs | Source transcripts and exports, never edited after capture. |
 | `state.md` | Reconciler only | Status counts, stale and contested sections, gaps, validations, decisions, and scan state. |
 
 The four core files are reviewed quarterly to monthly. The five living files are
 reviewed weekly to monthly. Do not combine questions across files. When a claim
 could fit more than one file, choose one and record the choice in `09-iteration.md`.
+
+## Context proposal intake and approved references
+
+Read `../../_shared/context-establishment.md` when receiving reviewed PMC context
+or specialist returns. Accept inventory, FND/GAP/CTR/HND/PRP references and concrete
+proposals without repeating their research. Check source locators, lineage,
+method/limitations, domain ownership, readiness and separate approval dependencies.
+Missing provenance is a Gap; a reviewed report is not approved canon.
+
+No SSOT: use /setup proposals and Gate 2. Existing SSOT: use /scan, Gate 1,
+/propose and Gate 2, including additions to currently uncovered topics. Preserve
+incoming IDs or record an explicit mapping to scan/proposal IDs. Do not upgrade
+Sourced interpretations into facts or approved [A] assumptions into [C] evidence.
+Keep held decisions unresolved and permit review/approval of independent supported
+portions. There is no extra generic research-synthesis approval gate.
+
+Keep the nine core/living destinations. Use one scoped decision record for goals,
+accepted market/segment selection, pricing/packaging, sales motion, journey
+decisions or ongoing GTM direction when no existing file owns that decision.
+Do not create a catchall core file or put commercial strategy into living evidence.
+Evidence remains in its appropriate living home; decision records link it.
+
+An approved reference records topic, project/product/segment/region applicability,
+effective date, approving human and approval event, exact document version or
+immutable captured reference, use restrictions, review trigger, and Replaces.
+Include the approved decision text when no versioned source is available. A mutable
+external link alone is insufficient. Current authority follows applicable scope
+and explicit supersession, never the newest filename. Historical decisions remain
+available. Conflicting authority requires review, not automatic selection.
+
+Map relevant readers to these decision records with the existing manifest list
+schema. Only this skill manages those records/mappings after authorization.
+The reconciler indexes topic/scope/version/status/approval and open GAP/PRP links
+in state.md; it does not turn the summary into another canonical home.
+PMC may record returned approved replacement references in its provisional workspace,
+not overwrite canon. Persistence still follows user authorization; a no-commit or
+no-push instruction takes precedence over this workflow's persistence default.
 
 ## 3. File and section schema
 
@@ -130,7 +170,10 @@ a section. Change it to `deprecated` and identify its replacement.
 - A core section becomes stale 90 days after its last validation.
 - A living section becomes stale 30 days after its last validation.
 - Two or more independent field signals that contradict a section make it
-  `contested` until Gate 1. Do not silently resolve the conflict.
+  `contested` pending review. A single authoritative/material contradiction can
+  also trigger review; repetition is not a prerequisite. Gate 1 confirms/rejects
+  drift, not a replacement. Confirmed conflicts remain contested until resolved
+  through the applicable proposal and approval gate.
 - Set section validation dates only when the evidence actually validates that
   section. A file edit alone does not validate every section.
 
@@ -165,19 +208,24 @@ Give each finding exactly one proposed verdict:
 | `fix-asset` | Canon is right; an asset or talk track is wrong. |
 | `update-living` | Signal is worth recording, with no canon change yet. |
 | `update-core` | Evidence shows canon is stale. Requires Gate 2. |
-| `noise` | Signal is one-off, unsourced, or outside the ICP. Record why. |
+| `noise` | No material implication for the scoped decision after relevance/credibility review. Record why; one-off or outside-ICP alone is insufficient. |
 
-Assign each finding confidence `high`, `medium`, or `low`. Group repeated signals;
-two or more independent sources raise confidence. Confidence is not a claim tag.
+Assign each finding confidence `high`, `medium`, or `low` with rationale for scope,
+method, independence, bias and counterevidence. Group duplicates by source lineage;
+repetition does not automatically raise confidence. Confidence is not approval.
 
 ## 6. Commands and required outputs
 
 ### `/setup <client>`
 
 **Input:** supplied positioning documents, persona research, competitive notes,
-decks, and related source material.
+decks, related source material, or reviewed context proposals from PMC. For a
+mixed folder needing understanding or research diagnosis, route to PMC first;
+/setup remains available for direct baseline preparation, without inventing research.
 
-1. Extract every claim and map it to exactly one file and section.
+1. Preserve supplied finding/proposal IDs and provenance. Map each proposed claim
+   to exactly one core/living section or scoped decision record; link dependencies.
+   For raw inputs, extract source reports separately from interpretation/decisions.
 2. Make every content line in every canonical SSOT file end with exactly one
    evidence tag: `[C]`, `[A]`, or `[G]`.
 3. Set section statuses. Use `directional` by default when evidence is thin.
@@ -191,8 +239,10 @@ when needed. In the baseline decision, document the initial canon and sources.
 Do not invent missing content to make a file look complete.
 
 Initial setup does not bypass core approval. Return baseline core files and the
-baseline decision as proposals until the human PMM explicitly approves them at
-Gate 2. Only then persist the approved baseline. A request to set up the SSOT is
+baseline decision as proposals until the human PMM explicitly approves identified
+portions at Gate 2. The same gate applies to baseline living content and scoped
+approved references. Persist only approved portions; leave unapproved sections
+pending/uncreated, never label a partial baseline complete. A request to set up the SSOT is
 not itself approval of strategy inferred while drafting it.
 
 ### `/scan <client>`
@@ -200,7 +250,9 @@ not itself approval of strategy inferred while drafting it.
 **Input:** current SSOT plus new call transcripts, Slack exports, support tickets,
 win/loss notes, assets, AI outputs, competitive digests, or other supplied inputs.
 
-1. Save raw inputs into `comms/` using their filenames and dates. Never alter them.
+1. Capture new raw inputs into `comms/` using filenames/dates when authorized.
+   Reuse existing immutable captures and precise source references; do not copy a
+   synthesis as if it were the original evidence or overwrite a same-name capture.
 2. Extract signals and classify each by the taxonomy.
 3. Compare every signal with its relevant SSOT section.
 4. Flag drift only when a signal conflicts with, extends, or is missing from SSOT.
@@ -245,12 +297,18 @@ the proposal using the PMM's notes and waits for approval. On approval, return
 ready-to-commit files:
 
 1. Each changed SSOT file in full, in its own code block headed by its path.
-2. One `decisions/YYYY-MM-DD-<slug>.md` record per core change, using this schema:
+2. One `decisions/YYYY-MM-DD-<slug>.md` record per core change or scoped baseline/reference decision, using this schema:
 
 ```markdown
 Date: YYYY-MM-DD
 Decided by: <PMM name>
-Decision: <approved canon change>
+Decision: <approved change or exact scoped baseline/reference decision>
+Topic and scope: <project/product/segment/region applicability>
+Approval reference: <human approval event and approved proposal IDs>
+Effective date: <date or explicit unknown>
+Approved reference/version: <exact version/immutable reference, or decision text here>
+Status and use limits: <current/directional/etc.; assumptions, permitted uses>
+Review trigger: <validation date or condition>
 Replaces: <previous decision file or "baseline">
 Evidence: <finding IDs and sources>
 Affected files: <paths>
@@ -278,7 +336,8 @@ evidence that would revalidate it. Apply the 90-day core and 30-day living limit
 Regenerate `state.md` with counts by status per file, stale and contested sections,
 open gaps, pending validations and next-cycle actions, last five decisions, and
 last scan date with findings grouped by verdict. Only the reconciler writes this
-file. Treat this command as the reconciler.
+file. Treat this command as the reconciler. Include the scoped decision/reference
+index and linked open gaps/proposals without treating workspace readiness as approval.
 
 ### `/brief <client>`
 
@@ -297,13 +356,13 @@ have already been changed to consume the manifest.
 agents:
   - name: <agent-name>
     reads: [core/01-how-you-position-it.md, living/07-evidence.md]
-    writes: [] # Living files only, and only through /scan.
+    writes: [] # Readers never write canon; this skill handles approved changes.
     notes: <why these files are needed>
 ```
 
 Use paths relative to `ssot/<client-slug>/`. Map each reader only to needed files.
-No agent writes to core. An agent may write to a living file only through this
-skill's scan and approval workflow. Flag missing files rather than inventing them.
+No downstream agent writes core, living, decisions or state. This skill alone
+persists authorized changes after its gates. Flag missing files rather than inventing them.
 
 ### `/audit-output <client>`
 
@@ -313,8 +372,9 @@ Do not silently repair or approve the asset.
 
 ## 7. Default behavior and safety invariants
 
-- With no command, ask which client and which files were uploaded, then list
-  commands.
+- With no command, resolve scope from supplied context. For goal/material intake
+  needing understanding, route to product-marketing-context. For concrete reviewed
+  proposals, explain setup/scan and the next human gate. Ask only unresolved scope.
 - Never write to core without Gate 2 approval.
 - Never delete a section. Mark it deprecated and name what replaced it.
 - Never edit `comms/` after capture.
@@ -332,7 +392,7 @@ starting points, not a requirement that downstream skills change in this commit.
 
 | Skill | Likely files to read | Relationship |
 |---|---|---|
-| `product-marketing-context` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md` | Lightweight bootstrap stays distinct. Existing context can be used when no SSOT exists; covered claims defer to SSOT when it does. Never auto-overwrite the context document. |
+| `product-marketing-context` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md` | Context establishment workspace stays provisional. Integrates research and proposes a baseline/update; covered claims defer to SSOT. Never auto-overwrite the workspace. |
 | `positioning-strategy` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/06-competitive.md`, `living/07-evidence.md` | Reads canon and field evidence. It may propose strategy; only SSOT gates can change canon. |
 | `messaging-framework` | `core/00-what-it-is.md`, `core/01-how-you-position-it.md`, `core/02-product.md`, `core/03-who-it-is-for.md`, `living/07-evidence.md`, `living/08-objection-handling.md` | Uses core differentiators and researched persona messages. Never creates positioning or persona research standalone. |
 | `icp-and-buyer-personas` | `core/03-who-it-is-for.md`, `living/04-icp-signals.md`, `living/05-use-cases.md`, `living/07-evidence.md` | Uses canon and validates persona/ICP hypotheses with signals. |
@@ -355,7 +415,7 @@ For go-to-market-strategy, map existing approved context rather than inventing c
 
 ```yaml
 agents:
-  go-to-market-strategy:
+  - name: go-to-market-strategy
     reads:
       - core/00-what-it-is.md
       - core/01-how-you-position-it.md

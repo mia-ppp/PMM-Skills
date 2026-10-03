@@ -14,6 +14,18 @@ You build personas that change decisions. A persona earns its place only if it c
 
 Deliver the personas themselves, not a template for making them.
 
+## Context research handoffs
+
+When receiving a context-establishment handoff, read
+`../_shared/context-establishment.md`. Reuse its question, scope, source/finding
+IDs, approved context/version, GAP IDs and completion criteria. Analyze only your
+owned domain; return provenance-bearing findings, opposing evidence, limitations,
+completion status and unapproved implications to product-marketing-context.
+Use decision-specific evidence readiness; approval is separate. A hold affects
+only its decision. Do not write canon or automatically save chained results into
+bootstrap context. Standalone artifacts retain their existing format and may
+attach the shared return. Preserve IDs and status without duplicating studies.
+
 ## Ownership and accepted market
 
 Own ICP, personas, buying committees and anti-personas within accepted market selection.
@@ -42,7 +54,7 @@ Find out which mode applies:
 - **Evidence mode:** the user has interviews, call notes, CRM data, win-loss, or surveys. Build from those.
 - **Hypothesis mode:** little or no research. Draft personas with attributes labeled Assumed or Gap, then give a plan to validate them.
 
-If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the persona message map, then the recommended segment. Do not restate the brief.
+If key information is missing, answer provisionally: give your best personas, label assumptions where you use them, and end with one short block of at most 5 bullets combined: the assumptions that most affect the personas, then the two or three questions that would change them. The validation plan's interview questions do not count toward the 5. Open with the persona message map, then the inherited or exploratory profile scope. Do not restate the brief.
 
 When no accepted market-entry/SSOT decision establishes the market, route market
 selection to `market-entry-brief`. Persona hypotheses may remain provisional,
@@ -63,16 +75,14 @@ Label every persona attribute Sourced, Assumed, or Gap, as defined in the Labels
 
 ## Process
 
-### 1. Segment before you profile
-If an accepted market-entry/SSOT decision already establishes the segment, carry
-it forward unchanged and profile personas within it. State the source and whether
-the segment is approved or exploratory. If no decision exists and multiple
-segments are being compared, use the complete scorecard in
-`../_shared/segment-selection.md`, including all 13 criteria, weights, evidence
-labels, attractiveness score, and separate evidence confidence. Do not create a
-persona-specific scoring method. Then name the lead segment, rationale, biggest
-weakness, and key evidence gap. Use the shared sequencing framework for remaining
-segments. Treat any selection as a recommendation, not a canon change.
+### 1. Establish profile scope
+Inherit the accepted market/SSOT segment, its source and approval status. When
+no market is accepted, profile explicit exploratory candidates or buyer hypotheses
+without ranking/selecting a lead. Route market comparison/selection to
+market-entry-brief. Customer-research can collect exploratory evidence before
+market acceptance; do not send research back for an approved market prerequisite.
+Read `../_shared/segment-selection.md` only for shared context/consistency when
+needed; persona work does not run its selection scorecard.
 
 ### 2. Profile each persona
 Cover: role and background, trigger events, pain points in their words, discovery channels, evaluation process, objections, what success looks like to them, and their role in the buying committee.
@@ -101,8 +111,8 @@ Summarize the persona profiles and the committee map in one table. It opens the 
 |---|---|---|
 | [Role-based name] (champion) | [1 to 2 short phrases] | [Core message, 1 to 2 sentences. Proof: [proof point] (Sourced / Assumed / Gap)] |
 
-## Recommended primary segment
-[If inherited: selected segment, source decision, status, and conflict check. Do not rescore. If not established: include the full shared scorecard, lead-segment rationale, biggest weakness, most important evidence gap, and sequence for remaining segments.]
+## Market / profile scope
+[Inherited segment, source decision/status and conflict check; or explicit exploratory candidates with market-selection dependency. No independent lead selection.]
 
 ## Persona: [Role-based name, not a cute alias]
 | Attribute | Detail | Source |
@@ -143,7 +153,9 @@ Personas owns the reusable buyer model; ABM owns account-specific application.
 
 ## After Delivering
 
-Save personas to the Personas section of `.agents/product-marketing-context.md`, and the persona message map to its Persona message map section. Do this by default, then tell the user what was saved. Write one map row per persona: Persona (buying role), What matters to them, Message, and the proof's label (Sourced, Assumed, or Gap). messaging-framework starts its persona lines from that map when no applicable SSOT supplies approved persona messaging. Saving personas or the map does not approve strategy or modify canonical SSOT. Preserve approval status and mark proposed strategic changes as proposals; route canon conflicts through `ssot-context-loop`. Suggest positioning-strategy or messaging-framework as next steps.
+For PMC-originated work, return the full profiles/map and proposal references
+for integration; skip automatic bootstrap saving.
+For standalone generation only, save personas to the Personas section of `.agents/product-marketing-context.md`, and the persona message map to its Persona message map section. Do this by default, then tell the user what was saved. Write one map row per persona: Persona (buying role), What matters to them, Message, and the proof's label (Sourced, Assumed, or Gap). messaging-framework starts its persona lines from that map when no applicable SSOT supplies approved persona messaging. Saving personas or the map does not approve strategy or modify canonical SSOT. Preserve approval status and mark proposed strategic changes as proposals; route canon conflicts through `ssot-context-loop`. Suggest positioning-strategy or messaging-framework as next steps.
 
 ## Output Rules
 

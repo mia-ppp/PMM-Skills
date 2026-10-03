@@ -399,10 +399,10 @@ For any launch that enters a new segment, a new product, or a GTM plan, use this
 [Files and sources used, facts that were missing, and what was assumed in their place, each labeled. See ../_shared/evidence-gaps.md]
 
 ## Market sizing
-[Headline figure reconciled to the full addressable market, every segment sized or labeled "Gap: not sized", counts shown as a share of their anchor, revenue per account built from a formula, exclusions with reasons]
+[Reference inherited accepted sizing and its source/version/labels. Do not repeat research or size segments independently; route consequential gaps upstream. Omit when this launch does not require sizing.]
 
 ## Lead segment and sequence
-[Scoring table, lead segment with 2 to 3 sentences of reasoning, sequencing lines, year-one wedge as a share of the full market]
+[Reference the accepted market decision/scorecard, rationale and sequence. Do not rescore/select a lead. Unresolved selection routes to market-entry-brief; continue independent preparation.]
 
 ## Positioning and copy
 [Approved statement from positioning-strategy/SSOT, or a provisional proposal labeled Assumed when no canon exists. Include message briefs; route final channel copy to its owning skill.]

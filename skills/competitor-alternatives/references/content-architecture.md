@@ -12,7 +12,9 @@ How to structure and maintain competitor data for scalable comparison pages.
 
 ## Centralized Competitor Data
 
-Create a single source of truth for each competitor:
+Reuse competitor-profiling profiles as the research source and SSOT as company
+canon. The following optional rendering cache is a derived page view, not another
+source of truth. Refresh from its sources; route new evidence to its owner.
 
 ```
 competitor_data/
@@ -26,9 +28,17 @@ competitor_data/
 
 ## Competitor Data Template
 
-Per competitor, document:
+Per competitor, preserve profile/source/finding references, applicable scope,
+source version/review date, label/confidence, verification and approval status.
+The illustrative values below are not verified current competitor facts. Replace
+them only from sources; do not assign unsupported feature ratings or claims.
+
+Per competitor, select fields for rendering:
 
 ```yaml
+profile_reference: <profile path and version>
+finding_references: [<FND IDs>]
+source_scope_and_status: <scope, dates, labels, confidence, verification and approval>
 name: Notion
 website: notion.so
 tagline: "The all-in-one workspace"
@@ -106,7 +116,8 @@ migration_from:
 
 ## Your Product Data
 
-Same structure for yourself. Be honest:
+Use approved mapped company context for yourself; bootstrap additions remain
+provisional and cannot override covered canon. Keep source/status references:
 
 ```yaml
 name: [Your Product]

@@ -11,6 +11,18 @@ Explain why the company wins or loses, for whom, against what alternatives,
 under which conditions, and what the evidence suggests should be reviewed.
 Produce evidence and implications, not revised positioning or sales copy.
 
+## Context research handoffs
+
+When receiving a context-establishment handoff, read
+`../_shared/context-establishment.md`. Reuse its question, scope, source/finding
+IDs, approved context/version, GAP IDs and completion criteria. Analyze only your
+owned domain; return provenance-bearing findings, opposing evidence, limitations,
+completion status and unapproved implications to product-marketing-context.
+Use decision-specific evidence readiness; approval is separate. A hold affects
+only its decision. Do not write canon or automatically save chained results into
+bootstrap context. Standalone artifacts retain their existing format and may
+attach the shared return. Preserve IDs and status without duplicating studies.
+
 ## Before analysis
 
 - Read `../_shared/evidence-gaps.md`, `../_shared/ssot-consumption.md`, and
@@ -64,7 +76,8 @@ Produce evidence and implications, not revised positioning or sales copy.
 
 - Never invent reasons, quotes, counts, rates, outcomes, or competitor claims.
 - Mark missing buyer evidence as Gap; never promote seller interpretation to
-  customer truth. Keep Sourced, Derived, Assumed, and Gap distinctions clear.
+  customer truth. Keep Sourced / Assumed / Gap labels; identify derivations as interpretation
+  with formulas/source inputs, not a fourth label.
 - Do not imply causality from association or attribute a win/loss to one factor
   when evidence supports multiple conditions.
 - New findings may request SSOT review. Only `ssot-context-loop` manages

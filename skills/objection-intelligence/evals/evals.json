@@ -37,6 +37,22 @@
         "Does not silently rewrite canonical messaging"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context, GAP-100: classify the security objection and the seller price reports. Completion: trace report types, severity, available proof/response status and unknown frequency. Return findings, not final rep talk tracks.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Separates seller price signals from the actual buyer security objection",
+        "Routes final supported responses to sales-enablement without asserting SSO GA",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

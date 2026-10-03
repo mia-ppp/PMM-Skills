@@ -32,11 +32,16 @@ target segment, use that segment. Do not select a different ICP inside the page
 workflow. Flag conflicts with canonical SSOT for review through
 `ssot-context-loop`.
 
-If key information is missing, do not stop. Write the page provisionally:
-1. If no accepted market-entry/SSOT decision establishes the segment, use the full shared scorecard in sections 1 to 5 of `../_shared/segment-selection.md`. Do not use a page-specific scoring shortcut. Label the recommendation and build the page around the lead segment. If a prior decision exists, carry its selected segment forward without rescoring it.
-2. Write real copy for everything else, using public knowledge of the competitor. Use `[Gap: ...]` placeholders only for proof points: stats, customer quotes, case studies, and migration numbers. Give each one a provable fallback line.
-3. Flag other assumptions where you use them.
-4. End with one short block of at most 5 bullets combined: the assumptions that most affect the page, then the two or three questions whose answers would change it. Draw the questions from: why people switch to you, customer quotes about switching, your pricing against the competitor, and whether you offer migration support.
+Assess decision-specific readiness using `../_shared/context-establishment.md`.
+If no accepted target exists, route market selection to market-entry-brief or
+context establishment to product-marketing-context. Do not score/select an ICP
+inside page production. An explicit exploratory audience may support a bounded
+page draft, preserving its assumption, risk, scope and validation trigger.
+Read competitor-profiling artifacts before requesting targeted verification.
+Hold only unsupported consequential claims/choices; continue independent page
+structure or supported sections. Missing evidence uses Gap placeholders with
+provable fallbacks, not uncited public knowledge or assumed capabilities.
+End with the consequential gaps/owners and separate approval dependencies.
 
 Never invent stats, customer quotes, or competitor weaknesses. Proof you do not have is a `[Gap: ...]` placeholder. A page with open Gaps is labeled "Draft, not publish-ready" at the top. A page that is mostly placeholders is not a draft.
 
@@ -65,7 +70,7 @@ Never invent stats, customer quotes, or competitor weaknesses. Proof you do not 
 ### 4. Modular Content Architecture
 - Competitor data should be centralized
 - Updates propagate to all pages
-- Single source of truth per competitor
+- competitor-profiling owns reusable research; page data is a derived view
 
 ---
 
@@ -175,37 +180,22 @@ Cover what transfers, what needs reconfiguration, support offered, and quotes fr
 
 ## Content Architecture
 
-### Centralized Competitor Data
-Create a single source of truth for each competitor with:
-- Positioning and target audience
-- Pricing (all tiers)
-- Feature ratings
-- Strengths and weaknesses
-- Best for / not ideal for
-- Common complaints (from reviews)
-- Migration notes
+### Derived competitor page data
+Consume reusable profiles and source-linked findings from competitor-profiling,
+plus approved company context. A page-oriented data view may select fields for
+rendering, retaining source/finding IDs, scope, dates, confidence, approval and gaps.
+It cannot become another competitor authority or overwrite approved company facts.
+Read [references/content-architecture.md](references/content-architecture.md).
 
-**For data structure and examples**: See [references/content-architecture.md](references/content-architecture.md)
+## Research dependencies
 
----
-
-## Research Process
-
-### Deep Competitor Research
-
-For each competitor, gather:
-
-1. **Product research**: Sign up, use it, document features/UX/limitations
-2. **Pricing research**: Current pricing, what's included, hidden costs
-3. **Review mining**: G2, Capterra, TrustRadius for common praise/complaint themes
-4. **Customer feedback**: Talk to customers who switched (both directions)
-5. **Content research**: Their positioning, their comparison pages, their changelog
-
-### Ongoing Updates
-
-- **Quarterly**: Verify pricing, check for major feature changes
-- **When notified**: Customer mentions competitor change
-- **Annually**: Full refresh of all competitor data
+Route competitor capabilities/pricing verification to competitor-profiling,
+customer switching evidence to customer-research (closed outcomes to
+win-loss-intelligence), and migration capability facts to the internal product owner.
+Do not own deep profiling, recruitment or a new reusable intelligence library.
+Request targeted updates when a material claim is stale; do not auto-refresh all
+competitor research. Return new source evidence to its domain owner/PMC rather
+than promoting page wording into context.
 
 ---
 
@@ -233,7 +223,8 @@ Consider FAQ schema for common questions like "What is the best alternative to [
 ## Output Format
 
 ### Competitor Data File
-Complete competitor profile in YAML format for use across all comparison pages.
+Optional derived page view in YAML, referencing existing profiles/findings and
+approved company sources. Preserve provenance/status; no new authority store.
 
 ### Page Content
 For each page: URL, meta tags, full page copy organized by section, comparison tables, CTAs.

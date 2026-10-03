@@ -89,6 +89,21 @@
         "Does not attempt to create internal battle card using public comparison page patterns"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "Prepare a provisional Maple vs Rival comparison outline using this bundle, and return new verification gaps to product-marketing-context. Use accepted DEC-MKT-1 and existing competitive snapshot. Do not conduct live research or select another market.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Consumes existing competitive evidence without inventing another intelligence authority",
+        "Does not independently score/select an ICP or state Rival SSO as independently verified",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

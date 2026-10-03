@@ -1,6 +1,10 @@
 # Customer Research: Source Guides
 
 Detailed, source-by-source playbooks for gathering customer intelligence from online watering holes.
+Use these for discovery and source collection, not automatic validation or prevalence.
+Read research-design.md for method selection, sampling and completion criteria.
+Confidence is assessed per finding within scope, never assigned by platform alone.
+Trace original participants and derivatives; repeated quotations can be one signal.
 
 ---
 
@@ -146,7 +150,7 @@ Search for posts by practitioners describing their workflows:
 
 ### Job Postings
 
-A job posting is a company's admission of a pain point.
+A job posting is a signal of stated hiring priorities, not proof of current pain.
 
 **What to look for:**
 - What tools are listed as "nice to have" vs. "required"? (reveals stack and adjacent tools)
@@ -322,8 +326,8 @@ SparkToro is a behavioral audience research tool. Instead of mining individual p
 ### Source Weighting
 
 SparkToro data is aggregated and anonymized: it shows patterns, not individual opinions. Treat it as:
-- **High confidence** for behavioral data (what they visit, follow, search for)
-- **Medium confidence** for demographic data (self-reported, may be incomplete)
+- **Behavioral signals** for visits, follows and searches; confidence depends on sample, scope and methodology
+- **Demographic signals** may be self-reported or incomplete; preserve limits
 - **Not a substitute** for qualitative research (doesn't capture language, emotions, or the "why")
 
 ### Limitations
@@ -353,13 +357,17 @@ Use a simple tagging system across all sources:
 
 Keep a running doc with columns: Source | Date | Quote | Tags | Notes
 
-After 20-30 entries, patterns will emerge. Look for quotes that appear in multiple unrelated sources: those are your highest-confidence insights.
+Look for scoped patterns and negative cases; no entry count guarantees sufficiency.
+Check whether apparently unrelated sources quote the same original person. Preserve
+contradictions and explain confidence using method, coverage, independence and bias.
 
 ---
 
 ## Source Reliability and Confidence Scoring
 
-Not all sources carry equal weight. Use this guide when assigning confidence labels.
+Not all sources answer the same question. The table identifies possible signal
+and bias, not fixed confidence grades. Review applicability, independence, method,
+recency and counterevidence; a quoted opinion does not verify a product capability.
 
 ### Source Weighting
 

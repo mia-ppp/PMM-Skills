@@ -23,13 +23,12 @@
     {
       "id": 2,
       "prompt": "Our messaging pillars are: Easy to use, Secure, Scalable, Great support. Fix them. We're a B2B data pipeline tool competing with Fivetran.",
-      "expected_output": "Should identify all four as table stakes that Fivetran could claim, replace them with concrete capabilities in the capability table (provisional where needed), and state what information would sharpen them.",
+      "expected_output": "Identifies missing upstream positioning/differentiation, routes to positioning-strategy or context establishment, and avoids inventing reusable strategy or capabilities. Independent diagnostic work continues.",
       "assertions": [
-        "Identifies the existing claims as ones Fivetran could also make",
-        "Moves generic claims into a table stakes list",
-        "Names capabilities as concrete, verb-led abilities, not abstract nouns such as visibility, insights, intelligence, protection, or platform",
-        "Includes a capability table with the columns Capability, What it does for the buyer, Proof, and Buyer voice, with missing proof or quotes marked as gaps inside the table",
-        "States what information would sharpen the capabilities"
+        "Identifies missing upstream strategy or capability evidence",
+        "Routes positioning/differentiation to positioning-strategy",
+        "Does not invent a reusable position or differentiating capabilities to complete the framework",
+        "Continues independent diagnostic work with evidence and approval dependencies separate"
       ],
       "files": []
     },
@@ -40,7 +39,7 @@
       "assertions": [
         "Includes a launch block covering target, category, unique value, and proof",
         "Includes words to use and words to avoid",
-        "Avoids clich\u00e9s such as unlock, seamless, or game-changer",
+        "Avoids clichés such as unlock, seamless, or game-changer",
         "Does not invent resolution-rate statistics as fact",
         "Names capabilities as concrete, verb-led abilities, not abstract nouns such as visibility, insights, intelligence, protection, or platform"
       ],
@@ -49,13 +48,12 @@
     {
       "id": 4,
       "prompt": "We need messaging but honestly we haven't figured out our positioning yet. We make a scheduling tool.",
-      "expected_output": "Should flag missing positioning, recommend positioning-strategy, and still give provisional hero lines, marking the thin decision-tree answers and showing both branches where evidence is missing.",
+      "expected_output": "Identifies missing upstream positioning/differentiation, routes to positioning-strategy or context establishment, and avoids inventing reusable strategy or capabilities. Independent diagnostic work continues.",
       "assertions": [
-        "Flags that positioning is missing",
-        "Recommends positioning-strategy as a first step",
-        "Still provides provisional hero lines, labeled provisional",
-        "Marks decision-tree answers with thin evidence and shows the hero for both branches",
-        "Places an Assumptions block directly under the capability table"
+        "Identifies missing upstream strategy or capability evidence",
+        "Routes positioning/differentiation to positioning-strategy",
+        "Does not invent a reusable position or differentiating capabilities to complete the framework",
+        "Continues independent diagnostic work with evidence and approval dependencies separate"
       ],
       "files": []
     },
@@ -76,13 +74,12 @@
     {
       "id": 6,
       "prompt": "Write hero lines for our analytics platform. We give revenue teams better visibility and insights into their pipeline.",
-      "expected_output": "Positioning vs hero line split, with abstract inputs. Should note there is no positioning statement and point to positioning-strategy, reject visibility and insights as capabilities, propose concrete provisional capabilities as assumptions, and mark thin decision-tree answers while still delivering hero lines.",
+      "expected_output": "Identifies missing upstream positioning/differentiation, routes to positioning-strategy or context establishment, and avoids inventing reusable strategy or capabilities. Independent diagnostic work continues.",
       "assertions": [
-        "Notes that no positioning statement exists and points to positioning-strategy",
-        "Rejects visibility and insights as capabilities and explains why",
-        "Names capabilities as concrete, verb-led abilities, not abstract nouns such as visibility, insights, intelligence, protection, or platform",
-        "Labels the provisional capabilities as assumptions",
-        "Marks decision-tree answers with thin evidence and shows the hero for both branches"
+        "Identifies missing upstream strategy or capability evidence",
+        "Routes positioning/differentiation to positioning-strategy",
+        "Does not invent a reusable position or differentiating capabilities to complete the framework",
+        "Continues independent diagnostic work with evidence and approval dependencies separate"
       ],
       "files": []
     },
@@ -95,11 +92,27 @@
         "Capability rows come only from the positioning's capability table: auto-matching and exception queue",
         "Lists SOC 2 under 'Proposed for positioning' and does not use it in the hero line, capability table, persona lines, or boilerplate",
         "The Controller persona line starts from the message map and keeps its facts, changing emphasis only",
-        "Any persona line not in the message map, such as a CFO line, is labeled Assumed and recommends icp-and-buyer-personas",
+        "Routes missing CFO persona understanding to icp-and-buyer-personas instead of inventing reusable persona priorities",
         "Includes one line on the cost of doing nothing tied to Excel macros or manual tick-and-tie",
         "Ends with an Evidence gaps section in the ranked format"
       ],
       "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context, GAP-100: determine which messaging work can proceed given this evidence, then return a dependency-aware proposal. No upstream positioning proposal or approved positioning exists. Completion: identify the missing strategic input without inventing it; approved persona is available.",
+      "expected_output": "Preserves domain ownership and returns scoped findings/proposals or dependencies without upgrading evidence or approval.",
+      "assertions": [
+        "Routes missing positioning to positioning-strategy rather than inferring reusable positioning",
+        "Uses the approved persona without creating a new one; permits independent supported work",
+        "Returns findings/proposals with source references, scope, method or derivation and limitations",
+        "Keeps evidence labels and human approval separate; does not write canon",
+        "Returns to product-marketing-context for the originating handoff rather than automatically overwriting bootstrap context"
+      ],
+      "files": [
+        "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
+      ],
+      "references": []
     }
   ]
 }

@@ -11,6 +11,18 @@ Maintain an evidence-based library of buyer objections. Own discovery,
 classification, prioritization, traceability, and refresh. `sales-enablement`
 owns final talk tracks and objection-handling collateral.
 
+## Context research handoffs
+
+When receiving a context-establishment handoff, read
+`../_shared/context-establishment.md`. Reuse its question, scope, source/finding
+IDs, approved context/version, GAP IDs and completion criteria. Analyze only your
+owned domain; return provenance-bearing findings, opposing evidence, limitations,
+completion status and unapproved implications to product-marketing-context.
+Use decision-specific evidence readiness; approval is separate. A hold affects
+only its decision. Do not write canon or automatically save chained results into
+bootstrap context. Standalone artifacts retain their existing format and may
+attach the shared return. Preserve IDs and status without duplicating studies.
+
 ## Inputs and evidence
 
 Read `../_shared/evidence-gaps.md` and `../_shared/ssot-consumption.md` when
