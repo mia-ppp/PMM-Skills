@@ -1,11 +1,15 @@
 # MCP Tool Reference for Competitor Profiling
 
-Quick reference for the Firecrawl and DataForSEO MCP tools used in competitor profiling.
+Optional Firecrawl and DataForSEO methods for question-specific collection.
+Use existing supplied evidence first. These tools are not prerequisites.
+Verify actual tool availability and current schemas before calling them.
+SEO estimates describe search performance, not revenue, customer count, or
+commercial competition. Keep dataset dates, locale, and methodology visible.
 
 ## Contents
 - Firecrawl Tools (site scraping)
 - DataForSEO Tools (SEO & market data)
-- Recommended Execution Order
+- Optional Collection Recipes
 - Error Handling
 
 ---
@@ -14,7 +18,8 @@ Quick reference for the Firecrawl and DataForSEO MCP tools used in competitor pr
 
 ### firecrawl_map
 **Purpose**: Discover all URLs on a competitor's site to identify key pages.
-**When to use**: First step for every competitor, before scraping individual pages.
+**When to use**: Site discovery when relevant URLs are not already known.
+Skip mapping for supplied evidence or focused verification at known URLs.
 **Key output**: List of URLs with their page types/paths.
 **Tip**: Look for paths containing `/pricing`, `/features`, `/about`, `/customers`, `/integrations`, `/blog`, `/changelog`.
 
@@ -116,7 +121,11 @@ Quick reference for the Firecrawl and DataForSEO MCP tools used in competitor pr
 
 ---
 
-## Recommended Execution Order
+## Optional Collection Recipes
+
+Choose only calls needed to answer the question. Quick and deep describe coverage,
+not mandatory API sequences. Compare like-for-like dates/locales when using SEO.
+Save raw responses with source IDs and unique capture paths before synthesis.
 
 ### Quick Scan (per competitor)
 
@@ -172,8 +181,8 @@ Quick reference for the Firecrawl and DataForSEO MCP tools used in competitor pr
 
 | Issue | Action |
 |-------|--------|
-| Firecrawl scrape returns empty/blocked | Try with `firecrawl_browser_create` for JS-heavy sites |
+| Firecrawl scrape returns empty/blocked | Use an available permitted browser or accessible original source; disclose missing coverage |
 | Pricing page not found in map | Search for `/pricing`, `/plans`, `/packages`: some sites use different paths |
 | DataForSEO returns no data for domain | Domain may be too new or too small: note "insufficient data" in profile |
 | Rate limits hit | Space out requests; prioritize highest-value data first |
-| Review page scraping blocked | Use `firecrawl_search` to find cached or alternative review sources |
+| Review page scraping blocked | Seek accessible originals or supplied evidence; retain access/date limitations and do not bypass access controls |

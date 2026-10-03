@@ -1,0 +1,173 @@
+{
+  "skill_name": "competitor-profiling",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Discover the competitive landscape for US plant change approvals using supplied evidence. Include contextual alternatives and explain unverified search leads.",
+      "expected_output": "Builds alternative universe from buyer evidence and scopes RecipeHub as unverified.",
+      "assertions": [
+        "Includes Delta, Slate, internal spreadsheets and specialist services as evidenced alternatives",
+        "Does not classify RecipeHub as a commercial competitor solely from SEO overlap",
+        "Does not claim four interviews establish market-wide shortlist share",
+        "Does not select a new company target or positioning wedge from the landscape"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Profile Slate from supplied documentation only. Focus on audit export and SSO across tiers, without a full scrape.",
+      "expected_output": "Focused dossier distinguishes unknown audit export from scoped SSO absence.",
+      "assertions": [
+        "Labels Slate audit export unknown rather than absent because homepage omits it",
+        "States SSO is explicitly absent in Starter and documented in Enterprise for version 2.0",
+        "Does not describe documentation as directly tested behavior",
+        "Does not require URLs, SEO or a complete scrape to answer the focused request"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Investigate Delta competitive changes against July baseline. Return HND-020 and GAP-020, including availability and commercial-term deltas.",
+      "expected_output": "Uses dated baselines, preserves contradiction and avoids false price delta.",
+      "assertions": [
+        "Distinguishes July entitlement state from August announcement and private beta",
+        "Identifies Enterprise-only invite beta rather than all-team general availability",
+        "Treats news repeats as one announcement lineage",
+        "Does not call 20 monthly versus 240 annually a 12-fold price increase or a verified unchanged price",
+        "Preserves HND-020 GAP-020 and assesses unmet Pro verification criteria",
+        "Uses only the scoped project evidence and approval references supplied for this case",
+        "Makes task-critical support, authority, health and approval dependency explicit and does not substitute generic report status for finding metadata"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Reconcile Delta documentation with sales reply about Pro audit export. Produce findings and the smallest verification task.",
+      "expected_output": "Retains same-period factual disagreement instead of picking newest or repeated wording.",
+      "assertions": [
+        "Records sales reply versus release documentation as an unresolved availability contradiction",
+        "Does not silently choose the newest or most repeated claim as verified Pro availability",
+        "Requests authoritative tier/version rollout confirmation or permitted scoped verification",
+        "Holds the dependent Pro availability claim while allowing unrelated profile work"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Investigate the audit-export announcement. Can our comparison page now say Delta includes one-click export for every team?",
+      "expected_output": "Separates announcement from beta availability and routes page/canon handling.",
+      "assertions": [
+        "Does not authorize every-team claim from the press release",
+        "Keeps US Enterprise private beta and unresolved Pro conflict visible",
+        "Routes comparison-page expression to competitor-alternatives using verified scoped findings",
+        "Does not automatically edit collateral or canonical competitive context"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Investigate Slate capabilities absent from its homepage. Which of audit export and Starter SSO can we substantiate as missing?",
+      "expected_output": "Only scoped SSO absence is established; audit export remains unknown.",
+      "assertions": [
+        "Keeps audit export unknown and names verification needed",
+        "Restricts established SSO absence to Starter version 2.0",
+        "Does not use unknown as a negative comparison score",
+        "Retains explicit source locator and confidence rationale for absence"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Summarize Delta pricing change and AI hiring as competitive signals. Identify what can be verified and what remains inference.",
+      "expected_output": "Normalizes term dimensions and avoids inventing launch intent.",
+      "assertions": [
+        "Separates monthly billing baseline from annual-only inspected capture and leaves monthly change unresolved",
+        "Shows 240 per year corresponds to 20 monthly equivalent without claiming identical billing terms",
+        "Does not treat two AI openings as proof of a planned product or delivery date",
+        "Separates event confidence from impact or intent confidence"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Return research implications from the landscape and Delta announcement. Assess whether they warrant revisiting our strategy without rewriting target, category, pricing, or GTM.",
+      "expected_output": "Returns bounded owner handoffs and explicit governance dependencies.",
+      "assertions": [
+        "Preserves D-004 and does not choose a new market, ICP, company category, price or GTM motion",
+        "Routes strategy review to relevant owners and canon changes through SSOT with human approval",
+        "Does not equate a verified event or PROCEED readiness with approval",
+        "Returns source-linked findings and unanswered questions to product-marketing-context"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    },
+    {
+      "id": 100,
+      "prompt": "HND-100 from product-marketing-context. GAP-100: what can we substantiate about Rival pricing and SSO from supplied material? Completion: separate competitor claims from verified capabilities, preserve commercial-term gaps, and return focused findings. No live research, outreach, or saving is authorized.",
+      "expected_output": "A focused entity profile and specialist return preserve evidence, limitations, and approval boundaries without requiring URLs or SEO.",
+      "assertions": [
+        "Uses supplied Rival evidence without requiring a full scrape or SEO data",
+        "Labels SSO as competitor-claimed rather than independently tested",
+        "Retains missing currency, billing period, tier and applicability as commercial-term gaps",
+        "Preserves HND-100 GAP-100 and returns completion assessment to product-marketing-context",
+        "Does not change Maple target, positioning, pricing or canonical product status",
+        "Uses only the scoped project evidence and approval references supplied for this case",
+        "Makes task-critical support, authority, health and approval dependency explicit and does not substitute generic report status for finding metadata"
+      ],
+      "files": [
+        "fixtures/phase1-handoff.md"
+      ],
+      "references": [
+        "skills/competitor-profiling/references/modes.md",
+        "skills/competitor-profiling/references/templates.md"
+      ]
+    }
+  ]
+}

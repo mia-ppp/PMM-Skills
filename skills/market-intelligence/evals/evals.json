@@ -1,0 +1,119 @@
+{
+  "skill_name": "market-intelligence",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Produce a scoped market overview from the supplied evidence. Return HND-010 and assess GAP-010; do not browse.",
+      "expected_output": "Separates attention from purchases, compares source definitions/windows, preserves lineage and returns qualified findings.",
+      "assertions": [
+        "Does not claim purchasing doubled based on the search index or newsletter",
+        "Recognizes SRC-102 repeats SRC-101 rather than being independent corroboration",
+        "Does not compare annual 2025 purchases to partial-year 2026 as a growth rate",
+        "Explains that the 4 billion and 2 billion estimates have different services boundaries",
+        "Preserves HND-010 and GAP-010 and returns whether completion criteria were met without selecting a market",
+        "Uses only the scoped project evidence and approval references supplied for this case",
+        "Makes task-critical support, authority, health and approval dependency explicit and does not substitute generic report status for finding metadata"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/market-intelligence/references/modes.md",
+        "skills/market-intelligence/references/research-return.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Analyze how this category is defined and evaluated. Explain the evidence for autonomous operations versus workflow software, without choosing HarborOps category.",
+      "expected_output": "Separates buyer, vendor and marketplace terminology and scopes evaluation findings.",
+      "assertions": [
+        "Keeps buyer terminology distinct from Apex vendor wording and marketplace classification",
+        "States the biased six-interview sample cannot establish broad buyer category adoption",
+        "Does not claim audit export is universal table stakes from three RFPs",
+        "Preserves approved workflow software framing and routes company category choice to positioning-strategy"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/market-intelligence/references/modes.md",
+        "skills/market-intelligence/references/research-return.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Investigate emerging opportunities from the fictional machine-change log requirement. Produce testable hypotheses and the smallest useful validation, not an entry or investment recommendation.",
+      "expected_output": "Explains mechanism, exclusion, workaround and unshipped product constraints, and proposes discriminating research.",
+      "assertions": [
+        "Limits the requirement to covered facilities and retains the under-50 exclusion",
+        "Uses the internal-tool counterexample as opposing evidence rather than omitting it",
+        "Distinguishes compliance requirement from demand and willingness to pay",
+        "Retains unshipped capability and unknown timeline/cost as feasibility gaps",
+        "Does not choose a market, price, roadmap commitment or investment allocation"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/market-intelligence/references/modes.md",
+        "skills/market-intelligence/references/research-return.md"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Resolve the contradictory market reports and the newsletter claim. What is supported, what conflicts, and what test would settle the remaining question?",
+      "expected_output": "Explains definition differences, rejects unsupported inference and preserves temporal uncertainty.",
+      "assertions": [
+        "Explains report definitions before treating their totals as contradictory",
+        "Does not average the 4 billion and 2 billion estimates into a new market total",
+        "Separates source claims from verified observations and interpretations",
+        "Names comparable full-period purchase data as needed for growth interpretation"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/market-intelligence/references/modes.md",
+        "skills/market-intelligence/references/research-return.md"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "The search index doubled and Apex says autonomous operations. Investigate whether these observations justify changing our company category; return research implications while preserving approved canon.",
+      "expected_output": "Research analyzes evidence but leaves company category choice to positioning and SSOT gates.",
+      "assertions": [
+        "Does not change the approved category based on searches or vendor labels",
+        "Separates observation confidence from confidence in commercial/category implications",
+        "Routes company frame choice to positioning-strategy and canonical changes to SSOT with human approval",
+        "Does not label a research return or evidence readiness as strategic approval"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/market-intelligence/references/modes.md",
+        "skills/market-intelligence/references/research-return.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Return a concise specialist packet for HND-010. Explain permitted next actions given missing purchase evidence and the existing approved company decision.",
+      "expected_output": "Preserves evidence/authority/health and separates research readiness from strategy approval.",
+      "assertions": [
+        "Returns unanswered questions and completion criteria rather than closing GAP-010 merely because a report exists",
+        "Keeps approval of D-004 scoped and does not infer approval of emerging opportunity or new category",
+        "Can proceed with bounded research while holding unsupported purchase-growth conclusions",
+        "Returns to product-marketing-context with unapproved implications and source/finding lineage",
+        "Uses only the scoped project evidence and approval references supplied for this case",
+        "Makes task-critical support, authority, health and approval dependency explicit and does not substitute generic report status for finding metadata"
+      ],
+      "files": [
+        "fixtures/evidence.md"
+      ],
+      "references": [
+        "skills/market-intelligence/references/modes.md",
+        "skills/market-intelligence/references/research-return.md"
+      ]
+    }
+  ]
+}
