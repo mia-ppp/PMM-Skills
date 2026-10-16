@@ -48,6 +48,28 @@ argument, proof, objection response or sales action. Evidence labels belong in
 the internal trace; applied copy should remain natural while preserving necessary
 claim qualifications.
 
+## Preference survives expression
+
+For positioning/messaging, distinguish four outcomes within the existing scores:
+product description (what it is), category position (shared value), weakly
+differentiated position (specific audience but no preference), and supported
+strategic position (why this buyer prefers it in these circumstances). Format,
+accuracy and a complete capability table alone cannot establish Sharp quality.
+When inputs support a relative advantage, a category-only recommendation fails
+that strategic requirement even if the advantage appears in background research.
+
+Judge the primary statement/value pair and headline/subhead together. A shared
+headline or pillar can pass when the overall message expresses the selected
+buying reason; do not require each pillar to be unique. Persona translation must
+connect implementation detail to the owner's intended task/business outcome,
+without treating infrastructure metrics as evidence that outcome improved.
+
+When evidence is limited, an explicit lack of differentiation plus a useful
+validation decision is stronger than invented superiority. Distinctive but
+unsupported claims fail Grounded. Evidence discipline should constrain meaning,
+not force defensive labels into each line of applied copy. Check specificity,
+clarity, recall of the central buying reason and appropriate next action.
+
 ## Anchors
 
 Anchors come from A-01 to A-10 only. A-11 to A-20 are the holdout and must never become anchors.

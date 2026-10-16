@@ -2,7 +2,7 @@
 name: positioning-strategy
 description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see icp-and-buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.5.0
+  version: 1.5.1
 ---
 
 # Positioning Strategy
@@ -36,7 +36,7 @@ Hero lines and taglines belong to messaging-framework.
 
 **Load segment selection:** read `../_shared/segment-selection.md`. Carry the accepted market decision forward; run section 6 in step 8. Market selection/reopening belongs to market-entry-brief, with SSOT review for canon changes.
 
-**Load the positioning-to-messaging trace:** read `../_shared/positioning-messaging-trace.md` for broad repositioning work. Use it to separate company, beachhead, product and expression levels. Keep narrow positioning requests lightweight.
+**Load the positioning-to-messaging trace:** read `../_shared/positioning-messaging-trace.md` when developing or reworking a position. Use it to separate company, beachhead, product and expression levels. Keep narrow positioning requests lightweight.
 
 For broad repositioning or new-category work, also read
 `../_shared/opportunity-discovery.md`. Before choosing a position, preserve the
@@ -142,6 +142,10 @@ Say what this positioning gives up: segments de-prioritized, messages dropped, d
 Add one line on the main competitor's likely response to this positioning, and what it would do to the position.
 
 ### 7. Tighten the statement
+Apply the shared preference-before-drafting check to the choice already made.
+Preserve its buyer tension, alternative, relative advantage and proof in the
+handoff to messaging; a category label alone does not complete this decision.
+
 Count the words and the capabilities in your draft. If it runs past 25 words, or names more than one capability, move each extra capability to the capability table, pick the single phrase that best sets the product apart, and rewrite. Repeat until it passes.
 
 ### 8. Stress-test it

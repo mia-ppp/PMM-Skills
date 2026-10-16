@@ -126,7 +126,8 @@
         "Provides natural applied copy whose claims stay within supplied capability and maturity boundaries; keeps evidence labels in internal trace rather than repeating them in every sentence",
         "Connects selected messaging to discovery, stakeholder alignment, technical evaluation and conversion evidence in a concise sales-play handoff",
         "Does not claim guaranteed freshness, end-to-end access control, comparative savings, shipped integrated diagnosis or validated customer demand",
-        "Does not use internal strategy phrases such as installed-base leverage or validation gate as customer-facing benefits"
+        "Does not use internal strategy phrases such as installed-base leverage or validation gate as customer-facing benefits",
+        "Tests headline and subhead together against named alternatives and exposes the selected buying reason in primary value, while permitting shared supporting pillars"
       ],
       "files": [
         "skills/positioning-strategy/evals/fixtures/aiven.md"
@@ -160,6 +161,21 @@
       ],
       "files": [
         "skills/positioning-strategy/evals/fixtures/securebuild.md"
+      ]
+    },
+    {
+      "id": 104,
+      "prompt": "Using only QueueBridge and its upstream positioning proposal, create a bounded messaging framework for the application owner and engineer. Compare two primary message pairs, select one, show the evidence-to-message chain and two sales lines. No new positioning or market discovery.",
+      "expected_output": "Business translation from the selected comparative preference, not generic events, reliability or feature copy.",
+      "assertions": [
+        "Primary message pair expresses settlement-exception resolution with traceable records across retained processor integrations, not only reliable event processing",
+        "Application-owner message addresses correct merchant status or resolving settlement exceptions; engineer message addresses matching, retries and integration trade-offs",
+        "Uses competitor substitution to explain why the overall pair is situationally meaningful while allowing shared supporting benefits",
+        "Preserves fixture proof only for linked records; does not invent faster resolution, satisfaction, ROI or customer quotes",
+        "Shows research insight, buyer tension, selected value, message and proof for the primary pair, with natural applied copy and appropriate next action"
+      ],
+      "files": [
+        "skills/positioning-strategy/evals/fixtures/decision-contrast.md"
       ]
     }
   ]

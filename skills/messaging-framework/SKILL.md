@@ -2,7 +2,7 @@
 name: messaging-framework
 description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'hero line,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see marketing-copy. For sales materials, see sales-enablement."
 metadata:
-  version: 1.5.0
+  version: 1.5.1
 ---
 
 # Messaging Framework
@@ -33,7 +33,7 @@ Deliver the finished framework, not advice about how to write one.
 
 **Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
 
-**Load the positioning-to-messaging trace:** read `../_shared/positioning-messaging-trace.md` when the request spans company repositioning and a beachhead. Preserve those levels in the message hierarchy. A narrow messaging request stays within its named product, use case and channel.
+**Load the positioning-to-messaging trace:** read `../_shared/positioning-messaging-trace.md` when developing a framework or revising its primary value argument. Preserve those levels in the message hierarchy. A narrow messaging request stays within its named product, use case and channel.
 
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Its Positioning section (statement, trace, and capability table), Persona message map, and proof points support initialization and chaining. Approved mapped SSOT is authoritative for covered claims; bootstrap inputs may fill uncovered provisional context but cannot override it. Missing bootstrap sections do not make approved SSOT unavailable.
@@ -94,6 +94,11 @@ One row per differentiating capability: the capability, what it does for the buy
 If bootstrap Positioning is missing, use applicable approved SSOT inputs. Where neither source supplies the position, route to positioning-strategy and hold dependent strategic rows; do not infer new positioning. Do not invent differentiators for covered canon.
 
 ### 3. Write the hero line
+Use the shared selected preference, buyer tension and proof from positioning,
+not only its capability rows. If that choice is absent, request it from the
+positioning owner; continue independent copy within supplied scope. Apply the
+headline-plus-subhead substitution check before recommending the primary pair.
+
 1. **Write for the loosely familiar visitor.**
 2. **Walk the decision tree.** Answer each question in order (mature or immature category, then the branch questions) and state each answer and its evidence in one line. Name the anchor it leads to. If a branch has thin evidence, say so and show the hero for both branches.
 3. **Choose the frame,** against a named alternative the buyer already uses or for the job they are trying to do, and say why in one line.

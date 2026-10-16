@@ -187,7 +187,8 @@
         "Includes application outcome owner, data contract owner, technical evaluator and unresolved budget authority without assuming they are the same person",
         "Connects buyer insight and alternatives to differentiated value, positioning, proof and commercial implication with source or assumption labels",
         "Does not invent customer demand, quotes, comparative outcomes or gateway maturity; keeps gateway early access and integrated outcomes hypothetical",
-        "Gives expansion sequencing criteria without assuming the beachhead represents all production AI"
+        "Gives expansion sequencing criteria without assuming the beachhead represents all production AI",
+        "The selected solution statement and adjacent primary value express the situational reason to consider Aiven; do not leave continuity only in background research while recommending category-only value"
       ],
       "files": [
         "fixtures/aiven.md"
@@ -203,10 +204,39 @@
         "Separates security budget authority, platform evaluation and application release priorities without inventing approval certainty",
         "Uses pilot support only for reproducible history and does not invent time savings, breach reduction or paid demand",
         "Compares at least two positioning territories and states what the selected position gives up",
-        "Retains a concise internal statement and full buyer/problem/alternative/value/proof architecture without pretending the statement alone establishes differentiation"
+        "Retains a concise internal statement and full buyer/problem/alternative/value/proof architecture without pretending the statement alone establishes differentiation",
+        "Selects the buyer preference before drafting and makes that choice visible in the statement/value pair, rather than only describing developer security"
       ],
       "files": [
         "fixtures/securebuild.md"
+      ]
+    },
+    {
+      "id": 104,
+      "prompt": "Using only ParityStore, propose positioning in the accepted reporting scope. Competitors share the supplied capabilities. Decide whether a differentiated preference is supportable and show the strongest honest expression without inventing evidence.",
+      "expected_output": "A scoped preference decision grounded in the supplied packet, with outcome and proof limits preserved.",
+      "assertions": [
+        "Distinguishes product description and category value from demonstrated differentiation",
+        "Acknowledges no supported reason to switch and does not treat support relationship as proven advantage",
+        "Names the incumbent, its adequate fit and absent trigger rather than inventing urgency",
+        "Gives a bounded positioning hypothesis or category description with explicit preference limitation and targeted validation; does not change the market"
+      ],
+      "files": [
+        "fixtures/decision-contrast.md"
+      ]
+    },
+    {
+      "id": 105,
+      "prompt": "Using only QueueBridge, propose positioning and a concise handoff to messaging. Compare a capability-led category position with a buyer-tension-led preference. Preserve existing scope and evidence boundaries.",
+      "expected_output": "A scoped preference decision grounded in the supplied packet, with outcome and proof limits preserved.",
+      "assertions": [
+        "Selects reconciliation continuity in the existing two-processor situation against spreadsheets or migration-heavy AllPay, explaining why it could affect buying",
+        "Retains AllPay stronger coverage and switching trade-off rather than claiming universal superiority",
+        "Carries buyer tension, alternative, relative advantage, intended outcome and controlled proof to the messaging handoff",
+        "Does not invent faster resolution, merchant satisfaction, paid preference or measured ROI"
+      ],
+      "files": [
+        "fixtures/decision-contrast.md"
       ]
     }
   ]
