@@ -113,6 +113,54 @@
         "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
       ],
       "references": []
+    },
+    {
+      "id": 101,
+      "prompt": "Using the Aiven packet, build a bounded messaging proposal from this upstream positioning proposal: company role is managed open-source data operations for production AI; initial solution is fresh retrieval context for existing enterprise assistant and agent teams. Candidate value is operating continuity across their existing data services and deployment choices, with comparative outcome proof still missing. Compare messaging hierarchies, select one, translate for the buying committee and provide an existing-customer sales-play handoff. Do not invent a new differentiator or save canon.",
+      "expected_output": "Preserves company/solution levels and uncertainty, makes persona differences matter, turns a scoped advantage into customer value, and separates internal evidence trace from applied copy.",
+      "assertions": [
+        "Keeps company narrative distinct from beachhead-specific value and does not turn one assistant use case into the whole company position",
+        "Compares at least two messaging hierarchies and explains the selected emphasis with buyer criteria and proof limitations",
+        "Each leading pillar connects buyer outcome, named alternative or status quo, supporting capability and proof requirement without false exclusivity",
+        "Includes distinct application/business owner and infrastructure owner messages, reflecting outcome versus operating priorities and unresolved budget",
+        "Provides natural applied copy whose claims stay within supplied capability and maturity boundaries; keeps evidence labels in internal trace rather than repeating them in every sentence",
+        "Connects selected messaging to discovery, stakeholder alignment, technical evaluation and conversion evidence in a concise sales-play handoff",
+        "Does not claim guaranteed freshness, end-to-end access control, comparative savings, shipped integrated diagnosis or validated customer demand",
+        "Does not use internal strategy phrases such as installed-base leverage or validation gate as customer-facing benefits"
+      ],
+      "files": [
+        "skills/positioning-strategy/evals/fixtures/aiven.md"
+      ]
+    },
+    {
+      "id": 102,
+      "prompt": "Build SecureBuild messaging from this upstream proposal: governed exception continuity across CI systems for multi-CI container teams. Use the supplied profiles and product evidence, compare two hierarchies, then provide persona messages and two applied sales lines. This is a provisional proposal, not approved canon.",
+      "expected_output": "Uses the product capability to express credible buyer value, reflects security and release priorities, respects competing strengths and proof limits.",
+      "assertions": [
+        "Expresses customer value from cross-CI signed exception continuity instead of generic secure/scalable messaging",
+        "Separates security accountability from platform implementation and application release continuity in persona messaging",
+        "Treats MegaSec broader coverage as a real advantage and avoids unsupported category leadership or universal superiority",
+        "Uses controlled pilot evidence within its stated scope and does not invent ROI, breach reduction or paid preference",
+        "Explains why the chosen hierarchy beats a credible alternative and connects pillars to capability, buyer criterion and proof",
+        "Produces natural applied sales copy consistent with the position without repeating provisional evidence labels in every sentence"
+      ],
+      "files": [
+        "skills/positioning-strategy/evals/fixtures/securebuild.md"
+      ]
+    },
+    {
+      "id": 103,
+      "prompt": "Write only two short renewal-call opening lines for existing SecureBuild platform engineering champions. The accepted message is governed exception continuity across CI systems; shipped capability and controlled pilot proof are in the packet. Keep the scope narrow. Do not propose new positioning, segments or a market study.",
+      "expected_output": "Produces concise channel-appropriate lines from the named position and persona without reopening market discovery or forcing a company messaging architecture.",
+      "assertions": [
+        "Provides two concise renewal-call opening lines suited to platform engineering and the supplied capability",
+        "Does not reopen market discovery, segment selection, positioning territories or a company-level architecture",
+        "Does not invent time savings, security outcomes, customer quotes or procurement authority",
+        "Keeps supporting uncertainty outside the applied lines unless needed to avoid a misleading claim"
+      ],
+      "files": [
+        "skills/positioning-strategy/evals/fixtures/securebuild.md"
+      ]
     }
   ]
 }

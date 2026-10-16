@@ -2,7 +2,7 @@
 name: positioning-strategy
 description: "When the user wants to create, rework, or pressure-test product positioning. Use when the user mentions 'positioning,' 'reposition,' 'positioning statement,' 'how should we position,' 'what makes us different,' 'differentiation,' 'category,' 'market category,' 'category creation,' 'competitive alternatives,' 'best-fit customer,' 'why do we keep losing to,' or 'we sound like everyone else.' Use this before writing messaging or copy whenever the underlying position is unclear. For turning positioning into hero lines, capabilities, and proof, see messaging-framework. For buyer profiles, see icp-and-buyer-personas. For recording positioning in the shared context doc, see product-marketing-context."
 metadata:
-  version: 1.4.0
+  version: 1.5.0
 ---
 
 # Positioning Strategy
@@ -23,7 +23,10 @@ attach the shared return. Preserve IDs and status without duplicating studies.
 
 You help product marketers decide where a product wins and why. Positioning is a choice about context: which alternatives the buyer compares you to, which customers care most, and which market frame makes your strengths obvious.
 
-Your output is one internal positioning statement, then the reasoning behind it. It is internal strategy, not copy. Hero lines and taglines belong to messaging-framework.
+For narrow work, output one internal positioning statement, then the reasoning.
+For broad repositioning, give one statement per company and beachhead solution
+level, explaining the relationship. These are internal strategy, not copy.
+Hero lines and taglines belong to messaging-framework.
 
 ## Before Starting
 
@@ -32,6 +35,8 @@ Your output is one internal positioning statement, then the reasoning behind it.
 **Load the evidence labels:** read `../_shared/evidence-gaps.md`. Label every trace slot, capability, and proof point Sourced, Assumed, or Gap.
 
 **Load segment selection:** read `../_shared/segment-selection.md`. Carry the accepted market decision forward; run section 6 in step 8. Market selection/reopening belongs to market-entry-brief, with SSOT review for canon changes.
+
+**Load the positioning-to-messaging trace:** read `../_shared/positioning-messaging-trace.md` for broad repositioning work. Use it to separate company, beachhead, product and expression levels. Keep narrow positioning requests lightweight.
 
 For broad repositioning or new-category work, also read
 `../_shared/opportunity-discovery.md`. Before choosing a position, preserve the
@@ -82,7 +87,12 @@ Never invent win rates, customer names, market sizes, or quotes. Use placeholder
 
 **Every claim needs a "because."** Each value statement must trace back to a capability and a buyer insight. If you cannot finish the sentence "Buyers care about this because...", cut the claim.
 
-**Capabilities, not assets.** The differentiating phrase names what the customer can now do, as one concrete phrase such as "network-matched" or "built into payments." Never what the company has, and never abstract nouns like visibility, insights, or platform. See section 2 of `../_shared/messaging-examples.md`.
+**Capabilities, not assets.** The differentiating phrase names what the customer
+can now do, as one concrete phrase such as "network-matched" or "built into
+payments." Express relational advantages as a customer action or benefit; keep
+the company relationship or asset in the supporting right-to-win architecture.
+Avoid abstract nouns like visibility, insights, or platform. See section 2 of
+`../_shared/messaging-examples.md`.
 
 **Crisp statement, detailed table.** The statement is one sentence of 25 words or fewer, with one differentiating phrase. Every other capability, checkpoint, or mechanism goes in the capability table under it. Detail is moved, never deleted.
 
@@ -95,11 +105,22 @@ List competitive and contextual alternatives separately. For each, note what buy
 
 For each alternative, state the switching cost: what the buyer loses or must redo to leave it (data migration, retraining, contract terms, workflow change). Label each Sourced, Assumed, or Gap.
 
-### 2. Isolate unique capabilities
-List only capabilities the main alternatives lack or do meaningfully worse. Shared features go to a separate "table stakes" list.
+For broad repositioning, add the compact competitive win-conditions table from
+the shared trace. Include why each alternative is attractive, the buyer criterion
+that decides the comparison, the proposed advantage, proof required, and the
+condition that would mean win, loss, or disqualification. Do not imply that a
+relationship or capability is exclusive unless evidence supports that claim.
 
-### 3. Translate capability into value
-For each unique capability: capability, then outcome for the buyer, then proof. Label proof Sourced, Assumed, or Gap.
+### 2. Isolate meaningful advantages
+List capabilities the main alternatives lack or do meaningfully worse. Include
+supported combinations or account-specific operating advantages when they change
+a buyer criterion. Explain the scope; do not call shared features exclusive.
+Shared features with no comparative buying reason go in "table stakes."
+
+### 3. Translate advantage into value
+For each meaningful capability or comparative advantage: what changes for the
+buyer, which alternative it improves on, then proof. Label proof Sourced,
+Assumed, or Gap. Keep the right-to-win basis separate from customer-facing value.
 
 ### 4. Apply the best-fit customer scope
 Use the accepted market/segment and relevant persona evidence. Do not run market
@@ -125,7 +146,12 @@ Count the words and the capabilities in your draft. If it runs past 25 words, or
 
 ### 8. Stress-test it
 Run each test and report the result honestly:
-- **Swap test:** could a named competitor say this truthfully? If yes, it is not differentiated.
+- **Swap test:** could a named competitor say this truthfully? If yes, test whether
+  the complete, evidence-supported combination of capability, workflow,
+  deployment boundary, account access or operating model still changes the
+  buyer's comparison. A combination may be a defensible right to win without
+  being exclusive. If no buyer criterion or proof supports the combination, fail
+  it as generic.
 - **Copy test:** could a competitor make this claim true within 12 months, by shipping a feature or changing pricing? If yes, say which one and how, and treat the position as temporary.
 - **Proof test:** is every claim backed by something you have or can get this quarter? Fail a claim if churn reasons or support data contradict it, and cite the contradicting data.
 - **Rep test:** can a sales rep say it in one sentence without notes?
@@ -169,7 +195,19 @@ Current category: [where buyers place the product today, with evidence and label
 [Ranked table from ../_shared/evidence-gaps.md, then the appendix with every remaining Assumed and Gap item.]
 ```
 
-Fill every slot in the trace. Cite the finding or quote that supports it and label it Sourced, or label it Assumed or Gap. Write one statement only, not options. Every capability you considered appears either as the differentiating phrase or as a row in the capability table. **Rework mode:** if the user asked for a rework, test the old statement before rewriting. Report its results directly after the new statement: which stress tests it fails and why. Then show the old statement and the new one side by side and say what changed and why.
+Fill every slot in the trace. Cite its finding or quote and label it Sourced,
+Assumed or Gap. After comparing alternatives, recommend one statement per
+applicable positioning level, not an unranked list. Every capability considered
+appears in the differentiating phrase or capability table. **Rework mode:** test
+the old statement before rewriting. Report its failed stress tests directly after
+the new statement, then show the old and new statements side by side and explain
+what changed.
+
+For broad repositioning, add a short **Positioning levels** block after the
+statement: company position, beachhead solution position, relationship between
+them, and the evidence gate for the next expansion. Add the competitive
+win-conditions table required by the shared trace. Do not add these blocks for a
+narrow product positioning request.
 
 ## Common Failure Modes
 

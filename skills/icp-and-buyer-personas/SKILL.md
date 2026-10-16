@@ -2,7 +2,7 @@
 name: icp-and-buyer-personas
 description: "Define ICP, buyer personas, buying committees and anti-personas within an accepted market. Use for ideal customer profiles, persona research, buying roles and exclusion criteria. Propose audience changes through SSOT governance."
 metadata:
-  version: 1.4.0
+  version: 1.5.0
 ---
 
 # ICP and Buyer Personas
@@ -125,6 +125,14 @@ apply to every member of the persona.
 
 ### 3. Map the buying committee
 Show who starts the purchase, who blocks it, who signs, and what each needs to hear.
+
+When the incumbent relationship belongs to one team and the new application is
+sponsored elsewhere, separate the infrastructure owner, application/business
+outcome owner, technical evaluator, sponsor and budget holder. Roles may overlap;
+do not infer authority from a title or an existing vendor relationship. Capture
+who introduces the vendor, who funds the evaluation, whose success criteria
+conflict, and what agreement lets the purchase advance. Mark unverified roles as
+Assumed or Gap. Carry this split into the message map and sales implications.
 
 ### 4. Define the anti-persona
 Describe the look-alike buyer who churns, stalls, or costs too much to serve.

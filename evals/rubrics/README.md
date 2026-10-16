@@ -27,6 +27,27 @@ Answering before asking is fine. Answering on hidden assumptions is not.
 - **Length is not quality.** Comprehensive is not the same as sharp.
 - **Grade the output, not the prompt.** A vague prompt does not excuse a vague answer.
 
+## Positioning and messaging quality
+
+Apply these examples within the four existing dimensions, not as extra scores.
+
+| Dimension | Strong evidence | Weak evidence |
+|---|---|---|
+| Grounded | A proposed advantage names source, scope and proof gap; product maturity and buyer authority stay accurate. | A product capability becomes a proven customer outcome; a data-team relationship becomes AI budget authority. |
+| Decisive | Compares credible territories, selects one using buyer criteria, and states win/loss conditions and what could change it. | Selects the first plausible category phrase, or lists alternatives without a choice. |
+| Usable | Company narrative, solution position, persona messages and sales proof/actions connect; narrow work stays concise. | Internal strategy terms appear as customer benefits, or a narrow sales line triggers a full market study. |
+| Sharp | Explains why this buyer would choose this offer over a named alternative, including a scoped account or capability advantage. | Swappable pillars such as secure, scalable or current context without a buying reason or comparative proof. |
+
+A short category-plus-capability statement alone is not a full value proposition.
+For broad repositioning, assess the supporting buyer/problem/alternative/value
+architecture and the distinction between company and beachhead levels. Do not
+reward false exclusivity: an evidenced combination or account relationship can
+change a buying decision even when competitors share individual features.
+Persona names alone do not establish relevance. Their priorities must change the
+argument, proof, objection response or sales action. Evidence labels belong in
+the internal trace; applied copy should remain natural while preserving necessary
+claim qualifications.
+
 ## Anchors
 
 Anchors come from A-01 to A-10 only. A-11 to A-20 are the holdout and must never become anchors.

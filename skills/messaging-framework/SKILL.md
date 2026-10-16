@@ -2,7 +2,7 @@
 name: messaging-framework
 description: "When the user wants to build or fix a messaging framework, messaging house, or value proposition hierarchy. Use when the user mentions 'messaging,' 'messaging framework,' 'messaging house,' 'messaging pillars,' 'hero line,' 'value props,' 'key messages,' 'proof points,' 'boilerplate,' 'elevator pitch,' 'message by persona,' 'launch messaging,' or 'our messaging is inconsistent.' Use this after positioning is set and before writing page copy, decks, or campaigns. For deciding the position itself, see positioning-strategy. For turning messaging into web copy, see marketing-copy. For sales materials, see sales-enablement."
 metadata:
-  version: 1.4.0
+  version: 1.5.0
 ---
 
 # Messaging Framework
@@ -33,6 +33,8 @@ Deliver the finished framework, not advice about how to write one.
 
 **Load the consistency check:** read section 6 of `../_shared/segment-selection.md`. Run it in step 8.
 
+**Load the positioning-to-messaging trace:** read `../_shared/positioning-messaging-trace.md` when the request spans company repositioning and a beachhead. Preserve those levels in the message hierarchy. A narrow messaging request stays within its named product, use case and channel.
+
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it. Its Positioning section (statement, trace, and capability table), Persona message map, and proof points support initialization and chaining. Approved mapped SSOT is authoritative for covered claims; bootstrap inputs may fill uncovered provisional context but cannot override it. Missing bootstrap sections do not make approved SSOT unavailable.
 
@@ -52,9 +54,18 @@ Open with Inputs and assumptions, then the capability table. Do not restate the 
 
 ## Core Principles
 
-**The swap test.** A capability only belongs in the table if a competitor cannot claim it word for word and be telling the truth. Claims every player can make, such as ease of use, security, or saving time, are table stakes. List them separately. Buyers expect them, and they do not win deals.
+**The swap test.** Test a claim against named alternatives and the buyer's decision
+criteria. A supported combination of capability, operating model or account
+relationship may matter without being exclusive. State its scope and proof.
+Claims every player can make with equal relevance and proof, such as generic ease
+of use or security, are table stakes. List them separately.
 
-**Concrete capabilities.** A capability is the new ability a feature gives the customer: verb-led and concrete, something an engineer could point to. Short phrases like "auto-drafting invoices" work well. No assets the company holds, and no abstract nouns like visibility, insights, or platform.
+**Concrete capabilities.** A capability is the new ability a feature gives the
+customer: verb-led and concrete, something an engineer could point to. Short
+phrases like "auto-drafting invoices" work well. Express relationship advantages
+as customer actions or benefits, not assets the company holds. Keep account
+access in the internal right-to-win rationale. Avoid abstract nouns like
+visibility, insights, or platform.
 
 **The hero is for the loosely familiar visitor.** People who know the product go straight to the CTA, and people who don't know it read the whole page. The hero speaks to the ones in between, and the sections below carry the capabilities and proof.
 
@@ -102,6 +113,18 @@ expression. A bootstrap map cannot override covered SSOT. Explain these choices
 in concise traceable rationale; final asset CTAs and channel mechanics
 remain with execution owners.
 
+For each leading pillar, retain a compact internal trace: buyer insight, named
+alternative, differentiated value, proof label, relevant persona and sales action.
+Use the application or business owner when their outcome or budget differs from
+the infrastructure owner's. Do not turn internal rationale such as account access
+or a validation plan into a customer-facing benefit.
+
+For broad work, compare two or three plausible messaging hierarchies before
+selecting one. Judge buyer outcome, distinction, product support, proof and
+commercial usefulness. Keep the rationale internal; publish the selected copy
+without repeating evidence labels in every line. Claim qualifications still
+belong beside any claim whose meaning would otherwise change.
+
 If the bootstrap map is missing, use applicable approved SSOT persona inputs. Where neither source supplies a persona, route profile generation to icp-and-buyer-personas. Do not generate reusable personas or persona priorities; hold dependent translations and continue independent sections.
 
 ### 6. Write the boilerplate
@@ -114,6 +137,11 @@ List words to use (customer language) and words to avoid (jargon, clichés, comp
 Run section 6 of `../_shared/segment-selection.md`. The segments in the hero line, subhead, and each persona or segment first line must match the positioning's segment, and any sizing or KPIs in the context. Flag segment-specific words in a line meant for several segments. Example: "free credits" or "compute" in a hero meant for AI, SaaS, and consumer subscriptions. Fix each mismatch or state why it is intentional.
 
 ## Output Format
+
+Use the complete format for a framework. For a narrow applied-copy request with
+supplied positioning and persona scope, return only the requested copy plus any
+material claim limitation or upstream conflict. Do not force a full messaging
+house, positioning comparison or discovery study into that request.
 
 ```
 ## Inputs and assumptions
@@ -175,6 +203,11 @@ Use: ... | Avoid: ...
 ```
 
 For launch messaging, add a short block covering target, market, segment, category, unique value, and proof, so the launch team has one reference.
+
+For company repositioning, add a **Message levels** block that connects the
+company narrative to beachhead value, pillars, persona proof and sales action.
+Use the shared trace for this handoff. Do not force a multilevel architecture or
+full market discovery into a narrow copy request.
 
 ## Common Failure Modes
 
