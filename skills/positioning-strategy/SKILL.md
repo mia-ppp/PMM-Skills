@@ -33,6 +33,13 @@ Your output is one internal positioning statement, then the reasoning behind it.
 
 **Load segment selection:** read `../_shared/segment-selection.md`. Carry the accepted market decision forward; run section 6 in step 8. Market selection/reopening belongs to market-entry-brief, with SSOT review for canon changes.
 
+For broad repositioning or new-category work, also read
+`../_shared/opportunity-discovery.md`. Before choosing a position, preserve the
+use-case-to-opportunity trace, compare credible existing-capability and new-
+product routes, and keep the beachhead (segment plus use case) separate from
+the product hypothesis. A narrow positioning request may skip discovery when
+the user has already supplied the use case and scope.
+
 **Check for product marketing context first:**
 If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Only ask for what it does not cover. Read its Switching Dynamics and Personas sections closely: they feed the alternatives, switching costs, trigger, and segment.
 

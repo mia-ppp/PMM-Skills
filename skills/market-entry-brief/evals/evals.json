@@ -98,6 +98,43 @@
         "skills/product-marketing-context/evals/fixtures/specialist-handoff.md"
       ],
       "references": []
+    },
+    {
+      "id": 7,
+      "prompt": "Aiven is an established managed open-source data infrastructure company exploring a credible production AI position using managed databases, streaming, and search. Research may include gateways, routers, inference, model serving, GPUs, data infrastructure, retrieval, and observability. Build a bounded strategic opportunity brief before recommending a product direction.",
+      "expected_output": "Separates business use cases from workloads, requirements, problems, triggers, capabilities, product opportunities, beachhead, and positioning. Generates and compares credible use cases and product routes, including existing-portfolio and no-new-product routes, then makes a labeled provisional selection with alternatives, assumptions, and validation evidence.",
+      "assertions": [
+        "Identifies multiple business use cases or applications before selecting a product direction",
+        "Distinguishes technical workloads and infrastructure requirements from customer problems and buying triggers",
+        "Keeps an inference gateway or other feature hypothesis separate from the business use case that might justify it",
+        "Considers at least one opportunity within Aiven's existing data portfolio and at least one adjacent infrastructure opportunity",
+        "Compares alternatives before selecting a product opportunity or beachhead",
+        "Separates the customer beachhead from the product hypothesis",
+        "Labels observed evidence, assumptions, and evidence gaps without inventing customer research",
+        "Allows the conclusion that positioning, packaging, GTM, or existing products are preferable to a new product",
+        "Connects the selected option to a use-case-to-positioning trace and names validation evidence"
+      ],
+      "files": [],
+      "references": [
+        "skills/_shared/opportunity-discovery.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "A developer security company sells a code-scanning API and is considering expansion into software supply-chain security. Explore the customer applications and workflows first, then decide whether the best opportunity is new product functionality, packaging existing scans, or a GTM and positioning change.",
+      "expected_output": "Distinguishes customer security use cases from technical controls and buying triggers, compares alternatives, and makes a provisional evidence-labeled opportunity choice without forcing a new product.",
+      "assertions": [
+        "Names customer business use cases before listing security controls or product features",
+        "Separates workloads or technical requirements from incidents, compliance triggers, and other customer problems",
+        "Compares existing-capability, packaging or positioning, partner, and new-product routes when credible",
+        "Explains why credible alternatives were deprioritized and what evidence could change the choice",
+        "Does not invent customer evidence or claim a feature is a customer need without support",
+        "Keeps the selected beachhead distinct from the product opportunity"
+      ],
+      "files": [],
+      "references": [
+        "skills/_shared/opportunity-discovery.md"
+      ]
     }
   ]
 }

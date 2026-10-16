@@ -12,6 +12,10 @@ metadata:
 Read `../_shared/evidence-gaps.md` and `../_shared/ssot-consumption.md`.
 Load only relevant approved manifest context and record sources in Inputs and assumptions.
 Read `../_shared/segment-selection.md` when an audience decision is needed; inherit accepted segments and ICP.
+- For broad expansion or repositioning work, read `../_shared/opportunity-discovery.md`.
+  Treat the beachhead as a segment plus business use case, and consume a
+  comparative opportunity decision before building the GTM route. A narrow,
+  product-specific GTM request stays within its named scope.
 Separate sources, interpretation, and proposals. Missing evidence remains Assumed or Gap.
 Do not edit SSOT. Route proposed canon changes to `ssot-context-loop` for human review and approval.
 
@@ -20,6 +24,11 @@ Do not edit SSOT. Route proposed canon changes to `ssot-context-loop` for human 
 Inventory accepted market decision (`market-entry-brief`), ICP/personas (`icp-and-buyer-personas`), positioning (`positioning-strategy`), messaging (`messaging-framework`), pricing/packaging (`pricing-strategy`) and relevant approved SSOT.
 Consume applicable `customer-research`/VoC, `competitor-profiling`, `win-loss-intelligence` and `objection-intelligence` findings with provenance, sample limits and confidence. Intelligence owners collect and synthesize; this skill decides proposed commercial implications.
 When an accepted input is absent, name the upstream owner and gap. A provisional option comparison is allowed with labeled assumptions; no invented accepted strategy or automatic canon replacement.
+
+For broad expansion, propose the beachhead as an accepted segment plus a
+specific business use case. Do not treat a trigger, infrastructure requirement,
+or product feature as the use case, and do not select a new product without the
+comparative opportunity decision described in `../_shared/opportunity-discovery.md`.
 
 ## Workflow
 

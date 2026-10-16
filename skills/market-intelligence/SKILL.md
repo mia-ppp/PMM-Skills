@@ -16,6 +16,10 @@ SSOT and explicit human approval establish approved canon.
 - Resolve the active project/product scope. Keep other projects' evidence and
   approval references out of this return; IDs are project-scoped.
 - Read `../_shared/evidence-gaps.md` and `../_shared/ssot-consumption.md`.
+- Read `../_shared/opportunity-discovery.md` for broad opportunity or
+  repositioning questions. Generate business-use-case candidates before
+  discussing product opportunities; classify workloads, requirements, problems,
+  and triggers separately.
 - Read `../_shared/context-establishment.md` when available. It owns Phase 1
   evidence, readiness, and handoff/return semantics. If unavailable, use the
   compatible minimum in [references/research-return.md](references/research-return.md).

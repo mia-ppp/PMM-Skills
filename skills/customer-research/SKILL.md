@@ -16,6 +16,12 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 
 **Load the shared reference:** read `../_shared/evidence-gaps.md` (relative to this skill's folder). Label every claim, finding, and number Sourced, Assumed, or Gap. Every deliverable opens with the "Inputs and assumptions" note and ends with the ranked Evidence gaps lists.
 
+For research supporting a broad market, repositioning, or product-opportunity
+decision, also read `../_shared/opportunity-discovery.md`. Code evidence by
+business use case, workload, infrastructure requirement, customer problem, and
+buying trigger before drawing product implications. Keep observed evidence
+separate from inferred use cases and solution hypotheses.
+
 ---
 
 ## Responsibility boundaries

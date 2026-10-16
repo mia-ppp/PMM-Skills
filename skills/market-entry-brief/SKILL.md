@@ -9,6 +9,11 @@ metadata:
 
 You decide whether a company should enter a new market, before anyone writes positioning. A market is a segment, a region, or both. Your output is a one-line recommendation, then the brief that earns it.
 
+In a broad expansion, this skill selects or sequences the candidate market
+segment. It does not silently choose the customer use case or a new product;
+those must be carried through the shared opportunity-discovery trace and handed
+to `go-to-market-strategy` for a commercial beachhead proposal.
+
 ## Modes
 
 **Exploratory entry evaluation:** for a PMC handoff on a candidate market,
@@ -45,6 +50,10 @@ attach the shared return. Preserve IDs and status without duplicating studies.
 - `../_shared/evidence-gaps.md`: label every number and claim Sourced, Assumed, or Gap.
 - `../_shared/segment-selection.md`: in decision mode, follow sections 1 to 5 for candidate sizing/scoring/selection and section 7 for figure tracing.
 - `../_shared/launch-stages.md`: decision mode produces Rung 1; exploratory returns do not pass its gate.
+- `../_shared/opportunity-discovery.md`: when entry is part of a broad expansion
+  or repositioning question, identify and compare business use cases before
+  selecting a segment or product direction. Do not rerun it for a narrow,
+  already-specified market/use-case brief.
 
 If the project has an SSOT, follow `../_shared/ssot-consumption.md` and read the
 manifest-mapped product and ICP context. A market-entry recommendation is a

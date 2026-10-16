@@ -115,6 +115,20 @@
       "files": [
         "fixtures/gaps.md"
       ]
+    },
+    {
+      "id": 10,
+      "prompt": "Create a narrow GTM plan for our managed Kafka service launch to existing European customers. The product, target account list, buyer, and launch date are already fixed. Focus on sales motion, enablement, sequencing, owners, and validation. Do not reopen market discovery or propose a new product.",
+      "expected_output": "Stays within the fixed product and audience scope, compares practical GTM motions, assigns owners and validation, and avoids an unnecessary use-case discovery or product-opportunity exercise.",
+      "assertions": [
+        "Keeps the named managed Kafka product, existing European customer audience, and fixed launch scope",
+        "Focuses on GTM model, sales motion, enablement, sequencing, ownership, and validation",
+        "Does not launch a broad market or product-opportunity discovery workflow",
+        "Does not propose a new product or reopen the accepted audience without evidence of a conflict",
+        "Labels missing commercial evidence as assumptions or gaps rather than inventing benchmarks"
+      ],
+      "files": [],
+      "references": []
     }
   ]
 }
